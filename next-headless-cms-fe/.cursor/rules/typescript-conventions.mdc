@@ -6,6 +6,8 @@ alwaysApply: false
 
 # TypeScript Conventions
 
+> **Maintenance**: Update this file when ESLint/TS/CI conventions or path aliases change (`rules-sync.mdc`).
+
 ## Strict Mode
 
 TypeScript strict mode is enabled. Never use `any` unless absolutely necessary. Prefer `unknown` and narrow with type guards.
@@ -45,7 +47,8 @@ All env vars must be added to the Zod schema in `src/env.ts`. Access via `import
 ## Error Boundaries
 
 - `error.tsx` must be a client component (`"use client"`)
-- `loading.tsx` and `not-found.tsx` can be server components
+- `not-found.tsx` can be a server component
+- Avoid route-level `loading.tsx` under `[[...slug]]` when templates render header/footer — see `docs/DEVELOPMENT.md`
 
 ## ESLint / Next.js (CI-enforced)
 
@@ -63,7 +66,15 @@ These rules are enforced by `next lint` in CI. Violations fail the build.
 ### Types
 
 - Never use `any` — use `unknown`, generics, or `Record<string, unknown>`.
-- `ComponentType<Record<string, unknown>>` for block registry components.
+- Block registry components use `ComponentType<any>` with `// eslint-disable-next-line @typescript-eslint/no-explicit-any` (Zod validates props at runtime).
+- Templates use `TemplateComponent` from `@core/routing/resolver` — not `ComponentType<any>`.
+
+### Template components
+
+Templates are async server components typed as `TemplateComponent` (`(props: TemplateProps) => React.ReactNode`).
+- Import `TemplateProps` from `@core/types/page`.
+- Import `getNavigationCached` from `@core/data/fetcher` — never call `getAdapter().getNavigation` directly from templates.
+- Import `localizeNavItems` from `@core/i18n/locale-path` — never inline the localize loop.
 
 ### Catch blocks
 
@@ -72,3 +83,8 @@ These rules are enforced by `next lint` in CI. Violations fail the build.
 ### Unused code
 
 - Remove unused imports and variables; use `void value` only when a parameter must stay for API compatibility.
+
+## Tenant work
+
+- Read and keep current: relevant `.mdc` rules per `rules-sync.mdc` (including tenant catalogs when editing tenant code).
+- CI runs `pnpm lint` per tenant via matrix (`TENANT_ID=vukans-bike` / `resort-example`); local `pnpm lint` runs both.

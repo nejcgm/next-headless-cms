@@ -13,6 +13,7 @@ import {
 import type { NavItem } from "@core/types/navigation";
 import { cn } from "@shared/utils/cn";
 import { isNavItemActive, normalizeTenantPathname } from "@shared/utils/nav-active";
+import { NavigationProgressBar } from "@shared/components/navigation-progress-bar";
 import { isExternalHref } from "@shared/utils/url";
 
 interface HeaderProps {
@@ -48,7 +49,7 @@ export function Header({
   const homeHref = prefixPathname("/", activeLocale, defaultLocale);
 
   return (
-    <header className="bg-[var(--color-background)] border-b border-[var(--color-border)] sticky top-0 z-40">
+    <header className="sticky top-0 z-40 border-b border-[var(--color-border)] bg-[var(--color-background)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-3">
           <div className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3">
@@ -170,6 +171,7 @@ export function Header({
           </div>
         </div>
       </div>
+      <NavigationProgressBar />
     </header>
   );
 }

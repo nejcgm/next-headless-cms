@@ -1,0 +1,48 @@
+---
+description: Locale URLs, mock file naming, and nav localization for multi-locale tenants.
+globs: src/core/i18n/**,src/core/mock-data.ts/**/pages/*.json,src/core/mock-data.ts/**/navigation.json,src/core/mock-data.ts/**/*--navigation.json
+alwaysApply: false
+---
+
+# i18n
+
+> **Maintenance**: Update when URL locale rules or mock naming changes (`rules-sync.mdc`).
+
+## Tenant locales
+
+Defined in `@tenant/config`: `defaultLocale`, `locales[]`.
+
+- **Default locale**: no URL prefix (`/about`)
+- **Other locales**: prefix segment (`/de/about`, `/en/service`)
+
+Helpers live in `src/core/i18n/locale-path.ts`.
+
+## Mock page files
+
+| Pattern | Example | When |
+|---------|---------|------|
+| Base (default locale content) | `about.json`, `home.json` | `locale` field matches `defaultLocale` |
+| Prefixed override | `de--about.json`, `en--service.json` | Full page override for that locale |
+
+`MockAdapter` tries `{locale}--{path}` first, then falls back to the base file.
+
+## Mock navigation
+
+- `navigation.json` — default locale
+- `de--navigation.json`, `en--navigation.json` — per-locale nav overrides
+
+## Templates & blocks
+
+Templates call `localizeNavItems()` before passing nav to `Header` / `Footer` — do not duplicate locale prefix logic in blocks.
+
+Blocks that build links should use `localizeHref` / `Link` with logical paths; header handles locale switching via `prefixPathname`.
+
+## Slug in page data
+
+`page.locale` comes from the URL (parsed in `page.tsx`), not from the JSON filename alone. Keep JSON `locale` consistent with the file's intended audience.
+
+## Adding a locale
+
+1. Add to `config.ts` `locales`
+2. Add `{locale}--*.json` pages and `{locale}--navigation.json` where content differs
+3. Update tenant `catalog.mdc`

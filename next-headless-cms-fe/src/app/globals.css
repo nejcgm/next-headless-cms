@@ -51,7 +51,6 @@
   @apply animate-pulse bg-muted rounded;
 }
 
-/* Route loading: indeterminate bar (see PageLoadingIndicator) */
 @keyframes navigation-load {
   0% {
     transform: translateX(-100%);

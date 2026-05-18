@@ -1,14 +1,14 @@
 ---
 description: Rules for creating mock page JSON files that define page composition from blocks.
-globs: src/core/mock-data.ts/*/pages/*.json
+globs: src/core/mock-data.ts/**
 alwaysApply: false
 ---
 
 # Mock Page Data Rules
 
-## Page JSON Structure
+> **Maintenance**: Update this file when page JSON shape, naming, templates, or adapter matching changes (`rules-sync.mdc`).
 
-Every page JSON must have this shape:
+## Page JSON structure
 
 ```json
 {
@@ -24,7 +24,7 @@ Every page JSON must have this shape:
     {
       "id": "unique-block-id",
       "type": "block-type-name",
-      "props": { }
+      "props": {}
     }
   ]
 }
@@ -32,29 +32,46 @@ Every page JSON must have this shape:
 
 ## Block IDs
 
-Every block `id` must be unique within the page. Use format `{type}-{number}` (e.g. `hero-1`, `room-list-1`).
+Unique per page. Prefer `{type}-{number}` (e.g. `hero-1`, `room-list-1`).
 
-## Dynamic Route Pages
+## Templates
 
-For pages that match dynamic slugs (e.g. `/rooms/:roomId`), add a `slugPattern` field:
+| Value | Meaning |
+|-------|---------|
+| `default` | Header + footer (standard pages) |
+| `detail` | Header + footer + two-column main (resort) |
+| `bare` | No header/footer |
+
+Must match a file in `src/tenants/{tenant}/templates/{name}.tsx`.
+
+## Dynamic route pages
+
+For slugs with params (e.g. `/rooms/:roomId`), set `slugPattern` and use `:` segments:
 
 ```json
 {
-  "slugPattern": "/rooms/:roomId",
   "slug": "/rooms/:roomId",
-  "blocks": [...]
+  "slugPattern": "/rooms/:roomId",
+  "template": "default",
+  "blocks": []
 }
 ```
 
-The mock adapter uses pattern matching to resolve these. Pattern pages are registered in `mock.adapter.ts` `patternFiles` array.
+`MockAdapter` scans all `pages/*.json` and matches `slugPattern` (or `slug` if it contains `:`) via regex — no separate `patternFiles` list.
 
-## File Naming
+## File naming
 
-- Static pages: `{slug}.json` (e.g. `about.json`, `contact.json`)
-- Home page: `home.json` (slug `/`)
-- Nested slugs use `--` separator: `/rooms/all` → `rooms--all.json`
+- Home: `home.json` (slug `/`)
+- Static: `{segment}.json` or nested `rooms--all.json` for `/rooms/all`
+- Localized override: `{locale}--{path}.json` (e.g. `de--about.json`) — tried before fallback `about.json`
 - Pattern pages: descriptive name (e.g. `room-detail.json`)
 
-## Block `type` Must Match Registry
+## Block `type`
 
-The `type` field must exactly match a key registered in `blocks/index.ts` via `registerTenantBlocks()`.
+Must match a key in `registerTenantBlocks()` or `registerSharedBlocks()`.
+
+## After editing mock pages
+
+Update `mock-data-pages.mdc` and the tenant `catalog.mdc` when behavior changes (see `rules-sync.mdc`).
+
+Mock folder vs tenant id: `resort-example` tenant uses `src/core/mock-data.ts/resort/`.

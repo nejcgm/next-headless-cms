@@ -11,7 +11,6 @@ export interface FooterCopy {
   linksHeading: string;
   contactHeading: string;
   contactPlaceholder: string;
-  /** Text after “© {year} {tenantName}. ” */
   copyrightReserved: string;
 }
 

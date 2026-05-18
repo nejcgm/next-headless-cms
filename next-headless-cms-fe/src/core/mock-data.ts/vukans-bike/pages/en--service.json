@@ -1,7 +1,7 @@
 {
   "slug": "/service",
   "locale": "en",
-  "template": "service",
+  "template": "default",
   "seo": {
     "title": "Bike service — Vukan's Bike",
     "description": "Service and repairs for all kinds of bikes. One expert, personal approach. Contact: 070 815 379 or email.",

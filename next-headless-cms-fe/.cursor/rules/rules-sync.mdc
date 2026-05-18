@@ -1,0 +1,90 @@
+---
+description: When you change code, read and update the matching Cursor rules in the same turn.
+alwaysApply: true
+---
+
+# Rules sync (same change set)
+
+Cursor rules are living docs. If you change code in the left column, **read** the matching rule(s) before editing and **update** them before you finish — same task, same response.
+
+## Core & app (architecture)
+
+| If you edit | Update these rules |
+|-------------|-------------------|
+| `src/app/**`, `src/middleware.ts` | `project-architecture.mdc` |
+| `src/core/**` (blocks, data, routing, types, i18n, seo, theme) | `project-architecture.mdc` |
+| `src/shared/**` (except tenant-only UI) | `project-architecture.mdc` |
+| `.github/workflows/**`, monorepo layout | `project-architecture.mdc` |
+| `package.json` scripts, `scripts/prepare-tenant.js` | `project-architecture.mdc`, `new-tenant-checklist.mdc` |
+
+## Blocks & templates
+
+| If you edit | Update these rules |
+|-------------|-------------------|
+| `src/core/blocks/**`, `src/shared/components/blocks/**` | `block-system.mdc`, `project-architecture.mdc` |
+| `src/tenants/*/blocks/**`, `src/tenants/*/templates/**` | `block-system.mdc` + that tenant's `catalog.mdc` |
+| `src/app/[domain]/layout.tsx` (theme/analytics only) | `block-system.mdc`, `project-architecture.mdc` |
+
+## Data & mock content
+
+| If you edit | Update these rules |
+|-------------|-------------------|
+| `src/core/mock-data.ts/**` | `mock-data-pages.mdc` + tenant `catalog.mdc` (see below) |
+| `src/core/data/adapters/**` | `project-architecture.mdc`, `mock-data-pages.mdc` |
+
+## Tenant-specific
+
+| If you edit | Update these rules |
+|-------------|-------------------|
+| `src/tenants/vukans-bike/**` or `mock-data.ts/vukans-bike/**` | `tenants/vukans-bike/catalog.mdc` |
+| `src/tenants/resort-example/**` or `mock-data.ts/resort/**` | `tenants/resort-example/catalog.mdc` |
+| `src/tenants/*/integrations/**` | `tenant-integrations.mdc` + tenant `catalog.mdc` |
+| `src/tenants/*/services/**` | tenant `catalog.mdc`, `block-system.mdc` (data contracts) |
+| New `src/tenants/*/config.ts` | `new-tenant-checklist.mdc` + create `tenants/{id}/catalog.mdc` |
+
+## TypeScript & CI
+
+| If you edit | Update these rules |
+|-------------|-------------------|
+| ESLint/TS patterns, path aliases, env usage | `typescript-conventions.mdc` |
+| Lint scripts, `TENANT_ID` in CI | `typescript-conventions.mdc`, `project-architecture.mdc` |
+
+## Deploy & i18n
+
+| If you edit | Update these rules |
+|-------------|-------------------|
+| `.github/workflows/**`, `next.config.ts`, `scripts/prepare-tenant.js`, deploy scripts | `deployment.mdc` |
+| `src/core/i18n/**`, locale mock pages/nav | `i18n.mdc` + tenant `catalog.mdc` |
+
+## Human docs
+
+| If you edit | Update these |
+|-------------|----------------|
+| Build scripts, verify flow, analyze output | `docs/BUILD-VERIFICATION.md` |
+| Dev workflow, layouts, navigation UX, pnpm | `docs/DEVELOPMENT.md`, repo root `README.md` |
+| New doc page | `docs/README.md` index |
+
+## Repo root
+
+| If you edit | Update these rules |
+|-------------|-------------------|
+| Monorepo layout, cross-package concerns | `headless-cms/.cursor/rules/monorepo.mdc` (repo root) |
+
+## Always-on context (read, rarely rewrite)
+
+| Rule | Role |
+|------|------|
+| `tenant-context.mdc` | When to open tenant catalogs |
+| `project-architecture.mdc` | Boundaries, monorepo, templates vs layout |
+| `../.cursor/rules/monorepo.mdc` | Repo root — frontend vs backend |
+
+## Workflow
+
+1. Identify which row(s) apply from the paths you will touch.
+2. Read those `.mdc` files (and tenant catalog if applicable).
+3. Make the code change.
+4. Update every rule file whose documented behavior changed.
+
+## Completion check
+
+If your diff changes how the system works (routing, blocks, templates, data shape, integrations, CI) and **no** related `.mdc` was updated when the rule file documents that area, you are not done.

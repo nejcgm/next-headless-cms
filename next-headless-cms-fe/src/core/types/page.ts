@@ -1,4 +1,5 @@
 import type { Breadcrumb, NavigationData } from "./navigation";
+import type { TenantConfig } from "./tenant";
 
 export type { Breadcrumb, FooterCopy, NavItem, NavigationData } from "./navigation";
 
@@ -25,6 +26,12 @@ export interface BlockVisibility {
   devices?: ("mobile" | "tablet" | "desktop")[];
   locales?: string[];
   dateRange?: { from?: string; to?: string };
+}
+
+export interface TemplateProps {
+  page: PageData;
+  tenant: TenantConfig;
+  children: React.ReactNode;
 }
 
 export interface PageSeo {

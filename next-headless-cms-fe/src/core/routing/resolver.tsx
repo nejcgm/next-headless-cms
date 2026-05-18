@@ -1,21 +1,15 @@
-import type { ComponentType } from "react";
+import type { TemplateProps } from "@core/types/page";
 
-export async function resolveTemplate(
-  templateName: string
-): Promise<ComponentType<{ children: React.ReactNode } & Record<string, unknown>>> {
+export type TemplateComponent = (props: TemplateProps) => React.ReactNode;
+
+export async function resolveTemplate(templateName: string): Promise<TemplateComponent> {
   try {
     const mod = await import(`@tenant/templates/${templateName}`);
-    return mod.default;
+    return mod.default as TemplateComponent;
   } catch {
-    try {
-      const fallback = await import(`../../shared/components/layout/default-template`);
-      return fallback.default;
-    } catch {
-      return DefaultTemplate;
-    }
+    const { default: FallbackTemplate } = await import(
+      "@shared/components/layout/fallback-template"
+    );
+    return FallbackTemplate;
   }
-}
-
-function DefaultTemplate({ children }: { children: React.ReactNode }) {
-  return <div className="flex flex-col min-h-screen">{children}</div>;
 }

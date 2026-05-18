@@ -1,0 +1,104 @@
+---
+description: Vukan's Bike catalog — read before edits; update whenever vukans-bike code or mock JSON changes.
+globs: src/tenants/vukans-bike/**,src/core/mock-data.ts/vukans-bike/**,.cursor/rules/tenants/vukans-bike/**
+alwaysApply: false
+---
+
+# Vukan's Bike (`vukans-bike`)
+
+> **Maintenance**: Keep this file in sync when blocks, templates, mock pages, navigation, or integrations change (`rules-sync.mdc`).
+
+Bike shop in Apače: service, sales, bike school, guided tours. Locales: `sl` (default), `de`, `en`. Adapter: `mock` → Strapi later.
+
+## Render pipeline
+
+```
+page JSON (mock) → MockAdapter.getPage → page.tsx
+  → resolveTemplate(page.template) → tenant template (header/footer)
+  → BlockRenderer → block registry (tenant + shared)
+```
+
+- **Config**: `src/tenants/vukans-bike/config.ts` — theme, domains, contact, `dataAdapter`.
+- **Registration**: `src/tenants/vukans-bike/blocks/index.ts` — all tenant block types.
+- **Mock pages**: `src/core/mock-data.ts/vukans-bike/pages/*.json`
+- **Navigation**: `navigation.json`, `en--navigation.json`, `de--navigation.json`
+
+## Templates (`src/tenants/vukans-bike/templates/`)
+
+| Template | Chrome | Use |
+|----------|--------|-----|
+| `default` | Header + footer | All current pages |
+| `bare` | None | Campaign / embed pages (`"template": "bare"`) |
+
+Templates fetch nav via `getNavigationCached` and render `@tenant/blocks/header/header` + `@tenant/blocks/footer/footer` (footer re-exports `@shared/components/layout/footer`).
+
+## Layout chrome (not blocks)
+
+| Piece | Path | Role |
+|-------|------|------|
+| Header | `blocks/header/header.tsx` | Client: logo, nav, locale switcher, mobile menu |
+| Footer | `blocks/footer/footer.tsx` | Re-export of shared footer; swap here for custom design |
+
+Domain `layout.tsx` only applies theme + analytics — no header/footer.
+
+## Tenant blocks
+
+| Block type | Component | Data | Used on / purpose |
+|------------|-----------|------|-------------------|
+| `hero` | `blocks/hero/hero.tsx` | Props only | Top of most pages — headline, subheadline, CTAs, optional image |
+| `contact` | `blocks/contact/contact.tsx` | Props + `labels` | `/contact` — hours, map, phone, email |
+| `about-story` | `blocks/about-story/about-story.tsx` | Props | `/about` — narrative copy |
+| `about-person` | `blocks/about-person/about-person.tsx` | Props | `/about` — owner bio + photo |
+| `about-values` | `blocks/about-values/about-values.tsx` | Props | `/about` — value cards grid |
+| `bike-detail` | `blocks/bike-detail/bike-detail.tsx` | Props (`labels`, product fields in JSON) | `/bikes/{slug}` pages (`bikes--*.json`) — single product layout, breadcrumbs |
+| `bike-school-intro` | `blocks/bike-school-intro/` | Props | `/bike-school` — intro section |
+| `bike-school-program` | `blocks/bike-school-program/` | Props | `/bike-school` — program tiers / schedule |
+| `gallery` | `blocks/gallery/gallery.tsx` | Props (`images[]`) | Bike school, guided tours — photo grid |
+| `guided-tour-experience` | `blocks/guided-tour-experience/` | Props | `/guided-tours` — tour types, highlights |
+| `partners-gallery` | `blocks/partners-gallery/` | Props | `/brands` — brand logos + links |
+| `product-list` | `blocks/product-list/product-list.tsx` | **dataContract** → `load-products.ts` → `getCollection("products")` | Home (featured), `/shop` — bike cards; `limit` optional |
+| `service-pricing` | `blocks/service-pricing/` | Props (`tiers[]`) | `/service` — price tables |
+| `service-process` | `blocks/service-process/` | Props (`steps[]`) | `/service`, `/guided-tours` — how-it-works steps |
+| `service-faq` | `blocks/service-faq/` | Props (`items[]`) | `/service` — FAQ accordion |
+| `service-contact` | `blocks/service-contact/` | Props | `/service` — CTA to book service |
+
+## Shared blocks (registered globally)
+
+Used in vukans-bike mock pages — defined in `src/shared/components/blocks/`:
+
+| Block type | Typical use on this tenant |
+|------------|----------------------------|
+| `stats-bar` | Home — social proof numbers |
+| `image-text` | Home — service promo section |
+| `cta-banner` | Home, about, shop, brands, bike-school, guided-tours — bottom CTA strip |
+| `section-header` | (unused in current mock pages) |
+| `rich-text` | (unused) |
+| `image-gallery` | (unused) |
+
+## Page → blocks (reference)
+
+| Page slug | Blocks (order) |
+|-----------|----------------|
+| `/` (home) | hero → stats-bar → image-text → product-list → cta-banner |
+| `/service` | hero → service-pricing → service-process → service-faq → service-contact |
+| `/shop` | hero → product-list → cta-banner |
+| `/about` | hero → about-story → about-person → about-values → cta-banner |
+| `/contact` | hero → contact |
+| `/brands` | hero → partners-gallery → cta-banner |
+| `/bike-school` | hero → bike-school-intro → bike-school-program → gallery → cta-banner |
+| `/guided-tours` | hero → guided-tour-experience → gallery → service-process → cta-banner |
+| `/bikes/{slug}` | bike-detail only |
+
+Localized copies: `en--*.json`, `de--*.json` mirror slugs with locale prefix in URL.
+
+## Services / integrations
+
+- `blocks/product-list/load-products.ts` — only data loader; keep adapter calls here, not in `index.ts`.
+- No external hotel/booking integration on this tenant.
+- Reviews feature flag on; no `testimonials` block registered.
+
+## Strapi notes
+
+- Page `template` field → `resolveTemplate` (same strings: `default`, `bare`).
+- Navigation → global or single-type in Strapi; maps to `NavigationData` (`header`, `footer`, `footerCopy`).
+- Dynamic bike URLs: keep slug pattern `/bikes/:slug` in adapter, one `bike-detail` block per page.

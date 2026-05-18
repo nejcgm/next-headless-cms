@@ -1,3 +1,6 @@
+import type { NavItem } from "@core/types/navigation";
+import { isExternalHref } from "@shared/utils/url";
+
 /**
  * URL locale prefixes: default locale has no prefix; others use `/{locale}/...`.
  */
@@ -66,6 +69,21 @@ export function stripLocaleFromPathname(
     return segmentsToLogicalPathname(parts.slice(1));
   }
   return trimmed === "/" ? "/" : `/${parts.join("/")}`;
+}
+
+export function localizeNavItems(
+  items: NavItem[],
+  locale: string,
+  defaultLocale: string,
+  locales: readonly string[],
+): NavItem[] {
+  return items.map((item) => ({
+    ...item,
+    href: localizeHref(item.href, locale, defaultLocale, locales, isExternalHref),
+    children: item.children
+      ? localizeNavItems(item.children, locale, defaultLocale, locales)
+      : undefined,
+  }));
 }
 
 /**

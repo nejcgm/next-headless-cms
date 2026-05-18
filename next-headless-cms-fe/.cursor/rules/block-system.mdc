@@ -1,10 +1,12 @@
 ---
 description: Rules for creating and registering blocks in the block-based page composition system.
-globs: src/tenants/*/blocks/**
+globs: src/tenants/*/blocks/**,src/tenants/*/templates/**,src/core/blocks/**,src/shared/components/blocks/**
 alwaysApply: false
 ---
 
 # Block System Rules
+
+> **Maintenance**: Update this file when block registration, templates, data contracts, or chrome behavior changes (`rules-sync.mdc`).
 
 ## Creating a New Block
 
@@ -14,6 +16,24 @@ Every block lives in `src/tenants/{tenant}/blocks/{block-name}/` with:
 - `schema.ts` — Zod validation (optional)
 
 Register it in `src/tenants/{tenant}/blocks/index.ts`.
+
+After registering or changing a block, update `block-system.mdc` and the tenant `catalog.mdc` (see `rules-sync.mdc`).
+
+## Shared vs tenant block
+
+| Put it in | When |
+|-----------|------|
+| `src/shared/components/blocks/` | Same UI on **any** tenant; no tenant branding logic; register in `shared/components/blocks/index.ts` |
+| `src/tenants/{tenant}/blocks/` | Tenant-specific layout, copy patterns, or data wiring; register in tenant `blocks/index.ts` |
+
+Examples today:
+
+- **Shared**: `cta-banner`, `stats-bar`, `image-text`, `section-header`, `image-gallery`, `rich-text`
+- **Tenant**: `room-list`, `bike-detail`, `service-pricing`, tenant `hero` variants
+
+Do not copy a shared block into a tenant folder unless the design or behavior truly diverges. Extend props or wrap the shared component instead.
+
+Header/footer are **not** blocks — they live under `blocks/header`, `blocks/footer` and are rendered by **templates**.
 
 ## Data Contracts
 
@@ -47,6 +67,39 @@ The `ctx` object contains `{ tenant, locale, slug }`. Use `ctx.slug` for dynamic
 - For lists from API data that may have duplicates (amenities, facilities, tags): use `key={\`${item}-${index}\`}`
 - For lists with guaranteed-unique identifiers (room.id, review.id, rate.rateId): `key={item.id}` is acceptable
 - NEVER use bare `key={index}` — always include a descriptive prefix or item value
+
+## Footer block
+
+Each tenant has a footer block at `src/tenants/{tenant}/blocks/footer/footer.tsx`.
+Today it re-exports the shared base. Replace the export with a custom component only when
+the tenant needs a visually distinct footer — there is no need to touch the shared component.
+
+```typescript
+// Default (re-export shared base)
+export { Footer } from "@shared/components/layout/footer";
+
+// Custom (tenant-specific)
+export function Footer(props: FooterProps) { ... }
+```
+
+## Templates own chrome (header + footer)
+
+Templates in `src/tenants/{tenant}/templates/` are **async server components** that receive
+`TemplateProps` (`page`, `tenant`, `children`) and decide which chrome to render.
+
+| Template     | Chrome          | When to use                                 |
+|--------------|-----------------|---------------------------------------------|
+| `default`    | header + footer | Standard content pages (home, service, etc.) |
+| `detail`     | header + footer | Content-heavy detail views with sidebar (resort) |
+| `bare`       | none            | Campaign pages, embeds, standalone landings |
+
+Rules:
+- ALWAYS use `getNavigationCached` (not `getAdapter().getNavigation`) — it deduplicates per request.
+- ALWAYS pass the full nav data through `localizeNavItems` before passing to Header / Footer.
+- For a page with NO header and NO footer, set `"template": "bare"` in the page data — never add a boolean flag.
+- Never put header/footer in `layout.tsx` — the domain layout only wraps `ThemeProvider` + `TenantAnalytics`.
+- Do **not** add `app/[domain]/[[...slug]]/loading.tsx` — it unmounts templates and flashes chrome. Use `NavigationProgressBar` in tenant headers for in-app loading feedback (`docs/DEVELOPMENT.md`).
+- After adding or changing a template, update the tenant catalog.
 
 ## Links and navigation
 

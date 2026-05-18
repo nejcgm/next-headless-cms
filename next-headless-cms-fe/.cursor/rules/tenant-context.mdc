@@ -1,0 +1,25 @@
+---
+description: Points the agent to per-tenant catalogs before tenant-specific work.
+alwaysApply: true
+---
+
+# Tenant-specific context
+
+> **Maintenance**: Update when catalog paths or tenant ids change (`rules-sync.mdc`).
+
+## Catalogs
+
+| Tenant ID | Catalog |
+|-----------|---------|
+| `vukans-bike` | `.cursor/rules/tenants/vukans-bike/catalog.mdc` |
+| `resort-example` | `.cursor/rules/tenants/resort-example/catalog.mdc` |
+
+## How to pick the tenant
+
+1. `TENANT_ID` env / CI matrix / deploy workflow
+2. Path: `src/tenants/{tenant-id}/`
+3. Mock data: `vukans-bike` → `mock-data.ts/vukans-bike/`; `resort-example` → `mock-data.ts/resort/`
+
+## Before editing tenant code
+
+Read that tenant's catalog. After changes, update the catalog and any other rules listed in `rules-sync.mdc` — same turn, not a follow-up.

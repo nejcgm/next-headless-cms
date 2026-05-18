@@ -1,38 +1,78 @@
 ---
 description: Checklist for adding a new tenant to the multi-tenant CMS.
-globs: src/tenants/*/config.ts
+globs: src/tenants/*/config.ts,package.json,.github/workflows/**
 alwaysApply: false
 ---
 
 # Adding a New Tenant
 
-## Required Steps
+> **Maintenance**: Update this file when the new-tenant steps or scripts change (`rules-sync.mdc`).
 
-1. Create `src/tenants/{tenant-id}/config.ts` with `TenantConfig` (id, name, domains, theme, adapter)
-2. Create `src/tenants/{tenant-id}/blocks/index.ts` — register blocks via `registerTenantBlocks("{tenant-id}", { ... })`
-3. Create `src/core/mock-data.ts/{folder}/pages/home.json` — folder = tenant id, or "resort" for resort-example
-4. Create `src/core/mock-data.ts/{folder}/navigation.json` — header/footer nav
-5. Add tenant import to `src/core/init.ts` so blocks are registered at startup
-6. Add npm scripts: `dev:{short}`, `build:{short}`, `build:{short}:analyze` in package.json
+## Required steps
 
-## Tenant Config Shape
+1. Create `src/tenants/{tenant-id}/config.ts` — `TenantConfig` (`id`, `name`, `domains`, `locales`, `features`, `theme`, `dataAdapter`)
+2. Create `src/tenants/{tenant-id}/blocks/index.ts` — `registerTenantBlocks("{tenant-id}", { … })`
+3. Create `src/tenants/{tenant-id}/templates/` — at least `default.tsx` (header/footer via `getNavigationCached`); optional `bare.tsx`, `detail.tsx`
+4. Create `src/tenants/{tenant-id}/blocks/header/header.tsx` and `blocks/footer/footer.tsx`
+5. Create mock data under `src/core/mock-data.ts/{folder}/` — `pages/home.json`, `navigation.json`, `sitemap.json` as needed (`{folder}` = tenant id, or a short name like `resort`)
+6. Add `pnpm` scripts in `package.json`: `dev:{short}`, `build:{short}`, `lint:{short}` with `TENANT_ID={tenant-id}`
+7. Add CI matrix entry for `tenant_id` in `.github/workflows/ci.yml` if the tenant should lint in PRs
+8. Create **`.cursor/rules/tenants/{tenant-id}/catalog.mdc`** — document all blocks, templates, pages, integrations (copy structure from an existing tenant catalog)
+9. Add **`deploy-{short}.yml`** + Vercel project + secrets — see `deployment.mdc`
+
+Block registration is automatic: root `app/layout.tsx` imports `@core/init`, which imports `@tenant/blocks` (no manual `init.ts` list per tenant).
+
+If `mock-data` folder name ≠ tenant id, document mapping in `scripts/prepare-tenant.js` and the tenant catalog.
+
+## Tenant config shape
 
 ```typescript
-export const config: TenantConfig = {
+import type { TenantConfig } from "@core/types/tenant";
+
+const config: TenantConfig = {
   id: "my-tenant",
   name: "My Site",
-  domains: ["my-site.localhost", "my-site.com"],
+  domains: ["my-site.localhost"],
   defaultLocale: "en",
-  adapter: "mock",
-  theme: {
-    "color-primary": "#...",
-    "color-background": "#...",
-    "color-foreground": "#...",
-    // ...
+  locales: ["en"],
+  features: {
+    blog: false,
+    booking: false,
+    reviews: false,
+    search: false,
+    newsletter: false,
   },
+  theme: {
+    colors: {
+      primary: "#000000",
+      secondary: "#666666",
+      accent: "#0066cc",
+      background: "#ffffff",
+      foreground: "#111111",
+      muted: "#f4f4f5",
+      border: "#e4e4e7",
+      textPrimary: "#111111",
+    },
+    fonts: {
+      heading: "var(--font-inter)",
+      body: "var(--font-inter)",
+    },
+    borderRadius: "0.375rem",
+  },
+  dataAdapter: "mock",
 };
+
+export default config;
 ```
+
+## After any later change
+
+Update affected rules per `rules-sync.mdc` (including the new tenant `catalog.mdc`).
 
 ## Testing
 
-Run with: `npm run dev:resort` or `npm run dev:bike` (or add `dev:{short}` for new tenant)
+```bash
+pnpm dev:{short}    # e.g. dev:bike, dev:resort
+pnpm lint:{short}   # if added
+TENANT_ID={tenant-id} pnpm type-check
+```

@@ -5,6 +5,8 @@ alwaysApply: true
 
 # Multi-Tenant CMS Architecture
 
+Canonical agent instructions live in `.cursor/rules/*.mdc`. When you change code this file describes, update `project-architecture.mdc` in the same turn — see `rules-sync.mdc`.
+
 ## Dependency Direction (STRICT)
 
 - `app/` → `core/` → `shared/` (allowed)
@@ -17,12 +19,11 @@ alwaysApply: true
 
 These cross-boundary imports exist by architectural necessity:
 
-- `core/init.ts` imports tenant block files to trigger side-effect registration
-- `core/routing/resolver.tsx` imports `tenantRegistry` and dynamically imports tenant templates
-- `core/data/fetcher.ts` imports `getTenantConfig` from the tenant registry
-- `core/data/adapters/mock.adapter.ts` imports from `@mock-data` (resolves to `src/core/mock-data.ts/{tenant}/`)
+- `core/init.ts` is imported from root `app/layout.tsx`; it loads shared blocks and `@tenant/blocks` (build-time alias)
+- `core/routing/resolver.tsx` dynamically imports `@tenant/templates/{name}`
+- `core/data/fetcher.ts` and `core/data/adapters/mock.adapter.ts` import `@tenant/config` and `@mock-data` (per `TENANT_ID` build)
 - `shared/components/blocks/index.ts` imports `registerSharedBlocks` from `core/blocks/registry`
-- `shared/components/layout/header.tsx` and `footer.tsx` import `NavItem` type from `core/types`
+- `shared/components/layout/footer.tsx` imports `NavItem` from `core/types`
 
 Do NOT add new cross-boundary imports. If you need one, refactor the shared type or function into the correct layer first.
 
@@ -39,8 +40,23 @@ There is only ONE page route: `src/app/[domain]/[[...slug]]/page.tsx`. NEVER cre
 
 ## Tenant Isolation
 
-Each tenant lives in `src/tenants/{tenant-id}/` with its own `blocks/`, `integrations/`, `services/`, and `config.ts`. Mock data lives in `src/core/mock-data.ts/{tenant}/` (resort, vukans-bike). Tenants must never import from other tenants.
+Each tenant lives in `src/tenants/{tenant-id}/` with `blocks/`, `templates/`, `integrations/`, `services/`, and `config.ts`. Mock data: `src/core/mock-data.ts/vukans-bike/` or `…/resort/` (folder name may differ from tenant id). Tenants must never import from other tenants.
 
-## Tenant Resolution
+## Tenant resolution
 
-Build-time: `TENANT_ID` selects which tenant is built. Runtime: middleware rewrites path with tenant id. Layout imports from `@tenant/config`.
+- **Build-time**: `TENANT_ID` + `scripts/prepare-tenant.js` set `@tenant` → `src/tenants/{tenant-id}/`. No runtime tenant registry.
+- **Runtime**: `middleware.ts` rewrites URLs with `/{tenantId}` prefix; sets `x-pathname` for visible path.
+- **Config**: `import tenantConfig from "@tenant/config"` in app and adapters.
+
+## Layout vs templates
+
+- `app/[domain]/layout.tsx` — `ThemeProvider` + analytics only.
+- **Header/footer** — tenant **templates** (`default`, `detail`, `bare`), not the domain layout.
+
+## Per-tenant documentation
+
+Catalogs: `.cursor/rules/tenants/{tenant-id}/catalog.mdc`. See `tenant-context.mdc` and **`rules-sync.mdc`** — update every affected `.mdc` in the same change when code behavior changes.
+
+## Monorepo
+
+Repo root: `headless-cms/`. Human docs: `README.md`, `next-headless-cms-fe/docs/`. Frontend: `next-headless-cms-fe/`. Backend (Strapi): `headless-cms-backend/`. CI workflows run from repo root with `working-directory: next-headless-cms-fe`. See `deployment.mdc` and repo-root `monorepo.mdc`.

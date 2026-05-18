@@ -1,10 +1,12 @@
 ---
 description: Rules for third-party API integrations within tenants. Covers client structure, error handling, and type normalization.
-globs: src/tenants/*/integrations/**
+globs: src/tenants/*/integrations/**,src/tenants/*/services/**
 alwaysApply: false
 ---
 
 # Integration Rules
+
+> **Maintenance**: Update this file when integration client patterns change (`rules-sync.mdc`). Also update the tenant `catalog.mdc`.
 
 ## Folder Structure
 
@@ -50,4 +52,8 @@ API keys and URLs come from `src/env.ts` (Zod-validated). Add new env vars to th
 
 ## Dynamic Imports
 
-Use relative paths in dynamic `import()` statements, NOT path aliases (`@tenants/...`). Next.js does not resolve aliases in dynamic imports.
+Use relative paths in dynamic `import()` statements, NOT path aliases (`@tenant/...`). Next.js does not resolve aliases in dynamic imports.
+
+## Catalog
+
+When an integration is added or a block starts/stops using it, update `tenant-integrations.mdc` and the tenant `catalog.mdc` (`rules-sync.mdc`).

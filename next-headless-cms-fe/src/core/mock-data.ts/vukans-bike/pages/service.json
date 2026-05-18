@@ -1,7 +1,7 @@
 {
   "slug": "/service",
   "locale": "sl",
-  "template": "service",
+  "template": "default",
   "seo": {
     "title": "Servis koles — Vukan's Bike",
     "description": "Servis in popravila vseh vrst koles. En strokovnjak, osebni pristop. Kontakt: 070 815 379 ali po e-pošti.",
