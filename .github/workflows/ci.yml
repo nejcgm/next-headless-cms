@@ -5,6 +5,10 @@ on:
   push:
     branches: [main]
 
+defaults:
+  run:
+    working-directory: next-headless-cms-fe
+
 jobs:
   quality:
     runs-on: ubuntu-latest
@@ -14,12 +18,15 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v5
+        with:
+          package_json_file: next-headless-cms-fe/package.json
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: pnpm
+          cache-dependency-path: next-headless-cms-fe/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
@@ -43,12 +50,15 @@ jobs:
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v5
+        with:
+          package_json_file: next-headless-cms-fe/package.json
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
           node-version: 20
           cache: pnpm
+          cache-dependency-path: next-headless-cms-fe/pnpm-lock.yaml
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile

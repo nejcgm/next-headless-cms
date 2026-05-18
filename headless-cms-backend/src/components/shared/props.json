@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_props",
+  "info": {
+    "displayName": "props"
+  },
+  "options": {},
+  "attributes": {
+    "headline": {
+      "type": "string"
+    },
+    "subheadline": {
+      "type": "string"
+    },
+    "backgroundImage": {
+      "type": "string"
+    },
+    "overlay": {
+      "type": "decimal"
+    }
+  },
+  "config": {}
+}

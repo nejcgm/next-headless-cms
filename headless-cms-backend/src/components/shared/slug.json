@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_shared_slugs",
+  "info": {
+    "displayName": "Slug"
+  },
+  "options": {},
+  "attributes": {
+    "slug": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}
