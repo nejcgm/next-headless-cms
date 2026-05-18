@@ -46,3 +46,29 @@ All env vars must be added to the Zod schema in `src/env.ts`. Access via `import
 
 - `error.tsx` must be a client component (`"use client"`)
 - `loading.tsx` and `not-found.tsx` can be server components
+
+## ESLint / Next.js (CI-enforced)
+
+These rules are enforced by `next lint` in CI. Violations fail the build.
+
+### Internal navigation
+
+- Use `Link` from `next/link` for in-app routes (`/`, `/rooms`, breadcrumbs, CTAs).
+- `<a href="...">` is only for external URLs, `mailto:`, and `tel:`.
+
+### Imports
+
+- Use ESM `import` — never `require()` (use `import "server-only"` + static imports for server modules like `next/cache`).
+
+### Types
+
+- Never use `any` — use `unknown`, generics, or `Record<string, unknown>`.
+- `ComponentType<Record<string, unknown>>` for block registry components.
+
+### Catch blocks
+
+- If the error is unused, use `catch {` (no binding) instead of `catch (error)`.
+
+### Unused code
+
+- Remove unused imports and variables; use `void value` only when a parameter must stay for API compatibility.

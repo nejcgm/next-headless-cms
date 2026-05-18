@@ -48,6 +48,12 @@ The `ctx` object contains `{ tenant, locale, slug }`. Use `ctx.slug` for dynamic
 - For lists with guaranteed-unique identifiers (room.id, review.id, rate.rateId): `key={item.id}` is acceptable
 - NEVER use bare `key={index}` — always include a descriptive prefix or item value
 
+## Links and navigation
+
+- Use `Link` from `next/link` for internal routes in blocks (breadcrumbs, CTAs, “back home”).
+- Do not use `<a href="/...">` for in-app navigation — ESLint `@next/next/no-html-link-for-pages` fails CI.
+- `<a>` is fine for `mailto:`, `tel:`, and external URLs only.
+
 ## Styling
 
 Use Tailwind with CSS custom properties for brand colors: `bg-[var(--color-primary)]`, `text-[var(--color-foreground)]`. Neutral and semantic colors are acceptable as hardcoded Tailwind classes:

@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function NotFound() {
   return (
     <div className="min-h-[50vh] flex items-center justify-center px-4">
@@ -8,12 +10,12 @@ export default function NotFound() {
         <p className="text-xl text-[var(--color-muted-foreground)] mb-6">
           Page not found
         </p>
-        <a
+        <Link
           href="/"
           className="inline-block bg-[var(--color-primary)] text-white px-6 py-3 rounded-[var(--radius)] font-semibold hover:opacity-90 transition-opacity"
         >
           Go home
-        </a>
+        </Link>
       </div>
     </div>
   );

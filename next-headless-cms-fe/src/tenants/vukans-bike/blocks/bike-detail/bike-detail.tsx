@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import type { BikeDetailProps } from "./types";
 import { formatCurrency } from "@shared/utils/format";
@@ -18,12 +19,12 @@ export function BikeDetail({ bike, labels }: BikeDetailProps) {
           <p className="text-[var(--color-muted-foreground)] mt-2">
             {labels.notFoundBody}
           </p>
-          <a
+          <Link
             href={labels.notFoundCtaHref}
             className="inline-block mt-6 px-6 py-3 bg-[var(--color-primary)] text-white rounded-[var(--radius)] hover:opacity-90 transition-opacity"
           >
             {labels.notFoundCtaLabel}
-          </a>
+          </Link>
         </div>
       </section>
     );
@@ -36,13 +37,13 @@ export function BikeDetail({ bike, labels }: BikeDetailProps) {
       <div className="max-w-6xl mx-auto">
         {/* Breadcrumb */}
         <nav className="mb-6 text-sm text-[var(--color-muted-foreground)]">
-          <a href={labels.breadcrumbHomeHref} className="hover:text-[var(--color-primary)]">
+          <Link href={labels.breadcrumbHomeHref} className="hover:text-[var(--color-primary)]">
             {labels.breadcrumbHome}
-          </a>
+          </Link>
           <span className="mx-2">/</span>
-          <a href={labels.breadcrumbBikesHref} className="hover:text-[var(--color-primary)]">
+          <Link href={labels.breadcrumbBikesHref} className="hover:text-[var(--color-primary)]">
             {labels.breadcrumbBikes}
-          </a>
+          </Link>
           <span className="mx-2">/</span>
           <span className="text-[var(--color-foreground)]">{bike.name}</span>
         </nav>

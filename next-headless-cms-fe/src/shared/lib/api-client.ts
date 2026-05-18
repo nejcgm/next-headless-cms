@@ -1,12 +1,8 @@
-import axios, { AxiosError, AxiosRequestConfig } from "axios";
-import { logger } from "./logger";
+import "server-only";
 
-// Lazy import unstable_cache to avoid client-side errors
-let unstableCache: typeof import("next/cache").unstable_cache | undefined;
-if (typeof window === "undefined") {
-  // Server-side only
-  unstableCache = require("next/cache").unstable_cache;
-}
+import axios, { AxiosError, AxiosRequestConfig } from "axios";
+import { unstable_cache } from "next/cache";
+import { logger } from "./logger";
 
 // Axios instance with defaults
 const axiosInstance = axios.create({
@@ -78,13 +74,11 @@ async function makeAxiosRequest<T>(url: string, options: ApiClientOptions): Prom
 export async function apiClient<T = unknown>(url: string, options: ApiClientOptions = {}): Promise<T> {
   const { next, ...axiosOptions } = options;
 
-  // If no caching requested, or on client-side, make direct request
-  if (!next || !unstableCache) {
+  if (!next) {
     return makeAxiosRequest<T>(url, axiosOptions);
   }
 
-  // Use Next.js unstable_cache for server-side caching
-  const cachedRequest = unstableCache(
+  const cachedRequest = unstable_cache(
     async () => makeAxiosRequest<T>(url, axiosOptions),
     [url, JSON.stringify(axiosOptions.params), JSON.stringify(axiosOptions.body)],
     {

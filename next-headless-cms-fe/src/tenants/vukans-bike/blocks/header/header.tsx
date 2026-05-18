@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useMemo, useState } from "react";
 import { usePathname } from "next/navigation";
 import {
@@ -51,7 +52,7 @@ export function Header({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between gap-3">
           <div className="flex min-w-0 shrink-0 items-center gap-2 sm:gap-3">
-            <a href={homeHref} className="flex min-w-0 items-center">
+            <Link href={homeHref} className="flex min-w-0 items-center">
               {logoUrl ? (
                 <Image
                   src={logoUrl}
@@ -66,7 +67,7 @@ export function Header({
                   {tenantName}
                 </span>
               )}
-            </a>
+            </Link>
 
             <div
               className="ml-2 flex shrink-0 items-center gap-0.5 rounded-md border border-[var(--color-border)] px-0.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide sm:ml-3 sm:text-xs"

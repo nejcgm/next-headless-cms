@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json({ revalidated: true, now: Date.now() });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Invalid request body" },
       { status: 400 }

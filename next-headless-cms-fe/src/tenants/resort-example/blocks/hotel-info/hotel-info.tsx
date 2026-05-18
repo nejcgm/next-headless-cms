@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { ImageLightbox } from "@shared/components/ui/image-lightbox";
 import type { HotelInfoProps } from "./types";
@@ -288,12 +289,12 @@ export function HotelInfo({ hotel }: HotelInfoProps) {
               </div>
 
               {/* CTA */}
-              <a
+              <Link
                 href="/rooms"
                 className="block w-full py-4 bg-[var(--color-primary)] text-white text-center font-semibold rounded-[var(--radius)] hover:bg-[var(--color-primary)]/90 transition-colors"
               >
                 View Rooms & Rates
-              </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ImageLightbox } from "@shared/components/ui/image-lightbox";
@@ -115,11 +116,11 @@ export function RoomDetail({
       <div className="border-b border-[var(--color-border)]">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <nav className="flex items-center gap-2 text-sm text-[var(--color-muted-foreground)]">
-            <a href="/" className="hover:text-[var(--color-primary)] transition-colors">Home</a>
+            <Link href="/" className="hover:text-[var(--color-primary)] transition-colors">Home</Link>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
-            <a href="/rooms" className="hover:text-[var(--color-primary)] transition-colors">Rooms</a>
+            <Link href="/rooms" className="hover:text-[var(--color-primary)] transition-colors">Rooms</Link>
             <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>

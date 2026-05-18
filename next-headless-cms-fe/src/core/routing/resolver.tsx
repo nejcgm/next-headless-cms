@@ -2,7 +2,7 @@ import type { ComponentType } from "react";
 
 export async function resolveTemplate(
   templateName: string
-): Promise<ComponentType<any>> {
+): Promise<ComponentType<{ children: React.ReactNode } & Record<string, unknown>>> {
   try {
     const mod = await import(`@tenant/templates/${templateName}`);
     return mod.default;

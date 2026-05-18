@@ -1,7 +1,6 @@
 import { Suspense } from "react";
 import type { BlockInstance } from "@core/types/page";
 import { resolveBlock } from "./registry";
-import { cn } from "@shared/utils/cn";
 
 interface Props {
   blocks: BlockInstance[];

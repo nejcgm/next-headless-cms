@@ -39,7 +39,7 @@ export async function POST(request: NextRequest) {
       model,
       event,
     });
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Invalid request body" },
       { status: 400 }

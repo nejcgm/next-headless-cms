@@ -8,6 +8,7 @@ const adapters: Record<string, CmsAdapter> = {
   strapi: new StrapiAdapter(),
 };
 
-export function getAdapter(_tenantId?: string): CmsAdapter {
+export function getAdapter(tenantId?: string): CmsAdapter {
+  void tenantId;
   return adapters[tenantConfig.dataAdapter];
 }
