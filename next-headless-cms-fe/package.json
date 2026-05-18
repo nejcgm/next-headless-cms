@@ -14,7 +14,9 @@
     "start": "next start",
     "start:resort": "next start -p 3001",
     "start:bike": "next start -p 3002",
-    "lint": "next lint",
+    "lint": "pnpm lint:bike && pnpm lint:resort",
+    "lint:bike": "TENANT_ID=vukans-bike next lint",
+    "lint:resort": "TENANT_ID=resort-example next lint",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
