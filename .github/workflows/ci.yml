@@ -71,7 +71,11 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        tenant_script: [build:bike, build:resort]
+        include:
+          - tenant_script: build:bike
+            tenant_id: vukans-bike
+          - tenant_script: build:resort
+            tenant_id: resort-example
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -91,5 +95,10 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Build tenant
+      - name: Build tenant (${{ matrix.tenant_id }})
         run: pnpm ${{ matrix.tenant_script }}
+
+      - name: Verify tenant isolation (${{ matrix.tenant_id }})
+        env:
+          TENANT_ID: ${{ matrix.tenant_id }}
+        run: pnpm verify:build

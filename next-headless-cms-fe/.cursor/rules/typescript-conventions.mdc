@@ -79,7 +79,6 @@ All env vars must be added to the Zod schema in `src/env.ts`. Access via `import
 ### Allowed Exceptions
 
 - `process.env.NODE_ENV` — Standard Node.js convention, safe to use directly in any file
-- `process.env.TENANT_OVERRIDE` — Used in `middleware.ts` which runs at the Edge before Zod validation is available
 
 ## Error Boundaries
 
