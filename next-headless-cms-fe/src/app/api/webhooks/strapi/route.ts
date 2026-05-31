@@ -1,10 +1,14 @@
 import { revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
-import { env } from "@/env";
+import { env, isRevalidateSecretMisconfigured } from "@/env";
 import { cacheTags } from "@core/data/cache-tags";
 import { normalizeLogicalSlug } from "@core/data/strapi/strapi-query";
 
 export async function POST(request: NextRequest) {
+  if (isRevalidateSecretMisconfigured()) {
+    return NextResponse.json({ error: "Server misconfigured" }, { status: 503 });
+  }
+
   const secret = request.headers.get("x-revalidate-secret");
   if (secret !== env.REVALIDATE_SECRET) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });

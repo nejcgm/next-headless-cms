@@ -5,36 +5,23 @@ const optionalUrl = z.preprocess(
   z.string().url().optional()
 );
 
-const DEFAULT_REVALIDATE_SECRET = "change-me-in-production-16-chars";
+export const DEFAULT_REVALIDATE_SECRET = "change-me-in-production-16-chars";
 
-const envSchema = z
-  .object({
-    NODE_ENV: z.enum(["development", "production", "test"]),
-    STRAPI_URL: optionalUrl,
-    STRAPI_API_TOKEN: z.string().optional(),
-    REVALIDATE_SECRET: z.preprocess(
-      (v) => (typeof v === "string" && v.trim() === "" ? undefined : v),
-      z.string().min(16).default(DEFAULT_REVALIDATE_SECRET)
-    ),
-    PREVIEW_SECRET: z.string().optional(),
-    RESORT_BOOKING_API_URL: optionalUrl,
-    RESORT_BOOKING_API_KEY: z.string().optional(),
-    LITEAPI_URL: optionalUrl,
-    LITEAPI_KEY: z.string().optional(),
-    LITEAPI_HOTEL_ID: z.string().optional(),
-  })
-  .superRefine((data, ctx) => {
-    if (
-      data.NODE_ENV === "production" &&
-      data.REVALIDATE_SECRET === DEFAULT_REVALIDATE_SECRET
-    ) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "Set REVALIDATE_SECRET to a unique value in production",
-        path: ["REVALIDATE_SECRET"],
-      });
-    }
-  });
+const envSchema = z.object({
+  NODE_ENV: z.enum(["development", "production", "test"]),
+  STRAPI_URL: optionalUrl,
+  STRAPI_API_TOKEN: z.string().optional(),
+  REVALIDATE_SECRET: z.preprocess(
+    (v) => (typeof v === "string" && v.trim() === "" ? undefined : v),
+    z.string().min(16).default(DEFAULT_REVALIDATE_SECRET)
+  ),
+  PREVIEW_SECRET: z.string().optional(),
+  RESORT_BOOKING_API_URL: optionalUrl,
+  RESORT_BOOKING_API_KEY: z.string().optional(),
+  LITEAPI_URL: optionalUrl,
+  LITEAPI_KEY: z.string().optional(),
+  LITEAPI_HOTEL_ID: z.string().optional(),
+});
 
 export const env = envSchema.parse({
   NODE_ENV: process.env.NODE_ENV,
@@ -48,3 +35,10 @@ export const env = envSchema.parse({
   LITEAPI_KEY: process.env.LITEAPI_KEY,
   LITEAPI_HOTEL_ID: process.env.LITEAPI_HOTEL_ID,
 });
+
+export function isRevalidateSecretMisconfigured(): boolean {
+  return (
+    process.env.NODE_ENV === "production" &&
+    env.REVALIDATE_SECRET === DEFAULT_REVALIDATE_SECRET
+  );
+}
