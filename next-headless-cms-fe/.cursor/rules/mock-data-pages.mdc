@@ -10,10 +10,12 @@ alwaysApply: false
 
 ## Page JSON structure
 
+Mock page JSON files **mirror the Strapi API response shape** so `MockAdapter` and `StrapiAdapter` use the same `toPageData` / `toNavigationData` transform pipeline. Both adapters pass raw JSON through `strapi-document.ts` functions.
+
 ```json
 {
   "slug": "/about",
-  "locale": "en",
+  "lang": "en",
   "template": "default",
   "seo": {
     "title": "Page Title",
@@ -22,17 +24,26 @@ alwaysApply: false
   },
   "blocks": [
     {
-      "id": "unique-block-id",
-      "type": "block-type-name",
-      "props": {}
+      "__component": "blocks.hero",
+      "id": 1,
+      "headline": "...",
+      "cta": { "__component": "shared.cta-link", "id": 2, "label": "...", "href": "..." }
     }
   ]
 }
 ```
 
+Key differences from the old format:
+- `lang` (not `locale`) — Strapi i18n reserves `locale`.
+- Blocks use `__component` + numeric `id` (Strapi dynamic zone shape) — **not** `{ type, props }`.
+- Fields are flat on the block object — no `props` wrapper.
+- Nested components also carry `__component` + `id`.
+
+`strapi-document.ts → toDynamicZoneBlock` strips `__component`/`id` and produces `BlockInstance { id, type, props }` for the renderer.
+
 ## Block IDs
 
-Unique per page. Prefer `{type}-{number}` (e.g. `hero-1`, `room-list-1`).
+Numeric integers, unique within the page. Prefer sequential numbering (1, 2, 3, …).
 
 ## Templates
 
@@ -66,9 +77,22 @@ For slugs with params (e.g. `/rooms/:roomId`), set `slugPattern` and use `:` seg
 - Localized override: `{locale}--{path}.json` (e.g. `de--about.json`) — tried before fallback `about.json`
 - Pattern pages: descriptive name (e.g. `room-detail.json`)
 
-## Block `type`
+## Block `__component`
 
-Must match a key in `registerTenantBlocks()` or `registerSharedBlocks()`.
+Must be `"blocks.{type}"` matching a Strapi component and a key in `registerTenantBlocks()` or `registerSharedBlocks()`.
+
+## Collections
+
+Collection files live at `src/core/mock-data.ts/{tenant}/collections/{name}.json`. They are loaded by `MockAdapter.getCollection`. Items must have a `slug` field (used by `MockAdapter.getEntry` to look up a single item — it matches `item.slug === id || item.id === id`).
+
+Structure (e.g. `collections/products.json`):
+```json
+[
+  { "slug": "merida", "name": "Merida Road Ride", "price": 350, ... }
+]
+```
+
+Locale-specific overrides: `{locale}--{name}.json` (e.g. `en--products.json`).
 
 ## After editing mock pages
 

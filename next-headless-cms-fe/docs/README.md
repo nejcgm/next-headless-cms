@@ -4,6 +4,7 @@
 |-----|-------------|
 | [DEVELOPMENT.md](./DEVELOPMENT.md) | Day-to-day dev: layouts, pnpm, navigation UX, mock data |
 | [BUILD-VERIFICATION.md](./BUILD-VERIFICATION.md) | Per-tenant build isolation and bundle checks |
+| [STRAPI-MIGRATION.md](./STRAPI-MIGRATION.md) | vukans-bike mock → Strapi cutover |
 
 Repo overview and scripts: [`../../README.md`](../../README.md).
 

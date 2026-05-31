@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_blocks_about_persons",
+  "info": {
+    "name": "AboutPerson",
+    "icon": "user",
+    "displayName": "About — Person",
+    "description": "Owner / team member bio with photo and optional CTA"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "role": {
+      "type": "string",
+      "required": true
+    },
+    "bio": {
+      "type": "text",
+      "required": true
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.cta-link"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_blocks_rich_texts",
+  "info": {
+    "name": "RichText",
+    "icon": "file-alt",
+    "displayName": "Rich Text",
+    "description": "Free-form HTML / rich text content block"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}

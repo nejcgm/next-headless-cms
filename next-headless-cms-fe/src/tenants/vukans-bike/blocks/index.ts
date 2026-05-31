@@ -1,5 +1,6 @@
 import { registerTenantBlocks } from "@core/blocks/registry";
 import { Hero } from "./hero/hero";
+import { heroSchema } from "./hero/schema";
 import { loadProductsForProductListBlock } from "./product-list/load-products";
 import { ProductList } from "./product-list/product-list";
 import { ServicePricing } from "./service-pricing/service-pricing";
@@ -12,6 +13,7 @@ import { AboutStory } from "./about-story/about-story";
 import { AboutValues } from "./about-values/about-values";
 import { AboutPerson } from "./about-person/about-person";
 import { BikeDetail } from "./bike-detail/bike-detail";
+import { loadBikeForBikeDetailBlock } from "./bike-detail/load-bike";
 import { BikeSchoolIntro } from "./bike-school-intro/bike-school-intro";
 import { BikeSchoolProgram } from "./bike-school-program/bike-school-program";
 import { Gallery } from "./gallery/gallery";
@@ -20,6 +22,7 @@ import { GuidedTourExperience } from "./guided-tour-experience/guided-tour-exper
 registerTenantBlocks("vukans-bike", {
   hero: {
     component: Hero,
+    schema: heroSchema,
   },
 
   contact: {
@@ -40,6 +43,8 @@ registerTenantBlocks("vukans-bike", {
 
   "bike-detail": {
     component: BikeDetail,
+    dataContract: (_props, ctx) =>
+      loadBikeForBikeDetailBlock(ctx.tenant, ctx.locale, ctx.slug),
   },
 
   "bike-school-intro": {

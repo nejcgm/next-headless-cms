@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-
-// Initialize core systems (registers blocks, etc.)
 import "@core/init";
 import tenantConfig from "@tenant/config";
 import { getSiteOrigin } from "@core/seo/site-url";

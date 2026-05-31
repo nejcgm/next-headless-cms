@@ -31,6 +31,11 @@ const config: TenantConfig = {
     borderRadius: "0.5rem",
   },
   dataAdapter: "mock",
+  templates: {
+    default: { usesSiteChrome: true },
+    detail: { usesSiteChrome: true },
+    bare: { usesSiteChrome: false },
+  },
 };
 
 export default config;

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_nav_items",
+  "info": {
+    "name": "NavItem",
+    "icon": "layer",
+    "displayName": "Nav Item",
+    "description": "Top-level navigation link with optional child links"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false
+    },
+    "children": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.nav-item-child"
+    }
+  }
+}

@@ -1,237 +1,224 @@
-import type { CmsAdapter, CollectionParams, SitemapEntry } from "../contracts";
+import type { CmsAdapter, CollectionParams, EntryParams, SitemapEntry } from "../contracts";
 import type { PageData, NavigationData } from "@core/types/page";
-import { apiClient } from "@shared/lib/api-client";
 import { logger } from "@shared/lib/logger";
-import { env } from "@/env";
-
-interface StrapiListResponse {
-  data: unknown[];
-  meta?: {
-    pagination?: {
-      page: number;
-      pageSize: number;
-      pageCount: number;
-      total: number;
-    };
-  };
-}
-
-/** Strapi may return `slug` as a string, localized map, or nested `data.attributes.slug`. */
-function extractSlugField(raw: unknown, locale: string, depth = 0): string | undefined {
-  if (raw == null || depth > 8) return undefined;
-
-  if (typeof raw === "string") {
-    const s = raw.trim();
-    return s ? s : undefined;
-  }
-
-  if (typeof raw !== "object") return undefined;
-
-  const o = raw as Record<string, unknown>;
-
-  if (locale && !Array.isArray(raw)) {
-    const locVal = o[locale];
-    if (typeof locVal === "string" && locVal.trim()) return locVal.trim();
-  }
-
-  const slugVal = o.slug;
-  if (typeof slugVal === "string") {
-    const s = slugVal.trim();
-    if (s) return s;
-  }
-  if (slugVal != null && typeof slugVal === "object") {
-    const nested = extractSlugField(slugVal, locale, depth + 1);
-    if (nested) return nested;
-  }
-
-  const pathVal = o.path;
-  if (typeof pathVal === "string" && pathVal.trim()) return pathVal.trim();
-
-  if (o.data !== undefined) {
-    const d = o.data;
-    if (Array.isArray(d) && d.length > 0) {
-      const fromArr = extractSlugField(d[0], locale, depth + 1);
-      if (fromArr) return fromArr;
-    } else {
-      const fromData = extractSlugField(d, locale, depth + 1);
-      if (fromData) return fromData;
-    }
-  }
-
-  if (o.attributes !== undefined && typeof o.attributes === "object") {
-    return extractSlugField(o.attributes, locale, depth + 1);
-  }
-
-  return undefined;
-}
-
-function readNoIndex(seo: unknown, depth = 0): boolean | undefined {
-  if (seo == null || depth > 6) return undefined;
-  if (typeof seo === "object" && "noIndex" in seo) {
-    const v = (seo as { noIndex: unknown }).noIndex;
-    if (typeof v === "boolean") return v;
-  }
-  if (typeof seo === "object" && seo !== null) {
-    const o = seo as Record<string, unknown>;
-    if (o.data !== undefined) return readNoIndex(o.data, depth + 1);
-    if (o.attributes !== undefined && typeof o.attributes === "object") {
-      return readNoIndex(o.attributes, depth + 1);
-    }
-  }
-  return undefined;
-}
-
-function readUpdatedAt(source: unknown, depth = 0): string | undefined {
-  if (source == null || depth > 6) return undefined;
-  if (typeof source === "string") return source;
-  if (typeof source !== "object") return undefined;
-  const o = source as Record<string, unknown>;
-  if (typeof o.updatedAt === "string") return o.updatedAt;
-  if (o.data !== undefined) return readUpdatedAt(o.data, depth + 1);
-  if (o.attributes !== undefined && typeof o.attributes === "object") {
-    return readUpdatedAt(o.attributes, depth + 1);
-  }
-  return undefined;
-}
-
-function flattenStrapiPageListItem(item: unknown, locale: string): {
-  slug?: string;
-  noIndex?: boolean;
-  updatedAt?: string;
-} {
-  if (!item || typeof item !== "object") return {};
-
-  const root = item as Record<string, unknown>;
-  const body =
-    root.attributes !== undefined && typeof root.attributes === "object"
-      ? (root.attributes as Record<string, unknown>)
-      : root;
-
-  const slug = extractSlugField(body.slug, locale) ?? extractSlugField(body, locale);
-  const noIndex = readNoIndex(body.seo);
-  const updatedAt = readUpdatedAt(body) ?? readUpdatedAt(root);
-
-  return {
-    slug,
-    noIndex,
-    updatedAt,
-  };
-}
+import { cacheTags } from "../cache-tags";
+import {
+  POPULATE,
+  REVALIDATE,
+  STRAPI_COLLECTIONS,
+} from "../strapi/strapi-config";
+import {
+  strapiFetch,
+  strapiFetchAll,
+  type StrapiQuery,
+} from "../strapi/strapi-client";
+import { resolvePublicationContext } from "../strapi/strapi-publication";
+import { normalizeLogicalSlug, tenantScope } from "../strapi/strapi-query";
+import {
+  findPatternMatch,
+  isPlainObject,
+  toNavigationData,
+  toPageData,
+  toPatternCandidate,
+  unwrapStrapiDocument,
+  type PatternCandidate,
+} from "../strapi/strapi-document";
 
 export class StrapiAdapter implements CmsAdapter {
-  private baseUrl = env.STRAPI_URL ?? "http://localhost:1337";
-  private token = env.STRAPI_API_TOKEN ?? "";
+  async getPage(tenant: string, slug: string, locale: string): Promise<PageData | null> {
+    const logicalSlug = normalizeLogicalSlug(slug);
+    const { status, bypassCache } = await resolvePublicationContext();
+    const pageTags = [
+      cacheTags.page(tenant, logicalSlug, locale),
+      cacheTags.pageGroup(tenant, logicalSlug),
+      cacheTags.allPages(tenant),
+    ];
 
-  private headers() {
-    return {
-      Authorization: `Bearer ${this.token}`,
-      "Content-Type": "application/json",
-    };
+    try {
+      const exact = await this.findOne(STRAPI_COLLECTIONS.pages, {
+        filters: { ...tenantScope(tenant, locale), slug: { $eq: logicalSlug } },
+        populate: POPULATE.page,
+        status,
+      }, { revalidate: REVALIDATE.page, tags: pageTags, bypassCache });
+
+      const direct = exact ? toPageData(exact, locale) : null;
+      if (direct) return direct;
+
+      return await this.matchPatternPage(tenant, logicalSlug, locale, status, bypassCache);
+    } catch (err) {
+      this.logFailure("getPage", err, { tenant, slug: logicalSlug, locale });
+      return null;
+    }
   }
 
-  async getPage(tenant: string, slug: string, locale: string): Promise<PageData | null> {
-    const res = await apiClient<{ data: PageData[] }>(`${this.baseUrl}/api/pages`, {
-      params: {
-        "filters[tenant][$eq]": tenant,
-        "filters[slug][$eq]": slug,
-        locale,
-        populate: "deep",
-      },
-      headers: this.headers(),
-      next: { revalidate: 60, tags: [`page-${tenant}-${slug}`] },
+  private async matchPatternPage(
+    tenant: string,
+    logicalSlug: string,
+    locale: string,
+    status: "published" | "draft",
+    bypassCache: boolean
+  ): Promise<PageData | null> {
+    const tags = [
+      cacheTags.pageGroup(tenant, `pattern:${locale}`),
+      cacheTags.allPages(tenant),
+    ];
+
+    const rows = await strapiFetchAll(STRAPI_COLLECTIONS.pages, {
+      filters: { ...tenantScope(tenant, locale), slugPattern: { $notNull: true } },
+      fields: ["slug", "slugPattern"],
+      status,
+    }, { revalidate: REVALIDATE.page, tags, bypassCache });
+
+    const candidates = rows
+      .map(toPatternCandidate)
+      .filter((c): c is PatternCandidate => c != null);
+
+    const matchedPattern = findPatternMatch(candidates, logicalSlug);
+    if (!matchedPattern) return null;
+
+    const full = await this.findOne(STRAPI_COLLECTIONS.pages, {
+      filters: { ...tenantScope(tenant, locale), slugPattern: { $eq: matchedPattern } },
+      populate: POPULATE.page,
+      status,
+    }, {
+      revalidate: REVALIDATE.page,
+      tags: [cacheTags.pageGroup(tenant, logicalSlug), cacheTags.allPages(tenant)],
+      bypassCache,
     });
 
-    return res.data?.[0] ?? null;
+    return full ? toPageData(full, locale) : null;
+  }
+
+  async getNavigation(tenant: string, locale: string): Promise<NavigationData | null> {
+    const { status, bypassCache } = await resolvePublicationContext();
+
+    try {
+      const doc = await this.findOne(STRAPI_COLLECTIONS.navigations, {
+        filters: tenantScope(tenant, locale),
+        populate: POPULATE.navigation,
+        status,
+      }, {
+        revalidate: REVALIDATE.navigation,
+        tags: [cacheTags.navigation(tenant, locale), cacheTags.navigationGroup(tenant)],
+        bypassCache,
+      });
+
+      return doc ? toNavigationData(doc) : null;
+    } catch (err) {
+      this.logFailure("getNavigation", err, { tenant, locale });
+      return null;
+    }
+  }
+
+  async getCollection<T>(
+    tenant: string,
+    collection: string,
+    params?: CollectionParams
+  ): Promise<T[]> {
+    const { status, bypassCache } = await resolvePublicationContext();
+
+    try {
+      const res = await strapiFetch<T>(collection, {
+        query: {
+          filters: { ...tenantScope(tenant, params?.locale), ...params?.filters },
+          status,
+          sort: params?.sort,
+          pagination: { limit: params?.limit, start: params?.offset },
+        },
+        revalidate: REVALIDATE.collection,
+        tags: [cacheTags.collection(tenant, collection)],
+        bypassCache,
+      });
+      return res.data ?? [];
+    } catch (err) {
+      this.logFailure("getCollection", err, { tenant, collection });
+      return [];
+    }
+  }
+
+  async getEntry<T>(
+    tenant: string,
+    collection: string,
+    id: string,
+    params?: EntryParams
+  ): Promise<T | null> {
+    const { status, bypassCache } = await resolvePublicationContext();
+
+    try {
+      const entry = await this.findOne<T>(collection, {
+        filters: { ...tenantScope(tenant, params?.locale), slug: { $eq: id } },
+        status,
+      }, {
+        revalidate: REVALIDATE.collection,
+        tags: [
+          cacheTags.entry(tenant, collection, id, params?.locale),
+          cacheTags.collection(tenant, collection),
+        ],
+        bypassCache,
+      });
+      return entry;
+    } catch (err) {
+      this.logFailure("getEntry", err, { tenant, collection, id, locale: params?.locale });
+      return null;
+    }
   }
 
   async listSitemapEntries(tenant: string, locale: string): Promise<SitemapEntry[]> {
     try {
-      const pageSize = 100;
-      const rows: unknown[] = [];
-      let page = 1;
-      let hasMore = true;
-
-      while (hasMore && page <= 50) {
-        const res = await apiClient<StrapiListResponse>(`${this.baseUrl}/api/pages`, {
-          params: {
-            "filters[tenant][$eq]": tenant,
-            locale,
-            "pagination[page]": page,
-            "pagination[pageSize]": pageSize,
-          },
-          headers: this.headers(),
-          next: { revalidate: 300, tags: [`sitemap-${tenant}`] },
-        });
-
-        const batch = res.data ?? [];
-        rows.push(...batch);
-
-        const pageCount = res.meta?.pagination?.pageCount;
-        if (typeof pageCount === "number" && pageCount >= 1) {
-          hasMore = page < pageCount;
-        } else {
-          hasMore = batch.length === pageSize;
-        }
-        page += 1;
-      }
-
-      const out: SitemapEntry[] = [];
-      for (const item of rows) {
-        const { slug, noIndex, updatedAt } = flattenStrapiPageListItem(item, locale);
-        if (!slug || noIndex) continue;
-        const pathname = slug.startsWith("/") ? slug : `/${slug}`;
-        out.push({
-          pathname,
-          lastModified: updatedAt ? new Date(updatedAt) : undefined,
-        });
-      }
-      return out.length > 0 ? out : [{ pathname: "/" }];
-    } catch (err) {
-      logger.warn("StrapiAdapter.listSitemapEntries failed", {
-        error: err instanceof Error ? err.message : String(err),
+      const rows = await strapiFetchAll(STRAPI_COLLECTIONS.pages, {
+        filters: tenantScope(tenant, locale),
+        fields: ["slug", "updatedAt"],
+        populate: { seo: true },
+        status: "published",
+      }, {
+        revalidate: REVALIDATE.page,
+        tags: [cacheTags.pageGroup(tenant, "sitemap"), cacheTags.allPages(tenant)],
       });
+
+      const entries = rows.flatMap((row) => {
+        const entry = this.toSitemapEntry(row);
+        return entry ? [entry] : [];
+      });
+
+      return entries.length > 0 ? entries : [{ pathname: "/" }];
+    } catch (err) {
+      this.logFailure("listSitemapEntries", err, { tenant, locale });
       return [{ pathname: "/" }];
     }
   }
 
-  async getCollection<T>(tenant: string, collection: string, params?: CollectionParams): Promise<T[]> {
-    const res = await apiClient<{ data: T[] }>(`${this.baseUrl}/api/${collection}`, {
-      params: {
-        "filters[tenant][$eq]": tenant,
-        locale: params?.locale,
-        "pagination[limit]": params?.limit,
-        "pagination[start]": params?.offset,
-        sort: params?.sort,
-        ...params?.filters,
-      },
-      headers: this.headers(),
-      next: { revalidate: 60, tags: [`collection-${tenant}-${collection}`] },
+  private async findOne<T = unknown>(
+    collection: string,
+    query: StrapiQuery,
+    cache: { revalidate: number; tags: string[]; bypassCache?: boolean }
+  ): Promise<T | null> {
+    const res = await strapiFetch<T>(collection, {
+      query: { ...query, pagination: { ...query.pagination, pageSize: 1 } },
+      revalidate: cache.revalidate,
+      tags: cache.tags,
+      bypassCache: cache.bypassCache,
     });
-
-    return res.data ?? [];
-  }
-
-  async getEntry<T>(tenant: string, collection: string, id: string): Promise<T | null> {
-    const res = await apiClient<{ data: T | null }>(`${this.baseUrl}/api/${collection}/${id}`, {
-      params: { populate: "deep" },
-      headers: this.headers(),
-      next: { revalidate: 60, tags: [`entry-${tenant}-${collection}-${id}`] },
-    });
-
-    return res.data ?? null;
-  }
-
-  async getNavigation(tenant: string, locale: string): Promise<NavigationData | null> {
-    const res = await apiClient<{ data: NavigationData[] }>(`${this.baseUrl}/api/navigations`, {
-      params: {
-        "filters[tenant][$eq]": tenant,
-        locale,
-        populate: "deep",
-      },
-      headers: this.headers(),
-      next: { revalidate: 300, tags: [`nav-${tenant}`] },
-    });
-
     return res.data?.[0] ?? null;
+  }
+
+  private toSitemapEntry(row: unknown): SitemapEntry | null {
+    const doc = unwrapStrapiDocument(row);
+    if (!doc || typeof doc.slug !== "string" || !doc.slug.trim()) return null;
+
+    const seo = unwrapStrapiDocument(doc.seo) ?? (isPlainObject(doc.seo) ? doc.seo : null);
+    if (seo?.noIndex === true) return null;
+
+    const updatedAt = typeof doc.updatedAt === "string" ? doc.updatedAt : undefined;
+    return {
+      pathname: normalizeLogicalSlug(doc.slug.trim()),
+      lastModified: updatedAt ? new Date(updatedAt) : undefined,
+    };
+  }
+
+  private logFailure(method: string, err: unknown, context: Record<string, unknown>) {
+    logger.warn(`StrapiAdapter.${method} failed`, {
+      ...context,
+      error: err instanceof Error ? err.message : String(err),
+    });
   }
 }

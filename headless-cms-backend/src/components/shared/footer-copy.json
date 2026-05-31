@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_footer_copies",
+  "info": {
+    "name": "FooterCopy",
+    "icon": "feather",
+    "displayName": "Footer Copy",
+    "description": "Text labels shown in the site footer: tagline, headings, copyright"
+  },
+  "options": {},
+  "attributes": {
+    "tagline": {
+      "type": "string",
+      "required": true
+    },
+    "linksHeading": {
+      "type": "string",
+      "required": true
+    },
+    "contactHeading": {
+      "type": "string",
+      "required": true
+    },
+    "contactPlaceholder": {
+      "type": "string",
+      "required": true
+    },
+    "copyrightReserved": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

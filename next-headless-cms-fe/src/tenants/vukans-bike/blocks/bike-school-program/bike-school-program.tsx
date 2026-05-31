@@ -37,7 +37,7 @@ export function BikeSchoolProgram({ heading, subheading, items }: BikeSchoolProg
                 </p>
 
                 <ul className="space-y-2.5 mb-6">
-                  {item.bullets.map((bullet, bulletIndex) => (
+                  {item.bullets.split("\n").filter(Boolean).map((bullet, bulletIndex) => (
                     <li key={`${bullet}-${bulletIndex}`} className="flex items-start gap-2.5 text-sm text-[var(--color-foreground)]">
                       <span className="mt-1.5 inline-flex h-5 w-5 items-center justify-center rounded-full bg-[var(--color-primary)]/10 shrink-0">
                         <span className="h-1.5 w-1.5 rounded-full bg-[var(--color-primary)]" />

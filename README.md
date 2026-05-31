@@ -9,7 +9,8 @@ Multi-tenant headless CMS: a **Next.js** frontend (one tenant per build) and a *
 | [`next-headless-cms-fe/`](next-headless-cms-fe/) | Next.js 15 app — blocks, templates, mock data, Strapi adapter |
 | [`headless-cms-backend/`](headless-cms-backend/) | Strapi CMS (separate deploy) |
 | [`.github/workflows/`](.github/workflows/) | CI and manual production deploys |
-| [`next-headless-cms-fe/.cursor/rules/`](next-headless-cms-fe/.cursor/rules/) | Cursor agent rules (architecture, deploy, per-tenant catalogs) |
+| [`next-headless-cms-fe/.cursor/rules/`](next-headless-cms-fe/.cursor/rules/) | Frontend Cursor rules |
+| [`headless-cms-backend/.cursor/rules/`](headless-cms-backend/.cursor/rules/) | Strapi 5 Cursor rules (content model, API contract) |
 
 **Tenants today:** `vukans-bike`, `resort-example`
 
@@ -120,4 +121,8 @@ See [`headless-cms-backend/README.md`](headless-cms-backend/README.md). Frontend
 
 ## Cursor / agent rules
 
-Frontend conventions live in **`next-headless-cms-fe/.cursor/rules/`** — start with `rules-sync.mdc`. Monorepo-wide notes: [`.cursor/rules/monorepo.mdc`](.cursor/rules/monorepo.mdc).
+| App | Start here |
+|-----|------------|
+| Frontend | `next-headless-cms-fe/.cursor/rules/rules-sync.mdc` |
+| Backend (Strapi) | `headless-cms-backend/.cursor/rules/strapi-backend.mdc` |
+| Monorepo | `.cursor/rules/monorepo.mdc` |

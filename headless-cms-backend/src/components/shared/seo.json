@@ -2,19 +2,32 @@
   "collectionName": "components_shared_seos",
   "info": {
     "name": "Seo",
-    "icon": "allergies",
+    "icon": "search",
     "displayName": "Seo",
-    "description": ""
+    "description": "Matches frontend PageSeo (title, description, ogImage, …)"
   },
   "options": {},
   "attributes": {
-    "metaTitle": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "metaDescription": {
+    "description": {
       "type": "text",
       "required": true
+    },
+    "ogImage": {
+      "type": "string"
+    },
+    "canonical": {
+      "type": "string"
+    },
+    "noIndex": {
+      "type": "boolean",
+      "default": false
+    },
+    "jsonLd": {
+      "type": "json"
     }
   }
 }

@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_blocks_product_lists",
+  "info": {
+    "name": "ProductList",
+    "icon": "shopping-cart",
+    "displayName": "Product List",
+    "description": "Bike listing block — products are loaded at runtime from the products collection. Only config is stored here."
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "outOfStockLabel": {
+      "type": "string",
+      "required": true
+    },
+    "limit": {
+      "type": "integer"
+    },
+    "category": {
+      "type": "string"
+    },
+    "layout": {
+      "type": "enumeration",
+      "enum": ["grid", "list"],
+      "default": "grid"
+    },
+    "anchorId": {
+      "type": "string"
+    }
+  }
+}

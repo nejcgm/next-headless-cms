@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_blocks_faq_items",
+  "info": {
+    "name": "FaqItem",
+    "icon": "question-circle",
+    "displayName": "FAQ Item",
+    "description": "A single FAQ question and answer pair"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "answer": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

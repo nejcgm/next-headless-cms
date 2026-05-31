@@ -1,154 +1,164 @@
 {
   "slug": "/guided-tours",
-  "locale": "en",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "Guided tours — Vukan's Bike Shop",
     "description": "We organise guided tours for small groups by appointment. Routes are matched to the group's level, pace, and goals.",
     "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg"
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Guided tours",
-        "subheadline": "Tours are arranged by appointment. Pace, length, and difficulty are tailored to the group.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Request a date",
-          "href": "/en/contact"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "Guided tours",
+      "subheadline": "Tours are arranged by appointment. Pace, length, and difficulty are tailored to the group.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Request a date",
+        "href": "/en/contact"
+      },
+      "secondaryCta": {
+        "id": 3,
+        "label": "How it works",
+        "href": "#potek"
+      }
+    },
+    {
+      "__component": "blocks.guided-tour-experience",
+      "id": 9,
+      "heading": "What to expect",
+      "subheading": "Each tour is tailored to the group — with a clear plan and a safe, comfortable pace.",
+      "items": [
+        {
+          "id": 5,
+          "icon": "route",
+          "title": "Route to match you",
+          "description": "Before the ride we agree terrain, distance, and climbing with your goals and fitness in mind."
         },
-        "secondaryCta": {
-          "label": "How it works",
-          "href": "#potek"
+        {
+          "id": 6,
+          "icon": "coach",
+          "title": "Guided on the trail",
+          "description": "We manage pace and line choice so the ride flows, stays safe, and feels good for everyone."
+        },
+        {
+          "id": 7,
+          "icon": "group",
+          "title": "Small groups",
+          "description": "We work best in small groups so we can tune the experience to each rider."
+        },
+        {
+          "id": 8,
+          "icon": "safety",
+          "title": "Safety and clarity",
+          "description": "Clear briefing before we roll; steady pacing and organisation on the ride."
         }
-      }
+      ]
     },
     {
-      "id": "guided-tour-experience-1",
-      "type": "guided-tour-experience",
-      "props": {
-        "heading": "What to expect",
-        "subheading": "Each tour is tailored to the group — with a clear plan and a safe, comfortable pace.",
-        "items": [
-          {
-            "icon": "route",
-            "title": "Route to match you",
-            "description": "Before the ride we agree terrain, distance, and climbing with your goals and fitness in mind."
-          },
-          {
-            "icon": "coach",
-            "title": "Guided on the trail",
-            "description": "We manage pace and line choice so the ride flows, stays safe, and feels good for everyone."
-          },
-          {
-            "icon": "group",
-            "title": "Small groups",
-            "description": "We work best in small groups so we can tune the experience to each rider."
-          },
-          {
-            "icon": "safety",
-            "title": "Safety and clarity",
-            "description": "Clear briefing before we roll; steady pacing and organisation on the ride."
-          }
-        ]
-      }
-    },
-    {
-      "id": "gallery-1",
-      "type": "gallery",
-      "props": {
-        "heading": "Guided tour gallery",
-        "subheading": "We will add more photos from tours soon; for now here are highlights from the shop and events.",
-        "defaultImageAlt": "Guided tour",
-        "showLessLabel": "Show less",
-        "showMorePrefix": "Show more (",
-        "showMoreSuffix": ")",
-        "lightboxAltPrefix": "Gallery",
-        "images": [
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
-            "alt": "Guided tour 1"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
-            "alt": "Guided tour 2"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
-            "alt": "Guided tour 3"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
-            "alt": "Guided tour 4"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
-            "alt": "Guided tour 5"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480191/IMG_2611_wxpwqs.heic",
-            "alt": "Guided tour 6"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480188/1000026613_nfxcr7.jpg",
-            "alt": "Guided tour 7"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480178/1000006042_tivdyq.jpg",
-            "alt": "Guided tour 8"
-          }
-        ]
-      }
-    },
-    {
-      "id": "service-process-1",
-      "type": "service-process",
-      "props": {
-        "heading": "How we run a tour",
-        "subheading": "Simple and flexible — everything by agreement.",
-        "steps": [
-          {
-            "title": "Enquiry",
-            "description": "You share preferred dates, group size, and roughly what kind of ride you want.",
-            "icon": "contact",
-            "details": ["Phone or email", "Suggested time slots"]
-          },
-          {
-            "title": "Plan the route",
-            "description": "Together we set level, length, and terrain — from easy paths to more technical trails.",
-            "icon": "bike",
-            "details": ["Matched to the group", "Duration and pace"]
-          },
-          {
-            "title": "Ride day",
-            "description": "On the day we lead clearly, cover safety, and keep the group feeling good.",
-            "icon": "tools",
-            "details": ["Safety before we start", "Breaks as agreed"]
-          },
-          {
-            "title": "Wrap-up",
-            "description": "Short feedback after the tour; we can suggest a next route if you like.",
-            "icon": "check",
-            "details": ["Quick recap", "Ideas for next time"]
-          }
-        ]
-      }
-    },
-    {
-      "id": "cta-1",
-      "type": "cta-banner",
-      "props": {
-        "heading": "Book your guided tour",
-        "subheading": "Tours run by appointment, depending on availability.",
-        "cta": {
-          "label": "Contact",
-          "href": "/en/contact"
+      "__component": "blocks.gallery",
+      "id": 18,
+      "heading": "Guided tour gallery",
+      "subheading": "We will add more photos from tours soon; for now here are highlights from the shop and events.",
+      "defaultImageAlt": "Guided tour",
+      "showLessLabel": "Show less",
+      "showMorePrefix": "Show more (",
+      "showMoreSuffix": ")",
+      "lightboxAltPrefix": "Gallery",
+      "images": [
+        {
+          "id": 10,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
+          "alt": "Guided tour 1"
         },
-        "background": "primary"
-      }
+        {
+          "id": 11,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
+          "alt": "Guided tour 2"
+        },
+        {
+          "id": 12,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
+          "alt": "Guided tour 3"
+        },
+        {
+          "id": 13,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
+          "alt": "Guided tour 4"
+        },
+        {
+          "id": 14,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
+          "alt": "Guided tour 5"
+        },
+        {
+          "id": 15,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480191/IMG_2611_wxpwqs.heic",
+          "alt": "Guided tour 6"
+        },
+        {
+          "id": 16,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480188/1000026613_nfxcr7.jpg",
+          "alt": "Guided tour 7"
+        },
+        {
+          "id": 17,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480178/1000006042_tivdyq.jpg",
+          "alt": "Guided tour 8"
+        }
+      ]
+    },
+    {
+      "__component": "blocks.service-process",
+      "id": 23,
+      "heading": "How we run a tour",
+      "subheading": "Simple and flexible — everything by agreement.",
+      "steps": [
+        {
+          "id": 19,
+          "title": "Enquiry",
+          "description": "You share preferred dates, group size, and roughly what kind of ride you want.",
+          "icon": "contact",
+          "details": "Phone or email\nSuggested time slots"
+        },
+        {
+          "id": 20,
+          "title": "Plan the route",
+          "description": "Together we set level, length, and terrain — from easy paths to more technical trails.",
+          "icon": "bike",
+          "details": "Matched to the group\nDuration and pace"
+        },
+        {
+          "id": 21,
+          "title": "Ride day",
+          "description": "On the day we lead clearly, cover safety, and keep the group feeling good.",
+          "icon": "tools",
+          "details": "Safety before we start\nBreaks as agreed"
+        },
+        {
+          "id": 22,
+          "title": "Wrap-up",
+          "description": "Short feedback after the tour; we can suggest a next route if you like.",
+          "icon": "check",
+          "details": "Quick recap\nIdeas for next time"
+        }
+      ]
+    },
+    {
+      "__component": "blocks.cta-banner",
+      "id": 25,
+      "heading": "Book your guided tour",
+      "subheading": "Tours run by appointment, depending on availability.",
+      "cta": {
+        "id": 24,
+        "label": "Contact",
+        "href": "/en/contact"
+      },
+      "background": "primary"
     }
-  ]
+  ],
+  "lang": "en"
 }

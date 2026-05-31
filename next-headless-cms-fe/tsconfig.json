@@ -53,9 +53,10 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
+    ".next-vukans-bike/types/**/*.ts",
     ".next/types/**/*.ts",
     "next-env.d.ts",
-    ".next-vukans-bike/types/**/*.ts"
+    ".next-resort-example/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_blocks_service_packages",
+  "info": {
+    "name": "ServicePackage",
+    "icon": "tag",
+    "displayName": "Service — Package",
+    "description": "A single service pricing tier with features list"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "label": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "priceDisplay": {
+      "type": "string"
+    },
+    "priceNote": {
+      "type": "string"
+    },
+    "features": {
+      "type": "text",
+      "required": true,
+      "description": "Feature list, one item per line."
+    },
+    "turnaround": {
+      "type": "string"
+    }
+  }
+}

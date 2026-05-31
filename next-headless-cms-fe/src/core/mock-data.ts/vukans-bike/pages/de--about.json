@@ -1,104 +1,99 @@
 {
   "slug": "/about",
-  "locale": "de",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "Über uns — Vukan's Bike Shop",
     "description": "Die Geschichte von Vukan's Bike in Apače: Service und Fahrradhandel aller Art, persönliche Betreuung und langjährige Erfahrung mit Mountainbikes und MTB.",
     "ogImage": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=1200&h=630&fit=crop"
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Über uns",
-        "subheadline": "Fahrräder aller Art in Apače — ein Mensch, ein Ansatz.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Service",
-          "href": "/de/service"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "Über uns",
+      "subheadline": "Fahrräder aller Art in Apače — ein Mensch, ein Ansatz.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Service",
+        "href": "/de/service"
+      },
+      "secondaryCta": {
+        "id": 3,
+        "label": "Kontakt",
+        "href": "/de/contact"
+      }
+    },
+    {
+      "__component": "blocks.about-story",
+      "id": 5,
+      "kicker": "Unsere Geschichte",
+      "headline": "Von der Leidenschaft zu Service und Laden",
+      "quote": "Ein Fahrrad ist nicht nur Transport — es ist Freiheit. Wir möchten, dass jeder seine Abenteuer mitnimmt.",
+      "body": "Vukan's Bike Shop entstand aus der Liebe zum Rad und dem Wunsch, in der Region einen Ort für qualitativ hochwertigen Service, ehrliche Beratung oder ein neues Rad zu schaffen — egal, ob Sie in der Stadt, auf der Straße oder auf Trails unterwegs sind.\n\nWir arbeiten in Apače. Wir warten und beraten alle Fahrradarten; unsere besondere Leidenschaft und die längste Erfahrung liegen weiterhin bei Mountainbikes und MTB — vom Basis-Service bis zu kompletten Reparaturen und Maßaufbauten. Keine anonyme Werkstatt — ein Experte, der Ihr Rad und Ihre Bedürfnisse kennt.\n\nWir glauben an persönlichen Kontakt, faire Preise und Arbeit, auf die Sie sich verlassen können. Wenn Sie einen Partner für Ihre nächsten Touren suchen, sind Sie hier richtig.",
+      "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776428488/9c4caa91-a86a-43e4-a8f7-39a45f2620d3_pezutz.jpg",
+      "imagePosition": "right"
+    },
+    {
+      "__component": "blocks.about-person",
+      "id": 7,
+      "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775401858/1000024272_almr2a.jpg",
+      "name": "Gregor Vukan",
+      "role": "Inhaber und Experte",
+      "bio": "Seit vielen Jahren beschäftige ich mich mit Fahrrädern; besonders begeistern mich Mountainbikes und anspruchsvolleres Gelände. Bei Vukan's Bike Shop kümmere ich mich um Service, Verkauf und Beratung für alle Radtypen — alles an einem Ort, persönlich. Ich helfe Ihnen gern, das richtige Rad zu wählen oder es für die nächste Saison fit zu machen. Rufen Sie an oder kommen Sie nach Apače.",
+      "cta": {
+        "id": 6,
+        "label": "Kontakt",
+        "href": "/de/contact"
+      }
+    },
+    {
+      "__component": "blocks.about-values",
+      "id": 12,
+      "eyebrowBadge": "Unsere Werte",
+      "heading": "Warum wir",
+      "subheading": "Unsere Werte sind einfach: Qualität, Ehrlichkeit und Ihr Vertrauen.",
+      "items": [
+        {
+          "id": 8,
+          "icon": "bike",
+          "title": "Alle Fahrradarten",
+          "description": "Stadt, Rennrad, Gravel, E-Bike und MTB — wir kennen Antrieb, Bremsen und Geometrie. Bei Mountainbikes und Trail haben wir besonders viel Erfahrung."
         },
-        "secondaryCta": {
-          "label": "Kontakt",
-          "href": "/de/contact"
-        }
-      }
-    },
-    {
-      "id": "about-story-1",
-      "type": "about-story",
-      "props": {
-        "kicker": "Unsere Geschichte",
-        "headline": "Von der Leidenschaft zu Service und Laden",
-        "quote": "Ein Fahrrad ist nicht nur Transport — es ist Freiheit. Wir möchten, dass jeder seine Abenteuer mitnimmt.",
-        "body": [
-          "Vukan's Bike Shop entstand aus der Liebe zum Rad und dem Wunsch, in der Region einen Ort für qualitativ hochwertigen Service, ehrliche Beratung oder ein neues Rad zu schaffen — egal, ob Sie in der Stadt, auf der Straße oder auf Trails unterwegs sind.",
-          "Wir arbeiten in Apače. Wir warten und beraten alle Fahrradarten; unsere besondere Leidenschaft und die längste Erfahrung liegen weiterhin bei Mountainbikes und MTB — vom Basis-Service bis zu kompletten Reparaturen und Maßaufbauten. Keine anonyme Werkstatt — ein Experte, der Ihr Rad und Ihre Bedürfnisse kennt.",
-          "Wir glauben an persönlichen Kontakt, faire Preise und Arbeit, auf die Sie sich verlassen können. Wenn Sie einen Partner für Ihre nächsten Touren suchen, sind Sie hier richtig."
-        ],
-        "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776428488/9c4caa91-a86a-43e4-a8f7-39a45f2620d3_pezutz.jpg",
-        "imagePosition": "right"
-      }
-    },
-    {
-      "id": "about-person-1",
-      "type": "about-person",
-      "props": {
-        "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775401858/1000024272_almr2a.jpg",
-        "name": "Gregor Vukan",
-        "role": "Inhaber und Experte",
-        "bio": "Seit vielen Jahren beschäftige ich mich mit Fahrrädern; besonders begeistern mich Mountainbikes und anspruchsvolleres Gelände. Bei Vukan's Bike Shop kümmere ich mich um Service, Verkauf und Beratung für alle Radtypen — alles an einem Ort, persönlich. Ich helfe Ihnen gern, das richtige Rad zu wählen oder es für die nächste Saison fit zu machen. Rufen Sie an oder kommen Sie nach Apače.",
-        "cta": {
-          "label": "Kontakt",
-          "href": "/de/contact"
-        }
-      }
-    },
-    {
-      "id": "about-values-1",
-      "type": "about-values",
-      "props": {
-        "eyebrowBadge": "Unsere Werte",
-        "heading": "Warum wir",
-        "subheading": "Unsere Werte sind einfach: Qualität, Ehrlichkeit und Ihr Vertrauen.",
-        "items": [
-          {
-            "icon": "bike",
-            "title": "Alle Fahrradarten",
-            "description": "Stadt, Rennrad, Gravel, E-Bike und MTB — wir kennen Antrieb, Bremsen und Geometrie. Bei Mountainbikes und Trail haben wir besonders viel Erfahrung."
-          },
-          {
-            "icon": "users",
-            "title": "Persönlicher Ansatz",
-            "description": "Ein Experte, ein Ansprechpartner. Keine anonyme Werkstatt; wir arbeiten nach Vereinbarung und passen die Zeit an."
-          },
-          {
-            "icon": "shield",
-            "title": "Fairer Preis",
-            "description": "Transparente Preise und klare Angebote. Keine versteckten Kosten — Sie wissen vorher, was es kostet."
-          },
-          {
-            "icon": "location",
-            "title": "Lokal in Apače",
-            "description": "Laden und Service in Ihrer Nähe. Partner und Events in der Region — Teil der Community."
-          }
-        ]
-      }
-    },
-    {
-      "id": "cta-1",
-      "type": "cta-banner",
-      "props": {
-        "heading": "Bereit für Service oder ein neues Rad?",
-        "subheading": "Besuchen Sie uns in Apače oder rufen Sie uns an unter 070 815 379.",
-        "cta": {
-          "label": "Kontakt",
-          "href": "/de/contact"
+        {
+          "id": 9,
+          "icon": "users",
+          "title": "Persönlicher Ansatz",
+          "description": "Ein Experte, ein Ansprechpartner. Keine anonyme Werkstatt; wir arbeiten nach Vereinbarung und passen die Zeit an."
         },
-        "background": "primary"
-      }
+        {
+          "id": 10,
+          "icon": "shield",
+          "title": "Fairer Preis",
+          "description": "Transparente Preise und klare Angebote. Keine versteckten Kosten — Sie wissen vorher, was es kostet."
+        },
+        {
+          "id": 11,
+          "icon": "location",
+          "title": "Lokal in Apače",
+          "description": "Laden und Service in Ihrer Nähe. Partner und Events in der Region — Teil der Community."
+        }
+      ]
+    },
+    {
+      "__component": "blocks.cta-banner",
+      "id": 14,
+      "heading": "Bereit für Service oder ein neues Rad?",
+      "subheading": "Besuchen Sie uns in Apače oder rufen Sie uns an unter 070 815 379.",
+      "cta": {
+        "id": 13,
+        "label": "Kontakt",
+        "href": "/de/contact"
+      },
+      "background": "primary"
     }
-  ]
+  ],
+  "lang": "de"
 }

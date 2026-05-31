@@ -1,288 +1,225 @@
 {
   "slug": "/service",
-  "locale": "de",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "Fahrradservice — Vukan's Bike",
     "description": "Service und Reparaturen für alle Fahrradarten. Ein Experte, persönlicher Ansatz. Kontakt: 070 815 379 oder per E-Mail.",
     "ogImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=630&fit=crop"
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Fahrradservice",
-        "subheadline": "Reparaturen, Wartung und Inspektion für Urban-, Renn-, Gravel-, Mountain- und E-Bikes. Persönlicher Service — ein Mechaniker, der Ihr Rad kennt; bei MTB und Trail haben wir besonders viel Erfahrung.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402138/IMG_4568_xculvx.heic",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Kontakt",
-          "href": "#kontakt"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "Fahrradservice",
+      "subheadline": "Reparaturen, Wartung und Inspektion für Urban-, Renn-, Gravel-, Mountain- und E-Bikes. Persönlicher Service — ein Mechaniker, der Ihr Rad kennt; bei MTB und Trail haben wir besonders viel Erfahrung.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402138/IMG_4568_xculvx.heic",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Kontakt",
+        "href": "#kontakt"
+      },
+      "secondaryCta": {
+        "id": 3,
+        "label": "Preisliste",
+        "href": "#cenik"
+      }
+    },
+    {
+      "__component": "blocks.service-pricing",
+      "id": 14,
+      "heading": "Servicepreise",
+      "subheading": "Preise nach Vereinbarung; für einen festen Termin kontaktieren Sie uns per E-Mail oder unter 070 815 379.",
+      "packages": [
+        {
+          "id": 5,
+          "name": "Basis-Service",
+          "description": "Inspektion und grundlegende Wartung der mechanischen Baugruppen.",
+          "price": 39,
+          "features": "Funktionsprüfung und Feineinstellung von Schaltung und Bremsen\nReifendruck prüfen und bei Bedarf anpassen\nKettenverschleiß messen\nGrundzentrierung der Laufräder\nKette schmieren (Öl oder flüssiges Wachs)\nSchmierung wichtiger beweglicher Punkte\nSpielausgleich am Steuersatz\nVerbrauch von Reinigern und Schmiermitteln im Preis enthalten"
         },
-        "secondaryCta": {
-          "label": "Preisliste",
-          "href": "#cenik"
+        {
+          "id": 6,
+          "name": "Basis-Service E-Bike",
+          "label": "E-Bike",
+          "description": "Wie Basis-Service, plus Diagnose und Software-Updates für Antriebe von Bosch, Shimano und Giant.",
+          "price": 55,
+          "features": "Funktionsprüfung und Feineinstellung von Schaltung und Bremsen\nReifendruck prüfen und bei Bedarf anpassen\nKettenverschleiß messen\nGrundzentrierung der Laufräder\nKette schmieren (Öl oder flüssiges Wachs)\nSchmierung wichtiger beweglicher Punkte\nSpielausgleich am Steuersatz\nVerbrauch von Reinigern und Schmiermitteln im Preis enthalten\nDiagnose, Software-Update und Ausdruck eines Berichts (Bosch, Shimano, Giant)"
+        },
+        {
+          "id": 7,
+          "name": "Regelmäßiger Service",
+          "description": "Umfassendere mechanische Inspektion von Antrieb, Bremsen und Lagern.",
+          "price": 70,
+          "features": "Antrieb prüfen und Schaltung präzise einstellen\nBremssystem, Beläge/Backen prüfen und bei Verschleiß tauschen\nReifendruck prüfen und bei Bedarf anpassen\nKettenverschleiß messen\nGrundzentrierung der Laufräder\nKette schmieren (Öl oder flüssiges Wachs)\nSchmierung wichtiger beweglicher Punkte\nSteuersatz und Tretlager prüfen, schmieren oder bei Bedarf tauschen\nZüge und Hüllen prüfen und bei Bedarf ersetzen\nNaben prüfen und bei Bedarf nachschmieren\nVerbrauch von Reinigern und Schmiermitteln im Preis enthalten"
+        },
+        {
+          "id": 8,
+          "name": "Regelmäßiger Service E-Bike",
+          "label": "E-Bike",
+          "description": "Wie regelmäßiger Service, plus Diagnose und Software-Updates für Antriebe von Bosch, Shimano und Giant.",
+          "price": 80,
+          "features": "Antrieb prüfen und Schaltung präzise einstellen\nBremssystem, Beläge/Backen prüfen und bei Verschleiß tauschen\nReifendruck prüfen und bei Bedarf anpassen\nKettenverschleiß messen und Kette bei Bedarf wechseln\nGrundzentrierung der Laufräder\nKette schmieren (Öl oder flüssiges Wachs)\nSchmierung wichtiger beweglicher Punkte\nSteuersatz prüfen, schmieren oder bei Bedarf tauschen\nZüge und Hüllen prüfen und bei Bedarf ersetzen\nNaben prüfen und bei Bedarf nachschmieren\nVerbrauch von Reinigern und Schmiermitteln im Preis enthalten\nDiagnose, Software-Update und Ausdruck eines Berichts (Bosch, Shimano, Giant)"
+        },
+        {
+          "id": 9,
+          "name": "Generalüberholung MTB mit Federgabel",
+          "label": "MTB",
+          "description": "Regelmäßiger Service mit Entlüften der hydraulischen Scheibenbremsen und Schnellreinigung.",
+          "price": 110,
+          "features": "Leistungsumfang des regelmäßigen Service\nEntlüften der vorderen und hinteren hydraulischen Scheibenbremse\nGrundlegende Schnellreinigung des Rads"
+        },
+        {
+          "id": 10,
+          "name": "Generalüberholung E-MTB mit Federgabel",
+          "label": "E-MTB",
+          "description": "Regelmäßiger E-Bike-Service mit Entlüften der hydraulischen Bremsen und Schnellreinigung.",
+          "price": 120,
+          "features": "Leistungsumfang des regelmäßigen E-Bike-Service\nEntlüften der vorderen und hinteren hydraulischen Scheibenbremse\nGrundlegende Schnellreinigung des Rads"
+        },
+        {
+          "id": 11,
+          "name": "Generalüberholung Fully MTB",
+          "label": "MTB Fully",
+          "description": "Regelmäßiger Service mit Bremsen, Reinigung und Lager-Service am Hinterbau (Lager nicht im Preis).",
+          "price": 150,
+          "features": "Leistungsumfang des regelmäßigen Service\nEntlüften der vorderen und hinteren hydraulischen Scheibenbremse\nGrundlegende Schnellreinigung des Rads\nHinterbau-Lager reinigen, prüfen und bei Bedarf tauschen (Lager separat berechnet)"
+        },
+        {
+          "id": 12,
+          "name": "Generalüberholung Fully E-MTB",
+          "label": "E-MTB Fully",
+          "description": "Regelmäßiger E-Bike-Service mit Bremsen, Reinigung und Lager-Service am Hinterbau (Lager nicht im Preis).",
+          "price": 170,
+          "features": "Leistungsumfang des regelmäßigen E-Bike-Service\nEntlüften der vorderen und hinteren hydraulischen Scheibenbremse\nGrundlegende Schnellreinigung des Rads\nHinterbau-Lager reinigen, prüfen und bei Bedarf tauschen (Lager separat berechnet)"
+        },
+        {
+          "id": 13,
+          "name": "Montage und Einstellung (Online-Kauf)",
+          "description": "Außerhalb der Kernzeiten: Aufbau, Einstellungen und Entsorgung der Verpackung.",
+          "price": 0,
+          "priceDisplay": "Nach Stunden",
+          "priceNote": "Abrechnung nach geleisteten Stunden",
+          "features": "Radmontage\nAnpassung aller wichtigen Komponenten (Vorbau, Reifen, Züge usw.)\nKomplettpaket der Grundeinstellungen\nMontage von Zubehör\nOrdnungsgemäße Entsorgung der Verpackung (Karton, Kunststoff usw.)\nGrundeinstellung der Federung (Sag und Rebound)"
         }
-      }
+      ],
+      "note": "Ersatzteile (z. B. Hinterbau-Lager, Bremsbeläge) und zusätzliche Reparaturen werden separat berechnet. Vor Arbeiten stimmen wir uns immer ab.",
+      "contactCta": "Für einen Service-Termin kontaktieren Sie uns per E-Mail oder Telefon",
+      "contactHref": "#kontakt"
     },
     {
-      "id": "service-pricing-1",
-      "type": "service-pricing",
-      "props": {
-        "heading": "Servicepreise",
-        "subheading": "Preise nach Vereinbarung; für einen festen Termin kontaktieren Sie uns per E-Mail oder unter 070 815 379.",
-        "packages": [
-          {
-            "id": "osnovni-servis",
-            "name": "Basis-Service",
-            "description": "Inspektion und grundlegende Wartung der mechanischen Baugruppen.",
-            "price": 39,
-            "features": [
-              "Funktionsprüfung und Feineinstellung von Schaltung und Bremsen",
-              "Reifendruck prüfen und bei Bedarf anpassen",
-              "Kettenverschleiß messen",
-              "Grundzentrierung der Laufräder",
-              "Kette schmieren (Öl oder flüssiges Wachs)",
-              "Schmierung wichtiger beweglicher Punkte",
-              "Spielausgleich am Steuersatz",
-              "Verbrauch von Reinigern und Schmiermitteln im Preis enthalten"
-            ]
-          },
-          {
-            "id": "osnovni-servis-ekolo",
-            "name": "Basis-Service E-Bike",
-            "label": "E-Bike",
-            "description": "Wie Basis-Service, plus Diagnose und Software-Updates für Antriebe von Bosch, Shimano und Giant.",
-            "price": 55,
-            "features": [
-              "Funktionsprüfung und Feineinstellung von Schaltung und Bremsen",
-              "Reifendruck prüfen und bei Bedarf anpassen",
-              "Kettenverschleiß messen",
-              "Grundzentrierung der Laufräder",
-              "Kette schmieren (Öl oder flüssiges Wachs)",
-              "Schmierung wichtiger beweglicher Punkte",
-              "Spielausgleich am Steuersatz",
-              "Verbrauch von Reinigern und Schmiermitteln im Preis enthalten",
-              "Diagnose, Software-Update und Ausdruck eines Berichts (Bosch, Shimano, Giant)"
-            ]
-          },
-          {
-            "id": "redni-servis",
-            "name": "Regelmäßiger Service",
-            "description": "Umfassendere mechanische Inspektion von Antrieb, Bremsen und Lagern.",
-            "price": 70,
-            "features": [
-              "Antrieb prüfen und Schaltung präzise einstellen",
-              "Bremssystem, Beläge/Backen prüfen und bei Verschleiß tauschen",
-              "Reifendruck prüfen und bei Bedarf anpassen",
-              "Kettenverschleiß messen",
-              "Grundzentrierung der Laufräder",
-              "Kette schmieren (Öl oder flüssiges Wachs)",
-              "Schmierung wichtiger beweglicher Punkte",
-              "Steuersatz und Tretlager prüfen, schmieren oder bei Bedarf tauschen",
-              "Züge und Hüllen prüfen und bei Bedarf ersetzen",
-              "Naben prüfen und bei Bedarf nachschmieren",
-              "Verbrauch von Reinigern und Schmiermitteln im Preis enthalten"
-            ]
-          },
-          {
-            "id": "redni-servis-ekolo",
-            "name": "Regelmäßiger Service E-Bike",
-            "label": "E-Bike",
-            "description": "Wie regelmäßiger Service, plus Diagnose und Software-Updates für Antriebe von Bosch, Shimano und Giant.",
-            "price": 80,
-            "features": [
-              "Antrieb prüfen und Schaltung präzise einstellen",
-              "Bremssystem, Beläge/Backen prüfen und bei Verschleiß tauschen",
-              "Reifendruck prüfen und bei Bedarf anpassen",
-              "Kettenverschleiß messen und Kette bei Bedarf wechseln",
-              "Grundzentrierung der Laufräder",
-              "Kette schmieren (Öl oder flüssiges Wachs)",
-              "Schmierung wichtiger beweglicher Punkte",
-              "Steuersatz prüfen, schmieren oder bei Bedarf tauschen",
-              "Züge und Hüllen prüfen und bei Bedarf ersetzen",
-              "Naben prüfen und bei Bedarf nachschmieren",
-              "Verbrauch von Reinigern und Schmiermitteln im Preis enthalten",
-              "Diagnose, Software-Update und Ausdruck eines Berichts (Bosch, Shimano, Giant)"
-            ]
-          },
-          {
-            "id": "generalni-gorsko-prednje-vzmetenje",
-            "name": "Generalüberholung MTB mit Federgabel",
-            "label": "MTB",
-            "description": "Regelmäßiger Service mit Entlüften der hydraulischen Scheibenbremsen und Schnellreinigung.",
-            "price": 110,
-            "features": [
-              "Leistungsumfang des regelmäßigen Service",
-              "Entlüften der vorderen und hinteren hydraulischen Scheibenbremse",
-              "Grundlegende Schnellreinigung des Rads"
-            ]
-          },
-          {
-            "id": "generalni-gorsko-e-prednje-vzmetenje",
-            "name": "Generalüberholung E-MTB mit Federgabel",
-            "label": "E-MTB",
-            "description": "Regelmäßiger E-Bike-Service mit Entlüften der hydraulischen Bremsen und Schnellreinigung.",
-            "price": 120,
-            "features": [
-              "Leistungsumfang des regelmäßigen E-Bike-Service",
-              "Entlüften der vorderen und hinteren hydraulischen Scheibenbremse",
-              "Grundlegende Schnellreinigung des Rads"
-            ]
-          },
-          {
-            "id": "generalni-polnovzp-gorsko",
-            "name": "Generalüberholung Fully MTB",
-            "label": "MTB Fully",
-            "description": "Regelmäßiger Service mit Bremsen, Reinigung und Lager-Service am Hinterbau (Lager nicht im Preis).",
-            "price": 150,
-            "features": [
-              "Leistungsumfang des regelmäßigen Service",
-              "Entlüften der vorderen und hinteren hydraulischen Scheibenbremse",
-              "Grundlegende Schnellreinigung des Rads",
-              "Hinterbau-Lager reinigen, prüfen und bei Bedarf tauschen (Lager separat berechnet)"
-            ]
-          },
-          {
-            "id": "generalni-polnovzp-gorsko-e",
-            "name": "Generalüberholung Fully E-MTB",
-            "label": "E-MTB Fully",
-            "description": "Regelmäßiger E-Bike-Service mit Bremsen, Reinigung und Lager-Service am Hinterbau (Lager nicht im Preis).",
-            "price": 170,
-            "features": [
-              "Leistungsumfang des regelmäßigen E-Bike-Service",
-              "Entlüften der vorderen und hinteren hydraulischen Scheibenbremse",
-              "Grundlegende Schnellreinigung des Rads",
-              "Hinterbau-Lager reinigen, prüfen und bei Bedarf tauschen (Lager separat berechnet)"
-            ]
-          },
-          {
-            "id": "sestava-spletna-nakup",
-            "name": "Montage und Einstellung (Online-Kauf)",
-            "description": "Außerhalb der Kernzeiten: Aufbau, Einstellungen und Entsorgung der Verpackung.",
-            "price": 0,
-            "priceDisplay": "Nach Stunden",
-            "priceNote": "Abrechnung nach geleisteten Stunden",
-            "features": [
-              "Radmontage",
-              "Anpassung aller wichtigen Komponenten (Vorbau, Reifen, Züge usw.)",
-              "Komplettpaket der Grundeinstellungen",
-              "Montage von Zubehör",
-              "Ordnungsgemäße Entsorgung der Verpackung (Karton, Kunststoff usw.)",
-              "Grundeinstellung der Federung (Sag und Rebound)"
-            ]
-          }
-        ],
-        "note": "Ersatzteile (z. B. Hinterbau-Lager, Bremsbeläge) und zusätzliche Reparaturen werden separat berechnet. Vor Arbeiten stimmen wir uns immer ab.",
-        "contactCta": "Für einen Service-Termin kontaktieren Sie uns per E-Mail oder Telefon",
-        "contactHref": "#kontakt"
-      }
-    },
-    {
-      "id": "service-process-1",
-      "type": "service-process",
-      "props": {
-        "heading": "Ablauf des Service",
-        "subheading": "Einfach: schreiben oder anrufen, wir vereinbaren alles.",
-        "steps": [
-          {
-            "title": "Kontakt",
-            "description": "E-Mail senden oder 070 815 379 anrufen. Beschreiben Sie, was mit dem Rad ist, und wir vereinbaren die Abgabe.",
-            "icon": "contact",
-            "details": [
-              "E-Mail oder Telefon",
-              "Termin für die Abgabe"
-            ]
-          },
-          {
-            "title": "Rad abgeben",
-            "description": "Sie bringen das Rad in die Werkstatt. Wir schauen es kurz an und sagen Ihnen, was nötig ist und zu welchem Preis.",
-            "icon": "bike",
-            "details": [
-              "Kurzcheck",
-              "Angebot und Absprache"
-            ]
-          },
-          {
-            "title": "Service",
-            "description": "Den Service erledigt ein Mechaniker. Wenn das Rad fertig ist, informieren wir Sie.",
-            "icon": "tools",
-            "details": [
-              "Persönlicher Ansatz",
-              "Benachrichtigung nach Abschluss"
-            ]
-          },
-          {
-            "title": "Abholung",
-            "description": "Sie holen das Rad ab und prüfen, ob alles passt. Zahlung bei Abholung.",
-            "icon": "check",
-            "details": [
-              "Zahlung bei Abholung",
-              "Bei Bedarf kurze Probefahrt"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "service-faq-1",
-      "type": "service-faq",
-      "props": {
-        "heading": "Häufige Fragen",
-        "subheading": "Antworten rund um den Service",
-        "items": [
-          {
-            "question": "Wie buche ich einen Service?",
-            "answer": "Rufen Sie 070 815 379 an oder schreiben Sie eine E-Mail. Beschreiben Sie das Problem oder den gewünschten Service, dann vereinbaren wir die Abgabe des Rads. Es gibt keine festen Öffnungszeiten — Termine immer nach Absprache."
-          },
-          {
-            "question": "Welche Fahrräder warten Sie?",
-            "answer": "Alle: Urban, Rennrad, Gravel, Mountainbike und E-Bikes (mechanischer Teil). Die meiste Erfahrung haben wir bei MTB und Trail, behandeln aber alle Typen mit derselben Sorgfalt."
-          },
-          {
-            "question": "Wie schnell ist das Rad fertig?",
-            "answer": "Das hängt vom Umfang und der aktuellen Auslastung ab. Bei Abgabe nennen wir einen ungefähren Termin. Kleine dringende Reparaturen sind oft schneller möglich."
-          },
-          {
-            "question": "Brauche ich eine Anzahlung?",
-            "answer": "Nein. Zahlung bei Abholung. Bei teureren Ersatzteilen informieren wir Sie vorher."
-          },
-          {
-            "question": "Warten Sie auch E-Bikes?",
-            "answer": "Den mechanischen Teil ja. Für Akkus und Motoren empfehlen wir den Hersteller-Service, außer bei einfachen Angelegenheiten."
-          }
-        ],
-        "contactCta": {
-          "text": "Noch eine Frage?",
-          "label": "Anrufen oder schreiben",
-          "href": "#kontakt"
+      "__component": "blocks.service-process",
+      "id": 19,
+      "heading": "Ablauf des Service",
+      "subheading": "Einfach: schreiben oder anrufen, wir vereinbaren alles.",
+      "steps": [
+        {
+          "id": 15,
+          "title": "Kontakt",
+          "description": "E-Mail senden oder 070 815 379 anrufen. Beschreiben Sie, was mit dem Rad ist, und wir vereinbaren die Abgabe.",
+          "icon": "contact",
+          "details": "E-Mail oder Telefon\nTermin für die Abgabe"
+        },
+        {
+          "id": 16,
+          "title": "Rad abgeben",
+          "description": "Sie bringen das Rad in die Werkstatt. Wir schauen es kurz an und sagen Ihnen, was nötig ist und zu welchem Preis.",
+          "icon": "bike",
+          "details": "Kurzcheck\nAngebot und Absprache"
+        },
+        {
+          "id": 17,
+          "title": "Service",
+          "description": "Den Service erledigt ein Mechaniker. Wenn das Rad fertig ist, informieren wir Sie.",
+          "icon": "tools",
+          "details": "Persönlicher Ansatz\nBenachrichtigung nach Abschluss"
+        },
+        {
+          "id": 18,
+          "title": "Abholung",
+          "description": "Sie holen das Rad ab und prüfen, ob alles passt. Zahlung bei Abholung.",
+          "icon": "check",
+          "details": "Zahlung bei Abholung\nBei Bedarf kurze Probefahrt"
         }
-      }
+      ]
     },
     {
-      "id": "service-contact-1",
-      "type": "service-contact",
-      "props": {
-        "heading": "Kontakt Service",
-        "text": "Für eine Servicebuchung oder Fragen erreichen Sie uns per E-Mail oder Telefon. Wir arbeiten nach Vereinbarung, ohne festen Stundenplan.",
-        "phone": "070 815 379",
-        "phoneHref": "+38670815379",
-        "email": "vukansbike@gmail.com",
-        "ctaText": "E-Mail senden"
-      }
+      "__component": "blocks.service-faq",
+      "id": 25,
+      "heading": "Häufige Fragen",
+      "subheading": "Antworten rund um den Service",
+      "items": [
+        {
+          "id": 20,
+          "question": "Wie buche ich einen Service?",
+          "answer": "Rufen Sie 070 815 379 an oder schreiben Sie eine E-Mail. Beschreiben Sie das Problem oder den gewünschten Service, dann vereinbaren wir die Abgabe des Rads. Es gibt keine festen Öffnungszeiten — Termine immer nach Absprache."
+        },
+        {
+          "id": 21,
+          "question": "Welche Fahrräder warten Sie?",
+          "answer": "Alle: Urban, Rennrad, Gravel, Mountainbike und E-Bikes (mechanischer Teil). Die meiste Erfahrung haben wir bei MTB und Trail, behandeln aber alle Typen mit derselben Sorgfalt."
+        },
+        {
+          "id": 22,
+          "question": "Wie schnell ist das Rad fertig?",
+          "answer": "Das hängt vom Umfang und der aktuellen Auslastung ab. Bei Abgabe nennen wir einen ungefähren Termin. Kleine dringende Reparaturen sind oft schneller möglich."
+        },
+        {
+          "id": 23,
+          "question": "Brauche ich eine Anzahlung?",
+          "answer": "Nein. Zahlung bei Abholung. Bei teureren Ersatzteilen informieren wir Sie vorher."
+        },
+        {
+          "id": 24,
+          "question": "Warten Sie auch E-Bikes?",
+          "answer": "Den mechanischen Teil ja. Für Akkus und Motoren empfehlen wir den Hersteller-Service, außer bei einfachen Angelegenheiten."
+        }
+      ],
+      "contactCtaText": "Noch eine Frage?",
+      "contactCtaLabel": "Anrufen oder schreiben",
+      "contactCtaHref": "#kontakt"
+    },
+    {
+      "__component": "blocks.service-contact",
+      "id": 26,
+      "heading": "Kontakt Service",
+      "text": "Für eine Servicebuchung oder Fragen erreichen Sie uns per E-Mail oder Telefon. Wir arbeiten nach Vereinbarung, ohne festen Stundenplan.",
+      "phone": "070 815 379",
+      "phoneHref": "+38670815379",
+      "email": "vukansbike@gmail.com",
+      "ctaText": "E-Mail senden"
     }
   ],
   "navigation": {
     "header": [
-      { "label": "Start", "href": "/de" },
-      { "label": "Service", "href": "/de/service" },
-      { "label": "Kontakt", "href": "/de/contact" }
+      {
+        "label": "Start",
+        "href": "/de"
+      },
+      {
+        "label": "Service",
+        "href": "/de/service"
+      },
+      {
+        "label": "Kontakt",
+        "href": "/de/contact"
+      }
     ],
     "footer": [
-      { "label": "Über uns", "href": "/de/about" },
-      { "label": "Datenschutz", "href": "/de/privacy" },
-      { "label": "AGB", "href": "/de/terms" }
+      {
+        "label": "Über uns",
+        "href": "/de/about"
+      },
+      {
+        "label": "Datenschutz",
+        "href": "/de/privacy"
+      },
+      {
+        "label": "AGB",
+        "href": "/de/terms"
+      }
     ]
-  }
+  },
+  "lang": "de"
 }

@@ -106,8 +106,8 @@ export function PartnersGallery({
 
         {/* Partners grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {partners.map((partner) => (
-            <PartnerCard key={partner.id} partner={partner} defaultPartnerLinkLabel={defaultPartnerLinkLabel} />
+          {partners.map((partner, index) => (
+            <PartnerCard key={`${partner.name}-${index}`} partner={partner} defaultPartnerLinkLabel={defaultPartnerLinkLabel} />
           ))}
         </div>
       </div>

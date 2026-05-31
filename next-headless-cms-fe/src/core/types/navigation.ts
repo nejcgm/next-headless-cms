@@ -5,7 +5,6 @@ export interface NavItem {
   isExternal?: boolean;
 }
 
-/** Footer chrome copy (mock `navigation.json` or CMS). */
 export interface FooterCopy {
   tagline: string;
   linksHeading: string;

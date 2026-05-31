@@ -32,9 +32,9 @@ function FaqAccordion({ item, isOpen, onToggle }: { item: FaqItem; isOpen: boole
   );
 }
 
-export function ServiceFaq({ heading, subheading, items, contactCta }: ServiceFaqProps) {
+export function ServiceFaq({ heading, subheading, items, contactCtaText, contactCtaLabel, contactCtaHref }: ServiceFaqProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const ctaIsExternal = contactCta ? isExternalHref(contactCta.href) : false;
+  const ctaIsExternal = contactCtaHref ? isExternalHref(contactCtaHref) : false;
 
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -68,16 +68,18 @@ export function ServiceFaq({ heading, subheading, items, contactCta }: ServiceFa
         </div>
 
         {/* Contact CTA */}
-        {contactCta && (
+        {contactCtaLabel && contactCtaHref && (
           <div className="mt-12 text-center p-6 bg-[var(--color-muted)] rounded-[var(--radius)] border border-[var(--color-border)]">
-            <p className="text-[var(--color-muted-foreground)] mb-3">{contactCta.text}</p>
+            {contactCtaText && (
+              <p className="text-[var(--color-muted-foreground)] mb-3">{contactCtaText}</p>
+            )}
             <a
-              href={contactCta.href}
+              href={contactCtaHref}
               target={ctaIsExternal ? "_blank" : undefined}
               rel={ctaIsExternal ? "noopener noreferrer" : undefined}
               className="inline-flex items-center gap-2 text-[var(--color-primary)] font-semibold hover:underline"
             >
-              {contactCta.label}
+              {contactCtaLabel}
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

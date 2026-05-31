@@ -1,61 +1,66 @@
 {
   "slug": "/bikes/all-terrain-ebike",
-  "locale": "de",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "All-Terrain E-MTB — Vukan's Bike Shop",
     "description": "Elektro-MTB mit 750-W-Motor. Akku 625 Wh, Reichweite bis 100 km. Kontakt: 070 815 379.",
     "ogImage": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1200&h=630&fit=crop"
   },
   "blocks": [
     {
-      "id": "bike-detail-1",
-      "type": "bike-detail",
-      "props": {
-        "labels": {
-          "notFoundTitle": "Rad nicht gefunden",
-          "notFoundBody": "Das gesuchte Fahrrad ist nicht verfügbar.",
-          "notFoundCtaLabel": "Zur Startseite",
-          "notFoundCtaHref": "/de",
-          "breadcrumbHome": "Start",
-          "breadcrumbHomeHref": "/de",
-          "breadcrumbBikes": "Fahrräder zum Verkauf",
-          "breadcrumbBikesHref": "/de#kolesa",
-          "outOfStock": "Nicht vorrätig",
-          "descriptionHeading": "Beschreibung",
-          "specsHeading": "Spezifikationen",
-          "contactTeaser": "Für Besichtigung, Probefahrt oder Kauf kontaktieren Sie uns.",
-          "contactPhoneLabel": "070 815 379",
-          "contactPhoneHref": "tel:+38670815379",
-          "contactCtaLabel": "Kontakt",
-          "contactCtaHref": "/de/contact"
-        },
-        "bike": {
-          "id": "prod-2",
-          "name": "All-Terrain E-MTB",
-          "slug": "all-terrain-ebike",
-          "description": "Elektro-Mountainbike mit leistungsstarkem 750-W-Motor und 80 Nm Drehmoment. Der 625-Wh-Akku ermöglicht im Unterstützungsmodus bis zu 100 km Reichweite. Ideal für lange Anstiege und technische Singletrails. Akku im Rahmen integriert für optimales Handling.",
-          "shortDescription": "E-MTB 750 W, Reichweite bis 100 km",
-          "price": 4299,
-          "image": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=600&h=600&fit=crop",
-          "images": [
-            "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&h=800&fit=crop"
-          ],
-          "category": "E-Bikes",
-          "inStock": true,
-          "tags": ["E-Bike", "elektrisch", "Mountainbike", "750-W-Motor"],
-          "specs": {
-            "Motor": "750 W, 80 Nm Drehmoment",
-            "Akku": "625 Wh integriert",
-            "Reichweite": "bis 100 km (Unterstützung)",
-            "Rahmen": "verstärktes Aluminium",
-            "Display": "LCD-Farbdisplay mit Bluetooth",
-            "Gewicht": "22,5 kg mit Akku"
-          }
+      "__component": "blocks.bike-detail",
+      "id": 3,
+      "labels": {
+        "id": 2,
+        "notFoundTitle": "Rad nicht gefunden",
+        "notFoundBody": "Das gesuchte Fahrrad ist nicht verfügbar.",
+        "notFoundCtaLabel": "Zur Startseite",
+        "notFoundCtaHref": "/de",
+        "breadcrumbHome": "Start",
+        "breadcrumbHomeHref": "/de",
+        "breadcrumbBikes": "Fahrräder zum Verkauf",
+        "breadcrumbBikesHref": "/de#kolesa",
+        "outOfStock": "Nicht vorrätig",
+        "descriptionHeading": "Beschreibung",
+        "specsHeading": "Spezifikationen",
+        "contactTeaser": "Für Besichtigung, Probefahrt oder Kauf kontaktieren Sie uns.",
+        "contactPhoneLabel": "070 815 379",
+        "contactPhoneHref": "tel:+38670815379",
+        "contactCtaLabel": "Kontakt",
+        "contactCtaHref": "/de/contact"
+      },
+      "bike": {
+        "id": "prod-2",
+        "name": "All-Terrain E-MTB",
+        "slug": "all-terrain-ebike",
+        "description": "Elektro-Mountainbike mit leistungsstarkem 750-W-Motor und 80 Nm Drehmoment. Der 625-Wh-Akku ermöglicht im Unterstützungsmodus bis zu 100 km Reichweite. Ideal für lange Anstiege und technische Singletrails. Akku im Rahmen integriert für optimales Handling.",
+        "shortDescription": "E-MTB 750 W, Reichweite bis 100 km",
+        "price": 4299,
+        "image": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=600&h=600&fit=crop",
+        "images": [
+          "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&h=800&fit=crop"
+        ],
+        "category": "E-Bikes",
+        "inStock": true,
+        "tags": [
+          "E-Bike",
+          "elektrisch",
+          "Mountainbike",
+          "750-W-Motor"
+        ],
+        "specs": {
+          "Motor": "750 W, 80 Nm Drehmoment",
+          "Akku": "625 Wh integriert",
+          "Reichweite": "bis 100 km (Unterstützung)",
+          "Rahmen": "verstärktes Aluminium",
+          "Display": "LCD-Farbdisplay mit Bluetooth",
+          "Gewicht": "22,5 kg mit Akku"
         }
       }
     }
-  ]
+  ],
+  "lang": "de"
 }

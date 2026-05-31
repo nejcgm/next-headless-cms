@@ -1,25 +1,90 @@
 {
   "header": [
-    { "label": "Domov", "href": "/" },
-    { "label": "Servis", "href": "/service" },
-    { "label": "Trgovina", "href": "/shop" },
-    { "label": "Vodene ture", "href": "/guided-tours" },
-    { "label": "Kolesarska šola", "href": "/bike-school" },
-    { "label": "O nas", "href": "/about" },
-    { "label": "Partnerji", "href": "/brands" },
-    { "label": "Kontakt", "href": "/contact" }
+    {
+      "id": 1,
+      "label": "Domov",
+      "href": "/"
+    },
+    {
+      "id": 2,
+      "label": "Servis",
+      "href": "/service"
+    },
+    {
+      "id": 3,
+      "label": "Trgovina",
+      "href": "/shop"
+    },
+    {
+      "id": 4,
+      "label": "Vodene ture",
+      "href": "/guided-tours"
+    },
+    {
+      "id": 5,
+      "label": "Kolesarska šola",
+      "href": "/bike-school"
+    },
+    {
+      "id": 6,
+      "label": "O nas",
+      "href": "/about"
+    },
+    {
+      "id": 7,
+      "label": "Partnerji",
+      "href": "/brands"
+    },
+    {
+      "id": 8,
+      "label": "Kontakt",
+      "href": "/contact"
+    }
   ],
   "footer": [
-    { "label": "Domov", "href": "/" },
-    { "label": "Servis", "href": "/service" },
-    { "label": "Trgovina", "href": "/shop" },
-    { "label": "Vodene ture", "href": "/guided-tours" },
-    { "label": "Kolesarska šola", "href": "/bike-school" },
-    { "label": "O nas", "href": "/about" },
-    { "label": "Partnerji", "href": "/brands" },
-    { "label": "Kontakt", "href": "/contact" }
+    {
+      "id": 9,
+      "label": "Domov",
+      "href": "/"
+    },
+    {
+      "id": 10,
+      "label": "Servis",
+      "href": "/service"
+    },
+    {
+      "id": 11,
+      "label": "Trgovina",
+      "href": "/shop"
+    },
+    {
+      "id": 12,
+      "label": "Vodene ture",
+      "href": "/guided-tours"
+    },
+    {
+      "id": 13,
+      "label": "Kolesarska šola",
+      "href": "/bike-school"
+    },
+    {
+      "id": 14,
+      "label": "O nas",
+      "href": "/about"
+    },
+    {
+      "id": 15,
+      "label": "Partnerji",
+      "href": "/brands"
+    },
+    {
+      "id": 16,
+      "label": "Kontakt",
+      "href": "/contact"
+    }
   ],
   "footerCopy": {
+    "id": 17,
     "tagline": "Servis in trgovina gorskih koles v Apačah.",
     "linksHeading": "Povezave",
     "contactHeading": "Kontakt",

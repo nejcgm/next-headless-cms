@@ -10,14 +10,15 @@ alwaysApply: true
 | Directory | Stack | Cursor rules |
 |-----------|-------|----------------|
 | `next-headless-cms-fe/` | Next.js multi-tenant CMS | **`.cursor/rules/`** — use these for all frontend work |
-| `headless-cms-backend/` | Strapi v5 | No dedicated rules yet — follow Strapi conventions in that folder |
+| `headless-cms-backend/` | Strapi v5 | **`headless-cms-backend/.cursor/rules/`** — start with `strapi-backend.mdc` |
 
 ## Where to look
 
 - **Human docs**: repo root `README.md`; frontend `next-headless-cms-fe/docs/` (`DEVELOPMENT.md`, `BUILD-VERIFICATION.md`)
 - **Frontend architecture, blocks, deploy, i18n**: `next-headless-cms-fe/.cursor/rules/`
-- **Start (agents)**: `next-headless-cms-fe/.cursor/rules/rules-sync.mdc`
-- **Per tenant**: `next-headless-cms-fe/.cursor/rules/tenants/{tenant-id}/catalog.mdc`
+- **Frontend agents**: `next-headless-cms-fe/.cursor/rules/rules-sync.mdc`
+- **Backend / Strapi CMS model & API**: `headless-cms-backend/.cursor/rules/` (`content-model.mdc`, `api-contract.mdc`)
+- **Per tenant (frontend)**: `next-headless-cms-fe/.cursor/rules/tenants/{tenant-id}/catalog.mdc`
 
 ## GitHub Actions
 
@@ -25,6 +26,6 @@ Workflows are at repo root: `.github/workflows/`. They set `working-directory: n
 
 ## When editing backend
 
-Strapi schemas and seed data live in `headless-cms-backend/`. Frontend `dataAdapter: "strapi"` and `StrapiAdapter` are not fully wired yet — coordinate API shape with `next-headless-cms-fe/src/core/types/` when you connect them.
+Strapi schemas and seed data live in `headless-cms-backend/`. Target types: **`page`**, **`navigation`** (see `content-model.mdc`). Frontend still uses `dataAdapter: "mock"` until migration.
 
-Do not duplicate frontend tenant catalogs for backend-only changes unless the public API contract for pages/blocks changes.
+When the REST contract changes, update backend rules + `strapi.adapter.ts` + frontend types in one change set (`headless-cms-backend/.cursor/rules/rules-sync.mdc`).

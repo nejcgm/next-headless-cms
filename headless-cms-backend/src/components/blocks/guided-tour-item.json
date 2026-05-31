@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_blocks_guided_tour_items",
+  "info": {
+    "name": "GuidedTourItem",
+    "icon": "route",
+    "displayName": "Guided Tour — Item",
+    "description": "A single tour experience card with icon, title, and description"
+  },
+  "options": {},
+  "attributes": {
+    "icon": {
+      "type": "enumeration",
+      "enum": ["route", "coach", "group", "safety"],
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

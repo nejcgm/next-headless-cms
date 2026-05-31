@@ -1,0 +1,76 @@
+{
+  "collectionName": "components_blocks_bike_detail_labels",
+  "info": {
+    "name": "BikeDetailLabels",
+    "icon": "translate",
+    "displayName": "Bike Detail — UI Labels",
+    "description": "Translatable UI strings for the bike detail page"
+  },
+  "options": {},
+  "attributes": {
+    "notFoundTitle": {
+      "type": "string",
+      "required": true
+    },
+    "notFoundBody": {
+      "type": "string",
+      "required": true
+    },
+    "notFoundCtaLabel": {
+      "type": "string",
+      "required": true
+    },
+    "notFoundCtaHref": {
+      "type": "string",
+      "required": true
+    },
+    "breadcrumbHome": {
+      "type": "string",
+      "required": true
+    },
+    "breadcrumbHomeHref": {
+      "type": "string",
+      "required": true
+    },
+    "breadcrumbBikes": {
+      "type": "string",
+      "required": true
+    },
+    "breadcrumbBikesHref": {
+      "type": "string",
+      "required": true
+    },
+    "outOfStock": {
+      "type": "string",
+      "required": true
+    },
+    "descriptionHeading": {
+      "type": "string",
+      "required": true
+    },
+    "specsHeading": {
+      "type": "string",
+      "required": true
+    },
+    "contactTeaser": {
+      "type": "string",
+      "required": true
+    },
+    "contactPhoneLabel": {
+      "type": "string",
+      "required": true
+    },
+    "contactPhoneHref": {
+      "type": "string",
+      "required": true
+    },
+    "contactCtaLabel": {
+      "type": "string",
+      "required": true
+    },
+    "contactCtaHref": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

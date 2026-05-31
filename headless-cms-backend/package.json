@@ -9,9 +9,10 @@
     "deploy": "strapi deploy",
     "dev": "strapi develop",
     "develop": "strapi develop",
-    "seed:example": "node ./scripts/seed.js",
+    "seed:vukans-bike": "node ./scripts/seed-vukans-bike-cms.js",
     "start": "strapi start",
     "strapi": "strapi",
+    "types:generate": "strapi ts:generate-types",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },

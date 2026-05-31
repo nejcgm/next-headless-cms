@@ -1,8 +1,8 @@
 {
   "slug": "/",
-  "locale": "en",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "Vukan's Bike — Bikes and service",
     "description": "Service and sales for all bike types in Slovenia: urban, road, gravel, e-bike, and mountain. Years of MTB and trail experience. Contact: 070 815 379.",
     "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405173/1000004333_bged3h.jpg",
@@ -35,92 +35,130 @@
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Vukan's Bike Shop",
-        "subheadline": "Urban, road, gravel, mountain, and e-bikes — repairs and service by appointment. Bike school and workshops.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402438/IMG_0035_fsvhgt.jpg",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Bikes for sale",
-          "href": "#kolesa"
-        },
-        "secondaryCta": {
-          "label": "Service",
-          "href": "/en/service"
-        }
-      }
-    },
-    {
-      "id": "features-1",
-      "type": "stats-bar",
-      "props": {
-        "stats": [
-          { "value": "5+", "label": "Years experience" },
-          { "value": "200+", "label": "Bikes serviced" },
-          { "value": "Expert", "label": "Mechanic" },
-          { "value": "Guided tours", "label": "Licensed guide" }
-        ]
-      }
-    },
-    {
-      "id": "image-text-1",
-      "type": "image-text",
-      "props": {
-        "layout": "image-left",
-        "image": {
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
-          "alt": "Bike service"
-        },
-        "heading": "Service and repairs",
-        "body": "We service all kinds of bikes. One expert, personal attention — from quick fixes to full overhauls. We have the most miles on mountain and trail bikes, and we treat urban, road, and gravel bikes with the same care. Call 070 815 379 or email to book.",
-        "cta": {
-          "label": "Service",
-          "href": "/en/service"
-        }
-      }
-    },
-    {
-      "id": "products-1",
-      "type": "product-list",
-      "props": {
-        "heading": "Bikes for sale",
-        "subheading": "Our selection",
-        "outOfStockLabel": "Out of stock",
-        "limit": 3,
-        "layout": "grid",
-        "anchorId": "kolesa"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "Vukan's Bike Shop",
+      "subheadline": "Urban, road, gravel, mountain, and e-bikes — repairs and service by appointment. Bike school and workshops.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402438/IMG_0035_fsvhgt.jpg",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Bikes for sale",
+        "href": "#kolesa"
       },
-      "dataContract": "products"
+      "secondaryCta": {
+        "id": 3,
+        "label": "Service",
+        "href": "/en/service"
+      }
     },
     {
-      "id": "cta-1",
-      "type": "cta-banner",
-      "props": {
-        "heading": "Ready for your next ride?",
-        "subheading": "Visit us for a free test ride — by appointment.",
-        "cta": {
-          "label": "Contact",
-          "href": "/en/contact"
+      "__component": "blocks.stats-bar",
+      "id": 9,
+      "stats": [
+        {
+          "id": 5,
+          "value": "5+",
+          "label": "Years experience"
         },
-        "background": "primary"
+        {
+          "id": 6,
+          "value": "200+",
+          "label": "Bikes serviced"
+        },
+        {
+          "id": 7,
+          "value": "Expert",
+          "label": "Mechanic"
+        },
+        {
+          "id": 8,
+          "value": "Guided tours",
+          "label": "Licensed guide"
+        }
+      ]
+    },
+    {
+      "__component": "blocks.image-text",
+      "id": 12,
+      "layout": "image-left",
+      "image": {
+        "id": 10,
+        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
+        "alt": "Bike service"
+      },
+      "heading": "Service and repairs",
+      "body": "We service all kinds of bikes. One expert, personal attention — from quick fixes to full overhauls. We have the most miles on mountain and trail bikes, and we treat urban, road, and gravel bikes with the same care. Call 070 815 379 or email to book.",
+      "cta": {
+        "id": 11,
+        "label": "Service",
+        "href": "/en/service"
       }
+    },
+    {
+      "__component": "blocks.product-list",
+      "id": 13,
+      "heading": "Bikes for sale",
+      "subheading": "Our selection",
+      "outOfStockLabel": "Out of stock",
+      "limit": 3,
+      "layout": "grid",
+      "anchorId": "kolesa"
+    },
+    {
+      "__component": "blocks.cta-banner",
+      "id": 15,
+      "heading": "Ready for your next ride?",
+      "subheading": "Visit us for a free test ride — by appointment.",
+      "cta": {
+        "id": 14,
+        "label": "Contact",
+        "href": "/en/contact"
+      },
+      "background": "primary"
     }
   ],
   "navigation": {
     "header": [
-      { "label": "Home", "href": "/en" },
-      { "label": "Partners", "href": "/en/brands" },
-      { "label": "Service", "href": "/en/service" },
-      { "label": "About", "href": "/en/about" },
-      { "label": "Contact", "href": "/en/contact" }
+      {
+        "label": "Home",
+        "href": "/en"
+      },
+      {
+        "label": "Partners",
+        "href": "/en/brands"
+      },
+      {
+        "label": "Service",
+        "href": "/en/service"
+      },
+      {
+        "label": "About",
+        "href": "/en/about"
+      },
+      {
+        "label": "Contact",
+        "href": "/en/contact"
+      }
     ],
     "footer": [
-      { "label": "Partners", "href": "/en/brands" },
-      { "label": "Service", "href": "/en/service" },
-      { "label": "About", "href": "/en/about" },
-      { "label": "Contact", "href": "/en/contact" }
+      {
+        "label": "Partners",
+        "href": "/en/brands"
+      },
+      {
+        "label": "Service",
+        "href": "/en/service"
+      },
+      {
+        "label": "About",
+        "href": "/en/about"
+      },
+      {
+        "label": "Contact",
+        "href": "/en/contact"
+      }
     ]
-  }
+  },
+  "lang": "en"
 }

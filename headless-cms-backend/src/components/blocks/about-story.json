@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_blocks_about_stories",
+  "info": {
+    "name": "AboutStory",
+    "icon": "book",
+    "displayName": "About — Story",
+    "description": "Brand narrative with kicker, headline, pull quote, body paragraphs, and optional image"
+  },
+  "options": {},
+  "attributes": {
+    "kicker": {
+      "type": "string"
+    },
+    "headline": {
+      "type": "string",
+      "required": true
+    },
+    "quote": {
+      "type": "string"
+    },
+    "body": {
+      "type": "text",
+      "required": true,
+      "description": "Body copy. Separate paragraphs with a blank line (two newlines)."
+    },
+    "image": {
+      "type": "string"
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": ["left", "right"],
+      "default": "right"
+    }
+  }
+}

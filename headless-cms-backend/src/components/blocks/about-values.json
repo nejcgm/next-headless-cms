@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_blocks_about_values",
+  "info": {
+    "name": "AboutValues",
+    "icon": "star",
+    "displayName": "About — Values",
+    "description": "Brand values grid with eyebrow badge, heading, and value cards"
+  },
+  "options": {},
+  "attributes": {
+    "eyebrowBadge": {
+      "type": "string",
+      "required": true
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.about-value-item",
+      "required": true,
+      "min": 1
+    }
+  }
+}

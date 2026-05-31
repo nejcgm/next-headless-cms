@@ -69,9 +69,9 @@ function StepCard({ step, index, isLast }: { step: ProcessStep; index: number; i
           </p>
 
           {/* Details List */}
-          {step.details && step.details.length > 0 && (
+          {step.details && (
             <ul className="space-y-2">
-              {step.details.map((detail, i) => (
+              {step.details.split("\n").filter(Boolean).map((detail, i) => (
                 <li key={`${detail}-${i}`} className="flex items-center gap-2 text-sm text-[var(--color-muted-foreground)]">
                   <svg className="w-4 h-4 text-[var(--color-primary)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />

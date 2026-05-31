@@ -1,54 +1,51 @@
 {
   "slug": "/shop",
-  "locale": "de",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "Shop — Vukan's Bike",
     "description": "Fahrräder zum Verkauf: Mountainbike, E-Bike und Rennrad. Besichtigung und Beratung nach Vereinbarung. Kontakt: 070 815 379.",
     "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402435/IMG_0028_gzpale.jpg"
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Shop",
-        "subheadline": "Alle Fahrräder zum Verkauf — von Trail-MTB und E-MTB bis Rennrad. Für Details und Besichtigung kontaktieren Sie uns.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402435/IMG_0028_gzpale.jpg",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Kontakt",
-          "href": "/de/contact"
-        },
-        "secondaryCta": {
-          "label": "Service",
-          "href": "/de/service"
-        }
-      }
-    },
-    {
-      "id": "products-shop-1",
-      "type": "product-list",
-      "props": {
-        "heading": "Fahrräder zum Verkauf",
-        "subheading": "Gesamtes Sortiment",
-        "outOfStockLabel": "Nicht vorrätig",
-        "layout": "grid"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "Shop",
+      "subheadline": "Alle Fahrräder zum Verkauf — von Trail-MTB und E-MTB bis Rennrad. Für Details und Besichtigung kontaktieren Sie uns.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402435/IMG_0028_gzpale.jpg",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Kontakt",
+        "href": "/de/contact"
       },
-      "dataContract": "products"
+      "secondaryCta": {
+        "id": 3,
+        "label": "Service",
+        "href": "/de/service"
+      }
     },
     {
-      "id": "cta-1",
-      "type": "cta-banner",
-      "props": {
-        "heading": "Fragen zu einem Rad?",
-        "subheading": "Rufen Sie 070 815 379 an oder schreiben Sie uns — wir beraten gern.",
-        "cta": {
-          "label": "Kontakt",
-          "href": "/de/contact"
-        },
-        "background": "muted"
-      }
+      "__component": "blocks.product-list",
+      "id": 5,
+      "heading": "Fahrräder zum Verkauf",
+      "subheading": "Gesamtes Sortiment",
+      "outOfStockLabel": "Nicht vorrätig",
+      "layout": "grid"
+    },
+    {
+      "__component": "blocks.cta-banner",
+      "id": 7,
+      "heading": "Fragen zu einem Rad?",
+      "subheading": "Rufen Sie 070 815 379 an oder schreiben Sie uns — wir beraten gern.",
+      "cta": {
+        "id": 6,
+        "label": "Kontakt",
+        "href": "/de/contact"
+      },
+      "background": "muted"
     }
-  ]
+  ],
+  "lang": "de"
 }

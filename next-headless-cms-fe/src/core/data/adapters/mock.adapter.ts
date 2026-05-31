@@ -1,7 +1,8 @@
-import type { CmsAdapter, CollectionParams, SitemapEntry } from "../contracts";
+import type { CmsAdapter, CollectionParams, EntryParams, SitemapEntry } from "../contracts";
 import type { PageData, NavigationData } from "@core/types/page";
 import { logger } from "@shared/lib/logger";
 import tenantConfig from "@tenant/config";
+import { toPageData, toNavigationData, patternToRegex } from "../strapi/strapi-document";
 
 import sitemapFile from "@mock-data/sitemap.json";
 
@@ -12,13 +13,6 @@ interface SitemapJsonEntry {
 
 interface SitemapJson {
   entries: SitemapJsonEntry[];
-}
-
-function patternToRegex(pattern: string): RegExp {
-  const escaped = pattern
-    .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
-    .replace(/:[\w-]+/g, "([^/]+)");
-  return new RegExp(`^${escaped}$`);
 }
 
 const pageContext = (require as unknown as { context: (d: string, b: boolean, r: RegExp) => { keys: () => string[] } }).context(
@@ -38,12 +32,17 @@ async function findPageByPattern(slug: string): Promise<PageData | null> {
         /* webpackChunkName: "mock-page-[request]" */
         `@mock-data/pages/${pageName}.json`
       );
-      const page = (mod.default ?? mod) as PageData;
-      if (!page?.slug) continue;
-      const pattern = page.slugPattern ?? page.slug;
+      const raw = (mod.default ?? mod) as Record<string, unknown>;
+      if (!raw?.slug) continue;
+      const pattern =
+        typeof raw.slugPattern === "string" && raw.slugPattern.trim()
+          ? raw.slugPattern.trim()
+          : typeof raw.slug === "string"
+            ? raw.slug
+            : "";
       if (!pattern.includes(":")) continue;
       if (!patternToRegex(pattern).test(slug)) continue;
-      return page;
+      return raw as unknown as PageData;
     } catch {
       continue;
     }
@@ -71,27 +70,27 @@ export class MockAdapter implements CmsAdapter {
       }
     };
 
-    // Non-default locale: try `de--about.json` first, then fall back to shared `about.json`.
-    let page: PageData | null = null;
+    let raw: PageData | null = null;
     if (locale !== defaultLocale) {
-      page = await loadJson(`${locale}--${normalized}`);
+      raw = await loadJson(`${locale}--${normalized}`);
     }
-    if (!page) {
-      page = await loadJson(normalized);
+    if (!raw) {
+      raw = await loadJson(normalized);
     }
-    if (!page) {
-      page = await findPageByPattern(slug);
+    if (!raw) {
+      raw = await findPageByPattern(slug);
     }
-    if (!page) {
+    if (!raw) {
       logger.warn(`MockAdapter: Page not found: ${normalized}`);
       return null;
     }
 
-    const cloned = { ...page };
-    if (locale !== cloned.locale) {
-      cloned.locale = locale;
+    const page = toPageData(raw, locale);
+    if (!page) return null;
+    if (locale !== page.locale) {
+      return { ...page, locale };
     }
-    return cloned;
+    return page;
   }
 
   async getCollection<T>(_tenant: string, collection: string, params?: CollectionParams): Promise<T[]> {
@@ -131,9 +130,17 @@ export class MockAdapter implements CmsAdapter {
     return data;
   }
 
-  async getEntry<T>(_tenant: string, collection: string, id: string): Promise<T | null> {
-    const items = await this.getCollection<T & { id: string }>("", collection);
-    return items.find((item) => item.id === id) ?? null;
+  async getEntry<T>(
+    _tenant: string,
+    collection: string,
+    id: string,
+    params?: EntryParams
+  ): Promise<T | null> {
+    const locale = params?.locale ?? tenantConfig.defaultLocale;
+    const items = await this.getCollection<T & { id?: string; slug?: string }>("", collection, {
+      locale,
+    });
+    return (items.find((item) => item.slug === id || item.id === id) as T) ?? null;
   }
 
   async getNavigation(_tenant: string, locale: string): Promise<NavigationData | null> {
@@ -152,18 +159,19 @@ export class MockAdapter implements CmsAdapter {
       }
     };
 
-    let data: NavigationData | null = null;
+    let raw: NavigationData | null = null;
     if (locale !== defaultLocale) {
-      data = await loadJson(`${locale}--navigation`);
+      raw = await loadJson(`${locale}--navigation`);
     }
-    if (!data) {
-      data = await loadJson("navigation");
+    if (!raw) {
+      raw = await loadJson("navigation");
     }
-    if (!data) {
+    if (!raw) {
       logger.warn("MockAdapter: navigation.json not found");
       return null;
     }
-    return data;
+
+    return toNavigationData(raw);
   }
 
   async listSitemapEntries(tenant: string, locale: string): Promise<SitemapEntry[]> {

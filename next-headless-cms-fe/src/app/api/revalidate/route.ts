@@ -1,6 +1,8 @@
 import { revalidateTag } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import { env } from "@/env";
+import { cacheTags } from "@core/data/cache-tags";
+import { normalizeLogicalSlug } from "@core/data/strapi/strapi-query";
 
 export async function POST(request: NextRequest) {
   const secret = request.headers.get("x-revalidate-secret");
@@ -10,19 +12,25 @@ export async function POST(request: NextRequest) {
 
   try {
     const { tenant, slug, collection } = await request.json();
+    if (!tenant) {
+      return NextResponse.json({ error: "Missing tenant" }, { status: 400 });
+    }
+
+    const revalidated: string[] = [];
 
     if (slug) {
-      revalidateTag(`page-${tenant}-${slug}`);
+      const tag = cacheTags.pageGroup(tenant, normalizeLogicalSlug(slug));
+      revalidateTag(tag);
+      revalidated.push(tag);
     }
     if (collection) {
-      revalidateTag(`collection-${tenant}-${collection}`);
+      const tag = cacheTags.collection(tenant, collection);
+      revalidateTag(tag);
+      revalidated.push(tag);
     }
 
-    return NextResponse.json({ revalidated: true, now: Date.now() });
+    return NextResponse.json({ revalidated, now: Date.now() });
   } catch {
-    return NextResponse.json(
-      { error: "Invalid request body" },
-      { status: 400 }
-    );
+    return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 }

@@ -1,276 +1,225 @@
 {
   "slug": "/service",
-  "locale": "en",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "Bike service — Vukan's Bike",
     "description": "Service and repairs for all kinds of bikes. One expert, personal approach. Contact: 070 815 379 or email.",
     "ogImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=630&fit=crop"
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Bike service",
-        "subheadline": "Repairs, maintenance, and inspection for urban, road, gravel, mountain, and e-bikes. Personal service — one mechanic who knows your bike; we have particular experience with MTB and trail riding.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402138/IMG_4568_xculvx.heic",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Contact",
-          "href": "#kontakt"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "Bike service",
+      "subheadline": "Repairs, maintenance, and inspection for urban, road, gravel, mountain, and e-bikes. Personal service — one mechanic who knows your bike; we have particular experience with MTB and trail riding.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402138/IMG_4568_xculvx.heic",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Contact",
+        "href": "#kontakt"
+      },
+      "secondaryCta": {
+        "id": 3,
+        "label": "Price list",
+        "href": "#cenik"
+      }
+    },
+    {
+      "__component": "blocks.service-pricing",
+      "id": 14,
+      "heading": "Service prices",
+      "subheading": "Prices by agreement; for a firm slot, contact us by email or on 070 815 379.",
+      "packages": [
+        {
+          "id": 5,
+          "name": "Basic service",
+          "description": "Inspection and basic maintenance of mechanical systems.",
+          "price": 39,
+          "features": "Function check and fine-tuning of gears and brakes\nTyre pressure checked and adjusted if needed\nChain wear measured\nBasic wheel truing\nChain lubricated (oil or liquid wax)\nKey moving points greased\nHeadset play adjusted\nConsumables (cleaners and lubes) included"
         },
-        "secondaryCta": {
-          "label": "Price list",
-          "href": "#cenik"
+        {
+          "id": 6,
+          "name": "Basic e-bike service",
+          "label": "E-bike",
+          "description": "Same as basic service, plus diagnostics and software updates for Bosch, Shimano, and Giant drives.",
+          "price": 55,
+          "features": "Function check and fine-tuning of gears and brakes\nTyre pressure checked and adjusted if needed\nChain wear measured\nBasic wheel truing\nChain lubricated (oil or liquid wax)\nKey moving points greased\nHeadset play adjusted\nConsumables (cleaners and lubes) included\nDiagnostics, software update, and printed report (Bosch, Shimano, Giant)"
+        },
+        {
+          "id": 7,
+          "name": "Standard service",
+          "description": "More thorough mechanical inspection of drivetrain, brakes, and bearings.",
+          "price": 70,
+          "features": "Drivetrain checked and gears precisely adjusted\nBrake system and pads/rims checked; pads replaced if worn\nTyre pressure checked and adjusted if needed\nChain wear measured\nBasic wheel truing\nChain lubricated (oil or liquid wax)\nKey moving points greased\nHeadset and bottom bracket checked, greased, or replaced if needed\nCables and housings checked and replaced if needed\nHubs checked and regreased if needed\nConsumables (cleaners and lubes) included"
+        },
+        {
+          "id": 8,
+          "name": "Standard e-bike service",
+          "label": "E-bike",
+          "description": "Same as standard service, plus diagnostics and software updates for Bosch, Shimano, and Giant drives.",
+          "price": 80,
+          "features": "Drivetrain checked and gears precisely adjusted\nBrake system and pads/rims checked; pads replaced if worn\nTyre pressure checked and adjusted if needed\nChain wear measured; chain replaced if needed\nBasic wheel truing\nChain lubricated (oil or liquid wax)\nKey moving points greased\nHeadset checked, greased, or replaced if needed\nCables and housings checked and replaced if needed\nHubs checked and regreased if needed\nConsumables (cleaners and lubes) included\nDiagnostics, software update, and printed report (Bosch, Shimano, Giant)"
+        },
+        {
+          "id": 9,
+          "name": "Full MTB service (hardtail / front suspension)",
+          "label": "MTB",
+          "description": "Standard service plus bleeding hydraulic disc brakes and a quick clean.",
+          "price": 110,
+          "features": "Everything included in standard service\nBleeding front and rear hydraulic disc brakes\nBasic quick clean of the bike"
+        },
+        {
+          "id": 10,
+          "name": "Full e-MTB service (front suspension)",
+          "label": "E-MTB",
+          "description": "Standard e-bike service plus bleeding hydraulic brakes and a quick clean.",
+          "price": 120,
+          "features": "Everything included in standard e-bike service\nBleeding front and rear hydraulic disc brakes\nBasic quick clean of the bike"
+        },
+        {
+          "id": 11,
+          "name": "Full suspension MTB overhaul",
+          "label": "MTB full sus",
+          "description": "Standard service plus brakes, cleaning, and pivot bearing service (bearings billed separately).",
+          "price": 150,
+          "features": "Everything included in standard service\nBleeding front and rear hydraulic disc brakes\nBasic quick clean of the bike\nPivot bearings cleaned, inspected, and replaced if needed (bearings charged separately)"
+        },
+        {
+          "id": 12,
+          "name": "Full suspension e-MTB overhaul",
+          "label": "E-MTB full sus",
+          "description": "Standard e-bike service plus brakes, cleaning, and pivot bearing service (bearings billed separately).",
+          "price": 170,
+          "features": "Everything included in standard e-bike service\nBleeding front and rear hydraulic disc brakes\nBasic quick clean of the bike\nPivot bearings cleaned, inspected, and replaced if needed (bearings charged separately)"
+        },
+        {
+          "id": 13,
+          "name": "Assembly and setup (online purchase)",
+          "description": "Outside core hours: build, adjustments, and packaging disposal.",
+          "price": 0,
+          "priceDisplay": "Hourly",
+          "priceNote": "Billed by time spent",
+          "features": "Bike assembly\nAdjustment of key components (stem, tyres, cables, etc.)\nFull baseline setup package\nAccessory fitting\nProper disposal of packaging (cardboard, plastic, etc.)\nBasic suspension setup (sag and rebound)"
         }
-      }
+      ],
+      "note": "Parts (e.g. pivot bearings, brake pads) and extra repairs are quoted separately. We always agree before starting work.",
+      "contactCta": "Book a service slot by email or phone",
+      "contactHref": "#kontakt"
     },
     {
-      "id": "service-pricing-1",
-      "type": "service-pricing",
-      "props": {
-        "heading": "Service prices",
-        "subheading": "Prices by agreement; for a firm slot, contact us by email or on 070 815 379.",
-        "packages": [
-          {
-            "id": "osnovni-servis",
-            "name": "Basic service",
-            "description": "Inspection and basic maintenance of mechanical systems.",
-            "price": 39,
-            "features": [
-              "Function check and fine-tuning of gears and brakes",
-              "Tyre pressure checked and adjusted if needed",
-              "Chain wear measured",
-              "Basic wheel truing",
-              "Chain lubricated (oil or liquid wax)",
-              "Key moving points greased",
-              "Headset play adjusted",
-              "Consumables (cleaners and lubes) included"
-            ]
-          },
-          {
-            "id": "osnovni-servis-ekolo",
-            "name": "Basic e-bike service",
-            "label": "E-bike",
-            "description": "Same as basic service, plus diagnostics and software updates for Bosch, Shimano, and Giant drives.",
-            "price": 55,
-            "features": [
-              "Function check and fine-tuning of gears and brakes",
-              "Tyre pressure checked and adjusted if needed",
-              "Chain wear measured",
-              "Basic wheel truing",
-              "Chain lubricated (oil or liquid wax)",
-              "Key moving points greased",
-              "Headset play adjusted",
-              "Consumables (cleaners and lubes) included",
-              "Diagnostics, software update, and printed report (Bosch, Shimano, Giant)"
-            ]
-          },
-          {
-            "id": "redni-servis",
-            "name": "Standard service",
-            "description": "More thorough mechanical inspection of drivetrain, brakes, and bearings.",
-            "price": 70,
-            "features": [
-              "Drivetrain checked and gears precisely adjusted",
-              "Brake system and pads/rims checked; pads replaced if worn",
-              "Tyre pressure checked and adjusted if needed",
-              "Chain wear measured",
-              "Basic wheel truing",
-              "Chain lubricated (oil or liquid wax)",
-              "Key moving points greased",
-              "Headset and bottom bracket checked, greased, or replaced if needed",
-              "Cables and housings checked and replaced if needed",
-              "Hubs checked and regreased if needed",
-              "Consumables (cleaners and lubes) included"
-            ]
-          },
-          {
-            "id": "redni-servis-ekolo",
-            "name": "Standard e-bike service",
-            "label": "E-bike",
-            "description": "Same as standard service, plus diagnostics and software updates for Bosch, Shimano, and Giant drives.",
-            "price": 80,
-            "features": [
-              "Drivetrain checked and gears precisely adjusted",
-              "Brake system and pads/rims checked; pads replaced if worn",
-              "Tyre pressure checked and adjusted if needed",
-              "Chain wear measured; chain replaced if needed",
-              "Basic wheel truing",
-              "Chain lubricated (oil or liquid wax)",
-              "Key moving points greased",
-              "Headset checked, greased, or replaced if needed",
-              "Cables and housings checked and replaced if needed",
-              "Hubs checked and regreased if needed",
-              "Consumables (cleaners and lubes) included",
-              "Diagnostics, software update, and printed report (Bosch, Shimano, Giant)"
-            ]
-          },
-          {
-            "id": "generalni-gorsko-prednje-vzmetenje",
-            "name": "Full MTB service (hardtail / front suspension)",
-            "label": "MTB",
-            "description": "Standard service plus bleeding hydraulic disc brakes and a quick clean.",
-            "price": 110,
-            "features": [
-              "Everything included in standard service",
-              "Bleeding front and rear hydraulic disc brakes",
-              "Basic quick clean of the bike"
-            ]
-          },
-          {
-            "id": "generalni-gorsko-e-prednje-vzmetenje",
-            "name": "Full e-MTB service (front suspension)",
-            "label": "E-MTB",
-            "description": "Standard e-bike service plus bleeding hydraulic brakes and a quick clean.",
-            "price": 120,
-            "features": [
-              "Everything included in standard e-bike service",
-              "Bleeding front and rear hydraulic disc brakes",
-              "Basic quick clean of the bike"
-            ]
-          },
-          {
-            "id": "generalni-polnovzp-gorsko",
-            "name": "Full suspension MTB overhaul",
-            "label": "MTB full sus",
-            "description": "Standard service plus brakes, cleaning, and pivot bearing service (bearings billed separately).",
-            "price": 150,
-            "features": [
-              "Everything included in standard service",
-              "Bleeding front and rear hydraulic disc brakes",
-              "Basic quick clean of the bike",
-              "Pivot bearings cleaned, inspected, and replaced if needed (bearings charged separately)"
-            ]
-          },
-          {
-            "id": "generalni-polnovzp-gorsko-e",
-            "name": "Full suspension e-MTB overhaul",
-            "label": "E-MTB full sus",
-            "description": "Standard e-bike service plus brakes, cleaning, and pivot bearing service (bearings billed separately).",
-            "price": 170,
-            "features": [
-              "Everything included in standard e-bike service",
-              "Bleeding front and rear hydraulic disc brakes",
-              "Basic quick clean of the bike",
-              "Pivot bearings cleaned, inspected, and replaced if needed (bearings charged separately)"
-            ]
-          },
-          {
-            "id": "sestava-spletna-nakup",
-            "name": "Assembly and setup (online purchase)",
-            "description": "Outside core hours: build, adjustments, and packaging disposal.",
-            "price": 0,
-            "priceDisplay": "Hourly",
-            "priceNote": "Billed by time spent",
-            "features": [
-              "Bike assembly",
-              "Adjustment of key components (stem, tyres, cables, etc.)",
-              "Full baseline setup package",
-              "Accessory fitting",
-              "Proper disposal of packaging (cardboard, plastic, etc.)",
-              "Basic suspension setup (sag and rebound)"
-            ]
-          }
-        ],
-        "note": "Parts (e.g. pivot bearings, brake pads) and extra repairs are quoted separately. We always agree before starting work.",
-        "contactCta": "Book a service slot by email or phone",
-        "contactHref": "#kontakt"
-      }
-    },
-    {
-      "id": "service-process-1",
-      "type": "service-process",
-      "props": {
-        "heading": "How service works",
-        "subheading": "Simple: message or call, and we arrange everything.",
-        "steps": [
-          {
-            "title": "Contact",
-            "description": "Email or call 070 815 379. Describe what is wrong with the bike and we arrange drop-off.",
-            "icon": "contact",
-            "details": ["Email or phone", "Drop-off appointment"]
-          },
-          {
-            "title": "Drop off",
-            "description": "Bring the bike to the workshop. We give it a quick look and tell you what is needed and at what cost.",
-            "icon": "bike",
-            "details": ["Quick check", "Quote and agreement"]
-          },
-          {
-            "title": "Service",
-            "description": "A mechanic does the work. When the bike is ready, we let you know.",
-            "icon": "tools",
-            "details": ["Personal approach", "Notification when done"]
-          },
-          {
-            "title": "Pickup",
-            "description": "Collect the bike and check that everything feels right. Payment on pickup.",
-            "icon": "check",
-            "details": ["Payment on pickup", "Short test ride if you like"]
-          }
-        ]
-      }
-    },
-    {
-      "id": "service-faq-1",
-      "type": "service-faq",
-      "props": {
-        "heading": "Frequently asked questions",
-        "subheading": "Answers about our service",
-        "items": [
-          {
-            "question": "How do I book a service?",
-            "answer": "Call 070 815 379 or send an email. Describe the issue or the service you want, and we arrange bike drop-off. There are no fixed opening hours — appointments are always by agreement."
-          },
-          {
-            "question": "Which bikes do you service?",
-            "answer": "All of them: urban, road, gravel, mountain, and e-bikes (mechanical side). We have the most experience with MTB and trail, but we treat every type with the same care."
-          },
-          {
-            "question": "How soon will the bike be ready?",
-            "answer": "It depends on the scope and how busy we are. At drop-off we give an approximate date. Small urgent repairs are often quicker."
-          },
-          {
-            "question": "Do I need a deposit?",
-            "answer": "No. Payment on pickup. For more expensive parts we confirm with you first."
-          },
-          {
-            "question": "Do you service e-bikes?",
-            "answer": "Yes for the mechanical side. For batteries and motors we usually recommend the manufacturer service, except for straightforward jobs."
-          }
-        ],
-        "contactCta": {
-          "text": "Another question?",
-          "label": "Call or write",
-          "href": "#kontakt"
+      "__component": "blocks.service-process",
+      "id": 19,
+      "heading": "How service works",
+      "subheading": "Simple: message or call, and we arrange everything.",
+      "steps": [
+        {
+          "id": 15,
+          "title": "Contact",
+          "description": "Email or call 070 815 379. Describe what is wrong with the bike and we arrange drop-off.",
+          "icon": "contact",
+          "details": "Email or phone\nDrop-off appointment"
+        },
+        {
+          "id": 16,
+          "title": "Drop off",
+          "description": "Bring the bike to the workshop. We give it a quick look and tell you what is needed and at what cost.",
+          "icon": "bike",
+          "details": "Quick check\nQuote and agreement"
+        },
+        {
+          "id": 17,
+          "title": "Service",
+          "description": "A mechanic does the work. When the bike is ready, we let you know.",
+          "icon": "tools",
+          "details": "Personal approach\nNotification when done"
+        },
+        {
+          "id": 18,
+          "title": "Pickup",
+          "description": "Collect the bike and check that everything feels right. Payment on pickup.",
+          "icon": "check",
+          "details": "Payment on pickup\nShort test ride if you like"
         }
-      }
+      ]
     },
     {
-      "id": "service-contact-1",
-      "type": "service-contact",
-      "props": {
-        "heading": "Service contact",
-        "text": "For a service booking or questions, reach us by email or phone. We work by appointment, without fixed opening hours.",
-        "phone": "070 815 379",
-        "phoneHref": "+38670815379",
-        "email": "vukansbike@gmail.com",
-        "ctaText": "Send email"
-      }
+      "__component": "blocks.service-faq",
+      "id": 25,
+      "heading": "Frequently asked questions",
+      "subheading": "Answers about our service",
+      "items": [
+        {
+          "id": 20,
+          "question": "How do I book a service?",
+          "answer": "Call 070 815 379 or send an email. Describe the issue or the service you want, and we arrange bike drop-off. There are no fixed opening hours — appointments are always by agreement."
+        },
+        {
+          "id": 21,
+          "question": "Which bikes do you service?",
+          "answer": "All of them: urban, road, gravel, mountain, and e-bikes (mechanical side). We have the most experience with MTB and trail, but we treat every type with the same care."
+        },
+        {
+          "id": 22,
+          "question": "How soon will the bike be ready?",
+          "answer": "It depends on the scope and how busy we are. At drop-off we give an approximate date. Small urgent repairs are often quicker."
+        },
+        {
+          "id": 23,
+          "question": "Do I need a deposit?",
+          "answer": "No. Payment on pickup. For more expensive parts we confirm with you first."
+        },
+        {
+          "id": 24,
+          "question": "Do you service e-bikes?",
+          "answer": "Yes for the mechanical side. For batteries and motors we usually recommend the manufacturer service, except for straightforward jobs."
+        }
+      ],
+      "contactCtaText": "Another question?",
+      "contactCtaLabel": "Call or write",
+      "contactCtaHref": "#kontakt"
+    },
+    {
+      "__component": "blocks.service-contact",
+      "id": 26,
+      "heading": "Service contact",
+      "text": "For a service booking or questions, reach us by email or phone. We work by appointment, without fixed opening hours.",
+      "phone": "070 815 379",
+      "phoneHref": "+38670815379",
+      "email": "vukansbike@gmail.com",
+      "ctaText": "Send email"
     }
   ],
   "navigation": {
     "header": [
-      { "label": "Home", "href": "/en" },
-      { "label": "Service", "href": "/en/service" },
-      { "label": "Contact", "href": "/en/contact" }
+      {
+        "label": "Home",
+        "href": "/en"
+      },
+      {
+        "label": "Service",
+        "href": "/en/service"
+      },
+      {
+        "label": "Contact",
+        "href": "/en/contact"
+      }
     ],
     "footer": [
-      { "label": "About", "href": "/en/about" },
-      { "label": "Privacy", "href": "/en/privacy" },
-      { "label": "Terms", "href": "/en/terms" }
+      {
+        "label": "About",
+        "href": "/en/about"
+      },
+      {
+        "label": "Privacy",
+        "href": "/en/privacy"
+      },
+      {
+        "label": "Terms",
+        "href": "/en/terms"
+      }
     ]
-  }
+  },
+  "lang": "en"
 }

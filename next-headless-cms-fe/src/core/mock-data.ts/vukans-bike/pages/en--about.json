@@ -1,104 +1,99 @@
 {
   "slug": "/about",
-  "locale": "en",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "About — Vukan's Bike Shop",
     "description": "The story of Vukan's Bike in Apače: service and sales for all bikes, a personal approach, and years of experience with mountain bikes and MTB.",
     "ogImage": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=1200&h=630&fit=crop"
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "About",
-        "subheadline": "All kinds of bikes in Apače — one person, one approach.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Service",
-          "href": "/en/service"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "About",
+      "subheadline": "All kinds of bikes in Apače — one person, one approach.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Service",
+        "href": "/en/service"
+      },
+      "secondaryCta": {
+        "id": 3,
+        "label": "Contact",
+        "href": "/en/contact"
+      }
+    },
+    {
+      "__component": "blocks.about-story",
+      "id": 5,
+      "kicker": "Our story",
+      "headline": "From passion to workshop and shop",
+      "quote": "A bike is not just transport — it is freedom. We want everyone to take their adventure with them.",
+      "body": "Vukan's Bike Shop grew out of a love of cycling and the wish for a local place for solid service, honest advice, or a new bike — whether you ride in town, on the road, or on trails.\n\nWe are based in Apače. We service and advise on all bike types; our deepest passion and longest experience are still with mountain bikes and MTB — from basic service to full repairs and custom builds. No anonymous workshop — one expert who knows your bike and your needs.\n\nWe believe in personal contact, fair pricing, and work you can rely on. If you want a partner for your next rides, you are in the right place.",
+      "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776428488/9c4caa91-a86a-43e4-a8f7-39a45f2620d3_pezutz.jpg",
+      "imagePosition": "right"
+    },
+    {
+      "__component": "blocks.about-person",
+      "id": 7,
+      "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775401858/1000024272_almr2a.jpg",
+      "name": "Gregor Vukan",
+      "role": "Owner and mechanic",
+      "bio": "I have worked with bikes for many years; mountain bikes and tougher terrain especially excite me. At Vukan's Bike Shop I handle service, sales, and advice for every kind of bike — all in one place, personally. I am glad to help you choose the right bike or get it ready for the next season. Call or visit Apače.",
+      "cta": {
+        "id": 6,
+        "label": "Contact",
+        "href": "/en/contact"
+      }
+    },
+    {
+      "__component": "blocks.about-values",
+      "id": 12,
+      "eyebrowBadge": "Our values",
+      "heading": "Why us",
+      "subheading": "Our values are simple: quality, honesty, and your trust.",
+      "items": [
+        {
+          "id": 8,
+          "icon": "bike",
+          "title": "All bike types",
+          "description": "Urban, road, gravel, e-bike, and MTB — we know drivetrains, brakes, and geometry. We have the deepest experience with mountain bikes and trail riding."
         },
-        "secondaryCta": {
-          "label": "Contact",
-          "href": "/en/contact"
-        }
-      }
-    },
-    {
-      "id": "about-story-1",
-      "type": "about-story",
-      "props": {
-        "kicker": "Our story",
-        "headline": "From passion to workshop and shop",
-        "quote": "A bike is not just transport — it is freedom. We want everyone to take their adventure with them.",
-        "body": [
-          "Vukan's Bike Shop grew out of a love of cycling and the wish for a local place for solid service, honest advice, or a new bike — whether you ride in town, on the road, or on trails.",
-          "We are based in Apače. We service and advise on all bike types; our deepest passion and longest experience are still with mountain bikes and MTB — from basic service to full repairs and custom builds. No anonymous workshop — one expert who knows your bike and your needs.",
-          "We believe in personal contact, fair pricing, and work you can rely on. If you want a partner for your next rides, you are in the right place."
-        ],
-        "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776428488/9c4caa91-a86a-43e4-a8f7-39a45f2620d3_pezutz.jpg",
-        "imagePosition": "right"
-      }
-    },
-    {
-      "id": "about-person-1",
-      "type": "about-person",
-      "props": {
-        "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775401858/1000024272_almr2a.jpg",
-        "name": "Gregor Vukan",
-        "role": "Owner and mechanic",
-        "bio": "I have worked with bikes for many years; mountain bikes and tougher terrain especially excite me. At Vukan's Bike Shop I handle service, sales, and advice for every kind of bike — all in one place, personally. I am glad to help you choose the right bike or get it ready for the next season. Call or visit Apače.",
-        "cta": {
-          "label": "Contact",
-          "href": "/en/contact"
-        }
-      }
-    },
-    {
-      "id": "about-values-1",
-      "type": "about-values",
-      "props": {
-        "eyebrowBadge": "Our values",
-        "heading": "Why us",
-        "subheading": "Our values are simple: quality, honesty, and your trust.",
-        "items": [
-          {
-            "icon": "bike",
-            "title": "All bike types",
-            "description": "Urban, road, gravel, e-bike, and MTB — we know drivetrains, brakes, and geometry. We have the deepest experience with mountain bikes and trail riding."
-          },
-          {
-            "icon": "users",
-            "title": "Personal approach",
-            "description": "One expert, one point of contact. No anonymous workshop; we work by appointment and fit the time to you."
-          },
-          {
-            "icon": "shield",
-            "title": "Fair pricing",
-            "description": "Clear pricing and quotes. No hidden costs — you know the cost up front."
-          },
-          {
-            "icon": "location",
-            "title": "Local in Apače",
-            "description": "Shop and service close to you. Partners and events in the region — part of the community."
-          }
-        ]
-      }
-    },
-    {
-      "id": "cta-1",
-      "type": "cta-banner",
-      "props": {
-        "heading": "Ready for service or a new bike?",
-        "subheading": "Visit us in Apače or call 070 815 379.",
-        "cta": {
-          "label": "Contact",
-          "href": "/en/contact"
+        {
+          "id": 9,
+          "icon": "users",
+          "title": "Personal approach",
+          "description": "One expert, one point of contact. No anonymous workshop; we work by appointment and fit the time to you."
         },
-        "background": "primary"
-      }
+        {
+          "id": 10,
+          "icon": "shield",
+          "title": "Fair pricing",
+          "description": "Clear pricing and quotes. No hidden costs — you know the cost up front."
+        },
+        {
+          "id": 11,
+          "icon": "location",
+          "title": "Local in Apače",
+          "description": "Shop and service close to you. Partners and events in the region — part of the community."
+        }
+      ]
+    },
+    {
+      "__component": "blocks.cta-banner",
+      "id": 14,
+      "heading": "Ready for service or a new bike?",
+      "subheading": "Visit us in Apače or call 070 815 379.",
+      "cta": {
+        "id": 13,
+        "label": "Contact",
+        "href": "/en/contact"
+      },
+      "background": "primary"
     }
-  ]
+  ],
+  "lang": "en"
 }

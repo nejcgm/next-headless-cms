@@ -1,61 +1,66 @@
 {
   "slug": "/bikes/all-terrain-ebike",
-  "locale": "en",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "All-Terrain E-MTB — Vukan's Bike Shop",
     "description": "Electric MTB with 750 W motor. 625 Wh battery, range up to 100 km. Contact: 070 815 379.",
     "ogImage": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1200&h=630&fit=crop"
   },
   "blocks": [
     {
-      "id": "bike-detail-1",
-      "type": "bike-detail",
-      "props": {
-        "labels": {
-          "notFoundTitle": "Bike not found",
-          "notFoundBody": "The bike you are looking for is not available.",
-          "notFoundCtaLabel": "Back to home",
-          "notFoundCtaHref": "/en",
-          "breadcrumbHome": "Home",
-          "breadcrumbHomeHref": "/en",
-          "breadcrumbBikes": "Bikes for sale",
-          "breadcrumbBikesHref": "/en#kolesa",
-          "outOfStock": "Out of stock",
-          "descriptionHeading": "Description",
-          "specsHeading": "Specifications",
-          "contactTeaser": "Contact us to view, test ride, or buy.",
-          "contactPhoneLabel": "070 815 379",
-          "contactPhoneHref": "tel:+38670815379",
-          "contactCtaLabel": "Contact",
-          "contactCtaHref": "/en/contact"
-        },
-        "bike": {
-          "id": "prod-2",
-          "name": "All-Terrain E-MTB",
-          "slug": "all-terrain-ebike",
-          "description": "Electric mountain bike with a powerful 750 W motor and 80 Nm torque. The 625 Wh battery delivers up to 100 km range in assist mode. Ideal for long climbs and technical singletrack. Battery integrated in the frame for balanced handling.",
-          "shortDescription": "E-MTB 750 W, range up to 100 km",
-          "price": 4299,
-          "image": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=600&h=600&fit=crop",
-          "images": [
-            "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop",
-            "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&h=800&fit=crop"
-          ],
-          "category": "E-bikes",
-          "inStock": true,
-          "tags": ["E-bike", "electric", "mountain bike", "750 W motor"],
-          "specs": {
-            "Motor": "750 W, 80 Nm torque",
-            "Battery": "625 Wh integrated",
-            "Range": "Up to 100 km (assist mode)",
-            "Frame": "Reinforced aluminium",
-            "Display": "LCD colour display with Bluetooth",
-            "Weight": "22.5 kg with battery"
-          }
+      "__component": "blocks.bike-detail",
+      "id": 3,
+      "labels": {
+        "id": 2,
+        "notFoundTitle": "Bike not found",
+        "notFoundBody": "The bike you are looking for is not available.",
+        "notFoundCtaLabel": "Back to home",
+        "notFoundCtaHref": "/en",
+        "breadcrumbHome": "Home",
+        "breadcrumbHomeHref": "/en",
+        "breadcrumbBikes": "Bikes for sale",
+        "breadcrumbBikesHref": "/en#kolesa",
+        "outOfStock": "Out of stock",
+        "descriptionHeading": "Description",
+        "specsHeading": "Specifications",
+        "contactTeaser": "Contact us to view, test ride, or buy.",
+        "contactPhoneLabel": "070 815 379",
+        "contactPhoneHref": "tel:+38670815379",
+        "contactCtaLabel": "Contact",
+        "contactCtaHref": "/en/contact"
+      },
+      "bike": {
+        "id": "prod-2",
+        "name": "All-Terrain E-MTB",
+        "slug": "all-terrain-ebike",
+        "description": "Electric mountain bike with a powerful 750 W motor and 80 Nm torque. The 625 Wh battery delivers up to 100 km range in assist mode. Ideal for long climbs and technical singletrack. Battery integrated in the frame for balanced handling.",
+        "shortDescription": "E-MTB 750 W, range up to 100 km",
+        "price": 4299,
+        "image": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=600&h=600&fit=crop",
+        "images": [
+          "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=800&fit=crop",
+          "https://images.unsplash.com/photo-1517649763962-0c623066013b?w=800&h=800&fit=crop"
+        ],
+        "category": "E-bikes",
+        "inStock": true,
+        "tags": [
+          "E-bike",
+          "electric",
+          "mountain bike",
+          "750 W motor"
+        ],
+        "specs": {
+          "Motor": "750 W, 80 Nm torque",
+          "Battery": "625 Wh integrated",
+          "Range": "Up to 100 km (assist mode)",
+          "Frame": "Reinforced aluminium",
+          "Display": "LCD colour display with Bluetooth",
+          "Weight": "22.5 kg with battery"
         }
       }
     }
-  ]
+  ],
+  "lang": "en"
 }

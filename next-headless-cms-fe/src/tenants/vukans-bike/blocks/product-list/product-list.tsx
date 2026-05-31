@@ -8,7 +8,7 @@ export function ProductList({
   heading,
   subheading,
   layout = "grid",
-  products,
+  products = [],
   outOfStockLabel,
   anchorId,
   locale,

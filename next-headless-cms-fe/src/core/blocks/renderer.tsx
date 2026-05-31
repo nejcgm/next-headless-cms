@@ -1,5 +1,7 @@
 import { Suspense } from "react";
+import type { ZodSchema } from "zod";
 import type { BlockInstance } from "@core/types/page";
+import { logger } from "@shared/lib/logger";
 import { resolveBlock } from "./registry";
 
 interface Props {
@@ -9,40 +11,72 @@ interface Props {
   slug?: string;
 }
 
+function blockReactKey(block: BlockInstance, index: number): string {
+  return `${block.type}-${block.id}-${index}`;
+}
+
+function validateBlockProps(
+  type: string,
+  schema: ZodSchema | undefined,
+  props: Record<string, unknown>
+): void {
+  if (!schema || process.env.NODE_ENV !== "development") return;
+  const result = schema.safeParse(props);
+  if (!result.success) {
+    logger.warn(`Block "${type}" props failed schema validation`, {
+      issues: result.error.issues.map(
+        (i) => `${i.path.join(".") || "(root)"}: ${i.message}`
+      ),
+    });
+  }
+}
+
+function isBlockVisible(block: BlockInstance, locale: string): boolean {
+  const v = block.visibility;
+  if (!v) return true;
+  if (v.locales && !v.locales.includes(locale)) return false;
+  if (v.dateRange) {
+    const now = Date.now();
+    if (v.dateRange.from && now < Date.parse(v.dateRange.from)) return false;
+    if (v.dateRange.to && now > Date.parse(v.dateRange.to)) return false;
+  }
+  return true;
+}
+
 export async function BlockRenderer({ blocks, tenant, locale, slug }: Props) {
   const renderedBlocks = await Promise.all(
-    blocks.map(async (block) => {
+    blocks.map(async (block, index) => {
+      const key = blockReactKey(block, index);
       const definition = resolveBlock(tenant, block.type);
-      
+
       if (!definition) {
         if (process.env.NODE_ENV === "development") {
-          return <UnknownBlock key={block.id} type={block.type} />;
+          return <UnknownBlock key={key} type={block.type} />;
         }
         return null;
       }
 
-      // Check visibility conditions
-      if (block.visibility) {
-        // Skip if locale doesn't match
-        if (block.visibility.locales && !block.visibility.locales.includes(locale)) {
-          return null;
-        }
-      }
+      if (!isBlockVisible(block, locale)) return null;
 
-      let extraData = {};
+      let extraData: Record<string, unknown> = {};
       if (definition.dataContract) {
         try {
           extraData = await definition.dataContract(block.props, { tenant, locale, slug });
         } catch (error) {
-          console.error(`Data contract failed for block ${block.type}:`, error);
+          logger.error(`Data contract failed for block ${block.type}`, {
+            error: error instanceof Error ? error.message : String(error),
+          });
         }
       }
+
+      const mergedProps = { ...block.props, ...extraData };
+      validateBlockProps(block.type, definition.schema, mergedProps);
 
       const Component = definition.component;
 
       return (
-        <Suspense key={block.id} fallback={<BlockSkeleton />}>
-          <Component {...block.props} {...extraData} blockId={block.id} />
+        <Suspense key={key} fallback={<BlockSkeleton />}>
+          <Component {...mergedProps} blockId={block.id} />
         </Suspense>
       );
     })

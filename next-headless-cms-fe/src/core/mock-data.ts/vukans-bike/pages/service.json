@@ -1,276 +1,194 @@
 {
   "slug": "/service",
-  "locale": "sl",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "Servis koles — Vukan's Bike",
     "description": "Servis in popravila vseh vrst koles. En strokovnjak, osebni pristop. Kontakt: 070 815 379 ali po e-pošti.",
     "ogImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=630&fit=crop"
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Servis koles",
-        "subheadline": "Popravila, servis in vzdrževanje za mestna, cestna, gravel, gorska in e-kolesa. Osebni pristop — en strokovnjak, ki pozna vaše kolo; pri gorskih kolesih in MTB imamo še posebej dolgo izkušnjo.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402138/IMG_4568_xculvx.heic",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Kontakt",
-          "href": "#kontakt"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "Servis koles",
+      "subheadline": "Popravila, servis in vzdrževanje za mestna, cestna, gravel, gorska in e-kolesa. Osebni pristop — en strokovnjak, ki pozna vaše kolo; pri gorskih kolesih in MTB imamo še posebej dolgo izkušnjo.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402138/IMG_4568_xculvx.heic",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Kontakt",
+        "href": "#kontakt"
+      },
+      "secondaryCta": {
+        "id": 3,
+        "label": "Cenik",
+        "href": "#cenik"
+      }
+    },
+    {
+      "__component": "blocks.service-pricing",
+      "id": 14,
+      "heading": "Cenik servisa",
+      "subheading": "Cene veljajo po dogovoru; za natančen termin nas kontaktirajte po e-pošti ali na 070 815 379.",
+      "packages": [
+        {
+          "id": 5,
+          "name": "Osnovni servis",
+          "description": "Pregled in osnovno vzdrževanje mehanskih sklopov.",
+          "price": 39,
+          "features": "Pregled delovanja in fina nastavitev prestav ter zavor\nKontrola in po potrebi popravek tlaka v pnevmatikah\nMeritev obrabe verige\nOsnovno ravnanje (centriranje) obročnikov\nNanos maziva na verigo (olje ali tekoči vosek)\nMazanje ključnih gibljivih točk\nNastavitev zračnosti krmilnega ležaja\nPoraba čistil in maziv je vključena v ceno"
         },
-        "secondaryCta": {
-          "label": "Cenik",
-          "href": "#cenik"
+        {
+          "id": 6,
+          "name": "Osnovni servis e-kolo",
+          "label": "E-kolo",
+          "description": "Kot osnovni servis, z diagnostiko in programsko podporo za pogone Bosch, Shimano in Giant.",
+          "price": 55,
+          "features": "Pregled delovanja in fina nastavitev prestav ter zavor\nKontrola in po potrebi popravek tlaka v pnevmatikah\nMeritev obrabe verige\nOsnovno ravnanje (centriranje) obročnikov\nNanos maziva na verigo (olje ali tekoči vosek)\nMazanje ključnih gibljivih točk\nNastavitev zračnosti krmilnega ležaja\nPoraba čistil in maziv je vključena v ceno\nDiagnostika, posodobitev programske opreme in izpis poročila (Bosch, Shimano, Giant)"
+        },
+        {
+          "id": 7,
+          "name": "Redni servis",
+          "description": "Širši mehanski pregled z zavorami, pogonom in ležaji.",
+          "price": 70,
+          "features": "Pregled pogona in natančna nastavitev prestav\nPregled zavornega sistema, ploščic/oblog ter menjava ob obrabi\nKontrola in po potrebi popravek tlaka v pnevmatikah\nMeritev obrabe verige\nOsnovno ravnanje (centriranje) obročnikov\nNanos maziva na verigo (olje ali tekoči vosek)\nMazanje ključnih gibljivih točk\nPregled krmilnega in gonilnega ležaja z mazanjem ali menjavo po potrebi\nPregled pletenic in bovdnov ter zamenjava, če je potrebno\nPregled pest in dodatno mazanje po potrebi\nPoraba čistil in maziv je vključena v ceno"
+        },
+        {
+          "id": 8,
+          "name": "Redni servis e-kolesa",
+          "label": "E-kolo",
+          "description": "Kot redni servis, z diagnostiko in programsko podporo za pogone Bosch, Shimano in Giant.",
+          "price": 80,
+          "features": "Pregled pogona in natančna nastavitev prestav\nPregled zavornega sistema, ploščic/oblog ter menjava ob obrabi\nKontrola in po potrebi popravek tlaka v pnevmatikah\nMeritev obrabe verige in menjava po potrebi\nOsnovno ravnanje (centriranje) obročnikov\nNanos maziva na verigo (olje ali tekoči vosek)\nMazanje ključnih gibljivih točk\nPregled krmilnega ležaja z mazanjem ali menjavo po potrebi\nPregled pletenic in bovdnov ter zamenjava, če je potrebno\nPregled pest in dodatno mazanje po potrebi\nPoraba čistil in maziv je vključena v ceno\nDiagnostika, posodobitev programske opreme in izpis poročila (Bosch, Shimano, Giant)"
+        },
+        {
+          "id": 9,
+          "name": "Generalni servis gorskega kolesa s prednjim vzmetenjem",
+          "label": "MTB",
+          "description": "Redni servis z zračenjem hidravličnih zavor in hitrim pranjem.",
+          "price": 110,
+          "features": "Vsebina rednega servisa\nOdzračevanje prednje in zadnje hidravlične zavore\nOsnovno hitro čiščenje kolesa"
+        },
+        {
+          "id": 10,
+          "name": "Generalni servis gorskega e-kolesa s prednjim vzmetenjem",
+          "label": "E-MTB",
+          "description": "Redni servis e-kolesa z zračenjem hidravličnih zavor in hitrim pranjem.",
+          "price": 120,
+          "features": "Vsebina rednega servisa za e-kolesa\nOdzračevanje prednje in zadnje hidravlične zavore\nOsnovno hitro čiščenje kolesa"
+        },
+        {
+          "id": 11,
+          "name": "Generalni servis polnovzmetenega gorskega kolesa",
+          "label": "MTB polno vzmetenje",
+          "description": "Redni servis z zavorami, pranjem in servisom ležajev nihajke (ležaji niso v ceni).",
+          "price": 150,
+          "features": "Vsebina rednega servisa\nOdzračevanje prednje in zadnje hidravlične zavore\nOsnovno hitro čiščenje kolesa\nČiščenje, pregled in po potrebi menjava ležajev nihajke (ležaji se obračunajo posebej)"
+        },
+        {
+          "id": 12,
+          "name": "Generalni servis polnovzmetenega gorskega e-kolesa",
+          "label": "E-MTB polno vzmetenje",
+          "description": "Redni servis e-kolesa z zavorami, pranjem in servisom ležajev nihajke (ležaji niso v ceni).",
+          "price": 170,
+          "features": "Vsebina rednega servisa za e-kolesa\nOdzračevanje prednje in zadnje hidravlične zavore\nOsnovno hitro čiščenje kolesa\nČiščenje, pregled in po potrebi menjava ležajev nihajke (ležaji se obračunajo posebej)"
+        },
+        {
+          "id": 13,
+          "name": "Sestava in nastavitev kolesa iz spletnega nakupa",
+          "description": "Po delovnih urah: sestava, nastavitve in odvoz embalaže.",
+          "price": 0,
+          "priceDisplay": "Po urah",
+          "priceNote": "Obračun po opravljenih urah",
+          "features": "Montaža kolesa\nPrilagoditev vseh ključnih komponent (krmilna cev, pnevmatike, pletenice ipd.)\nCeloten paket osnovnih nastavitev\nMontaža dodatne opreme\nUrejeno odstranjevanje embalaže (karton, plastika ipd.)\nOsnovna nastavitev vzmetenja (sag in hitrost raztega)"
         }
-      }
+      ],
+      "note": "Rezervni deli (npr. ležaji nihajke, zavorne obloge) in dodatna popravila se obračunajo posebej. Pred delom se vedno dogovorimo.",
+      "contactCta": "Za servis nas kontaktirajte po e-pošti ali telefonu",
+      "contactHref": "#kontakt"
     },
     {
-      "id": "service-pricing-1",
-      "type": "service-pricing",
-      "props": {
-        "heading": "Cenik servisa",
-        "subheading": "Cene veljajo po dogovoru; za natančen termin nas kontaktirajte po e-pošti ali na 070 815 379.",
-        "packages": [
-          {
-            "id": "osnovni-servis",
-            "name": "Osnovni servis",
-            "description": "Pregled in osnovno vzdrževanje mehanskih sklopov.",
-            "price": 39,
-            "features": [
-              "Pregled delovanja in fina nastavitev prestav ter zavor",
-              "Kontrola in po potrebi popravek tlaka v pnevmatikah",
-              "Meritev obrabe verige",
-              "Osnovno ravnanje (centriranje) obročnikov",
-              "Nanos maziva na verigo (olje ali tekoči vosek)",
-              "Mazanje ključnih gibljivih točk",
-              "Nastavitev zračnosti krmilnega ležaja",
-              "Poraba čistil in maziv je vključena v ceno"
-            ]
-          },
-          {
-            "id": "osnovni-servis-ekolo",
-            "name": "Osnovni servis e-kolo",
-            "label": "E-kolo",
-            "description": "Kot osnovni servis, z diagnostiko in programsko podporo za pogone Bosch, Shimano in Giant.",
-            "price": 55,
-            "features": [
-              "Pregled delovanja in fina nastavitev prestav ter zavor",
-              "Kontrola in po potrebi popravek tlaka v pnevmatikah",
-              "Meritev obrabe verige",
-              "Osnovno ravnanje (centriranje) obročnikov",
-              "Nanos maziva na verigo (olje ali tekoči vosek)",
-              "Mazanje ključnih gibljivih točk",
-              "Nastavitev zračnosti krmilnega ležaja",
-              "Poraba čistil in maziv je vključena v ceno",
-              "Diagnostika, posodobitev programske opreme in izpis poročila (Bosch, Shimano, Giant)"
-            ]
-          },
-          {
-            "id": "redni-servis",
-            "name": "Redni servis",
-            "description": "Širši mehanski pregled z zavorami, pogonom in ležaji.",
-            "price": 70,
-            "features": [
-              "Pregled pogona in natančna nastavitev prestav",
-              "Pregled zavornega sistema, ploščic/oblog ter menjava ob obrabi",
-              "Kontrola in po potrebi popravek tlaka v pnevmatikah",
-              "Meritev obrabe verige",
-              "Osnovno ravnanje (centriranje) obročnikov",
-              "Nanos maziva na verigo (olje ali tekoči vosek)",
-              "Mazanje ključnih gibljivih točk",
-              "Pregled krmilnega in gonilnega ležaja z mazanjem ali menjavo po potrebi",
-              "Pregled pletenic in bovdnov ter zamenjava, če je potrebno",
-              "Pregled pest in dodatno mazanje po potrebi",
-              "Poraba čistil in maziv je vključena v ceno"
-            ]
-          },
-          {
-            "id": "redni-servis-ekolo",
-            "name": "Redni servis e-kolesa",
-            "label": "E-kolo",
-            "description": "Kot redni servis, z diagnostiko in programsko podporo za pogone Bosch, Shimano in Giant.",
-            "price": 80,
-            "features": [
-              "Pregled pogona in natančna nastavitev prestav",
-              "Pregled zavornega sistema, ploščic/oblog ter menjava ob obrabi",
-              "Kontrola in po potrebi popravek tlaka v pnevmatikah",
-              "Meritev obrabe verige in menjava po potrebi",
-              "Osnovno ravnanje (centriranje) obročnikov",
-              "Nanos maziva na verigo (olje ali tekoči vosek)",
-              "Mazanje ključnih gibljivih točk",
-              "Pregled krmilnega ležaja z mazanjem ali menjavo po potrebi",
-              "Pregled pletenic in bovdnov ter zamenjava, če je potrebno",
-              "Pregled pest in dodatno mazanje po potrebi",
-              "Poraba čistil in maziv je vključena v ceno",
-              "Diagnostika, posodobitev programske opreme in izpis poročila (Bosch, Shimano, Giant)"
-            ]
-          },
-          {
-            "id": "generalni-gorsko-prednje-vzmetenje",
-            "name": "Generalni servis gorskega kolesa s prednjim vzmetenjem",
-            "label": "MTB",
-            "description": "Redni servis z zračenjem hidravličnih zavor in hitrim pranjem.",
-            "price": 110,
-            "features": [
-              "Vsebina rednega servisa",
-              "Odzračevanje prednje in zadnje hidravlične zavore",
-              "Osnovno hitro čiščenje kolesa"
-            ]
-          },
-          {
-            "id": "generalni-gorsko-e-prednje-vzmetenje",
-            "name": "Generalni servis gorskega e-kolesa s prednjim vzmetenjem",
-            "label": "E-MTB",
-            "description": "Redni servis e-kolesa z zračenjem hidravličnih zavor in hitrim pranjem.",
-            "price": 120,
-            "features": [
-              "Vsebina rednega servisa za e-kolesa",
-              "Odzračevanje prednje in zadnje hidravlične zavore",
-              "Osnovno hitro čiščenje kolesa"
-            ]
-          },
-          {
-            "id": "generalni-polnovzp-gorsko",
-            "name": "Generalni servis polnovzmetenega gorskega kolesa",
-            "label": "MTB polno vzmetenje",
-            "description": "Redni servis z zavorami, pranjem in servisom ležajev nihajke (ležaji niso v ceni).",
-            "price": 150,
-            "features": [
-              "Vsebina rednega servisa",
-              "Odzračevanje prednje in zadnje hidravlične zavore",
-              "Osnovno hitro čiščenje kolesa",
-              "Čiščenje, pregled in po potrebi menjava ležajev nihajke (ležaji se obračunajo posebej)"
-            ]
-          },
-          {
-            "id": "generalni-polnovzp-gorsko-e",
-            "name": "Generalni servis polnovzmetenega gorskega e-kolesa",
-            "label": "E-MTB polno vzmetenje",
-            "description": "Redni servis e-kolesa z zavorami, pranjem in servisom ležajev nihajke (ležaji niso v ceni).",
-            "price": 170,
-            "features": [
-              "Vsebina rednega servisa za e-kolesa",
-              "Odzračevanje prednje in zadnje hidravlične zavore",
-              "Osnovno hitro čiščenje kolesa",
-              "Čiščenje, pregled in po potrebi menjava ležajev nihajke (ležaji se obračunajo posebej)"
-            ]
-          },
-          {
-            "id": "sestava-spletna-nakup",
-            "name": "Sestava in nastavitev kolesa iz spletnega nakupa",
-            "description": "Po delovnih urah: sestava, nastavitve in odvoz embalaže.",
-            "price": 0,
-            "priceDisplay": "Po urah",
-            "priceNote": "Obračun po opravljenih urah",
-            "features": [
-              "Montaža kolesa",
-              "Prilagoditev vseh ključnih komponent (krmilna cev, pnevmatike, pletenice ipd.)",
-              "Celoten paket osnovnih nastavitev",
-              "Montaža dodatne opreme",
-              "Urejeno odstranjevanje embalaže (karton, plastika ipd.)",
-              "Osnovna nastavitev vzmetenja (sag in hitrost raztega)"
-            ]
-          }
-        ],
-        "note": "Rezervni deli (npr. ležaji nihajke, zavorne obloge) in dodatna popravila se obračunajo posebej. Pred delom se vedno dogovorimo.",
-        "contactCta": "Za servis nas kontaktirajte po e-pošti ali telefonu",
-        "contactHref": "#kontakt"
-      }
-    },
-    {
-      "id": "service-process-1",
-      "type": "service-process",
-      "props": {
-        "heading": "Kako poteka servis",
-        "subheading": "Preprosto: napišite ali pokličite, dogovorimo se.",
-        "steps": [
-          {
-            "title": "Kontakt",
-            "description": "Pošljite e-pošto ali pokličite na 070 815 379. Opisite, kaj je s kolesom, in dogovorimo se za predajo.",
-            "icon": "contact",
-            "details": [
-              "E-pošta ali telefon",
-              "Dogovor o terminu predaje"
-            ]
-          },
-          {
-            "title": "Predaja kolesa",
-            "description": "Prinesete kolo v servis. Na kratko pregledamo in vam povemo, kaj bo treba narediti in po kakšni ceni.",
-            "icon": "bike",
-            "details": [
-              "Kratek pregled",
-              "Ponudba in dogovor"
-            ]
-          },
-          {
-            "title": "Servis",
-            "description": "Servis opravi en strokovnjak. Ko je kolo pripravljeno, vas obvestimo.",
-            "icon": "tools",
-            "details": [
-              "Osebni pristop",
-              "Obvestilo po končanem delu"
-            ]
-          },
-          {
-            "title": "Prevzem",
-            "description": "Prevzamete kolo, preverite, da je vse v redu. Plačilo ob prevzemu.",
-            "icon": "check",
-            "details": [
-              "Plačilo ob prevzemu",
-              "Po potrebi kratka testna vožnja"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "service-faq-1",
-      "type": "service-faq",
-      "props": {
-        "heading": "Pogosta vprašanja",
-        "subheading": "Odgovori na vprašanja o servisu",
-        "items": [
-          {
-            "question": "Kako naročim servis?",
-            "answer": "Pokličite na 070 815 379 ali pošljite e-pošto. Opisite težavo ali željeni servis in dogovorimo se za predajo kolesa. Fiksne delovne ure nimamo — termin se vedno dogovorimo po dogovoru."
-          },
-          {
-            "question": "Katera kolesa servisirate?",
-            "answer": "Servisiramo vsa kolesa: mestna, cestna, gravel, gorska in e-kolesa (mehanski del). Najgloblja izkušnja je pri gorskih kolesih in MTB, vendar enako natančno obravnavamo tudi ostale tipe."
-          },
-          {
-            "question": "Kako hitro bo kolo pripravljeno?",
-            "answer": "Odvisno od obsega dela in trenutne obremenjenosti. Ko predate kolo, vam približno povemo rok. Za nujna manjša popravila se pogosto da urediti hitreje."
-          },
-          {
-            "question": "Ali je potrebna predplačila?",
-            "answer": "Ne. Plačilo je ob prevzemu kolesa. Če so potrebni dražji rezervni deli, vas vnaprej obvestimo."
-          },
-          {
-            "question": "Ali servisirate tudi e-kolesa?",
-            "answer": "Mehanski del kolesa da. Za baterije in motorje e-koles priporočamo uradni servis proizvajalca, razen če gre za preproste zadeve."
-          }
-        ],
-        "contactCta": {
-          "text": "Imate vprašanje?",
-          "label": "Pokličite ali napišite",
-          "href": "#kontakt"
+      "__component": "blocks.service-process",
+      "id": 19,
+      "heading": "Kako poteka servis",
+      "subheading": "Preprosto: napišite ali pokličite, dogovorimo se.",
+      "steps": [
+        {
+          "id": 15,
+          "title": "Kontakt",
+          "description": "Pošljite e-pošto ali pokličite na 070 815 379. Opisite, kaj je s kolesom, in dogovorimo se za predajo.",
+          "icon": "contact",
+          "details": "E-pošta ali telefon\nDogovor o terminu predaje"
+        },
+        {
+          "id": 16,
+          "title": "Predaja kolesa",
+          "description": "Prinesete kolo v servis. Na kratko pregledamo in vam povemo, kaj bo treba narediti in po kakšni ceni.",
+          "icon": "bike",
+          "details": "Kratek pregled\nPonudba in dogovor"
+        },
+        {
+          "id": 17,
+          "title": "Servis",
+          "description": "Servis opravi en strokovnjak. Ko je kolo pripravljeno, vas obvestimo.",
+          "icon": "tools",
+          "details": "Osebni pristop\nObvestilo po končanem delu"
+        },
+        {
+          "id": 18,
+          "title": "Prevzem",
+          "description": "Prevzamete kolo, preverite, da je vse v redu. Plačilo ob prevzemu.",
+          "icon": "check",
+          "details": "Plačilo ob prevzemu\nPo potrebi kratka testna vožnja"
         }
-      }
+      ]
     },
     {
-      "id": "service-contact-1",
-      "type": "service-contact",
-      "props": {
-        "heading": "Kontakt za servis",
-        "text": "Za naročilo servisa ali vprašanja nas kontaktirajte po e-pošti ali telefonu. Delamo po dogovoru, brez fiksnega urnika.",
-        "phone": "070 815 379",
-        "phoneHref": "+38670815379",
-        "email": "vukansbike@gmail.com",
-        "ctaText": "Pošlji e-pošto"
-      }
+      "__component": "blocks.service-faq",
+      "id": 25,
+      "heading": "Pogosta vprašanja",
+      "subheading": "Odgovori na vprašanja o servisu",
+      "items": [
+        {
+          "id": 20,
+          "question": "Kako naročim servis?",
+          "answer": "Pokličite na 070 815 379 ali pošljite e-pošto. Opisite težavo ali željeni servis in dogovorimo se za predajo kolesa. Fiksne delovne ure nimamo — termin se vedno dogovorimo po dogovoru."
+        },
+        {
+          "id": 21,
+          "question": "Katera kolesa servisirate?",
+          "answer": "Servisiramo vsa kolesa: mestna, cestna, gravel, gorska in e-kolesa (mehanski del). Najgloblja izkušnja je pri gorskih kolesih in MTB, vendar enako natančno obravnavamo tudi ostale tipe."
+        },
+        {
+          "id": 22,
+          "question": "Kako hitro bo kolo pripravljeno?",
+          "answer": "Odvisno od obsega dela in trenutne obremenjenosti. Ko predate kolo, vam približno povemo rok. Za nujna manjša popravila se pogosto da urediti hitreje."
+        },
+        {
+          "id": 23,
+          "question": "Ali je potrebna predplačila?",
+          "answer": "Ne. Plačilo je ob prevzemu kolesa. Če so potrebni dražji rezervni deli, vas vnaprej obvestimo."
+        },
+        {
+          "id": 24,
+          "question": "Ali servisirate tudi e-kolesa?",
+          "answer": "Mehanski del kolesa da. Za baterije in motorje e-koles priporočamo uradni servis proizvajalca, razen če gre za preproste zadeve."
+        }
+      ],
+      "contactCtaText": "Imate vprašanje?",
+      "contactCtaLabel": "Pokličite ali napišite",
+      "contactCtaHref": "#kontakt"
+    },
+    {
+      "__component": "blocks.service-contact",
+      "id": 26,
+      "heading": "Kontakt za servis",
+      "text": "Za naročilo servisa ali vprašanja nas kontaktirajte po e-pošti ali telefonu. Delamo po dogovoru, brez fiksnega urnika.",
+      "phone": "070 815 379",
+      "phoneHref": "+38670815379",
+      "email": "vukansbike@gmail.com",
+      "ctaText": "Pošlji e-pošto"
     }
   ],
   "navigation": {
@@ -302,5 +220,6 @@
         "href": "/terms"
       }
     ]
-  }
+  },
+  "lang": "sl"
 }

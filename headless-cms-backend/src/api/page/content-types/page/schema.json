@@ -11,16 +11,61 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Slug": {
+    "tenant": {
+      "type": "string",
+      "required": true
+    },
+    "lang": {
+      "type": "string",
+      "required": true,
+      "default": "sl"
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "slugPattern": {
       "type": "string"
     },
     "template": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": ["default", "detail", "bare"],
+      "default": "default",
+      "required": true
     },
-    "Seo": {
+    "blocks": {
+      "type": "dynamiczone",
+      "components": [
+        "blocks.hero",
+        "blocks.cta-banner",
+        "blocks.stats-bar",
+        "blocks.image-text",
+        "blocks.section-header",
+        "blocks.rich-text",
+        "blocks.image-gallery",
+        "blocks.about-person",
+        "blocks.about-story",
+        "blocks.about-values",
+        "blocks.bike-school-intro",
+        "blocks.bike-school-program",
+        "blocks.contact",
+        "blocks.gallery",
+        "blocks.guided-tour-experience",
+        "blocks.partners-gallery",
+        "blocks.product-list",
+        "blocks.service-contact",
+        "blocks.service-faq",
+        "blocks.service-pricing",
+        "blocks.service-process",
+        "blocks.bike-detail"
+      ],
+      "required": false
+    },
+    "seo": {
       "type": "component",
+      "repeatable": false,
       "component": "shared.seo",
-      "repeatable": true
+      "required": true
     }
   }
 }

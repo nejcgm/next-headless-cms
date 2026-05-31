@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_image_items",
+  "info": {
+    "name": "ImageItem",
+    "icon": "picture",
+    "displayName": "Image Item",
+    "description": "Image URL + alt text — used in galleries and image arrays"
+  },
+  "options": {},
+  "attributes": {
+    "src": {
+      "type": "string",
+      "required": true
+    },
+    "alt": {
+      "type": "string"
+    }
+  }
+}

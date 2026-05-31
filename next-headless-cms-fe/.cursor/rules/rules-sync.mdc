@@ -64,6 +64,13 @@ Cursor rules are living docs. If you change code in the left column, **read** th
 | Dev workflow, layouts, navigation UX, pnpm | `docs/DEVELOPMENT.md`, repo root `README.md` |
 | New doc page | `docs/README.md` index |
 
+## Strapi backend
+
+| If you edit | Update |
+|-------------|--------|
+| `headless-cms-backend/src/api/**`, components, Strapi config | `headless-cms-backend/.cursor/rules/*.mdc` |
+| REST shape consumed by frontend | `strapi.adapter.ts`, `page.ts` / `navigation.ts` types, backend `api-contract.mdc` |
+
 ## Repo root
 
 | If you edit | Update these rules |

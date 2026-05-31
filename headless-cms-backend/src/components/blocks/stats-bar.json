@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_stats_bars",
+  "info": {
+    "name": "StatsBar",
+    "icon": "chart-bar",
+    "displayName": "Stats Bar",
+    "description": "Social-proof strip with a row of stat value + label pairs"
+  },
+  "options": {},
+  "attributes": {
+    "stats": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.stat-item",
+      "required": true,
+      "min": 1
+    }
+  }
+}

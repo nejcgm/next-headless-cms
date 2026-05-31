@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_blocks_bike_details",
+  "info": {
+    "name": "BikeDetail",
+    "icon": "bicycle",
+    "displayName": "Bike Detail",
+    "description": "Single bike product page layout — labels only. Bike data is loaded at runtime from the products collection via dataContract."
+  },
+  "options": {},
+  "attributes": {
+    "labels": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.bike-detail-labels",
+      "required": true
+    }
+  }
+}

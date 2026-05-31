@@ -28,7 +28,7 @@ function ServiceItem({ pkg }: { pkg: ServicePackage }) {
           {pkg.description}
         </p>
         <ul className="space-y-1.5">
-          {pkg.features.map((feature, i) => (
+          {pkg.features.split("\n").filter(Boolean).map((feature, i) => (
             <li key={`${feature}-${i}`} className="flex items-center gap-2 text-sm text-[var(--color-foreground)]">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-primary)] flex-shrink-0" />
               {feature}
@@ -76,8 +76,8 @@ export function ServicePricing({
         </div>
 
         <div className="space-y-4">
-          {packages.map((pkg) => (
-            <ServiceItem key={pkg.id} pkg={pkg} />
+          {packages.map((pkg, index) => (
+            <ServiceItem key={`${pkg.name}-${index}`} pkg={pkg} />
           ))}
         </div>
 

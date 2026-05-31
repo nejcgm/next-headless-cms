@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_blocks_service_contacts",
+  "info": {
+    "name": "ServiceContact",
+    "icon": "envelope",
+    "displayName": "Service — Contact CTA",
+    "description": "Service page contact strip with heading, phone, email, and optional CTA text"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "phoneHref": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "emailHref": {
+      "type": "string"
+    },
+    "ctaText": {
+      "type": "string"
+    }
+  }
+}

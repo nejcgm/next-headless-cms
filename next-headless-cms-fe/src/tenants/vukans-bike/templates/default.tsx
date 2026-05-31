@@ -1,11 +1,10 @@
-import { getNavigationCached } from "@core/data/fetcher";
 import { localizeNavItems } from "@core/i18n/locale-path";
 import type { TemplateProps } from "@core/types/page";
 import { Header } from "@tenant/blocks/header/header";
 import { Footer } from "@tenant/blocks/footer/footer";
 
 export default async function DefaultTemplate({ page, tenant, children }: TemplateProps) {
-  const nav = await getNavigationCached(tenant.id, page.locale);
+  const nav = page.navigation;
 
   const headerNav = nav?.header
     ? localizeNavItems(nav.header, page.locale, tenant.defaultLocale, tenant.locales)

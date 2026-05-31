@@ -1,104 +1,99 @@
 {
   "slug": "/about",
-  "locale": "sl",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "O nas — Vukan's Bike Shop",
     "description": "Zgodba Vukan's Bike Shop v Apačah: servis in trgovina koles vseh vrst, osebni pristop in dolga izkušnja tudi pri gorskih kolesih in MTB. Spoznajte ekipo.",
     "ogImage": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=1200&h=630&fit=crop"
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "O nas",
-        "subheadline": "Kolesa vseh vrst v Apačah — en človek, en pristop.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Servis",
-          "href": "/service"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "O nas",
+      "subheadline": "Kolesa vseh vrst v Apačah — en človek, en pristop.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Servis",
+        "href": "/service"
+      },
+      "secondaryCta": {
+        "id": 3,
+        "label": "Kontakt",
+        "href": "/contact"
+      }
+    },
+    {
+      "__component": "blocks.about-story",
+      "id": 5,
+      "kicker": "Naša zgodba",
+      "headline": "Od strasti do servisa in trgovine",
+      "quote": "Kolo ni samo prevoz — je svoboda. Želimo, da vsak odpelje svojo avanturo.",
+      "body": "Vukan's Bike Shop je nastal iz ljubezni do koles in želje, da bi v regiji obstajalo mesto za kakovosten servis, iskren nasvet ali novo kolo — ne glede na to, ali vozite po mestu, cesti ali po stezah.\n\nDelamo v Apačah. Servisiramo in svetujemo pri vseh vrstah koles; naša posebna strast in najdaljša izkušnja pa sta še vedno pri gorskih kolesih in MTB — od osnovnega servisa do popolnih popravil in gradnje po meri. Brez anonimne delavnice — en strokovnjak, ki pozna vaše kolo in vaše potrebe.\n\nVerjamemo v osebni stik, pošteno ceno in delo, na katero se lahko zanesete. Če iščete partnerja za vaše naslednje vožnje, ste na pravem mestu.",
+      "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776428488/9c4caa91-a86a-43e4-a8f7-39a45f2620d3_pezutz.jpg",
+      "imagePosition": "right"
+    },
+    {
+      "__component": "blocks.about-person",
+      "id": 7,
+      "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775401858/1000024272_almr2a.jpg",
+      "name": "Gregor Vukan",
+      "role": "Lastnik in strokovnjak",
+      "bio": "S kolesi se ukvarjam že dolga leta; še posebej me navdušujejo gorska kolesa in zahtevnejši teren. Pri Vukan's Bike Shop skrbim za servis, prodajo in nasvet za vse tipe koles — vse na enem mestu, z osebnim pristopom. Rad vam pomagam izbrati pravo kolo ali ga pripeljati v stanje za naslednjo sezono. Pokličite ali pridite v Apače.",
+      "cta": {
+        "id": 6,
+        "label": "Kontakt",
+        "href": "/contact"
+      }
+    },
+    {
+      "__component": "blocks.about-values",
+      "id": 12,
+      "eyebrowBadge": "Naše vrednote",
+      "heading": "Zakaj mi",
+      "subheading": "Naše vrednote so preproste: kakovost, iskrenost in vaše zaupanje.",
+      "items": [
+        {
+          "id": 8,
+          "icon": "bike",
+          "title": "Vse vrste koles",
+          "description": "Mestna, cestna, gravel, električna in gorska — poznamo pogon, zavore in geometrijo. Pri gorskih kolesih in trailu imamo še posebej globoko izkušnjo."
         },
-        "secondaryCta": {
-          "label": "Kontakt",
-          "href": "/contact"
-        }
-      }
-    },
-    {
-      "id": "about-story-1",
-      "type": "about-story",
-      "props": {
-        "kicker": "Naša zgodba",
-        "headline": "Od strasti do servisa in trgovine",
-        "quote": "Kolo ni samo prevoz — je svoboda. Želimo, da vsak odpelje svojo avanturo.",
-        "body": [
-          "Vukan's Bike Shop je nastal iz ljubezni do koles in želje, da bi v regiji obstajalo mesto za kakovosten servis, iskren nasvet ali novo kolo — ne glede na to, ali vozite po mestu, cesti ali po stezah.",
-          "Delamo v Apačah. Servisiramo in svetujemo pri vseh vrstah koles; naša posebna strast in najdaljša izkušnja pa sta še vedno pri gorskih kolesih in MTB — od osnovnega servisa do popolnih popravil in gradnje po meri. Brez anonimne delavnice — en strokovnjak, ki pozna vaše kolo in vaše potrebe.",
-          "Verjamemo v osebni stik, pošteno ceno in delo, na katero se lahko zanesete. Če iščete partnerja za vaše naslednje vožnje, ste na pravem mestu."
-        ],
-        "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776428488/9c4caa91-a86a-43e4-a8f7-39a45f2620d3_pezutz.jpg",
-        "imagePosition": "right"
-      }
-    },
-    {
-      "id": "about-person-1",
-      "type": "about-person",
-      "props": {
-        "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775401858/1000024272_almr2a.jpg",
-        "name": "Gregor Vukan",
-        "role": "Lastnik in strokovnjak",
-        "bio": "S kolesi se ukvarjam že dolga leta; še posebej me navdušujejo gorska kolesa in zahtevnejši teren. Pri Vukan's Bike Shop skrbim za servis, prodajo in nasvet za vse tipe koles — vse na enem mestu, z osebnim pristopom. Rad vam pomagam izbrati pravo kolo ali ga pripeljati v stanje za naslednjo sezono. Pokličite ali pridite v Apače.",
-        "cta": {
-          "label": "Kontakt",
-          "href": "/contact"
-        }
-      }
-    },
-    {
-      "id": "about-values-1",
-      "type": "about-values",
-      "props": {
-        "eyebrowBadge": "Naše vrednote",
-        "heading": "Zakaj mi",
-        "subheading": "Naše vrednote so preproste: kakovost, iskrenost in vaše zaupanje.",
-        "items": [
-          {
-            "icon": "bike",
-            "title": "Vse vrste koles",
-            "description": "Mestna, cestna, gravel, električna in gorska — poznamo pogon, zavore in geometrijo. Pri gorskih kolesih in trailu imamo še posebej globoko izkušnjo."
-          },
-          {
-            "icon": "users",
-            "title": "Osebni pristop",
-            "description": "En strokovnjak, en stik. Brez anonimne delavnice; delamo po dogovoru in vam prilagodimo čas."
-          },
-          {
-            "icon": "shield",
-            "title": "Poštena cena",
-            "description": "Transparenten cenik in jasna ponudba. Brez skritih stroškov — prej veste, kaj stane."
-          },
-          {
-            "icon": "location",
-            "title": "Lokalno, v Apačah",
-            "description": "Trgovina in servis v vaši bližini. Partnerji in dogodki v regiji — del skupnosti."
-          }
-        ]
-      }
-    },
-    {
-      "id": "cta-1",
-      "type": "cta-banner",
-      "props": {
-        "heading": "Pripravljeni na servis ali novo kolo?",
-        "subheading": "Obiščite nas v Apačah ali nas pokličite na 070 815 379.",
-        "cta": {
-          "label": "Kontakt",
-          "href": "/contact"
+        {
+          "id": 9,
+          "icon": "users",
+          "title": "Osebni pristop",
+          "description": "En strokovnjak, en stik. Brez anonimne delavnice; delamo po dogovoru in vam prilagodimo čas."
         },
-        "background": "primary"
-      }
+        {
+          "id": 10,
+          "icon": "shield",
+          "title": "Poštena cena",
+          "description": "Transparenten cenik in jasna ponudba. Brez skritih stroškov — prej veste, kaj stane."
+        },
+        {
+          "id": 11,
+          "icon": "location",
+          "title": "Lokalno, v Apačah",
+          "description": "Trgovina in servis v vaši bližini. Partnerji in dogodki v regiji — del skupnosti."
+        }
+      ]
+    },
+    {
+      "__component": "blocks.cta-banner",
+      "id": 14,
+      "heading": "Pripravljeni na servis ali novo kolo?",
+      "subheading": "Obiščite nas v Apačah ali nas pokličite na 070 815 379.",
+      "cta": {
+        "id": 13,
+        "label": "Kontakt",
+        "href": "/contact"
+      },
+      "background": "primary"
     }
-  ]
+  ],
+  "lang": "sl"
 }

@@ -35,6 +35,43 @@ For dynamic `import()` statements, use RELATIVE PATHS only. Next.js cannot resol
 - `type` for unions, intersections, and utility types
 - Service return types that need `Record<string, unknown>` compatibility: use `extends Record<string, unknown>`
 
+## Type assertions — minimize casting
+
+Avoid type assertions (`as Type`, `as const`) unless there is no type-safe alternative. Assertions hide mistakes; prefer types that infer correctly from the start.
+
+### Do not use `as const` on config objects
+
+Do **not** suffix config/constants objects with `as const` (e.g. `strapiConfig`, `STRAPI_COLLECTIONS`, `POPULATE`). Plain object literals are enough.
+
+When you need a union of keys or values, derive it explicitly instead:
+
+```ts
+export const STRAPI_COLLECTIONS = {
+  pages: "pages",
+  navigations: "navigations",
+  products: "products",
+};
+
+export type StrapiCollection = (typeof STRAPI_COLLECTIONS)[keyof typeof STRAPI_COLLECTIONS];
+```
+
+Use `satisfies SomeType` when you want to check shape without widening or freezing literals.
+
+### Prefer alternatives to `as`
+
+| Instead of | Prefer |
+|---|---|
+| `value as Foo` | Typed function return, generic parameter, or Zod parse |
+| `(await res.json()) as T` | Validate/narrow from `unknown` at the boundary |
+| `mod.default as PageData` | Typed dynamic-import helper or runtime check |
+| `as const` on objects | Explicit `type` / `interface` + plain literals |
+
+### When casting is acceptable
+
+- DOM APIs after a narrow check (e.g. `event.target` after `instanceof Element`)
+- Documented adapter boundaries where external JSON is normalized immediately (Strapi/mock adapters) — keep casts localized and pair with runtime checks where feasible
+- Block registry `ComponentType<any>` (see ESLint exceptions below)
+
 ## Environment Variables
 
 All env vars must be added to the Zod schema in `src/env.ts`. Access via `import { env } from "@/env"`, never `process.env` directly.

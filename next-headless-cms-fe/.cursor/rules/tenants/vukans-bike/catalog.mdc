@@ -8,19 +8,21 @@ alwaysApply: false
 
 > **Maintenance**: Keep this file in sync when blocks, templates, mock pages, navigation, or integrations change (`rules-sync.mdc`).
 
-Bike shop in Apače: service, sales, bike school, guided tours. Locales: `sl` (default), `de`, `en`. Adapter: `mock` → Strapi later.
+Bike shop in Apače: service, sales, bike school, guided tours. Locales: `sl` (default), `de`, `en`. Adapter: `strapi` (Strapi backend live; `mock` as fallback during dev).
 
 ## Render pipeline
 
 ```
-page JSON (mock) → MockAdapter.getPage → page.tsx
+StrapiAdapter.getPage → page.tsx
   → resolveTemplate(page.template) → tenant template (header/footer)
   → BlockRenderer → block registry (tenant + shared)
+  → dataContract (if registered) → StrapiAdapter.getCollection / getEntry
 ```
 
 - **Config**: `src/tenants/vukans-bike/config.ts` — theme, domains, contact, `dataAdapter`.
-- **Registration**: `src/tenants/vukans-bike/blocks/index.ts` — all tenant block types.
-- **Mock pages**: `src/core/mock-data.ts/vukans-bike/pages/*.json`
+- **Registration**: `src/tenants/vukans-bike/blocks/index.ts` — all tenant block types + data contracts.
+- **Mock pages** (fallback): `src/core/mock-data.ts/vukans-bike/pages/*.json` — mirrors Strapi API response shape (has `__component`, numeric `id`, flat fields, `lang`).
+- **Mock collections**: `src/core/mock-data.ts/vukans-bike/collections/products.json` — all 3 bikes with full `slug`, `specs`, `images`, etc.
 - **Navigation**: `navigation.json`, `en--navigation.json`, `de--navigation.json`
 
 ## Templates (`src/tenants/vukans-bike/templates/`)
@@ -50,7 +52,7 @@ Domain `layout.tsx` only applies theme + analytics — no header/footer.
 | `about-story` | `blocks/about-story/about-story.tsx` | Props | `/about` — narrative copy |
 | `about-person` | `blocks/about-person/about-person.tsx` | Props | `/about` — owner bio + photo |
 | `about-values` | `blocks/about-values/about-values.tsx` | Props | `/about` — value cards grid |
-| `bike-detail` | `blocks/bike-detail/bike-detail.tsx` | Props (`labels`, product fields in JSON) | `/bikes/{slug}` pages (`bikes--*.json`) — single product layout, breadcrumbs |
+| `bike-detail` | `blocks/bike-detail/bike-detail.tsx` | `labels` props from CMS + **dataContract** → `load-bike.ts` → `getEntry("products", bikeSlug)` | `/bikes/{slug}` pages — single product layout, breadcrumbs; bike slug extracted from page URL last segment |
 | `bike-school-intro` | `blocks/bike-school-intro/` | Props | `/bike-school` — intro section |
 | `bike-school-program` | `blocks/bike-school-program/` | Props | `/bike-school` — program tiers / schedule |
 | `gallery` | `blocks/gallery/gallery.tsx` | Props (`images[]`) | Bike school, guided tours — photo grid |
@@ -91,14 +93,30 @@ Used in vukans-bike mock pages — defined in `src/shared/components/blocks/`:
 
 Localized copies: `en--*.json`, `de--*.json` mirror slugs with locale prefix in URL.
 
+## Data contracts
+
+| Block | Loader file | Adapter call | Notes |
+|-------|-------------|--------------|-------|
+| `product-list` | `blocks/product-list/load-products.ts` | `getCollection(tenant, "products", { locale, limit? })` | Returns `{ products[], locale }`. Catches 404 → empty array. |
+| `bike-detail` | `blocks/bike-detail/load-bike.ts` | `getEntry(tenant, "products", bikeSlug)` | `bikeSlug` = last segment of `ctx.slug` (e.g. `/bikes/merida` → `"merida"`). Returns `{ bike? }`. Catches errors → `{}`. |
+
+Keep adapter calls inside the loader files — never inline them in `blocks/index.ts`.
+
+## Products collection in Strapi
+
+- 3 bikes × 3 locales seeded via `headless-cms-backend/scripts/seed-vukans-bike-cms.js`.
+- Public `find` permission must be granted in Strapi admin (Settings → Users & Permissions → Roles → Public → Product → find).
+- `getCollection` filters by `filters[lang][$eq]` (not `locale` — Strapi i18n reserves that param).
+- `getEntry` uses `filters[slug][$eq]` + `pagination[pageSize]=1` — slug is the application-level unique identifier.
+
 ## Services / integrations
 
-- `blocks/product-list/load-products.ts` — only data loader; keep adapter calls here, not in `index.ts`.
 - No external hotel/booking integration on this tenant.
 - Reviews feature flag on; no `testimonials` block registered.
 
 ## Strapi notes
 
+- Page and navigation fields use `lang` (not `locale`) — Strapi i18n plugin reserves `locale` as a query param.
 - Page `template` field → `resolveTemplate` (same strings: `default`, `bare`).
-- Navigation → global or single-type in Strapi; maps to `NavigationData` (`header`, `footer`, `footerCopy`).
-- Dynamic bike URLs: keep slug pattern `/bikes/:slug` in adapter, one `bike-detail` block per page.
+- Navigation → collection type in Strapi; maps to `NavigationData` (`header`, `footer`, `footerCopy`).
+- Dynamic bike URLs: slug pattern `/bikes/:slug` in adapter, one `bike-detail` block per page; bike data fetched from `products` collection via `dataContract`.

@@ -19,6 +19,21 @@ Register it in `src/tenants/{tenant}/blocks/index.ts`.
 
 After registering or changing a block, update `block-system.mdc` and the tenant `catalog.mdc` (see `rules-sync.mdc`).
 
+## Schema validation (optional, dev-only)
+
+A block may declare a `schema` (Zod) in its registration. The renderer validates the
+**merged props** (`block.props` + `dataContract` output) against it in **development only**
+and logs a `logger.warn` with the failing paths on mismatch. It never blocks rendering and is
+a **no-op in production** (zero cost). Use it to catch CMS/mock data drift early.
+
+```typescript
+hero: { component: Hero, schema: heroSchema },
+```
+
+Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blockId`,
+merged search params) are stripped, so they won't cause false failures. See
+`blocks/hero/schema.ts` for the reference pattern.
+
 ## Shared vs tenant block
 
 | Put it in | When |

@@ -1,0 +1,46 @@
+{
+  "collectionName": "components_blocks_galleries",
+  "info": {
+    "name": "Gallery",
+    "icon": "images",
+    "displayName": "Gallery",
+    "description": "Photo gallery with lightbox, show-more/less controls, and translatable labels"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "defaultImageAlt": {
+      "type": "string",
+      "required": true
+    },
+    "showLessLabel": {
+      "type": "string",
+      "required": true
+    },
+    "showMorePrefix": {
+      "type": "string",
+      "required": true
+    },
+    "showMoreSuffix": {
+      "type": "string",
+      "required": true
+    },
+    "lightboxAltPrefix": {
+      "type": "string",
+      "required": true
+    },
+    "images": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.image-item",
+      "required": true,
+      "min": 1
+    }
+  }
+}

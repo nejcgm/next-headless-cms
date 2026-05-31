@@ -1,5 +1,4 @@
 export interface Partner {
-  id: string;
   name: string;
   /** Logo or icon image URL */
   icon: string;

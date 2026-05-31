@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": "Bike / product catalog — one entry per SKU per tenant + language"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tenant": {
+      "type": "string",
+      "required": true
+    },
+    "lang": {
+      "type": "string",
+      "required": true,
+      "default": "sl"
+    },
+    "slug": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
+    },
+    "compareAtPrice": {
+      "type": "decimal"
+    },
+    "image": {
+      "type": "string"
+    },
+    "images": {
+      "type": "json"
+    },
+    "category": {
+      "type": "string"
+    },
+    "inStock": {
+      "type": "boolean",
+      "default": true
+    },
+    "tags": {
+      "type": "json"
+    },
+    "specs": {
+      "type": "json"
+    }
+  }
+}

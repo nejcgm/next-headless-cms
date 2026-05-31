@@ -1,55 +1,55 @@
 {
   "slug": "/contact",
-  "locale": "en",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "Contact — Vukan's Bike Shop",
     "description": "Address: Apače 66a, 9253 Apače. Phone 070 815 379, email vukansbike@gmail.com. Open in Google Maps.",
     "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775406591/IMG_3164_c1xp3f.heic"
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Contact",
-        "subheadline": "Visit us in Apače or call. Opening hours by appointment.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775406591/IMG_3164_c1xp3f.heic",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Open in Google Maps",
-          "href": "https://www.google.com/maps/place/Vukans+bike/@46.696131,15.9088762,19.13z/data=!4m6!3m5!1s0x476f1311eca9b685:0x1751e62b3f51766c!8m2!3d46.6961521!4d15.9091873!16s%2Fg%2F11xdx3n8xg?entry=ttu"
-        }
+      "__component": "blocks.hero",
+      "id": 3,
+      "headline": "Contact",
+      "subheadline": "Visit us in Apače or call. Opening hours by appointment.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775406591/IMG_3164_c1xp3f.heic",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Open in Google Maps",
+        "href": "https://www.google.com/maps/place/Vukans+bike/@46.696131,15.9088762,19.13z/data=!4m6!3m5!1s0x476f1311eca9b685:0x1751e62b3f51766c!8m2!3d46.6961521!4d15.9091873!16s%2Fg%2F11xdx3n8xg?entry=ttu"
       }
     },
     {
-      "id": "contact-1",
-      "type": "contact",
-      "props": {
-        "labels": {
-          "addressHeading": "Address",
-          "directionsLinkText": "Open in Google Maps →",
-          "phoneHeading": "Phone",
-          "emailHeading": "Email",
-          "mapIframeTitle": "Location on the map — Google Maps",
-          "mapFallbackTitle": "Open in Google Maps",
-          "mapFullscreenLink": "Open in Google Maps (fullscreen) →"
-        },
-        "heading": "Find us",
-        "subheading": "Vukan's Bike Shop — service and sales for all types of bikes in Apače.",
-        "address": {
-          "street": "Apače 66a",
-          "postalCode": "9253",
-          "city": "Apače",
-          "country": "Slovenia"
-        },
-        "directionsLink": "https://www.google.com/maps/place/Vukans+bike/@46.696131,15.9088762,19.13z/data=!4m6!3m5!1s0x476f1311eca9b685:0x1751e62b3f51766c!8m2!3d46.6961521!4d15.9091873!16s%2Fg%2F11xdx3n8xg?entry=ttu",
-        "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.074!2d15.9091873!3d46.6961521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476f1311eca9b685%3A0x1751e62b3f51766c!2sVukan%27s%20Bike!5e0!3m2!1ssl!2ssi!4v1735689600000!5m2!1ssl!2ssi",
-        "phone": "070 815 379",
-        "phoneHref": "+38670815379",
-        "email": "vukansbike@gmail.com",
-        "hoursNote": "Hours by appointment. For service or a visit, please call or email first."
-      }
+      "__component": "blocks.contact",
+      "id": 6,
+      "labels": {
+        "id": 4,
+        "addressHeading": "Address",
+        "directionsLinkText": "Open in Google Maps →",
+        "phoneHeading": "Phone",
+        "emailHeading": "Email",
+        "mapIframeTitle": "Location on the map — Google Maps",
+        "mapFallbackTitle": "Open in Google Maps",
+        "mapFullscreenLink": "Open in Google Maps (fullscreen) →"
+      },
+      "heading": "Find us",
+      "subheading": "Vukan's Bike Shop — service and sales for all types of bikes in Apače.",
+      "address": {
+        "id": 5,
+        "street": "Apače 66a",
+        "postalCode": "9253",
+        "city": "Apače",
+        "country": "Slovenia"
+      },
+      "directionsLink": "https://www.google.com/maps/place/Vukans+bike/@46.696131,15.9088762,19.13z/data=!4m6!3m5!1s0x476f1311eca9b685:0x1751e62b3f51766c!8m2!3d46.6961521!4d15.9091873!16s%2Fg%2F11xdx3n8xg?entry=ttu",
+      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.074!2d15.9091873!3d46.6961521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476f1311eca9b685%3A0x1751e62b3f51766c!2sVukan%27s%20Bike!5e0!3m2!1ssl!2ssi!4v1735689600000!5m2!1ssl!2ssi",
+      "phone": "070 815 379",
+      "phoneHref": "+38670815379",
+      "email": "vukansbike@gmail.com",
+      "hoursNote": "Hours by appointment. For service or a visit, please call or email first."
     }
-  ]
+  ],
+  "lang": "en"
 }

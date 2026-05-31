@@ -1,166 +1,164 @@
 {
   "slug": "/guided-tours",
-  "locale": "sl",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "Vodene ture — Vukan's Bike Shop",
     "description": "Organiziramo vodene ture po dogovoru za manjše skupine. Trase prilagodimo nivoju, tempu in ciljem ekipe.",
     "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg"
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Vodene ture",
-        "subheadline": "Ture organiziramo po dogovoru. Tempo, dolžino in zahtevnost prilagodimo skupini.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Rezerviraj termin",
-          "href": "/contact"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "Vodene ture",
+      "subheadline": "Ture organiziramo po dogovoru. Tempo, dolžino in zahtevnost prilagodimo skupini.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Rezerviraj termin",
+        "href": "/contact"
+      },
+      "secondaryCta": {
+        "id": 3,
+        "label": "Kako poteka",
+        "href": "#potek"
+      }
+    },
+    {
+      "__component": "blocks.guided-tour-experience",
+      "id": 9,
+      "heading": "Kaj dobite na vodenih turah",
+      "subheading": "Vsaka tura je pripravljena po meri skupine, z jasnim planom in varnim tempom.",
+      "items": [
+        {
+          "id": 5,
+          "icon": "route",
+          "title": "Trasa po meri",
+          "description": "Pred turo uskladimo teren, dolžino in višince glede na vaše želje in pripravljenost."
         },
-        "secondaryCta": {
-          "label": "Kako poteka",
-          "href": "#potek"
+        {
+          "id": 6,
+          "icon": "coach",
+          "title": "Vodenje na terenu",
+          "description": "Sproti usmerjamo tempo in linije, da je vožnja tekoča, varna in prijetna za celotno ekipo."
+        },
+        {
+          "id": 7,
+          "icon": "group",
+          "title": "Majhne skupine",
+          "description": "Najboljše delamo v manjših skupinah, kjer lahko prilagodimo izkušnjo vsakemu udeležencu."
+        },
+        {
+          "id": 8,
+          "icon": "safety",
+          "title": "Varnost in preglednost",
+          "description": "Pred začetkom dobite jasna navodila, med turo pa poskrbimo za dober ritem in organizacijo."
         }
-      }
+      ]
     },
     {
-      "id": "guided-tour-experience-1",
-      "type": "guided-tour-experience",
-      "props": {
-        "heading": "Kaj dobite na vodenih turah",
-        "subheading": "Vsaka tura je pripravljena po meri skupine, z jasnim planom in varnim tempom.",
-        "items": [
-          {
-            "icon": "route",
-            "title": "Trasa po meri",
-            "description": "Pred turo uskladimo teren, dolžino in višince glede na vaše želje in pripravljenost."
-          },
-          {
-            "icon": "coach",
-            "title": "Vodenje na terenu",
-            "description": "Sproti usmerjamo tempo in linije, da je vožnja tekoča, varna in prijetna za celotno ekipo."
-          },
-          {
-            "icon": "group",
-            "title": "Majhne skupine",
-            "description": "Najboljše delamo v manjših skupinah, kjer lahko prilagodimo izkušnjo vsakemu udeležencu."
-          },
-          {
-            "icon": "safety",
-            "title": "Varnost in preglednost",
-            "description": "Pred začetkom dobite jasna navodila, med turo pa poskrbimo za dober ritem in organizacijo."
-          }
-        ]
-      }
-    },
-    {
-      "id": "gallery-1",
-      "type": "gallery",
-      "props": {
-        "heading": "Galerija vodenih tur",
-        "subheading": "Zaenkrat uporabljamo obstoječe fotografije; kmalu dodamo namenske utrinke iz tur.",
-        "defaultImageAlt": "Galerija vodenih tur",
-        "showLessLabel": "Prikaži manj",
-        "showMorePrefix": "Prikaži več (",
-        "showMoreSuffix": ")",
-        "lightboxAltPrefix": "Galerija",
-        "images": [
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
-            "alt": "Vodene ture 1"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
-            "alt": "Vodene ture 2"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
-            "alt": "Vodene ture 3"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
-            "alt": "Vodene ture 4"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
-            "alt": "Vodene ture 5"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480191/IMG_2611_wxpwqs.heic",
-            "alt": "Vodene ture 6"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480188/1000026613_nfxcr7.jpg",
-            "alt": "Vodene ture 7"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480178/1000006042_tivdyq.jpg",
-            "alt": "Vodene ture 8"
-          }
-        ]
-      }
-    },
-    {
-      "id": "service-process-1",
-      "type": "service-process",
-      "props": {
-        "heading": "Kako poteka organizacija ture",
-        "subheading": "Enostavno in hitro — vse uredimo po dogovoru.",
-        "steps": [
-          {
-            "title": "Povpraševanje",
-            "description": "Pošljete želeni datum, velikost skupine in okvirno željo glede ture.",
-            "icon": "contact",
-            "details": [
-              "Telefon ali e-pošta",
-              "Predlog terminov"
-            ]
-          },
-          {
-            "title": "Dogovor o trasi",
-            "description": "Skupaj določimo nivo, dolžino in vrsto terena (lažje poti ali bolj tehnični odseki).",
-            "icon": "bike",
-            "details": [
-              "Prilagoditev nivoju skupine",
-              "Določitev trajanja in tempa"
-            ]
-          },
-          {
-            "title": "Vodenje na terenu",
-            "description": "Na dan ture poskrbimo za jasno vodenje, varnostne usmeritve in dober ritem vožnje.",
-            "icon": "tools",
-            "details": [
-              "Varnostna navodila pred začetkom",
-              "Postanki po dogovoru"
-            ]
-          },
-          {
-            "title": "Zaključek",
-            "description": "Po turi naredimo kratek povzetek in po želji predlagamo naslednjo traso.",
-            "icon": "check",
-            "details": [
-              "Povzetek vožnje",
-              "Predlog za naslednji termin"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "id": "cta-1",
-      "type": "cta-banner",
-      "props": {
-        "heading": "Dogovorimo se za vašo vodeno turo",
-        "subheading": "Ture trenutno organiziramo po dogovoru in glede na razpoložljive termine.",
-        "cta": {
-          "label": "Kontakt",
-          "href": "/contact"
+      "__component": "blocks.gallery",
+      "id": 18,
+      "heading": "Galerija vodenih tur",
+      "subheading": "Zaenkrat uporabljamo obstoječe fotografije; kmalu dodamo namenske utrinke iz tur.",
+      "defaultImageAlt": "Galerija vodenih tur",
+      "showLessLabel": "Prikaži manj",
+      "showMorePrefix": "Prikaži več (",
+      "showMoreSuffix": ")",
+      "lightboxAltPrefix": "Galerija",
+      "images": [
+        {
+          "id": 10,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
+          "alt": "Vodene ture 1"
         },
-        "background": "primary"
-      }
+        {
+          "id": 11,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
+          "alt": "Vodene ture 2"
+        },
+        {
+          "id": 12,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
+          "alt": "Vodene ture 3"
+        },
+        {
+          "id": 13,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
+          "alt": "Vodene ture 4"
+        },
+        {
+          "id": 14,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
+          "alt": "Vodene ture 5"
+        },
+        {
+          "id": 15,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480191/IMG_2611_wxpwqs.heic",
+          "alt": "Vodene ture 6"
+        },
+        {
+          "id": 16,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480188/1000026613_nfxcr7.jpg",
+          "alt": "Vodene ture 7"
+        },
+        {
+          "id": 17,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480178/1000006042_tivdyq.jpg",
+          "alt": "Vodene ture 8"
+        }
+      ]
+    },
+    {
+      "__component": "blocks.service-process",
+      "id": 23,
+      "heading": "Kako poteka organizacija ture",
+      "subheading": "Enostavno in hitro — vse uredimo po dogovoru.",
+      "steps": [
+        {
+          "id": 19,
+          "title": "Povpraševanje",
+          "description": "Pošljete želeni datum, velikost skupine in okvirno željo glede ture.",
+          "icon": "contact",
+          "details": "Telefon ali e-pošta\nPredlog terminov"
+        },
+        {
+          "id": 20,
+          "title": "Dogovor o trasi",
+          "description": "Skupaj določimo nivo, dolžino in vrsto terena (lažje poti ali bolj tehnični odseki).",
+          "icon": "bike",
+          "details": "Prilagoditev nivoju skupine\nDoločitev trajanja in tempa"
+        },
+        {
+          "id": 21,
+          "title": "Vodenje na terenu",
+          "description": "Na dan ture poskrbimo za jasno vodenje, varnostne usmeritve in dober ritem vožnje.",
+          "icon": "tools",
+          "details": "Varnostna navodila pred začetkom\nPostanki po dogovoru"
+        },
+        {
+          "id": 22,
+          "title": "Zaključek",
+          "description": "Po turi naredimo kratek povzetek in po želji predlagamo naslednjo traso.",
+          "icon": "check",
+          "details": "Povzetek vožnje\nPredlog za naslednji termin"
+        }
+      ]
+    },
+    {
+      "__component": "blocks.cta-banner",
+      "id": 25,
+      "heading": "Dogovorimo se za vašo vodeno turo",
+      "subheading": "Ture trenutno organiziramo po dogovoru in glede na razpoložljive termine.",
+      "cta": {
+        "id": 24,
+        "label": "Kontakt",
+        "href": "/contact"
+      },
+      "background": "primary"
     }
-  ]
+  ],
+  "lang": "sl"
 }

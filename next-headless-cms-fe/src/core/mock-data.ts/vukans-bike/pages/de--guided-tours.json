@@ -1,154 +1,164 @@
 {
   "slug": "/guided-tours",
-  "locale": "de",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "Geführte Touren — Vukan's Bike Shop",
     "description": "Wir organisieren nach Vereinbarung geführte Touren für kleine Gruppen. Strecken passen wir an Niveau, Tempo und Ziele der Gruppe an.",
     "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg"
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Geführte Touren",
-        "subheadline": "Touren organisieren wir nach Vereinbarung. Tempo, Länge und Schwierigkeit passen wir der Gruppe an.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Termin anfragen",
-          "href": "/de/contact"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "Geführte Touren",
+      "subheadline": "Touren organisieren wir nach Vereinbarung. Tempo, Länge und Schwierigkeit passen wir der Gruppe an.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Termin anfragen",
+        "href": "/de/contact"
+      },
+      "secondaryCta": {
+        "id": 3,
+        "label": "Ablauf",
+        "href": "#potek"
+      }
+    },
+    {
+      "__component": "blocks.guided-tour-experience",
+      "id": 9,
+      "heading": "Das erwartet Sie",
+      "subheading": "Jede Tour wird auf die Gruppe zugeschnitten — mit klarem Plan und sicherem Tempo.",
+      "items": [
+        {
+          "id": 5,
+          "icon": "route",
+          "title": "Route nach Maß",
+          "description": "Vor der Tour stimmen wir Gelände, Länge und Höhenmeter mit Ihren Wünschen und Ihrer Fitness ab."
         },
-        "secondaryCta": {
-          "label": "Ablauf",
-          "href": "#potek"
+        {
+          "id": 6,
+          "icon": "coach",
+          "title": "Führung vor Ort",
+          "description": "Wir leiten Tempo und Linienwahl, damit die Fahrt flüssig, sicher und für alle angenehm ist."
+        },
+        {
+          "id": 7,
+          "icon": "group",
+          "title": "Kleine Gruppen",
+          "description": "Am besten arbeiten wir in kleinen Gruppen, damit wir die Erfahrung auf jeden abstimmen können."
+        },
+        {
+          "id": 8,
+          "icon": "safety",
+          "title": "Sicherheit und Transparenz",
+          "description": "Vor dem Start gibt es klare Anweisungen; während der Tour sorgen wir für gutes Tempo und Organisation."
         }
-      }
+      ]
     },
     {
-      "id": "guided-tour-experience-1",
-      "type": "guided-tour-experience",
-      "props": {
-        "heading": "Das erwartet Sie",
-        "subheading": "Jede Tour wird auf die Gruppe zugeschnitten — mit klarem Plan und sicherem Tempo.",
-        "items": [
-          {
-            "icon": "route",
-            "title": "Route nach Maß",
-            "description": "Vor der Tour stimmen wir Gelände, Länge und Höhenmeter mit Ihren Wünschen und Ihrer Fitness ab."
-          },
-          {
-            "icon": "coach",
-            "title": "Führung vor Ort",
-            "description": "Wir leiten Tempo und Linienwahl, damit die Fahrt flüssig, sicher und für alle angenehm ist."
-          },
-          {
-            "icon": "group",
-            "title": "Kleine Gruppen",
-            "description": "Am besten arbeiten wir in kleinen Gruppen, damit wir die Erfahrung auf jeden abstimmen können."
-          },
-          {
-            "icon": "safety",
-            "title": "Sicherheit und Transparenz",
-            "description": "Vor dem Start gibt es klare Anweisungen; während der Tour sorgen wir für gutes Tempo und Organisation."
-          }
-        ]
-      }
-    },
-    {
-      "id": "gallery-1",
-      "type": "gallery",
-      "props": {
-        "heading": "Galerie geführte Touren",
-        "subheading": "Aktuell nutzen wir bestehende Fotos; bald ergänzen wir Eindrücke von den Touren.",
-        "defaultImageAlt": "Geführte Touren",
-        "showLessLabel": "Weniger anzeigen",
-        "showMorePrefix": "Mehr anzeigen (",
-        "showMoreSuffix": ")",
-        "lightboxAltPrefix": "Galerie",
-        "images": [
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
-            "alt": "Geführte Tour 1"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
-            "alt": "Geführte Tour 2"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
-            "alt": "Geführte Tour 3"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
-            "alt": "Geführte Tour 4"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
-            "alt": "Geführte Tour 5"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480191/IMG_2611_wxpwqs.heic",
-            "alt": "Geführte Tour 6"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480188/1000026613_nfxcr7.jpg",
-            "alt": "Geführte Tour 7"
-          },
-          {
-            "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480178/1000006042_tivdyq.jpg",
-            "alt": "Geführte Tour 8"
-          }
-        ]
-      }
-    },
-    {
-      "id": "service-process-1",
-      "type": "service-process",
-      "props": {
-        "heading": "So organisieren wir die Tour",
-        "subheading": "Einfach und schnell — alles nach Vereinbarung.",
-        "steps": [
-          {
-            "title": "Anfrage",
-            "description": "Sie nennen Wunschdatum, Gruppengröße und ungefähre Vorstellung der Tour.",
-            "icon": "contact",
-            "details": ["Telefon oder E-Mail", "Terminvorschläge"]
-          },
-          {
-            "title": "Route abstimmen",
-            "description": "Gemeinsam legen wir Niveau, Länge und Gelände fest (leichte Wege oder technisch anspruchsvoller).",
-            "icon": "bike",
-            "details": ["Anpassung an die Gruppe", "Dauer und Tempo"]
-          },
-          {
-            "title": "Führung vor Ort",
-            "description": "Am Tourtag sorgen wir für klare Führung, Sicherheitshinweise und ein gutes Fahrgefühl.",
-            "icon": "tools",
-            "details": ["Sicherheit vor dem Start", "Pausen nach Absprache"]
-          },
-          {
-            "title": "Abschluss",
-            "description": "Nach der Tour ein kurzes Feedback; auf Wunsch schlagen wir die nächste Strecke vor.",
-            "icon": "check",
-            "details": ["Kurzes Resümee", "Vorschlag für den nächsten Termin"]
-          }
-        ]
-      }
-    },
-    {
-      "id": "cta-1",
-      "type": "cta-banner",
-      "props": {
-        "heading": "Vereinbaren Sie Ihre geführte Tour",
-        "subheading": "Touren organisieren wir nach Vereinbarung und je nach freien Terminen.",
-        "cta": {
-          "label": "Kontakt",
-          "href": "/de/contact"
+      "__component": "blocks.gallery",
+      "id": 18,
+      "heading": "Galerie geführte Touren",
+      "subheading": "Aktuell nutzen wir bestehende Fotos; bald ergänzen wir Eindrücke von den Touren.",
+      "defaultImageAlt": "Geführte Touren",
+      "showLessLabel": "Weniger anzeigen",
+      "showMorePrefix": "Mehr anzeigen (",
+      "showMoreSuffix": ")",
+      "lightboxAltPrefix": "Galerie",
+      "images": [
+        {
+          "id": 10,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
+          "alt": "Geführte Tour 1"
         },
-        "background": "primary"
-      }
+        {
+          "id": 11,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
+          "alt": "Geführte Tour 2"
+        },
+        {
+          "id": 12,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
+          "alt": "Geführte Tour 3"
+        },
+        {
+          "id": 13,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
+          "alt": "Geführte Tour 4"
+        },
+        {
+          "id": 14,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
+          "alt": "Geführte Tour 5"
+        },
+        {
+          "id": 15,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480191/IMG_2611_wxpwqs.heic",
+          "alt": "Geführte Tour 6"
+        },
+        {
+          "id": 16,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480188/1000026613_nfxcr7.jpg",
+          "alt": "Geführte Tour 7"
+        },
+        {
+          "id": 17,
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480178/1000006042_tivdyq.jpg",
+          "alt": "Geführte Tour 8"
+        }
+      ]
+    },
+    {
+      "__component": "blocks.service-process",
+      "id": 23,
+      "heading": "So organisieren wir die Tour",
+      "subheading": "Einfach und schnell — alles nach Vereinbarung.",
+      "steps": [
+        {
+          "id": 19,
+          "title": "Anfrage",
+          "description": "Sie nennen Wunschdatum, Gruppengröße und ungefähre Vorstellung der Tour.",
+          "icon": "contact",
+          "details": "Telefon oder E-Mail\nTerminvorschläge"
+        },
+        {
+          "id": 20,
+          "title": "Route abstimmen",
+          "description": "Gemeinsam legen wir Niveau, Länge und Gelände fest (leichte Wege oder technisch anspruchsvoller).",
+          "icon": "bike",
+          "details": "Anpassung an die Gruppe\nDauer und Tempo"
+        },
+        {
+          "id": 21,
+          "title": "Führung vor Ort",
+          "description": "Am Tourtag sorgen wir für klare Führung, Sicherheitshinweise und ein gutes Fahrgefühl.",
+          "icon": "tools",
+          "details": "Sicherheit vor dem Start\nPausen nach Absprache"
+        },
+        {
+          "id": 22,
+          "title": "Abschluss",
+          "description": "Nach der Tour ein kurzes Feedback; auf Wunsch schlagen wir die nächste Strecke vor.",
+          "icon": "check",
+          "details": "Kurzes Resümee\nVorschlag für den nächsten Termin"
+        }
+      ]
+    },
+    {
+      "__component": "blocks.cta-banner",
+      "id": 25,
+      "heading": "Vereinbaren Sie Ihre geführte Tour",
+      "subheading": "Touren organisieren wir nach Vereinbarung und je nach freien Terminen.",
+      "cta": {
+        "id": 24,
+        "label": "Kontakt",
+        "href": "/de/contact"
+      },
+      "background": "primary"
     }
-  ]
+  ],
+  "lang": "de"
 }

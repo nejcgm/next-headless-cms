@@ -1,123 +1,142 @@
 {
   "slug": "/brands",
-  "locale": "en",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "Partners and brands — Vukan's Bike",
     "description": "Partners and teams: Reverse Components, Flat Out Days, Goodyear Bike, BATT Crew, Loose Riders, ŠKTD Apače Mlinarji, 427 Savage Squad, and more.",
     "ogImage": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1200&h=630&fit=crop"
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Partners and brands",
-        "subheadline": "We work with brands and organisations from the bike scene — from trail and MTB to the wider community.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405173/1000004333_bged3h.jpg",
-        "backgroundFit": "contain",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Shop",
-          "href": "/en/shop"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "Partners and brands",
+      "subheadline": "We work with brands and organisations from the bike scene — from trail and MTB to the wider community.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405173/1000004333_bged3h.jpg",
+      "backgroundFit": "contain",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Shop",
+        "href": "/en/shop"
+      },
+      "secondaryCta": {
+        "id": 3,
+        "label": "Service",
+        "href": "/en/service"
+      }
+    },
+    {
+      "__component": "blocks.partners-gallery",
+      "id": 12,
+      "eyebrowBadge": "Our partners",
+      "defaultPartnerLinkLabel": "Visit website",
+      "heading": "Partners we work with",
+      "subheading": "Component and tyre brands, festivals, trail building, local clubs and race teams — reliable partners in cycling.",
+      "partners": [
+        {
+          "id": 5,
+          "name": "Reverse Components",
+          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404891/images_1_gd8ohz.png",
+          "about": "German brand for MTB and e-bike components from Freudenstadt (Black Forest), since 2004. Motto “by bikers for bikers”: handlebars, wheels, saddles, pedals and more, tested e.g. at the EFBE lab. Represented in over 25 countries.",
+          "url": "https://www.reverse-components.com/en",
+          "linkLabel": "Visit Reverse Components"
         },
-        "secondaryCta": {
-          "label": "Service",
-          "href": "/en/service"
+        {
+          "id": 6,
+          "name": "Flat Out Days",
+          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_wbppdf.jpg",
+          "about": "Slovenia’s largest mountain bike festival — now a multi-day event at Bikepark Kope with Freeride Fest Series, whip-off, dual slalom, workshops and music. Started in 2017 as a small whip-off in Ljubljana; today focused on community and progress in the sport.",
+          "url": "https://flatoutdays.com",
+          "linkLabel": "Flat Out Days — tickets and programme"
+        },
+        {
+          "id": 7,
+          "name": "Goodyear Bike",
+          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/goodyear-logo-01_zlhnbl.jpg",
+          "about": "Official bicycle line from Goodyear (goodyearbike.com): high-performance tyres for road, gravel, trekking/urban and MTB — e.g. Eagle, Vector, Connector, Newton and Escape. The site also has a pressure calculator and tubeless guides.",
+          "url": "https://www.goodyearbike.com/",
+          "linkLabel": "Goodyear Bike — tyres"
+        },
+        {
+          "id": 8,
+          "name": "BATT Crew",
+          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404890/images_1_lbvhfo.jpg",
+          "about": "Team from Domžale planning and building safe, sustainable MTB trails and bike parks (including Agi Bike Park and major renewal work at Bikepark Kope). Documentation, signage, rescue concepts and photo/video. Co-founded Flat Out Days in 2017.",
+          "url": "https://battcrew.com/en/",
+          "linkLabel": "BATT Crew — references and contact"
+        },
+        {
+          "id": 9,
+          "name": "Loose Riders",
+          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404892/images_2_xviu4o.jpg",
+          "about": "Global brand and community (LRGA): technical apparel, protection, accessories and bike parts. Born from the trail community (2012), now local “chapters” worldwide — from Chiang Mai to Europe.",
+          "url": "https://www.loose-riders.com/en/",
+          "linkLabel": "Loose Riders — shop"
+        },
+        {
+          "id": 10,
+          "name": "Apače Mlinarji",
+          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/1718357843307_LOGO_S%CC%8CKTD_MLINARJI_APAC%CC%8CE.png_fvumlz.png",
+          "about": "ŠKTD (sports, culture and tourism association) Apače Mlinarji organises mountain bike races on home terrain — including stages of the Pomurski MTB Cup and special night races. Strong support for youth categories and the local scene."
+        },
+        {
+          "id": 11,
+          "name": "427 Savage Squad",
+          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_3_fg2dgh.jpg",
+          "about": "Maribor race team in downhill and enduro (club 427 Pohorje) with Jure Logar. Academy with limited spots; known riders include Maša Komel and Miha Jerkič. Coordinated across Europe with DH cups.",
+          "url": "https://www.instagram.com/427savagesquad/",
+          "linkLabel": "Follow on Instagram"
         }
-      }
+      ]
     },
     {
-      "id": "partners-gallery-1",
-      "type": "partners-gallery",
-      "props": {
-        "eyebrowBadge": "Our partners",
-        "defaultPartnerLinkLabel": "Visit website",
-        "heading": "Partners we work with",
-        "subheading": "Component and tyre brands, festivals, trail building, local clubs and race teams — reliable partners in cycling.",
-        "partners": [
-          {
-            "id": "reverse-components",
-            "name": "Reverse Components",
-            "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404891/images_1_gd8ohz.png",
-            "about": "German brand for MTB and e-bike components from Freudenstadt (Black Forest), since 2004. Motto “by bikers for bikers”: handlebars, wheels, saddles, pedals and more, tested e.g. at the EFBE lab. Represented in over 25 countries.",
-            "url": "https://www.reverse-components.com/en",
-            "linkLabel": "Visit Reverse Components"
-          },
-          {
-            "id": "flat-out-days",
-            "name": "Flat Out Days",
-            "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_wbppdf.jpg",
-            "about": "Slovenia’s largest mountain bike festival — now a multi-day event at Bikepark Kope with Freeride Fest Series, whip-off, dual slalom, workshops and music. Started in 2017 as a small whip-off in Ljubljana; today focused on community and progress in the sport.",
-            "url": "https://flatoutdays.com",
-            "linkLabel": "Flat Out Days — tickets and programme"
-          },
-          {
-            "id": "goodyear-bike",
-            "name": "Goodyear Bike",
-            "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/goodyear-logo-01_zlhnbl.jpg",
-            "about": "Official bicycle line from Goodyear (goodyearbike.com): high-performance tyres for road, gravel, trekking/urban and MTB — e.g. Eagle, Vector, Connector, Newton and Escape. The site also has a pressure calculator and tubeless guides.",
-            "url": "https://www.goodyearbike.com/",
-            "linkLabel": "Goodyear Bike — tyres"
-          },
-          {
-            "id": "batt-crew",
-            "name": "BATT Crew",
-            "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404890/images_1_lbvhfo.jpg",
-            "about": "Team from Domžale planning and building safe, sustainable MTB trails and bike parks (including Agi Bike Park and major renewal work at Bikepark Kope). Documentation, signage, rescue concepts and photo/video. Co-founded Flat Out Days in 2017.",
-            "url": "https://battcrew.com/en/",
-            "linkLabel": "BATT Crew — references and contact"
-          },
-          {
-            "id": "loose-riders",
-            "name": "Loose Riders",
-            "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404892/images_2_xviu4o.jpg",
-            "about": "Global brand and community (LRGA): technical apparel, protection, accessories and bike parts. Born from the trail community (2012), now local “chapters” worldwide — from Chiang Mai to Europe.",
-            "url": "https://www.loose-riders.com/en/",
-            "linkLabel": "Loose Riders — shop"
-          },
-          {
-            "id": "apace-mlinarji",
-            "name": "Apače Mlinarji",
-            "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/1718357843307_LOGO_S%CC%8CKTD_MLINARJI_APAC%CC%8CE.png_fvumlz.png",
-            "about": "ŠKTD (sports, culture and tourism association) Apače Mlinarji organises mountain bike races on home terrain — including stages of the Pomurski MTB Cup and special night races. Strong support for youth categories and the local scene."
-          },
-          {
-            "id": "427-savage-squad",
-            "name": "427 Savage Squad",
-            "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_3_fg2dgh.jpg",
-            "about": "Maribor race team in downhill and enduro (club 427 Pohorje) with Jure Logar. Academy with limited spots; known riders include Maša Komel and Miha Jerkič. Coordinated across Europe with DH cups.",
-            "url": "https://www.instagram.com/427savagesquad/",
-            "linkLabel": "Follow on Instagram"
-          }
-        ]
-      }
-    },
-    {
-      "id": "cta-1",
-      "type": "cta-banner",
-      "props": {
-        "heading": "Looking for a bike or service?",
-        "subheading": "Visit us or call: 070 815 379.",
-        "cta": {
-          "label": "Contact",
-          "href": "/en/contact"
-        },
-        "background": "primary"
-      }
+      "__component": "blocks.cta-banner",
+      "id": 14,
+      "heading": "Looking for a bike or service?",
+      "subheading": "Visit us or call: 070 815 379.",
+      "cta": {
+        "id": 13,
+        "label": "Contact",
+        "href": "/en/contact"
+      },
+      "background": "primary"
     }
   ],
   "navigation": {
     "header": [
-      { "label": "Home", "href": "/en" },
-      { "label": "Brands", "href": "/en/brands" },
-      { "label": "Service", "href": "/en/service" },
-      { "label": "Contact", "href": "/en/contact" }
+      {
+        "label": "Home",
+        "href": "/en"
+      },
+      {
+        "label": "Brands",
+        "href": "/en/brands"
+      },
+      {
+        "label": "Service",
+        "href": "/en/service"
+      },
+      {
+        "label": "Contact",
+        "href": "/en/contact"
+      }
     ],
     "footer": [
-      { "label": "About", "href": "/en/about" },
-      { "label": "Privacy", "href": "/en/privacy" },
-      { "label": "Terms", "href": "/en/terms" }
+      {
+        "label": "About",
+        "href": "/en/about"
+      },
+      {
+        "label": "Privacy",
+        "href": "/en/privacy"
+      },
+      {
+        "label": "Terms",
+        "href": "/en/terms"
+      }
     ]
-  }
+  },
+  "lang": "en"
 }

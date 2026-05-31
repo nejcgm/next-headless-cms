@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_shared_nav_item_children",
+  "info": {
+    "name": "NavItemChild",
+    "icon": "arrow-right",
+    "displayName": "Nav Item (child)",
+    "description": "Second-level nav link — nested inside a parent NavItem"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "isExternal": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

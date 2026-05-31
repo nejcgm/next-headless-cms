@@ -11,10 +11,6 @@ function pickCanonicalHost(domains: string[]): string | undefined {
   return www ?? prod[0];
 }
 
-/**
- * Absolute origin (no trailing slash) for canonical URLs, sitemap, and robots.
- * Order: tenant `canonicalOrigin`, then `NEXT_PUBLIC_SITE_URL`, then production domains.
- */
 export function getSiteOrigin(tenant: TenantConfig): string {
   if (tenant.canonicalOrigin) return tenant.canonicalOrigin.replace(/\/$/, "");
 

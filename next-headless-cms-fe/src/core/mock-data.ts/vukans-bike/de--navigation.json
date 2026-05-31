@@ -1,25 +1,90 @@
 {
   "header": [
-    { "label": "Start", "href": "/de" },
-    { "label": "Service", "href": "/de/service" },
-    { "label": "Shop", "href": "/de/shop" },
-    { "label": "Geführte Touren", "href": "/de/guided-tours" },
-    { "label": "Fahrradschule", "href": "/de/bike-school" },
-    { "label": "Über uns", "href": "/de/about" },
-    { "label": "Partner", "href": "/de/brands" },
-    { "label": "Kontakt", "href": "/de/contact" }
+    {
+      "id": 1,
+      "label": "Start",
+      "href": "/de"
+    },
+    {
+      "id": 2,
+      "label": "Service",
+      "href": "/de/service"
+    },
+    {
+      "id": 3,
+      "label": "Shop",
+      "href": "/de/shop"
+    },
+    {
+      "id": 4,
+      "label": "Geführte Touren",
+      "href": "/de/guided-tours"
+    },
+    {
+      "id": 5,
+      "label": "Fahrradschule",
+      "href": "/de/bike-school"
+    },
+    {
+      "id": 6,
+      "label": "Über uns",
+      "href": "/de/about"
+    },
+    {
+      "id": 7,
+      "label": "Partner",
+      "href": "/de/brands"
+    },
+    {
+      "id": 8,
+      "label": "Kontakt",
+      "href": "/de/contact"
+    }
   ],
   "footer": [
-    { "label": "Start", "href": "/de" },
-    { "label": "Service", "href": "/de/service" },
-    { "label": "Shop", "href": "/de/shop" },
-    { "label": "Geführte Touren", "href": "/de/guided-tours" },
-    { "label": "Fahrradschule", "href": "/de/bike-school" },
-    { "label": "Über uns", "href": "/de/about" },
-    { "label": "Partner", "href": "/de/brands" },
-    { "label": "Kontakt", "href": "/de/contact" }
+    {
+      "id": 9,
+      "label": "Start",
+      "href": "/de"
+    },
+    {
+      "id": 10,
+      "label": "Service",
+      "href": "/de/service"
+    },
+    {
+      "id": 11,
+      "label": "Shop",
+      "href": "/de/shop"
+    },
+    {
+      "id": 12,
+      "label": "Geführte Touren",
+      "href": "/de/guided-tours"
+    },
+    {
+      "id": 13,
+      "label": "Fahrradschule",
+      "href": "/de/bike-school"
+    },
+    {
+      "id": 14,
+      "label": "Über uns",
+      "href": "/de/about"
+    },
+    {
+      "id": 15,
+      "label": "Partner",
+      "href": "/de/brands"
+    },
+    {
+      "id": 16,
+      "label": "Kontakt",
+      "href": "/de/contact"
+    }
   ],
   "footerCopy": {
+    "id": 17,
     "tagline": "Service und Verkauf von Mountainbikes in Apače.",
     "linksHeading": "Links",
     "contactHeading": "Kontakt",

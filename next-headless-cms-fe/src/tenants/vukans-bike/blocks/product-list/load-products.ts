@@ -1,7 +1,6 @@
 import type { CollectionParams } from "@core/data/contracts";
 import { getAdapter } from "@core/data/fetcher";
 
-/** Loads products for the product-list block; omit or non-positive `limit` returns the full collection (mock) / unpaginated request. */
 export async function loadProductsForProductListBlock(
   tenant: string,
   locale: string,
@@ -11,6 +10,6 @@ export async function loadProductsForProductListBlock(
   if (typeof props.limit === "number" && props.limit > 0) {
     params.limit = props.limit;
   }
-  const products = await getAdapter(tenant).getCollection(tenant, "products", params);
+  const products = await getAdapter().getCollection(tenant, "products", params);
   return { products, locale };
 }

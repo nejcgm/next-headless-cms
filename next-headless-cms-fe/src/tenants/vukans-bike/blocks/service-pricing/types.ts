@@ -1,5 +1,4 @@
 export interface ServicePackage {
-  id: string;
   name: string;
   description: string;
   /** Optional short label e.g. "Servis gorskih koles" */
@@ -9,7 +8,11 @@ export interface ServicePackage {
   priceDisplay?: string;
   /** Optional note under price (e.g. "od", "približno") */
   priceNote?: string;
-  features: string[];
+  /**
+   * Feature list as a single string, one feature per line.
+   * Stored as `text` in Strapi; split on `\n` at render time.
+   */
+  features: string;
   /** Optional - not always shown */
   turnaround?: string;
 }

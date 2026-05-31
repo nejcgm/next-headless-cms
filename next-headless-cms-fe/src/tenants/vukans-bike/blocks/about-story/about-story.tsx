@@ -25,7 +25,7 @@ export function AboutStory({
         </blockquote>
       )}
       <div className="space-y-4 text-[var(--color-muted-foreground)] leading-relaxed">
-        {body.map((paragraph, i) => (
+        {body.split("\n\n").filter(Boolean).map((paragraph, i) => (
           <p key={i}>{paragraph}</p>
         ))}
       </div>

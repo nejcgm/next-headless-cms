@@ -1,8 +1,8 @@
 {
   "slug": "/",
-  "locale": "sl",
   "template": "default",
   "seo": {
+    "id": 1,
     "title": "Vukan's Bike — Kolesa in servis",
     "description": "Servis in prodaja koles vseh vrst v Sloveniji: mestna, cestna, gravel, električna in gorska. Dolgoletna izkušnja tudi pri MTB in trailu. Kontakt: 070 815 379.",
     "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405173/1000004333_bged3h.jpg",
@@ -35,92 +35,130 @@
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Vukan's Bike Shop",
-        "subheadline": "Mestna, cestna, gravel, gorska in e-kolesa — servis in popravila po dogovoru. Prav tako kolesarska šola in predavanja.",
-        "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402438/IMG_0035_fsvhgt.jpg",
-        "overlay": 0.5,
-        "cta": {
-          "label": "Kolesa na prodaj",
-          "href": "#kolesa"
-        },
-        "secondaryCta": {
-          "label": "Servis",
-          "href": "/service"
-        }
-      }
-    },
-    {
-      "id": "features-1",
-      "type": "stats-bar",
-      "props": {
-        "stats": [
-          { "value": "5+", "label": "Let izkušenj" },
-          { "value": "200+", "label": "Servisiranih koles" },
-          { "value": "Strokovnjak", "label": "Serviser" },
-          { "value": "Vodene ture", "label": "Z strokovno licenco" }
-        ]
-      }
-    },
-    {
-      "id": "image-text-1",
-      "type": "image-text",
-      "props": {
-        "layout": "image-left",
-        "image": {
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
-          "alt": "Servis koles"
-        },
-        "heading": "Servis in popravila",
-        "body": "Servisiramo vse vrste koles. En strokovnjak, osebni pristop — od hitrih popravil do celovitega servisa. Največ izkušenj imamo pri gorskih kolesih in trailu, enako pa skrbno obravnavamo tudi mestna, cestna in gravel kolesa. Za naročilo pokličite 070 815 379 ali pošljite e-pošto.",
-        "cta": {
-          "label": "Servis",
-          "href": "/service"
-        }
-      }
-    },
-    {
-      "id": "products-1",
-      "type": "product-list",
-      "props": {
-        "heading": "Kolesa na prodaj",
-        "subheading": "Preglejte našo ponudbo",
-        "outOfStockLabel": "Ni na zalogi",
-        "limit": 3,
-        "layout": "grid",
-        "anchorId": "kolesa"
+      "__component": "blocks.hero",
+      "id": 4,
+      "headline": "Vukan's Bike Shop",
+      "subheadline": "Mestna, cestna, gravel, gorska in e-kolesa — servis in popravila po dogovoru. Prav tako kolesarska šola in predavanja.",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402438/IMG_0035_fsvhgt.jpg",
+      "overlay": 0.5,
+      "cta": {
+        "id": 2,
+        "label": "Kolesa na prodaj",
+        "href": "#kolesa"
       },
-      "dataContract": "products"
+      "secondaryCta": {
+        "id": 3,
+        "label": "Servis",
+        "href": "/service"
+      }
     },
     {
-      "id": "cta-1",
-      "type": "cta-banner",
-      "props": {
-        "heading": "Pripravljeni na vožnjo?",
-        "subheading": "Obiščite nas za brezplačno testno vožnjo. Po dogovoru.",
-        "cta": {
-          "label": "Kontakt",
-          "href": "/contact"
+      "__component": "blocks.stats-bar",
+      "id": 9,
+      "stats": [
+        {
+          "id": 5,
+          "value": "5+",
+          "label": "Let izkušenj"
         },
-        "background": "primary"
+        {
+          "id": 6,
+          "value": "200+",
+          "label": "Servisiranih koles"
+        },
+        {
+          "id": 7,
+          "value": "Strokovnjak",
+          "label": "Serviser"
+        },
+        {
+          "id": 8,
+          "value": "Vodene ture",
+          "label": "Z strokovno licenco"
+        }
+      ]
+    },
+    {
+      "__component": "blocks.image-text",
+      "id": 12,
+      "layout": "image-left",
+      "image": {
+        "id": 10,
+        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
+        "alt": "Servis koles"
+      },
+      "heading": "Servis in popravila",
+      "body": "Servisiramo vse vrste koles. En strokovnjak, osebni pristop — od hitrih popravil do celovitega servisa. Največ izkušenj imamo pri gorskih kolesih in trailu, enako pa skrbno obravnavamo tudi mestna, cestna in gravel kolesa. Za naročilo pokličite 070 815 379 ali pošljite e-pošto.",
+      "cta": {
+        "id": 11,
+        "label": "Servis",
+        "href": "/service"
       }
+    },
+    {
+      "__component": "blocks.product-list",
+      "id": 13,
+      "heading": "Kolesa na prodaj",
+      "subheading": "Preglejte našo ponudbo",
+      "outOfStockLabel": "Ni na zalogi",
+      "limit": 3,
+      "layout": "grid",
+      "anchorId": "kolesa"
+    },
+    {
+      "__component": "blocks.cta-banner",
+      "id": 15,
+      "heading": "Pripravljeni na vožnjo?",
+      "subheading": "Obiščite nas za brezplačno testno vožnjo. Po dogovoru.",
+      "cta": {
+        "id": 14,
+        "label": "Kontakt",
+        "href": "/contact"
+      },
+      "background": "primary"
     }
   ],
-    "navigation": {
+  "navigation": {
     "header": [
-      { "label": "Domov", "href": "/" },
-      { "label": "Partnerji", "href": "/brands" },
-      { "label": "Servis", "href": "/service" },
-      { "label": "O nas", "href": "/about" },
-      { "label": "Kontakt", "href": "/contact" }
+      {
+        "label": "Domov",
+        "href": "/"
+      },
+      {
+        "label": "Partnerji",
+        "href": "/brands"
+      },
+      {
+        "label": "Servis",
+        "href": "/service"
+      },
+      {
+        "label": "O nas",
+        "href": "/about"
+      },
+      {
+        "label": "Kontakt",
+        "href": "/contact"
+      }
     ],
     "footer": [
-      { "label": "Partnerji", "href": "/brands" },
-      { "label": "Servis", "href": "/service" },
-      { "label": "O nas", "href": "/about" },
-      { "label": "Kontakt", "href": "/contact" }
+      {
+        "label": "Partnerji",
+        "href": "/brands"
+      },
+      {
+        "label": "Servis",
+        "href": "/service"
+      },
+      {
+        "label": "O nas",
+        "href": "/about"
+      },
+      {
+        "label": "Kontakt",
+        "href": "/contact"
+      }
     ]
-  }
+  },
+  "lang": "sl"
 }

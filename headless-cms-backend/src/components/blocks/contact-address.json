@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_blocks_contact_addresses",
+  "info": {
+    "name": "ContactAddress",
+    "icon": "map-pin",
+    "displayName": "Contact — Address",
+    "description": "Structured postal address for the contact block"
+  },
+  "options": {},
+  "attributes": {
+    "street": {
+      "type": "string",
+      "required": true
+    },
+    "postalCode": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "country": {
+      "type": "string"
+    }
+  }
+}

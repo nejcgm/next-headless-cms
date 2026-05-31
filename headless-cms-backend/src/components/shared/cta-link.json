@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_cta_links",
+  "info": {
+    "name": "CtaLink",
+    "icon": "cursor",
+    "displayName": "CTA Link",
+    "description": "Label + href pair — used as CTA buttons inside blocks"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

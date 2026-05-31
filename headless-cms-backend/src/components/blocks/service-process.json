@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_blocks_service_processes",
+  "info": {
+    "name": "ServiceProcess",
+    "icon": "tasks",
+    "displayName": "Service — Process",
+    "description": "How-it-works / process steps section with numbered step cards"
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "subheading": {
+      "type": "string"
+    },
+    "steps": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.process-step",
+      "required": true,
+      "min": 1
+    }
+  }
+}
