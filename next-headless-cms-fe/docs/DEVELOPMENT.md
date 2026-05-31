@@ -49,9 +49,18 @@ The `[domain]` segment is the **tenant id** (from middleware rewrite), not a hos
 
 ## Mock data
 
-- Paths: `src/core/mock-data.ts/{vukans-bike|resort}/`
+- Paths: `src/core/mock-data.ts/{vukans-bike|resort}/` (aliases in `scripts/tenant-mock-map.json`)
 - Page files: `{slug}.json` or `{locale}--{slug}.json`
 - Set `"template": "default" | "detail" | "bare"` per page
+
+## New tenant
+
+```bash
+pnpm create:tenant -- --id my-tenant --name "My Site" --short my --port 3003
+pnpm check:tenant
+```
+
+See [new-tenant checklist](../.cursor/rules/new-tenant-checklist.mdc).
 
 ## Related docs
 

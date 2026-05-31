@@ -10,6 +10,7 @@ export async function loadProductsForProductListBlock(
   if (typeof props.limit === "number" && props.limit > 0) {
     params.limit = props.limit;
   }
-  const products = await getAdapter().getCollection(tenant, "products", params);
+  const adapter = await getAdapter();
+  const products = await adapter.getCollection(tenant, "products", params);
   return { products, locale };
 }

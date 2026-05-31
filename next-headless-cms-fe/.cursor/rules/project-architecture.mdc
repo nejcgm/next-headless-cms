@@ -44,7 +44,7 @@ Each tenant lives in `src/tenants/{tenant-id}/` with `blocks/`, `templates/`, `i
 
 ## Tenant resolution
 
-- **Build-time**: `TENANT_ID` + `scripts/prepare-tenant.js` set `@tenant` → `src/tenants/{tenant-id}/`. No runtime tenant registry.
+- **Build-time**: `TENANT_ID` + `scripts/prepare-tenant.js` set `@tenant` → `src/tenants/{tenant-id}/`. Mock folder aliases: `scripts/tenant-mock-map.json`. New tenants: `pnpm create:tenant`; validate with `pnpm check:tenant`.
 - **Runtime**: `middleware.ts` rewrites URLs with `/{tenantId}` prefix; sets `x-pathname` for visible path.
 - **Config**: `import tenantConfig from "@tenant/config"` in app and adapters.
 

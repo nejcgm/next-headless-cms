@@ -8,8 +8,6 @@
     { "pathname": "/bike-school" },
     { "pathname": "/service" },
     { "pathname": "/guided-tours" },
-    { "pathname": "/bikes/all-terrain-ebike" },
-    { "pathname": "/bikes/merida" },
-    { "pathname": "/bikes/trailblazer-x1" }
+    { "pathname": "/bikes/merida" }
   ]
 }

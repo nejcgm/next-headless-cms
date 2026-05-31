@@ -5,7 +5,6 @@ export interface TenantContact {
 }
 
 export interface TemplateConfig {
-  /** When false, global navigation is not fetched (no header/footer chrome). */
   usesSiteChrome?: boolean;
 }
 
@@ -22,7 +21,6 @@ export interface TenantConfig {
   features: TenantFeatures;
   theme: ThemeTokens;
   dataAdapter: "mock" | "strapi";
-  /** Per-template layout flags; unknown templates default to site chrome enabled. */
   templates?: Record<string, TemplateConfig>;
 }
 

@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import path from "path";
+import { getMockDataWebpackAlias } from "./scripts/tenant-build-utils.cjs";
 
 const tenantId = process.env.TENANT_ID;
 const analyze = process.env.ANALYZE === "true";
@@ -36,16 +37,14 @@ const nextConfig: NextConfig = {
     const tenantPath = path.resolve(__dirname, `src/tenants/${tenantId}`);
     config.resolve.alias["@tenant"] = tenantPath;
     config.resolve.alias["@tenant/config"] = path.join(tenantPath, "config");
-    // Mock data folder names may differ from tenantId (e.g. resort-example → resort)
-    const mockDataFolder = tenantId === "resort-example" ? "resort" : tenantId;
-    config.resolve.alias["@mock-data"] = path.resolve(
-      __dirname,
-      `src/core/mock-data.ts/${mockDataFolder}`
-    );
+    const mockDataAlias = getMockDataWebpackAlias(tenantId);
+    if (mockDataAlias) {
+      config.resolve.alias["@mock-data"] = mockDataAlias;
+    }
 
     // Bundle analyzer for verification (only when ANALYZE=true)
     if (analyze) {
-      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      // eslint-disable-next-line @typescript-eslint/no-require-imports -- sync webpack hook; optional dev-only plugin
       const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
       config.plugins ??= [];
       config.plugins.push(

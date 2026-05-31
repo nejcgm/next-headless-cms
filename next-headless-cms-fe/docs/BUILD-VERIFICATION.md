@@ -7,71 +7,79 @@ Each production build must contain **only** the selected tenant’s code. Run al
 ```bash
 cd next-headless-cms-fe
 
-# Build with bundle analysis
-pnpm build:bike:analyze
-pnpm build:resort:analyze
+# Build
+pnpm build:bike
+pnpm build:resort
 
-# Verify the current build (auto-detects tenant from artifacts)
-pnpm verify:build
+# Verify isolation (scans all JS in the build output)
+TENANT_ID=vukans-bike pnpm verify:build
+TENANT_ID=resort-example pnpm verify:build
 ```
+
+With bundle analysis:
+
+```bash
+pnpm build:bike:analyze
+TENANT_ID=vukans-bike pnpm verify:build
+```
+
+## What `verify:build` checks
+
+`scripts/verify-build.js`:
+
+1. Confirms the built **middleware** embeds the expected tenant id
+2. Scans **every** `.js` file under the build directory (server + static chunks)
+3. Fails if any file contains another tenant’s source path:
+   - `tenants/{other-id}` or `src/tenants/{other-id}`
+   - `mock-data.ts/{other-folder}` (uses `scripts/tenant-mock-map.json` for aliases like `resort-example` → `resort`)
+
+Tenant lists are discovered dynamically from `src/tenants/` via `scripts/tenant-registry.js` — no hardcoded tenant list in the verifier.
 
 ## Build process
 
-1. **`scripts/prepare-tenant.js`** — Runs before every dev/build. Updates `tsconfig.json` paths (`@tenant`, `@mock-data`) from `TENANT_ID`. Cleans old analyze output when `BUILD_CLEAN_ANALYZE=1` (set by build scripts).
+1. **`scripts/prepare-tenant.js`** — Sets `tsconfig.json` paths (`@tenant`, `@mock-data`) from `TENANT_ID`. Mock folder aliases come from `scripts/tenant-mock-map.json`.
 
-2. **`scripts/clean-analyze.js`** — Removes `analyze/`, `.next/analyze/`, `.next/server/analyze/` so each build starts fresh and cross-tenant reports do not linger.
+2. **`scripts/clean-analyze.js`** — Removes stale analyze output when `BUILD_CLEAN_ANALYZE=1`.
 
-3. **`next.config.ts`** — Requires `TENANT_ID`. Webpack aliases `@tenant`, `@tenant/config`, `@mock-data` to the active tenant. Output directory:
-   - Local / CI: `.next-{tenantId}` (e.g. `.next-vukans-bike`)
-   - Vercel production build: `.next` when `NEXT_USE_VERCEL_DIST=1`
+3. **`next.config.ts`** — Requires `TENANT_ID`. Output directory:
+   - Local / CI: `.next-{tenantId}`
+   - Vercel: `.next` when `NEXT_USE_VERCEL_DIST=1`
 
-4. **`mock.adapter.ts`** — Uses `@mock-data` with dynamic imports so only the current tenant’s JSON is bundled.
+4. **`mock.adapter.ts`** — Dynamic `@mock-data` imports so only the active tenant’s JSON is bundled.
 
-## Verification checklist
+## CI
 
-### Vukans-bike (`pnpm build:bike:analyze`)
+`.github/workflows/ci.yml` runs `pnpm verify:build` after each tenant build in the `build-tenants` job.
 
-- [ ] Open `analyze/client-vukans-bike.html` — only vukans-bike blocks
-- [ ] Open `.next-vukans-bike/server/analyze/server-vukans-bike.html` — middleware references `vukans-bike/config.ts`
-- [ ] `grep -r "resort-example" .next-vukans-bike/static/chunks/` — **no matches**
-- [ ] `grep -r "vukans-bike" .next-vukans-bike/static/chunks/` — matches expected
+## New tenant onboarding
 
-### Resort (`pnpm build:resort:analyze`)
-
-- [ ] Open `analyze/client-resort-example.html` — only resort blocks
-- [ ] Open `.next-resort-example/server/analyze/server-resort-example.html` — middleware references `resort-example/config.ts`
-- [ ] `grep -r "vukans-bike" .next-resort-example/static/chunks/` — **no matches**
-- [ ] `grep -r "resort-example" .next-resort-example/static/chunks/` — matches expected
-
-> **Note:** Replace `.next-vukans-bike` / `.next-resort-example` with `.next` if you built with `NEXT_USE_VERCEL_DIST=1`.
-
-## Automated verification
+Scaffold + validate setup before first build:
 
 ```bash
-pnpm verify:build
+pnpm create:tenant -- --id my-tenant --name "My Site" --short my --port 3003
+pnpm check:tenant
+pnpm build:my
+TENANT_ID=my-tenant pnpm verify:build
 ```
 
-`scripts/verify-build.js` auto-detects the tenant from middleware or analyze artifacts, checks server bundles and chunks for cross-tenant leakage, and prints pass/fail. No manual `TENANT_ID` needed when a build already exists.
+See [new-tenant checklist](../.cursor/rules/new-tenant-checklist.mdc) for CI/deploy steps.
 
-## Clean builds (recommended)
-
-Build scripts clean the analyze folder automatically. For a full reset:
+## Manual spot checks (optional)
 
 ```bash
-# Vukans-bike
+# Should return no matches for the *other* tenant
+grep -r "tenants/resort-example" .next-vukans-bike/ || echo "OK"
+grep -r "tenants/vukans-bike" .next-resort-example/ || echo "OK"
+```
+
+For visual bundle inspection, open `analyze/client-{tenant-id}.html` after `pnpm build:{short}:analyze`.
+
+## Clean builds
+
+Build scripts clean analyze output automatically. Full reset:
+
+```bash
 rm -rf .next-vukans-bike analyze
-pnpm build:bike:analyze
-pnpm verify:build
-
-# Resort
-rm -rf .next-resort-example analyze
-pnpm build:resort:analyze
-pnpm verify:build
+pnpm build:bike
+TENANT_ID=vukans-bike pnpm verify:build
 ```
-
-## Analysis output locations
-
-| Build | Client | Server |
-|-------|--------|--------|
-| vukans-bike | `analyze/client-vukans-bike.{html,json}` | `.next-vukans-bike/server/analyze/server-vukans-bike.{html,json}` |
-| resort-example | `analyze/client-resort-example.{html,json}` | `.next-resort-example/server/analyze/server-resort-example.{html,json}` |

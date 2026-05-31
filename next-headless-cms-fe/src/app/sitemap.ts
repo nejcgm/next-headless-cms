@@ -10,7 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const base = getSiteOrigin(tenantConfig);
   const origin = base.replace(/\/$/, "");
-  const adapter = getAdapter();
+  const adapter = await getAdapter();
 
   const byLocale = await Promise.all(
     tenantConfig.locales.map(async (locale) => {

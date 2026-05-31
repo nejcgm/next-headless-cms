@@ -1,6 +1,6 @@
 ---
 description: Checklist for adding a new tenant to the multi-tenant CMS.
-globs: src/tenants/*/config.ts,package.json,.github/workflows/**
+globs: src/tenants/*/config.ts,package.json,.github/workflows/**,scripts/create-tenant.js,scripts/check-tenant-setup.js
 alwaysApply: false
 ---
 
@@ -8,21 +8,45 @@ alwaysApply: false
 
 > **Maintenance**: Update this file when the new-tenant steps or scripts change (`rules-sync.mdc`).
 
-## Required steps
+## Quick start (scaffold)
 
-1. Create `src/tenants/{tenant-id}/config.ts` — `TenantConfig` (`id`, `name`, `domains`, `locales`, `features`, `theme`, `dataAdapter`)
-2. Create `src/tenants/{tenant-id}/blocks/index.ts` — `registerTenantBlocks("{tenant-id}", { … })`
-3. Create `src/tenants/{tenant-id}/templates/` — at least `default.tsx` (header/footer via `getNavigationCached`); optional `bare.tsx`, `detail.tsx`
-4. Create `src/tenants/{tenant-id}/blocks/header/header.tsx` and `blocks/footer/footer.tsx`
-5. Create mock data under `src/core/mock-data.ts/{folder}/` — `pages/home.json`, `navigation.json`, `sitemap.json` as needed (`{folder}` = tenant id, or a short name like `resort`)
-6. Add `pnpm` scripts in `package.json`: `dev:{short}`, `build:{short}`, `lint:{short}` with `TENANT_ID={tenant-id}`
-7. Add CI matrix entry for `tenant_id` in `.github/workflows/ci.yml` if the tenant should lint in PRs
-8. Create **`.cursor/rules/tenants/{tenant-id}/catalog.mdc`** — document all blocks, templates, pages, integrations (copy structure from an existing tenant catalog)
-9. Add **`deploy-{short}.yml`** + Vercel project + secrets — see `deployment.mdc`
+From `next-headless-cms-fe/`:
 
-Block registration is automatic: root `app/layout.tsx` imports `@core/init`, which imports `@tenant/blocks` (no manual `init.ts` list per tenant).
+```bash
+pnpm create:tenant -- --id my-tenant --name "My Site" --short my --port 3003
+```
 
-If `mock-data` folder name ≠ tenant id, document mapping in `scripts/prepare-tenant.js` and the tenant catalog.
+This creates:
+
+- `src/tenants/{tenant-id}/` — config, blocks index, header (from `vukans-bike`), footer, templates
+- `src/core/mock-data.ts/{folder}/` — `pages/home.json`, `navigation.json`, `sitemap.json`
+- `.cursor/rules/tenants/{tenant-id}/catalog.mdc` — stub catalog
+- `pnpm` scripts: `dev:{short}`, `build:{short}`, `lint:{short}`, `start:{short}`
+
+Optional: `--mock-folder resort` when the mock folder name differs from tenant id (updates `scripts/tenant-mock-map.json`).
+
+Then validate:
+
+```bash
+pnpm check:tenant
+# or: TENANT_ID=my-tenant node scripts/check-tenant-setup.js
+```
+
+The scaffold prints a **manual checklist** for CI, deploy, and catalog updates.
+
+## Required steps (manual after scaffold)
+
+1. Customize `src/tenants/{tenant-id}/config.ts` — domains, locales, theme, `dataAdapter`
+2. Register blocks in `src/tenants/{tenant-id}/blocks/index.ts`
+3. Add mock pages under `src/core/mock-data.ts/{folder}/pages/` as needed
+4. Update **`.cursor/rules/tenants/{tenant-id}/catalog.mdc`**
+5. Add tenant to **`.cursor/rules/tenant-context.mdc`** catalog table
+6. Add CI matrix entry in **`.github/workflows/ci.yml`** (`lint` + `build-tenants`)
+7. Create **`deploy-{short}.yml`** + Vercel project + secrets — see `deployment.mdc`
+
+Block registration is automatic: root `app/layout.tsx` imports `@core/init`, which imports `@tenant/blocks`.
+
+If `mock-data` folder name ≠ tenant id, set mapping in `scripts/tenant-mock-map.json` (or pass `--mock-folder` to `create:tenant`).
 
 ## Tenant config shape
 
@@ -65,14 +89,25 @@ const config: TenantConfig = {
 export default config;
 ```
 
+## Build isolation
+
+After `pnpm build:{short}`:
+
+```bash
+TENANT_ID={tenant-id} pnpm verify:build
+```
+
+`scripts/verify-build.js` scans **all** JS output for other tenants' source paths (`tenants/*`, `mock-data.ts/*`). Tenant discovery is dynamic via `scripts/tenant-registry.js`.
+
 ## After any later change
 
-Update affected rules per `rules-sync.mdc` (including the new tenant `catalog.mdc`).
+Update affected rules per `rules-sync.mdc` (including the tenant `catalog.mdc`).
 
 ## Testing
 
 ```bash
-pnpm dev:{short}    # e.g. dev:bike, dev:resort
-pnpm lint:{short}   # if added
+pnpm dev:{short}
+pnpm lint:{short}
 TENANT_ID={tenant-id} pnpm type-check
+pnpm check:tenant
 ```

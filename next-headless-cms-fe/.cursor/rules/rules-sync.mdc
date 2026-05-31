@@ -15,7 +15,7 @@ Cursor rules are living docs. If you change code in the left column, **read** th
 | `src/core/**` (blocks, data, routing, types, i18n, seo, theme) | `project-architecture.mdc` |
 | `src/shared/**` (except tenant-only UI) | `project-architecture.mdc` |
 | `.github/workflows/**`, monorepo layout | `project-architecture.mdc` |
-| `package.json` scripts, `scripts/prepare-tenant.js` | `project-architecture.mdc`, `new-tenant-checklist.mdc` |
+| `package.json` scripts, `scripts/prepare-tenant.js`, `scripts/create-tenant.js`, `scripts/check-tenant-setup.js`, `scripts/verify-build.js` | `project-architecture.mdc`, `new-tenant-checklist.mdc`, `deployment.mdc` |
 
 ## Blocks & templates
 
@@ -60,7 +60,7 @@ Cursor rules are living docs. If you change code in the left column, **read** th
 
 | If you edit | Update these |
 |-------------|----------------|
-| Build scripts, verify flow, analyze output | `docs/BUILD-VERIFICATION.md` |
+| Build scripts, verify flow, tenant scaffold | `docs/BUILD-VERIFICATION.md`, `new-tenant-checklist.mdc` |
 | Dev workflow, layouts, navigation UX, pnpm | `docs/DEVELOPMENT.md`, repo root `README.md` |
 | New doc page | `docs/README.md` index |
 

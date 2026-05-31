@@ -9,6 +9,8 @@
     "build:bike": "BUILD_CLEAN_ANALYZE=1 TENANT_ID=vukans-bike node scripts/prepare-tenant.js && TENANT_ID=vukans-bike next build",
     "build:resort:analyze": "BUILD_CLEAN_ANALYZE=1 TENANT_ID=resort-example node scripts/prepare-tenant.js && TENANT_ID=resort-example ANALYZE=true next build",
     "build:bike:analyze": "BUILD_CLEAN_ANALYZE=1 TENANT_ID=vukans-bike node scripts/prepare-tenant.js && TENANT_ID=vukans-bike ANALYZE=true next build",
+    "create:tenant": "node scripts/create-tenant.js",
+    "check:tenant": "node scripts/check-tenant-setup.js --all",
     "verify:build": "node scripts/verify-build.js",
     "vercel-build": "node scripts/prepare-tenant.js && next build",
     "start": "next start",
@@ -17,7 +19,7 @@
     "lint": "pnpm lint:bike && pnpm lint:resort",
     "lint:bike": "TENANT_ID=vukans-bike next lint",
     "lint:resort": "TENANT_ID=resort-example next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit && tsc -p scripts/tsconfig.json"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

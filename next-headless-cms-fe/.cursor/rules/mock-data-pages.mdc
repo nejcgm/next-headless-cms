@@ -98,4 +98,4 @@ Locale-specific overrides: `{locale}--{name}.json` (e.g. `en--products.json`).
 
 Update `mock-data-pages.mdc` and the tenant `catalog.mdc` when behavior changes (see `rules-sync.mdc`).
 
-Mock folder vs tenant id: `resort-example` tenant uses `src/core/mock-data.ts/resort/`.
+Mock folder vs tenant id: see `scripts/tenant-mock-map.json` (e.g. `resort-example` → `src/core/mock-data.ts/resort/`).

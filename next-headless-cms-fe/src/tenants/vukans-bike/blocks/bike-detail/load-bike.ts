@@ -11,6 +11,7 @@ export async function loadBikeForBikeDetailBlock(
   const bikeSlug = pageSlug?.split("/").filter(Boolean).at(-1);
   if (!bikeSlug) return {};
 
-  const entry = await getAdapter().getEntry<BikeData>(tenant, "products", bikeSlug, { locale });
+  const adapter = await getAdapter();
+  const entry = await adapter.getEntry<BikeData>(tenant, "products", bikeSlug, { locale });
   return entry ? { bike: entry } : {};
 }

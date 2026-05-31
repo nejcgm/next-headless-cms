@@ -3,15 +3,22 @@ import type { CmsAdapter } from "./contracts";
 import type { PageData } from "@core/types/page";
 import type { NavigationData } from "@core/types/navigation";
 import { templateUsesSiteChrome } from "@core/routing/template-chrome";
-import { MockAdapter } from "./adapters/mock.adapter";
 import { StrapiAdapter } from "./adapters/strapi.adapter";
 import tenantConfig from "@tenant/config";
 import { env } from "@/env";
 
-const adapters: Record<string, CmsAdapter> = {
-  mock: new MockAdapter(),
-  strapi: new StrapiAdapter(),
-};
+const strapiAdapter = new StrapiAdapter();
+let mockAdapterPromise: Promise<CmsAdapter> | undefined;
+
+function getMockAdapter(): Promise<CmsAdapter> {
+  if (!mockAdapterPromise) {
+    // Dynamic import keeps mock JSON out of Strapi tenant builds (see dataAdapter in config).
+    mockAdapterPromise = import("./adapters/mock.adapter").then(
+      ({ MockAdapter }) => new MockAdapter()
+    );
+  }
+  return mockAdapterPromise;
+}
 
 let strapiEnvChecked = false;
 
@@ -20,27 +27,37 @@ function ensureStrapiEnv(): void {
   strapiEnvChecked = true;
 
   if (!env.STRAPI_URL) {
-    throw new Error('STRAPI_URL is required when tenant dataAdapter is "strapi"');
+    throw new Error(
+      'STRAPI_URL is required when tenant dataAdapter is "strapi"'
+    );
   }
   if (process.env.NODE_ENV === "production" && !env.STRAPI_API_TOKEN) {
-    throw new Error('STRAPI_API_TOKEN is required in production when dataAdapter is "strapi"');
+    throw new Error(
+      'STRAPI_API_TOKEN is required in production when dataAdapter is "strapi"'
+    );
   }
 }
 
-export function getAdapter(): CmsAdapter {
+export async function getAdapter(): Promise<CmsAdapter> {
   ensureStrapiEnv();
-  return adapters[tenantConfig.dataAdapter];
+  return tenantConfig.dataAdapter === "strapi"
+    ? strapiAdapter
+    : getMockAdapter();
 }
 
 export const getPageCached = cache(
-  async (tenantId: string, slug: string, locale: string): Promise<PageData | null> => {
-    return getAdapter().getPage(tenantId, slug, locale);
+  async (
+    tenantId: string,
+    slug: string,
+    locale: string
+  ): Promise<PageData | null> => {
+    return (await getAdapter()).getPage(tenantId, slug, locale);
   }
 );
 
 export const getNavigationCached = cache(
   async (tenantId: string, locale: string): Promise<NavigationData | null> => {
-    return getAdapter().getNavigation(tenantId, locale);
+    return (await getAdapter()).getNavigation(tenantId, locale);
   }
 );
 
