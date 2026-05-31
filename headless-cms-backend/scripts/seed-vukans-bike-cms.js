@@ -19,6 +19,8 @@ const path = require("path");
 const STRAPI_URL = process.env.STRAPI_URL || "http://localhost:1337";
 const TOKEN = process.env.STRAPI_API_TOKEN;
 const TENANT = "vukans-bike";
+const KEEP_PRODUCT_SLUGS = new Set(["merida"]);
+const ORPHAN_BIKE_PAGE_SLUGS = ["/bikes/all-terrain-ebike", "/bikes/trailblazer-x1"];
 const MOCK_ROOT = path.resolve(
   __dirname,
   "../../next-headless-cms-fe/src/core/mock-data.ts/vukans-bike"
@@ -133,6 +135,74 @@ async function upsertByFilter(collection, filters, data) {
   // Create and publish in one call (Strapi 5: ?status=published on POST)
   await strapiFetch("POST", `/api/${collection}?status=published`, { data });
   return "created";
+}
+
+async function listAll(collection, filters = {}) {
+  const items = [];
+  let page = 1;
+
+  while (true) {
+    const qs = new URLSearchParams();
+    Object.entries(filters).forEach(([k, v]) => {
+      qs.set(`filters[${k}][$eq]`, String(v));
+    });
+    qs.set("pagination[page]", String(page));
+    qs.set("pagination[pageSize]", "100");
+    qs.set("status", "draft");
+
+    const res = await strapiFetch("GET", `/api/${collection}?${qs.toString()}`);
+    const batch = res?.data || [];
+    items.push(...batch);
+    if (batch.length < 100) break;
+    page++;
+  }
+
+  return items;
+}
+
+async function deleteByDocumentId(collection, documentId) {
+  await strapiFetch("DELETE", `/api/${collection}/${documentId}`);
+}
+
+async function pruneProducts() {
+  const rows = await listAll("products", { tenant: TENANT });
+  let deleted = 0;
+
+  for (const row of rows) {
+    const slug = row.slug;
+    if (KEEP_PRODUCT_SLUGS.has(slug)) continue;
+
+    await deleteByDocumentId("products", row.documentId);
+    console.log(`  ✓ deleted product [${row.lang}] ${slug}`);
+    deleted++;
+  }
+
+  return deleted;
+}
+
+async function pruneOrphanBikePages() {
+  let deleted = 0;
+
+  for (const slug of ORPHAN_BIKE_PAGE_SLUGS) {
+    for (const lang of ["sl", "en", "de"]) {
+      const qs = new URLSearchParams();
+      qs.set("filters[tenant][$eq]", TENANT);
+      qs.set("filters[lang][$eq]", lang);
+      qs.set("filters[slug][$eq]", slug);
+      qs.set("pagination[pageSize]", "1");
+      qs.set("status", "draft");
+
+      const existing = await strapiFetch("GET", `/api/pages?${qs.toString()}`);
+      const row = existing?.data?.[0];
+      if (!row?.documentId) continue;
+
+      await deleteByDocumentId("pages", row.documentId);
+      console.log(`  ✓ deleted page [${lang}] ${slug}`);
+      deleted++;
+    }
+  }
+
+  return deleted;
 }
 
 // ---------------------------------------------------------------------------
@@ -265,33 +335,25 @@ function buildProductPayload(product, locale) {
 async function seedProducts() {
   const collDir = path.join(MOCK_ROOT, "collections");
   const localeFiles = [
-    { file: "products.json",    locale: "sl" },
+    { file: "products.json", locale: "sl" },
     { file: "en--products.json", locale: "en" },
     { file: "de--products.json", locale: "de" },
   ];
 
-  // Also extract product data from sl bike-detail page blocks as the source of truth
-  const bikePages = fs.readdirSync(path.join(MOCK_ROOT, "pages"))
-    .filter((f) => f.startsWith("bikes--") && !f.startsWith("de--") && !f.startsWith("en--"));
+  console.log("  Pruning removed products…");
+  const pruned = await pruneProducts();
+  if (pruned === 0) console.log("  (no stray products)");
+
+  console.log("  Pruning removed bike detail pages…");
+  const pagesRemoved = await pruneOrphanBikePages();
+  if (pagesRemoved === 0) console.log("  (no stray bike pages)");
 
   const slProducts = [];
-  for (const file of bikePages) {
-    const page = JSON.parse(fs.readFileSync(path.join(MOCK_ROOT, "pages", file), "utf8"));
-    for (const block of page.blocks || []) {
-      if (block.__component === "blocks.bike-detail" && block.bike) {
-        slProducts.push(block.bike);
-      }
-    }
-  }
-
-  // Merge with collection file (collection file may have additional products)
   const collFile = path.join(collDir, "products.json");
   if (fs.existsSync(collFile)) {
     const collProducts = JSON.parse(fs.readFileSync(collFile, "utf8"));
     for (const p of collProducts) {
-      if (!slProducts.find((existing) => existing.slug === p.slug)) {
-        slProducts.push(p);
-      }
+      if (KEEP_PRODUCT_SLUGS.has(p.slug)) slProducts.push(p);
     }
   }
 
@@ -319,6 +381,7 @@ async function seedProducts() {
     if (!fs.existsSync(filePath)) continue;
     const products = JSON.parse(fs.readFileSync(filePath, "utf8"));
     for (const product of products) {
+      if (!KEEP_PRODUCT_SLUGS.has(product.slug)) continue;
       const data = buildProductPayload(product, locale);
       try {
         const action = await upsertByFilter(
