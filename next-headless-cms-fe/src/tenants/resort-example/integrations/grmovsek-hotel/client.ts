@@ -81,12 +81,11 @@ export async function getHotel(hotelId: string = HOTEL_ID): Promise<Hotel | null
   }
 }
 
-// Availability checking via /hotels/rates endpoint
 export interface AvailabilityParams {
   hotelId: string;
   roomId: string;
-  checkin: string; // YYYY-MM-DD
-  checkout: string; // YYYY-MM-DD
+  checkin: string;
+  checkout: string;
   adults?: number;
   children?: number[];
   currency?: string;
@@ -192,14 +191,12 @@ export async function checkAvailability(
       return { available: false, rates: [], hotelId };
     }
 
-    // Find rates for this hotel
     const hotelRate = json.data.rates.find((r) => r.hotelId === hotelId);
 
     if (!hotelRate?.offers || hotelRate.offers.length === 0) {
       return { available: false, rates: [], hotelId };
     }
 
-    // Extract rates from offers
     const rates: RateInfo[] = [];
     for (const offer of hotelRate.offers) {
       if (offer.rates && offer.rates.length > 0) {
@@ -237,19 +234,18 @@ export async function checkAvailability(
   }
 }
 
-// Fetch availability calendar for a date range
 export interface AvailabilityCalendarParams {
   hotelId: string;
-  startDate: string; // YYYY-MM-DD
-  endDate: string; // YYYY-MM-DD
+  startDate: string;
+  endDate: string;
   adults?: number;
   currency?: string;
   guestNationality?: string;
 }
 
 export interface AvailabilityCalendar {
-  availableDates: string[]; // Dates that are available (YYYY-MM-DD)
-  unavailableDates: string[]; // Dates that are unavailable
+  availableDates: string[];
+  unavailableDates: string[];
   minStay: number;
   maxStay: number;
 }
@@ -272,7 +268,6 @@ export async function fetchAvailabilityCalendar(
   } = params;
 
   try {
-    // Fetch rates for the entire date range
     const json = await apiClient<{
       data: {
         rates: Array<{
@@ -302,7 +297,6 @@ export async function fetchAvailabilityCalendar(
       next: { revalidate: 300, tags: [`calendar-${hotelId}-${startDate}`] },
     });
 
-    // Generate all dates in range
     const allDates: string[] = [];
     const current = new Date(startDate);
     const end = new Date(endDate);
@@ -311,19 +305,17 @@ export async function fetchAvailabilityCalendar(
       current.setDate(current.getDate() + 1);
     }
 
-    // If we have rates, those dates are available
+    // Rates for the range mean every night in [start, end) is bookable
     const availableDates: string[] = [];
     if (json?.data?.rates && json.data.rates.length > 0) {
       const hotelRate = json.data.rates.find((r) => r.hotelId === hotelId);
       if (hotelRate?.offers && hotelRate.offers.length > 0) {
-        // The dates between checkin and checkout are available
         for (let i = 0; i < allDates.length - 1; i++) {
           availableDates.push(allDates[i]);
         }
       }
     }
 
-    // Unavailable dates are those not in availableDates
     const unavailableDates = allDates.filter((d) => !availableDates.includes(d));
 
     return {

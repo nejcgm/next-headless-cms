@@ -1,5 +1,3 @@
-// Grmovsek Hotel API types — sourced from LiteAPI v3.0 /data/hotel endpoint
-
 export interface GrmovsekHotelPhoto {
   url: string;
   urlHd: string;
@@ -85,7 +83,6 @@ export interface GrmovsekHotelDetail {
   childAllowed: boolean;
 }
 
-// Normalised shapes exposed to components
 export interface Hotel {
   id: string;
   name: string;

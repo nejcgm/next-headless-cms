@@ -42,7 +42,12 @@ Frontend reads content through `CmsAdapter` (`mock` or `strapi` per tenant confi
 
 Agents and contributors MUST write code that a human teammate can read, change, and trust later.
 
-- **Comments**: Keep comments **minimal**. Prefer clear names and structure over narration. Do not add comments that restate the code, mark obvious steps, or leave “AI essay” blocks. Comment only when intent is non-obvious (why, not what): invariants, workarounds, security, or subtle domain rules.
+- **Comments** (NON-NEGOTIABLE): Keep comments **minimal**. Prefer clear names and structure over narration.
+  - **Do not** put comments inside `interface` / `type` declarations (no field JSDoc, no inline `//` on properties). Document CMS contracts, defaults, and injection rules in Spec Kit knowledge/catalogs instead.
+  - **Do not** add comments that restate the next line, label obvious steps (“fetch data”, “validate dates”, “Axios instance with defaults”), narrate control flow, or leave “AI essay” / boilerplate file headers (`/** page controller */`, placeholder register/bootstrap essays).
+  - **Do** comment in implementation when intent is non-obvious (**why**, not what): invariants, workarounds, security, subtle domain rules, build/tooling edge cases (`distDir`, middleware matchers).
+  - **Exception — lint/type suppressions**: `eslint-disable` / `@ts-*` directives **are allowed** (with a short reason) wherever required, including next to types — e.g. `// eslint-disable-next-line @typescript-eslint/no-explicit-any -- registry accepts heterogeneous block props`.
+  - **Do** keep JS `@param` / `@typedef` in untyped scripts when they aid tooling.
 - **Readability**: Prefer straightforward, human-readable TypeScript/JS — small functions, explicit names, no clever one-liners that hide control flow.
 - **Maintainability**: Match existing patterns in the touched package. Avoid drive-by abstractions and unused helpers. Delete dead code you introduce; do not leave TODOs that restate the task.
 - **Abstraction**: Introduce types, helpers, or layers only when they remove real duplication or clarify a boundary. Prefer the project’s existing folder layout over new parallel trees.
@@ -87,5 +92,7 @@ This constitution defines non-negotiable architectural and process constraints. 
 **Amendments**
 
 - **1.3.1** — Human frontend docs are `next-headless-cms-fe/README.md` only (removed `docs/` folder); Spec Kit remains agent SoT.
+- **1.3.2** — Principle VII comments: explicit keep/remove rules (no narrating or obvious JSDoc; keep why/contract/tooling comments).
+- **1.3.3** — No comments inside `interface` / `type` bodies; contracts live in Spec Kit. Lint/`@ts-*` suppressions remain allowed with a reason.
 
-**Version**: 1.3.1 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-08-10
+**Version**: 1.3.3 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-08-11

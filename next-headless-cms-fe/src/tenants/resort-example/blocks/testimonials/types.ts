@@ -5,6 +5,5 @@ export interface TestimonialsProps {
   subheading?: string;
   limit?: number;
   layout?: "grid" | "carousel";
-  // Injected by dataContract
   reviews: Review[];
 }

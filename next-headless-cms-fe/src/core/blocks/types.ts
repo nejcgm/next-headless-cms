@@ -9,9 +9,11 @@ export interface BlockRenderContext {
   searchParams: NormalizedSearchParams;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any -- registry accepts heterogeneous block props
+type BlockComponent = ComponentType<any>;
+
 export interface BlockDefinition {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  component: ComponentType<any>;
+  component: BlockComponent;
   schema?: ZodSchema;
   dataContract?: DataContractFn;
   acceptSearchParams?: string[];

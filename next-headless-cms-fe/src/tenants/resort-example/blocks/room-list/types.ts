@@ -6,6 +6,5 @@ export interface RoomListProps {
   limit?: number;
   layout?: "grid" | "list";
   cta?: { label: string; href: string };
-  // Injected by dataContract
   rooms: Room[];
 }

@@ -31,7 +31,6 @@ const nextConfig: NextConfig = {
     ],
   },
   webpack(config, { isServer }) {
-    // Tenant aliases for build-time resolution
     config.resolve ??= {};
     config.resolve.alias ??= {};
     const tenantPath = path.resolve(__dirname, `src/tenants/${tenantId}`);
@@ -42,7 +41,6 @@ const nextConfig: NextConfig = {
       config.resolve.alias["@mock-data"] = mockDataAlias;
     }
 
-    // Bundle analyzer for verification (only when ANALYZE=true)
     if (analyze) {
       // eslint-disable-next-line @typescript-eslint/no-require-imports -- sync webpack hook; optional dev-only plugin
       const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");

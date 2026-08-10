@@ -6,7 +6,6 @@ export interface GalleryImage {
 export interface GalleryProps {
   heading: string;
   subheading?: string;
-  /** Alt when an image omits `alt` */
   defaultImageAlt: string;
   showLessLabel: string;
   showMorePrefix: string;

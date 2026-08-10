@@ -4,7 +4,6 @@ import axios, { AxiosError, AxiosRequestConfig } from "axios";
 import { unstable_cache } from "next/cache";
 import { logger } from "./logger";
 
-// Axios instance with defaults
 const axiosInstance = axios.create({
   timeout: 10000,
   headers: {
@@ -12,7 +11,6 @@ const axiosInstance = axios.create({
   },
 });
 
-// Request/response interceptors for logging
 axiosInstance.interceptors.request.use(
   (config) => {
     logger.debug(`Axios Request: ${config.method?.toUpperCase()} ${config.url}`);
@@ -44,7 +42,6 @@ export interface ApiClientOptions {
   headers?: Record<string, string>;
   timeout?: number;
   method?: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
-  /** Next.js cache configuration - uses unstable_cache under the hood */
   next?: {
     revalidate?: number | false;
     tags?: string[];
@@ -67,10 +64,6 @@ async function makeAxiosRequest<T>(url: string, options: ApiClientOptions): Prom
   return response.data;
 }
 
-/**
- * Generic API client using axios with optional Next.js caching support.
- * When `next` option is provided, uses unstable_cache for server-side caching.
- */
 export async function apiClient<T = unknown>(url: string, options: ApiClientOptions = {}): Promise<T> {
   const { next, ...axiosOptions } = options;
 
@@ -90,15 +83,9 @@ export async function apiClient<T = unknown>(url: string, options: ApiClientOpti
   return cachedRequest();
 }
 
-/**
- * Direct axios request without caching - for simple use cases.
- */
 export async function axiosRequest<T = unknown>(config: AxiosRequestConfig): Promise<T> {
   const response = await axiosInstance.request<T>(config);
   return response.data;
 }
 
-/**
- * Get the axios instance for advanced usage (interceptors, etc.)
- */
 export { axiosInstance };

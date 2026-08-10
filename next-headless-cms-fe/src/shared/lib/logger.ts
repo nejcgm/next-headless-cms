@@ -20,8 +20,6 @@ class Logger {
       context,
     };
 
-    // In production, send to logging service
-    // For now, just console
     const consoleMethod = level === "error" ? "error" : level === "warn" ? "warn" : "log";
     console[consoleMethod](`[${entry.timestamp}] ${level.toUpperCase()}: ${message}`, context || "");
   }

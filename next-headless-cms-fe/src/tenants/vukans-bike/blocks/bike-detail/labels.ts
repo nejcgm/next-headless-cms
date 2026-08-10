@@ -1,4 +1,3 @@
-/** UI strings for `bike-detail` — set in each page JSON under `labels`. */
 export interface BikeDetailLabels {
   notFoundTitle: string;
   notFoundBody: string;

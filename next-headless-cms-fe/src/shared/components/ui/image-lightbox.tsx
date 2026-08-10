@@ -28,7 +28,6 @@ export function ImageLightbox({
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   }, [images.length]);
 
-  // Keyboard navigation
   useEffect(() => {
     if (!isOpen) return;
 

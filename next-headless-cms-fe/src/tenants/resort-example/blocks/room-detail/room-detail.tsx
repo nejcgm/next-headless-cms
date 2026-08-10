@@ -37,13 +37,10 @@ export function RoomDetail({
 
   const today = new Date().toISOString().split("T")[0];
 
-  // All room photos for the gallery
   const allPhotos = room.mainPhoto ? [room.mainPhoto, ...room.photos] : room.photos;
 
-  // Check if a date is unavailable
   const isDateUnavailable = (date: string): boolean => unavailableDates.includes(date);
 
-  // Get the next available date after a given date
   const getNextAvailableDate = (fromDate: string): string | null => {
     const date = new Date(fromDate);
     for (let i = 1; i <= 30; i++) {
@@ -54,7 +51,6 @@ export function RoomDetail({
     return null;
   };
 
-  // Validate date selection
   const validateDates = (checkinDate: string, checkoutDate: string): string | null => {
     if (!checkinDate || !checkoutDate) return null;
     if (isDateUnavailable(checkinDate)) return "Check-in date is not available";

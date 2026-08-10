@@ -11,14 +11,12 @@ export interface RoomDetailData extends Record<string, unknown> {
   unavailableDates: string[];
 }
 
-// Extract room ID from slug like "/rooms/123" or "rooms/123"
 function extractRoomId(slug?: string): string | null {
   if (!slug) return null;
   const match = slug.match(/rooms\/(\d+)/);
   return match?.[1] ?? null;
 }
 
-// Fetch hotel data with caching
 async function fetchHotel() {
   const { getHotel } = await import("../integrations/grmovsek-hotel/client");
   return getHotel();
@@ -47,7 +45,7 @@ export async function fetchRoomDetailData(
     "../integrations/grmovsek-hotel/client"
   );
 
-  // Request dates come from ctx.searchParams (not CMS props)
+  // Dates come from URL searchParams, not CMS block props
   let availability = null;
   const checkin = searchParams.checkin;
   const checkout = searchParams.checkout;
@@ -62,7 +60,6 @@ export async function fetchRoomDetailData(
     });
   }
 
-  // Fetch availability calendar for the next 60 days
   const today = new Date();
   const startDate = today.toISOString().split("T")[0];
   const endDate = new Date(today.setDate(today.getDate() + 60)).toISOString().split("T")[0];
