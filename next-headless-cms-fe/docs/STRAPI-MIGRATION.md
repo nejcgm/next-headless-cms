@@ -2,7 +2,7 @@
 
 **Status:** vukans-bike runs on Strapi in production and local dev (`dataAdapter: "strapi"` in `src/tenants/vukans-bike/config.ts`). Mock JSON under `src/core/mock-data.ts/vukans-bike/` is kept as the **seed source** and shape reference — it is not loaded at runtime for this tenant.
 
-**resort-example** still uses `dataAdapter: "mock"`.
+**resort-example** is a build-isolation fixture on `dataAdapter: "mock"` — not a Strapi product tenant. New product tenants should follow bike + Spec Kit `new-tenant` knowledge.
 
 ## Local dev (two terminals)
 

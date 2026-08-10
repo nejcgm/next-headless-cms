@@ -9,7 +9,7 @@ Stack: **Strapi 5.44** (`headless-cms-backend/`). Serves the Next.js app in `nex
 
 ## Goal
 
-Model **pages** (block composition + SEO + template), **navigation** (header/footer), and **products** (bike catalog) for the Next.js `StrapiAdapter`. **vukans-bike** is live on Strapi; **resort-example** still uses mock JSON on the frontend. Filter every query by `tenant` + `lang`.
+Model **pages** (block composition + SEO + template), **navigation** (header/footer), and **products** (bike catalog) for the Next.js `StrapiAdapter`. **vukans-bike** is the live product on Strapi. **resort-example** is a frontend build-isolation fixture (mock), not a Strapi product tenant. Filter every query by `tenant` + `lang`.
 
 ## Project layout (Strapi 5)
 

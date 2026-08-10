@@ -33,7 +33,7 @@
 
 **Constraints**: One build = one tenant (`TENANT_ID`); pnpm only in `next-headless-cms-fe/`; npm only in `headless-cms-backend/`; no cross-tenant bundles
 
-**Scale/Scope**: 2 tenants today (vukans-bike Strapi, resort-example mock); 3 locales on bike; block-based page composition
+**Scale/Scope**: Product tenant `vukans-bike` (Strapi); `resort-example` build-isolation fixture (mock); new tenants plug-and-play via scaffold; 3 locales on bike; block-based page composition
 
 ## Constitution Check
 

@@ -49,10 +49,12 @@ headless-cms/
 
 ## Tenant catalogs
 
-| Tenant ID | Catalog | `dataAdapter` |
-|-----------|---------|---------------|
-| `vukans-bike` | `specs/_catalogs/vukans-bike.md` | `"strapi"` |
-| `resort-example` | `specs/_catalogs/resort-example.md` | `"mock"` |
+| Tenant ID | Role | Catalog | `dataAdapter` |
+|-----------|------|---------|---------------|
+| `vukans-bike` | **Product** (reference for new tenants) | `specs/_catalogs/vukans-bike.md` | `"strapi"` |
+| `resort-example` | **Build-isolation fixture** only (not a product twin) | `specs/_catalogs/resort-example.md` | `"mock"` |
+
+New product tenants: follow `.specify/memory/knowledge/new-tenant.md` — aim for plug-and-play (scaffold + Spec Kit catalog + CI/deploy). Use **`vukans-bike`** as the pattern, not `resort-example`.
 
 ## Sync map (same change set)
 

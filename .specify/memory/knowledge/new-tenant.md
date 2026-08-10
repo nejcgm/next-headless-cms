@@ -2,6 +2,11 @@
 
 **Maintenance**: Update this Spec Kit knowledge doc in the same change set when related code changes. Sync map: `.specify/memory/project-context.md`.
 
+Goal: **plug-and-play product tenants** — scaffold → customize → Spec Kit catalog → CI/deploy — with one build = one tenant.
+
+**Reference pattern:** `vukans-bike` (live Strapi product).  
+**Not a template:** `resort-example` is only a build-isolation fixture against bike; do not copy its legacy mock JSON or treat it as a second product.
+
 ## Quick start (scaffold)
 
 From `next-headless-cms-fe/`:
@@ -13,11 +18,11 @@ pnpm create:tenant -- --id my-tenant --name "My Site" --short my --port 3003
 This creates:
 
 - `src/tenants/{tenant-id}/` — config, blocks index, header (from `vukans-bike`), footer, templates
-- `src/core/mock-data.ts/{folder}/` — `pages/home.json`, `navigation.json`, `sitemap.json`
+- `src/core/mock-data.ts/{folder}/` — stub `pages/home.json`, `navigation.json`, `sitemap.json`
 - `specs/_catalogs/{tenant-id}.md` — stub catalog
 - `pnpm` scripts: `dev:{short}`, `build:{short}`, `lint:{short}`, `start:{short}`
 
-Optional: `--mock-folder resort` when the mock folder name differs from tenant id (updates `scripts/tenant-mock-map.json`).
+Optional: `--mock-folder other-name` when the mock folder name differs from tenant id (updates `scripts/tenant-mock-map.json`).
 
 Then validate:
 
@@ -32,11 +37,14 @@ The scaffold prints a **manual checklist** for CI, deploy, and catalog updates.
 
 1. Customize `src/tenants/{tenant-id}/config.ts` — domains, locales, theme, **`dataAdapter`** (`"mock"` or `"strapi"`)
 2. Register blocks in `src/tenants/{tenant-id}/blocks/index.ts`
-3. Add mock pages under `src/core/mock-data.ts/{folder}/pages/` as needed (skip if `dataAdapter: "strapi"` — use Strapi + seed instead)
-4. Update **`specs/_catalogs/{tenant-id}.md`**
-5. Add tenant to **`.specify/memory/project-context.md`** catalog table
+3. Content:
+   - **`strapi`**: seed/populate Strapi (`tenant` + `lang`); mock JSON is optional seed/reference only — mirror bike
+   - **`mock`**: pages/collections must use the **canonical** Strapi dynamic-zone shape (`__component`, `lang`) — see `knowledge/mock-data.md`. Never copy `resort` legacy `{ type, props }` files
+4. Update **`specs/_catalogs/{tenant-id}.md`** (product catalog, not fixture-thin)
+5. Add tenant to **`.specify/memory/project-context.md`** catalog table (mark role: product)
 6. Add CI matrix entry in **`.github/workflows/ci.yml`** (`lint` + `build-tenants`)
 7. Create **`deploy-{short}.yml`** + Vercel project + secrets — see `.specify/memory/knowledge/deployment.md`
+8. After `pnpm build:{short}`, run `TENANT_ID={id} pnpm verify:build` (isolation vs other tenants, including the resort fixture)
 
 Block registration is automatic: root `app/layout.tsx` imports `@core/init`, which imports `@tenant/blocks`.
 
@@ -91,7 +99,7 @@ After `pnpm build:{short}`:
 TENANT_ID={tenant-id} pnpm verify:build
 ```
 
-`scripts/verify-build.js` scans **all** JS output for other tenants' source paths (`tenants/*`, `mock-data.ts/*`). Tenant discovery is dynamic via `scripts/tenant-registry.js`.
+`scripts/verify-build.js` scans **all** JS output for other tenants' source paths (`tenants/*`, `mock-data.ts/*`). Tenant discovery is dynamic via `scripts/tenant-registry.js`. Keeping `resort-example` in the repo is intentional so leakage against a second tree stays testable.
 
 ## After any later change
 

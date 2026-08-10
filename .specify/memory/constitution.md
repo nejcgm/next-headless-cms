@@ -48,7 +48,7 @@ Frontend reads content through `CmsAdapter` (`mock` or `strapi` per tenant confi
 
 Run pnpm only inside `next-headless-cms-fe/`. CI sets `working-directory: next-headless-cms-fe` for frontend jobs.
 
-**Tenants today:** `vukans-bike` (`dataAdapter: "strapi"`), `resort-example` (`dataAdapter: "mock"`).
+**Tenants today:** `vukans-bike` is the live **product** tenant (`dataAdapter: "strapi"`). `resort-example` is a **build-isolation fixture** (`dataAdapter: "mock"`) — not a peer product. New tenants should be plug-and-play via scaffold + Spec Kit catalog; pattern off `vukans-bike` (see `knowledge/new-tenant.md`).
 
 ## Quality Gates
 
@@ -72,4 +72,4 @@ Run pnpm only inside `next-headless-cms-fe/`. CI sets `working-directory: next-h
 
 This constitution defines non-negotiable architectural and process constraints. Amendments require updating `.specify/memory/constitution.md` and noting the change in the active feature spec or a dedicated governance spec.
 
-**Version**: 1.2.0 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-08-10
+**Version**: 1.2.1 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-08-10

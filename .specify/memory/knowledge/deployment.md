@@ -18,12 +18,12 @@
 
 ## One build = one tenant
 
-Every dev/build/deploy must set `TENANT_ID` to the tenant folder name (`vukans-bike` or `resort-example`).
+Every dev/build/deploy must set `TENANT_ID` to the tenant folder name (`vukans-bike` product, or `resort-example` isolation fixture, or a new product tenant id).
 
 1. `scripts/prepare-tenant.js` — sets `@tenant` and `@mock-data` paths in `tsconfig.json` (mock aliases: `scripts/tenant-mock-map.json`)
 2. `next.config.ts` — fails without `TENANT_ID`; uses `.next-{tenantId}` locally, `.next` when `NEXT_USE_VERCEL_DIST=1`
-3. `pnpm verify:build` — scans all build JS for cross-tenant source paths
-4. `pnpm create:tenant` — scaffolds a new tenant; `pnpm check:tenant` validates required files
+3. `pnpm verify:build` — scans all build JS for cross-tenant source paths (resort exists so leakage against a second tree stays testable)
+4. `pnpm create:tenant` — scaffolds a new **product** tenant (plug-and-play); `pnpm check:tenant` validates required files — pattern off `vukans-bike`, not resort
 
 Mock data folder can differ: `resort-example` → `src/core/mock-data.ts/resort/` (see `tenant-mock-map.json`).
 
@@ -77,7 +77,7 @@ Add new vars to `src/env.ts` (Zod). Deploy secrets go in GitHub Actions and/or V
 | `REVALIDATE_SECRET` | Webhook + manual revalidation (min 16 chars; do not use the default in production) |
 | `PREVIEW_SECRET` | Optional — `/api/preview` draft mode entry |
 
-**resort-example** uses mock data only — no Strapi env required.
+**resort-example** is a build-isolation fixture on mock data — no Strapi env required. Product tenants on Strapi need `STRAPI_*` like bike.
 
 ## New tenant deploy checklist
 

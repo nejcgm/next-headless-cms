@@ -14,7 +14,7 @@ Multi-tenant headless CMS: a **Next.js** frontend (one tenant per build) and a *
 | [`.specify/`](.specify/) | Spec Kit (agent constitution, knowledge, templates) |
 | [`specs/`](specs/) | Feature specs + tenant catalogs |
 
-**Tenants today:** `vukans-bike`, `resort-example`
+**Tenants today:** `vukans-bike` (product, Strapi); `resort-example` (build-isolation fixture, mock — not a product twin). New tenants: plug-and-play via scaffold; pattern off bike.
 
 ## Requirements
 
@@ -48,7 +48,7 @@ pnpm verify:build
 - **Single page route:** `next-headless-cms-fe/src/app/[domain]/[[...slug]]/page.tsx`
 - **Templates** own header/footer; pages pick a template via mock/Strapi data
 - **Build-time isolation:** `@tenant`, `@tenant/config`, `@mock-data` aliases — one tenant per build
-- **Data:** per-tenant `dataAdapter` — `vukans-bike` uses **Strapi**; `resort-example` uses **mock JSON**
+- **Data:** per-tenant `dataAdapter` — `vukans-bike` uses **Strapi**; `resort-example` uses **mock** as a leakage fixture (not a second product CMS)
 
 ## Environment variables
 

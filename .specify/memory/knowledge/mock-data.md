@@ -38,12 +38,12 @@ Rules for this shape:
 
 ## Current tenant reality
 
-| Tenant folder | Path | Page block shape today |
-|---------------|------|------------------------|
-| `vukans-bike` | `src/core/mock-data.ts/vukans-bike/` | Canonical (`__component` + `lang`) — works with `toPageData` |
-| `resort` (`resort-example`) | `src/core/mock-data.ts/resort/` | **Legacy**: `{ id, type, props }` blocks + top-level `locale`. `toPageData` drops those blocks, so MockAdapter returns pages with **empty `blocks[]`** until migrated to the canonical shape |
+| Tenant folder | Path | Purpose / shape |
+|---------------|------|-----------------|
+| `vukans-bike` | `src/core/mock-data.ts/vukans-bike/` | **Product** seed/reference — canonical (`__component` + `lang`) |
+| `resort` (`resort-example`) | `src/core/mock-data.ts/resort/` | **Build-isolation fixture** only. May keep legacy `{ id, type, props }` + `locale`; runtime page fidelity is out of scope. Do **not** copy this format for new product tenants |
 
-Do not add new pages in the legacy `{ type, props }` format. Migrate `resort` pages to the canonical shape when touching them.
+**New product tenants** (mock or Strapi seed JSON): always use the canonical shape above. Scaffold stubs from `create:tenant` should stay Strapi-compatible.
 
 ## Block IDs
 

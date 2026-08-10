@@ -53,8 +53,8 @@ Set `dataAdapter` in `src/tenants/{id}/config.ts`:
 
 | Tenant | Adapter | Notes |
 |--------|---------|-------|
-| `vukans-bike` | `"strapi"` | Requires `STRAPI_URL` + `STRAPI_API_TOKEN`. Start Strapi before `pnpm dev:bike`. |
-| `resort-example` | `"mock"` | Reads JSON from `src/core/mock-data.ts/resort/` |
+| `vukans-bike` | `"strapi"` | Product tenant. Requires `STRAPI_URL` + `STRAPI_API_TOKEN`. Start Strapi before `pnpm dev:bike`. |
+| `resort-example` | `"mock"` | Build-isolation fixture (not a product twin). JSON under `src/core/mock-data.ts/resort/`. |
 
 See [STRAPI-MIGRATION.md](./STRAPI-MIGRATION.md) for Strapi local setup, seed, preview, and revalidation.
 

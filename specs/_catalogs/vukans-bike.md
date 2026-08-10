@@ -7,7 +7,7 @@
 
 > **Maintenance**: Keep this file in sync when blocks, templates, mock pages, navigation, or integrations change (`.specify/memory/project-context.md` (sync map)).
 
-Bike shop in Apače: service, sales, bike school, guided tours. Locales: `sl` (default), `de`, `en`. **`dataAdapter: "strapi"`** — live content from Strapi; mock JSON is seed/reference only.
+Bike shop in Apače: service, sales, bike school, guided tours. Locales: `sl` (default), `de`, `en`. **`dataAdapter: "strapi"`** — live product tenant and the **reference pattern** for new plug-and-play tenants. Mock JSON is seed/reference only. (`resort-example` is only a build-isolation fixture — do not copy it.)
 
 ## Render pipeline
 
