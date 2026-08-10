@@ -1,2 +1,10 @@
 pnpm-store/
 .pnpm-store/
+
+# OS / editor noise at repo root (packages have their own ignores)
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.*
+!.env.example

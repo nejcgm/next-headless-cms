@@ -1,12 +1,11 @@
----
-description: Rules for third-party API integrations within tenants. Covers client structure, error handling, and type normalization.
-globs: src/tenants/*/integrations/**,src/tenants/*/services/**
-alwaysApply: false
----
+# Integration Rules
+
+**Maintenance**: Update this Spec Kit knowledge doc in the same change set when related code changes. Sync map: `.specify/memory/project-context.md`.
+
 
 # Integration Rules
 
-> **Maintenance**: Update this file when integration client patterns change (`rules-sync.mdc`). Also update the tenant `catalog.mdc`.
+**Maintenance**: Update `.specify/memory/knowledge/` (this file) when integration client patterns change (`.specify/memory/project-context.md` (sync map)). Also update the tenant catalog (`specs/_catalogs/{id}.md`).
 
 ## Folder Structure
 
@@ -56,4 +55,4 @@ Use relative paths in dynamic `import()` statements, NOT path aliases (`@tenant/
 
 ## Catalog
 
-When an integration is added or a block starts/stops using it, update `tenant-integrations.mdc` and the tenant `catalog.mdc` (`rules-sync.mdc`).
+When an integration is added or a block starts/stops using it, update `.specify/memory/knowledge/integrations.md` and the tenant catalog (`specs/_catalogs/{id}.md`) (`.specify/memory/project-context.md` (sync map)).

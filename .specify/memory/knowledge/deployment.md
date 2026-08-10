@@ -1,12 +1,11 @@
----
-description: Build, CI, and Vercel deployment for per-tenant frontend builds.
-globs: .github/workflows/**,package.json,scripts/prepare-tenant.js,scripts/create-tenant.js,scripts/check-tenant-setup.js,scripts/verify-build.js,scripts/tenant-mock-map.json,next.config.ts
-alwaysApply: false
----
+# Deployment & CI
+
+**Maintenance**: Update this Spec Kit knowledge doc in the same change set when related code changes. Sync map: `.specify/memory/project-context.md`.
+
 
 # Deployment & CI
 
-> **Maintenance**: Update when workflows, Vercel setup, or build scripts change (`rules-sync.mdc`).
+> **Maintenance**: Update when workflows, Vercel setup, or build scripts change (`.specify/memory/project-context.md` (sync map)).
 
 ## Monorepo layout
 
@@ -85,4 +84,4 @@ Add new vars to `src/env.ts` (Zod). Deploy secrets go in GitHub Actions and/or V
 1. `pnpm` scripts: `dev:{short}`, `build:{short}`
 2. CI lint matrix entry
 3. New `deploy-{short}.yml` + Vercel project + secrets
-4. Document in this file and `new-tenant-checklist.mdc`
+4. Document in this file and `.specify/memory/knowledge/new-tenant.md`

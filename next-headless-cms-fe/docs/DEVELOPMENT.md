@@ -1,6 +1,6 @@
 # Frontend development guide
 
-Human-oriented notes for working in `next-headless-cms-fe/`. Agent rules live in [`.cursor/rules/`](../.cursor/rules/).
+Human-oriented notes for working in `next-headless-cms-fe/`. **AI agents:** [`.specify/memory/project-context.md`](../../.specify/memory/project-context.md).
 
 ## Monorepo layout
 
@@ -43,8 +43,8 @@ The `[domain]` segment is the **tenant id** (from middleware rewrite), not a hos
 
 ## Data and navigation
 
-- Pages: `getAdapter(tenantId).getPage(...)` in `page.tsx`
-- Nav in templates: `getNavigationCached(tenant.id, page.locale)` — dedupes within one RSC request, not across navigations
+- Pages + nav: `loadPageWithNavigation` in `page.tsx` (uses `getPageCached` + `getNavigationCached`)
+- Templates read `page.navigation` (merged in `page.tsx`) — do not fetch nav again in templates
 - Always pass nav through `localizeNavItems` before `Header` / `Footer`
 
 ### Data adapters (per tenant)
@@ -73,10 +73,10 @@ pnpm create:tenant -- --id my-tenant --name "My Site" --short my --port 3003
 pnpm check:tenant
 ```
 
-See [new-tenant checklist](../.cursor/rules/new-tenant-checklist.mdc).
+See [new-tenant knowledge](../../.specify/memory/knowledge/new-tenant.md).
 
 ## Related docs
 
 - [Build verification](./BUILD-VERIFICATION.md) — tenant isolation checks
 - [Strapi setup (vukans-bike)](./STRAPI-MIGRATION.md) — local Strapi, env, seed, preview
-- [Deployment](../.cursor/rules/deployment.mdc) — CI, Vercel, env vars (agent-oriented)
+- [Deployment knowledge](../../.specify/memory/knowledge/deployment.md) — CI, Vercel, env vars (agent-oriented)

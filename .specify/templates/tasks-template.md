@@ -21,10 +21,19 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
+**Headless CMS monorepo (default for this repo):**
+
+- Frontend: `next-headless-cms-fe/src/{app,core,tenants,shared}/`
+- Backend: `headless-cms-backend/src/{api,components}/`
+- Spec Kit: `specs/{nnn-feature}/`, `.specify/memory/knowledge/`, `specs/_catalogs/`
+- Agent guidance: `.specify/memory/` (constitution, project-context, knowledge)
+- CI: `.github/workflows/`
+- Frontend scripts: `next-headless-cms-fe/scripts/`
+
+**Other layouts (use only if plan.md defines them):**
+
 - **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
-- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
+- **Web app (generic)**: `backend/src/`, `frontend/src/`
 
 <!--
   ============================================================================

@@ -48,7 +48,7 @@ cd headless-cms-backend
 npm run develop
 ```
 
-Types: **`page`**, **`navigation`**, **`product`**. See `headless-cms-backend/.cursor/rules/content-model.mdc`.
+Types: **`page`**, **`navigation`**, **`product`**. See [`.specify/memory/knowledge/content-model.md`](../../.specify/memory/knowledge/content-model.md).
 
 ## Permissions
 

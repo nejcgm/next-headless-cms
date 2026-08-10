@@ -74,8 +74,13 @@ function checkTenant(tenantId) {
     `src/tenants/${tenantId}/templates/default.tsx`,
     `src/tenants/${tenantId}/blocks/header/header.tsx`,
     `src/tenants/${tenantId}/blocks/footer/footer.tsx`,
-    `.cursor/rules/tenants/${tenantId}/catalog.mdc`,
   ];
+
+  const monorepoRoot = path.join(repoRoot, "..");
+  const catalogPath = path.join(monorepoRoot, "specs", "_catalogs", `${tenantId}.md`);
+  if (!fs.existsSync(catalogPath)) {
+    errors.push(`Missing required file: specs/_catalogs/${tenantId}.md`);
+  }
 
   if (usesMockData(tenantId)) {
     requiredFiles.push(
@@ -115,12 +120,14 @@ function checkTenant(tenantId) {
     }
   }
 
-  const tenantContextPath = path.join(repoRoot, ".cursor", "rules", "tenant-context.mdc");
-  if (fs.existsSync(tenantContextPath)) {
-    const tenantContext = fs.readFileSync(tenantContextPath, "utf8");
-    if (!tenantContext.includes(tenantId)) {
-      warnings.push(`Tenant not listed in .cursor/rules/tenant-context.mdc`);
+  const projectContextPath = path.join(monorepoRoot, ".specify", "memory", "project-context.md");
+  if (fs.existsSync(projectContextPath)) {
+    const projectContext = fs.readFileSync(projectContextPath, "utf8");
+    if (!projectContext.includes(tenantId)) {
+      warnings.push(`Tenant not listed in .specify/memory/project-context.md`);
     }
+  } else {
+    warnings.push(`Missing .specify/memory/project-context.md (Spec Kit index)`);
   }
 
   const map = readMockMap();

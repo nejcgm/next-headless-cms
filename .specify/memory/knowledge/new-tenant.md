@@ -1,12 +1,6 @@
----
-description: Checklist for adding a new tenant to the multi-tenant CMS.
-globs: src/tenants/*/config.ts,package.json,.github/workflows/**,scripts/create-tenant.js,scripts/check-tenant-setup.js
-alwaysApply: false
----
-
 # Adding a New Tenant
 
-> **Maintenance**: Update this file when the new-tenant steps or scripts change (`rules-sync.mdc`).
+**Maintenance**: Update this Spec Kit knowledge doc in the same change set when related code changes. Sync map: `.specify/memory/project-context.md`.
 
 ## Quick start (scaffold)
 
@@ -20,7 +14,7 @@ This creates:
 
 - `src/tenants/{tenant-id}/` — config, blocks index, header (from `vukans-bike`), footer, templates
 - `src/core/mock-data.ts/{folder}/` — `pages/home.json`, `navigation.json`, `sitemap.json`
-- `.cursor/rules/tenants/{tenant-id}/catalog.mdc` — stub catalog
+- `specs/_catalogs/{tenant-id}.md` — stub catalog
 - `pnpm` scripts: `dev:{short}`, `build:{short}`, `lint:{short}`, `start:{short}`
 
 Optional: `--mock-folder resort` when the mock folder name differs from tenant id (updates `scripts/tenant-mock-map.json`).
@@ -39,10 +33,10 @@ The scaffold prints a **manual checklist** for CI, deploy, and catalog updates.
 1. Customize `src/tenants/{tenant-id}/config.ts` — domains, locales, theme, **`dataAdapter`** (`"mock"` or `"strapi"`)
 2. Register blocks in `src/tenants/{tenant-id}/blocks/index.ts`
 3. Add mock pages under `src/core/mock-data.ts/{folder}/pages/` as needed (skip if `dataAdapter: "strapi"` — use Strapi + seed instead)
-4. Update **`.cursor/rules/tenants/{tenant-id}/catalog.mdc`**
-5. Add tenant to **`.cursor/rules/tenant-context.mdc`** catalog table
+4. Update **`specs/_catalogs/{tenant-id}.md`**
+5. Add tenant to **`.specify/memory/project-context.md`** catalog table
 6. Add CI matrix entry in **`.github/workflows/ci.yml`** (`lint` + `build-tenants`)
-7. Create **`deploy-{short}.yml`** + Vercel project + secrets — see `deployment.mdc`
+7. Create **`deploy-{short}.yml`** + Vercel project + secrets — see `.specify/memory/knowledge/deployment.md`
 
 Block registration is automatic: root `app/layout.tsx` imports `@core/init`, which imports `@tenant/blocks`.
 
@@ -101,7 +95,7 @@ TENANT_ID={tenant-id} pnpm verify:build
 
 ## After any later change
 
-Update affected rules per `rules-sync.mdc` (including the tenant `catalog.mdc`).
+Update affected docs per `.specify/memory/project-context.md` (sync map), including the tenant catalog (`specs/_catalogs/{id}.md`).
 
 ## Testing
 

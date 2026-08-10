@@ -1,7 +1,7 @@
----
-description: Strapi 5 backend overview for the headless CMS monorepo.
-alwaysApply: true
----
+# Strapi Backend (v5)
+
+**Maintenance**: Update this Spec Kit knowledge doc in the same change set when related code changes. Sync map: `.specify/memory/project-context.md`.
+
 
 # Strapi backend (v5)
 
@@ -26,18 +26,18 @@ Model **pages** (block composition + SEO + template), **navigation** (header/foo
 
 - Use **documentId** in APIs (Strapi 5); REST returns flat fields on `data[]` items (not v3 `attributes` wrapper) — confirm shape against `StrapiAdapter` before shipping.
 - Enable **Draft & Publish** on page content; keep navigation published-only or draft as needed.
-- **Do NOT** use `@strapi/plugin-i18n` for locale management on these content types. The i18n plugin reserves `locale` as a query param — our schemas use `lang` instead (plain string field). See `content-model.mdc`.
-- **Do not** use `populate=deep` plugins — use explicit `populate` (see `api-contract.mdc`).
+- **Do NOT** use `@strapi/plugin-i18n` for locale management on these content types. The i18n plugin reserves `locale` as a query param — our schemas use `lang` instead (plain string field). See `.specify/memory/knowledge/content-model.md`.
+- **Do not** use `populate=deep` plugins — use explicit `populate` (see `.specify/memory/knowledge/api-contract.md`).
 - Attribute names: **camelCase** in schema JSON (`slug`, `seo`, `blocks`, `lang`) — matches frontend `PageData`.
 - After schema changes: run `npm run types:generate` (updates `types/generated/`), then `npm run build`. Update Public role **find** permissions for new types in Strapi admin.
 - Publish content by passing `?status=published` to `POST` (create) or `PUT` (update) requests — do **not** call the deprecated `/actions/publish` endpoint.
 
-## Starter vs target
+## Content types in this repo
 
-Default types (`about`, `home`, `article`, `category`, `author`, `global`) are Strapi blog boilerplate. **Do not** extend them for tenant sites unless explicitly repurposed. Target types: **`page`**, **`navigation`**, **`product`** (see `content-model.mdc`).
+Only three collection APIs exist under `src/api/`: **`page`**, **`navigation`**, **`product`**. Do not reintroduce Strapi blog starter types (`about`, `home`, `article`, etc.). Schema details: `.specify/memory/knowledge/content-model.md`.
 
 ## Coordination
 
 - Frontend contract: `next-headless-cms-fe/src/core/types/page.ts`, `navigation.ts`
 - Frontend consumer: `src/core/data/adapters/strapi.adapter.ts`
-- When API shape changes: update **both** backend rules and frontend adapter/types in the same change set (`rules-sync.mdc`).
+- When API shape changes: update Spec Kit knowledge (`content-model.md`, `api-contract.md`) + frontend adapter/types in the same change set (`.specify/memory/project-context.md` sync map).

@@ -1,12 +1,11 @@
----
-description: TypeScript and code style conventions for the project.
-globs: "**/*.{ts,tsx}"
-alwaysApply: false
----
+# TypeScript Conventions
+
+**Maintenance**: Update this Spec Kit knowledge doc in the same change set when related code changes. Sync map: `.specify/memory/project-context.md`.
+
 
 # TypeScript Conventions
 
-> **Maintenance**: Update this file when ESLint/TS/CI conventions or path aliases change (`rules-sync.mdc`).
+**Maintenance**: Update `.specify/memory/knowledge/` (this file) when ESLint/TS/CI conventions or path aliases change (`.specify/memory/project-context.md` (sync map)).
 
 ## Strict Mode
 
@@ -109,7 +108,7 @@ These rules are enforced by `next lint` in CI. Violations fail the build.
 
 Templates are async server components typed as `TemplateComponent` (`(props: TemplateProps) => React.ReactNode`).
 - Import `TemplateProps` from `@core/types/page`.
-- Import `getNavigationCached` from `@core/data/fetcher` — never call `getAdapter().getNavigation` directly from templates.
+- Use `page.navigation` (attached in `page.tsx` by `loadPageWithNavigation` / `getNavigationCached`). Do not call `getAdapter().getNavigation` or `getNavigationCached` from templates.
 - Import `localizeNavItems` from `@core/i18n/locale-path` — never inline the localize loop.
 
 ### Catch blocks
@@ -122,5 +121,5 @@ Templates are async server components typed as `TemplateComponent` (`(props: Tem
 
 ## Tenant work
 
-- Read and keep current: relevant `.mdc` rules per `rules-sync.mdc` (including tenant catalogs when editing tenant code).
+- Read and keep current: Spec Kit knowledge docs and tenant catalogs per `.specify/memory/project-context.md` (including `specs/_catalogs/{tenant}.md` when editing tenant code).
 - CI runs `pnpm lint` per tenant via matrix (`TENANT_ID=vukans-bike` / `resort-example`); local `pnpm lint` runs both.

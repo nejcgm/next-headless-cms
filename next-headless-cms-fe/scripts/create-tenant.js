@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Scaffold a new tenant: folders, config, templates, mock data, catalog stub,
+ * Scaffold a new tenant: folders, config, templates, mock data, Spec Kit catalog stub,
  * package.json scripts, and a printed checklist for CI/deploy.
  *
  * Usage:
@@ -260,15 +260,9 @@ function sitemapJsonTemplate() {
 
 /** @param {TenantTemplateVars} vars */
 function catalogTemplate(vars) {
-  return `---
-description: ${vars.name} catalog — read before edits; update whenever tenant code or mock JSON changes.
-globs: src/tenants/${vars.id}/**,src/core/mock-data.ts/${vars.mockFolder}/**
-alwaysApply: false
----
+  return `# ${vars.name} (\`${vars.id}\`)
 
-# ${vars.name} (\`${vars.id}\`)
-
-> **Maintenance**: Keep this file in sync when blocks, templates, mock pages, or navigation change (\`rules-sync.mdc\`).
+**Maintenance**: Update \`specs/_catalogs/${vars.id}.md\` when blocks, templates, pages, or integrations change. Sync map: \`.specify/memory/project-context.md\`.
 
 Locales: \`en\` (default). Adapter: \`${vars.dataAdapter}\`.
 
@@ -346,17 +340,18 @@ function printChecklist(vars) {
    src/core/mock-data.ts/${vars.mockFolder}/pages/
 
 4. Update tenant catalog:
-   .cursor/rules/tenants/${vars.id}/catalog.mdc
+   specs/_catalogs/${vars.id}.md
+   (monorepo root — sibling of next-headless-cms-fe/)
 
-5. Add tenant to agent catalog table:
-   .cursor/rules/tenant-context.mdc
+5. Add tenant to Spec Kit project context table:
+   .specify/memory/project-context.md
 
 6. Add CI matrix entry in:
    .github/workflows/ci.yml
    - lint matrix: tenant_id: ${vars.id}
    - build-tenants include: tenant_script: build:${vars.short}, tenant_id: ${vars.id}
 
-7. Create deploy workflow + Vercel project (see deployment.mdc):
+7. Create deploy workflow + Vercel project (see .specify/memory/knowledge/deployment.md):
    .github/workflows/deploy-${vars.short}.yml
 
 8. Validate scaffold:
@@ -446,7 +441,7 @@ function main() {
   }
 
   writeFileEnsuringDir(
-    path.join(repoRoot, ".cursor", "rules", "tenants", id, "catalog.mdc"),
+    path.join(repoRoot, "..", "specs", "_catalogs", `${id}.md`),
     catalogTemplate(vars)
   );
 
@@ -462,7 +457,7 @@ function main() {
   } else {
     console.log(`   • dataAdapter: strapi (no mock data folder)`);
   }
-  console.log(`   • .cursor/rules/tenants/${id}/catalog.mdc`);
+  console.log(`   • specs/_catalogs/${id}.md`);
 
   printChecklist(vars);
 }

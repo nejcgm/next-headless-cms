@@ -1,12 +1,11 @@
----
-description: Rules for creating and registering blocks in the block-based page composition system.
-globs: src/tenants/*/blocks/**,src/tenants/*/templates/**,src/core/blocks/**,src/shared/components/blocks/**
-alwaysApply: false
----
+# Block System
+
+**Maintenance**: Update this Spec Kit knowledge doc in the same change set when related code changes. Sync map: `.specify/memory/project-context.md`.
+
 
 # Block System Rules
 
-> **Maintenance**: Update this file when block registration, templates, data contracts, or chrome behavior changes (`rules-sync.mdc`).
+**Maintenance**: Update `.specify/memory/knowledge/` (this file) when block registration, templates, data contracts, or chrome behavior changes (`.specify/memory/project-context.md` (sync map)).
 
 ## Creating a New Block
 
@@ -17,7 +16,7 @@ Every block lives in `src/tenants/{tenant}/blocks/{block-name}/` with:
 
 Register it in `src/tenants/{tenant}/blocks/index.ts`.
 
-After registering or changing a block, update `block-system.mdc` and the tenant `catalog.mdc` (see `rules-sync.mdc`).
+After registering or changing a block, update `.specify/memory/knowledge/block-system.md` and the tenant catalog (`specs/_catalogs/{id}.md`) (see `.specify/memory/project-context.md` (sync map)).
 
 ## Schema validation (optional, dev-only)
 
@@ -109,7 +108,7 @@ Templates in `src/tenants/{tenant}/templates/` are **async server components** t
 | `bare`       | none            | Campaign pages, embeds, standalone landings |
 
 Rules:
-- ALWAYS use `getNavigationCached` (not `getAdapter().getNavigation`) — it deduplicates per request.
+- Navigation is loaded in `page.tsx` via `loadPageWithNavigation` → `getNavigationCached` (request-deduped). Templates receive it as `page.navigation` — do **not** call `getAdapter().getNavigation` (or `getNavigationCached`) from templates.
 - ALWAYS pass the full nav data through `localizeNavItems` before passing to Header / Footer.
 - For a page with NO header and NO footer, set `"template": "bare"` in the page data — never add a boolean flag.
 - Never put header/footer in `layout.tsx` — the domain layout only wraps `ThemeProvider` + `TenantAnalytics`.

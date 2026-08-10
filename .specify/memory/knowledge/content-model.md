@@ -1,12 +1,11 @@
----
-description: Strapi content types and component schemas — read before editing any schema.json or component file.
-globs: src/api/**,src/components/**,types/generated/**
-alwaysApply: false
----
+# Content Model
+
+**Maintenance**: Update this Spec Kit knowledge doc in the same change set when related code changes. Sync map: `.specify/memory/project-context.md`.
+
 
 # Content Model
 
-All data is stored with typed Strapi components and dynamic zones — no raw JSON fields.
+Prefer typed Strapi components and dynamic zones for page composition. Some fields are intentionally `json` where a free-form structure is simpler than components — today: `product.images`, `product.tags`, `product.specs`, and `shared.seo.jsonLd`.
 Field names match frontend TypeScript interfaces directly to minimise adapter normalisation.
 
 ---
@@ -171,7 +170,7 @@ Strapi 5's i18n plugin reserves `locale` as a query parameter even when the cont
 2. Add the component name to the `blocks` dynamic zone in `page/schema.json`.
 3. Run `npm run types:generate` to regenerate TypeScript types.
 4. Add the block to the frontend block registry.
-5. Update `content-model.mdc` and `api-contract.mdc`.
+5. Update `.specify/memory/knowledge/content-model.md` and `.specify/memory/knowledge/api-contract.md`.
 
 ## Adding a new collection (for `getCollection` / `getEntry`)
 

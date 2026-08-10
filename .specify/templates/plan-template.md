@@ -13,28 +13,27 @@
 ## Technical Context
 
 <!--
-  ACTION REQUIRED: Replace the content in this section with the technical details
-  for the project. The structure here is presented in advisory capacity to guide
-  the iteration process.
+  DEFAULT for headless-cms monorepo — replace or extend per feature in /speckit-plan.
+  See also: .specify/memory/constitution.md and .specify/memory/project-context.md
 -->
 
-**Language/Version**: [e.g., Python 3.11, Swift 5.9, Rust 1.75 or NEEDS CLARIFICATION]
+**Language/Version**: TypeScript; Node.js 20+; Next.js 15 (frontend); Strapi 5.44 (backend)
 
-**Primary Dependencies**: [e.g., FastAPI, UIKit, LLVM or NEEDS CLARIFICATION]
+**Primary Dependencies**: Next.js 15, React 19, Strapi 5, Zod, Tailwind (frontend); Strapi core (backend)
 
-**Storage**: [if applicable, e.g., PostgreSQL, CoreData, files or N/A]
+**Storage**: Strapi → SQLite (local dev default) or Postgres (production/Railway); mock JSON files for mock tenants
 
-**Testing**: [e.g., pytest, XCTest, cargo test or NEEDS CLARIFICATION]
+**Testing**: ESLint matrix per tenant; `pnpm type-check`; `pnpm verify:build` for tenant isolation; manual dev verification
 
-**Target Platform**: [e.g., Linux server, iOS 15+, WASM or NEEDS CLARIFICATION]
+**Target Platform**: Vercel (frontend, one project per tenant); Railway or self-hosted (Strapi)
 
-**Project Type**: [e.g., library/cli/web-service/mobile-app/compiler/desktop-app or NEEDS CLARIFICATION]
+**Project Type**: Monorepo — web application (frontend + headless CMS backend)
 
-**Performance Goals**: [domain-specific, e.g., 1000 req/s, 10k lines/sec, 60 fps or NEEDS CLARIFICATION]
+**Performance Goals**: Standard marketing/CMS site expectations; Strapi fetch timeout 15s; ISR revalidate 60–300s by content type
 
-**Constraints**: [domain-specific, e.g., <200ms p95, <100MB memory, offline-capable or NEEDS CLARIFICATION]
+**Constraints**: One build = one tenant (`TENANT_ID`); pnpm only in `next-headless-cms-fe/`; npm only in `headless-cms-backend/`; no cross-tenant bundles
 
-**Scale/Scope**: [domain-specific, e.g., 10k users, 1M LOC, 50 screens or NEEDS CLARIFICATION]
+**Scale/Scope**: 2 tenants today (vukans-bike Strapi, resort-example mock); 3 locales on bike; block-based page composition
 
 ## Constitution Check
 
@@ -57,51 +56,26 @@ specs/[###-feature]/
 ```
 
 ### Source Code (repository root)
-<!--
-  ACTION REQUIRED: Replace the placeholder tree below with the concrete layout
-  for this feature. Delete unused options and expand the chosen structure with
-  real paths (e.g., apps/admin, packages/something). The delivered plan must
-  not include Option labels.
--->
+
+Default monorepo layout — delete or narrow in plan.md if the feature touches only one package:
 
 ```text
-# [REMOVE IF UNUSED] Option 1: Single project (DEFAULT)
-src/
-├── models/
-├── services/
-├── cli/
-└── lib/
+next-headless-cms-fe/
+├── src/app/                 # Next.js routing (thin)
+├── src/core/                # CMS engine, adapters, blocks registry
+├── src/tenants/{tenant-id}/ # Blocks, templates, config
+├── src/shared/              # Shared UI
+└── scripts/                 # prepare-tenant, verify-build, create-tenant
 
-tests/
-├── contract/
-├── integration/
-└── unit/
+headless-cms-backend/
+├── src/api/                 # page, navigation, product
+├── src/components/          # blocks.*, shared.*
+└── scripts/                 # seed-vukans-bike-cms.js
 
-# [REMOVE IF UNUSED] Option 2: Web application (when "frontend" + "backend" detected)
-backend/
-├── src/
-│   ├── models/
-│   ├── services/
-│   └── api/
-└── tests/
-
-frontend/
-├── src/
-│   ├── components/
-│   ├── pages/
-│   └── services/
-└── tests/
-
-# [REMOVE IF UNUSED] Option 3: Mobile + API (when "iOS/Android" detected)
-api/
-└── [same as backend above]
-
-ios/ or android/
-└── [platform-specific structure: feature modules, UI flows, platform tests]
+.github/workflows/           # ci.yml, deploy-bike.yml, deploy-resort.yml
 ```
 
-**Structure Decision**: [Document the selected structure and reference the real
-directories captured above]
+**Structure Decision**: [Document which packages this feature touches — frontend, backend, or both — and reference directories above]
 
 ## Complexity Tracking
 

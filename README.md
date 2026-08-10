@@ -2,6 +2,8 @@
 
 Multi-tenant headless CMS: a **Next.js** frontend (one tenant per build) and a **Strapi v5** backend. Each frontend build includes exactly one tenant, selected with `TENANT_ID`.
 
+**AI agents:** start at [`.specify/memory/project-context.md`](.specify/memory/project-context.md).
+
 ## Repository layout
 
 | Path | Description |
@@ -9,8 +11,8 @@ Multi-tenant headless CMS: a **Next.js** frontend (one tenant per build) and a *
 | [`next-headless-cms-fe/`](next-headless-cms-fe/) | Next.js 15 app — blocks, templates, mock data, Strapi adapter |
 | [`headless-cms-backend/`](headless-cms-backend/) | Strapi CMS (separate deploy) |
 | [`.github/workflows/`](.github/workflows/) | CI and manual production deploys |
-| [`next-headless-cms-fe/.cursor/rules/`](next-headless-cms-fe/.cursor/rules/) | Frontend Cursor rules |
-| [`headless-cms-backend/.cursor/rules/`](headless-cms-backend/.cursor/rules/) | Strapi 5 Cursor rules (content model, API contract) |
+| [`.specify/`](.specify/) | Spec Kit (agent constitution, knowledge, templates) |
+| [`specs/`](specs/) | Feature specs + tenant catalogs |
 
 **Tenants today:** `vukans-bike`, `resort-example`
 
@@ -18,98 +20,65 @@ Multi-tenant headless CMS: a **Next.js** frontend (one tenant per build) and a *
 
 - Node.js 20+
 - pnpm 10+ (frontend)
+- npm (backend)
 
 ## Frontend — quick start
 
 Run **pnpm only inside** `next-headless-cms-fe/` (there is no root `package.json`). Running pnpm from the repo root can create a stray `.pnpm-store/` folder — delete it if that happens; it is listed in the root `.gitignore`.
 
-All commands below:
-
 ```bash
 cd next-headless-cms-fe
 pnpm install
-```
-
-### Dev servers
-
-```bash
 pnpm dev:bike      # vukans-bike — http://localhost:3002
 pnpm dev:resort    # resort-example — http://localhost:3001
 ```
-
-Each script runs `scripts/prepare-tenant.js` (sets `@tenant` / `@mock-data` aliases) then `next dev`.
 
 ### Build
 
 ```bash
 pnpm build:bike
 pnpm build:resort
-```
-
-Verify only the selected tenant’s code is in the bundle:
-
-```bash
 pnpm verify:build
 ```
 
-Bundle analysis:
-
-```bash
-pnpm build:bike:analyze
-pnpm build:resort:analyze
-```
-
-**Docs:** [next-headless-cms-fe/docs/](next-headless-cms-fe/docs/) — [development guide](next-headless-cms-fe/docs/DEVELOPMENT.md), [build verification](next-headless-cms-fe/docs/BUILD-VERIFICATION.md).
+**Docs:** [next-headless-cms-fe/docs/](next-headless-cms-fe/docs/) — [development](next-headless-cms-fe/docs/DEVELOPMENT.md), [build verification](next-headless-cms-fe/docs/BUILD-VERIFICATION.md), [Strapi setup](next-headless-cms-fe/docs/STRAPI-MIGRATION.md).
 
 ## Frontend — how it works
 
-- **Single page route:** `next-headless-cms-fe/src/app/[domain]/[[...slug]]/page.tsx` (catch-all; no per-page route files)
+- **Single page route:** `next-headless-cms-fe/src/app/[domain]/[[...slug]]/page.tsx`
 - **Templates** own header/footer; pages pick a template via mock/Strapi data
 - **Build-time isolation:** `@tenant`, `@tenant/config`, `@mock-data` aliases — one tenant per build
-- **Data:** per-tenant `dataAdapter` in `src/tenants/{id}/config.ts` — `vukans-bike` uses **Strapi**; `resort-example` uses **mock JSON**
+- **Data:** per-tenant `dataAdapter` — `vukans-bike` uses **Strapi**; `resort-example` uses **mock JSON**
 
 ## Environment variables
-
-Copy env files in the frontend app:
 
 ```bash
 cd next-headless-cms-fe
 cp .env.example .env.local
 ```
 
-Common variables:
-
 | Variable | When |
 |----------|------|
-| `TENANT_ID` | Set automatically by dev/build scripts; required for `next.config.ts` |
-| `STRAPI_URL` | Required when tenant `dataAdapter` is `"strapi"` (`vukans-bike`) |
-| `STRAPI_API_TOKEN` | Required when tenant `dataAdapter` is `"strapi"` (read token; draft preview needs draft access) |
-| `REVALIDATE_SECRET` | On-demand cache revalidation (`/api/revalidate`, `/api/webhooks/strapi`) |
-| `PREVIEW_SECRET` | Optional — draft preview via `/api/preview` |
+| `TENANT_ID` | Set automatically by dev/build scripts |
+| `STRAPI_URL` | Required when `dataAdapter` is `"strapi"` |
+| `STRAPI_API_TOKEN` | Required for Strapi tenants |
+| `REVALIDATE_SECRET` | Cache revalidation webhooks |
+| `PREVIEW_SECRET` | Optional draft preview |
 
 ## Scripts (frontend)
 
-Run from `next-headless-cms-fe/`:
-
 | Script | Purpose |
 |--------|---------|
-| `pnpm dev:bike` | Dev server for `vukans-bike` |
-| `pnpm dev:resort` | Dev server for `resort-example` |
-| `pnpm build:bike` | Production build for `vukans-bike` |
-| `pnpm build:resort` | Production build for `resort-example` |
-| `pnpm build:bike:analyze` / `pnpm build:resort:analyze` | Build + bundle analysis |
-| `pnpm verify:build` | Check tenant isolation in `.next` output |
-| `pnpm lint` | ESLint (both tenants) |
-| `pnpm type-check` | TypeScript |
+| `pnpm dev:bike` / `dev:resort` | Dev servers |
+| `pnpm build:bike` / `build:resort` | Production builds |
+| `pnpm verify:build` | Tenant isolation check |
+| `pnpm lint` / `pnpm type-check` | Quality |
 
 ## CI & deployment
 
-- **CI** (`.github/workflows/ci.yml`): lint (matrix per tenant) and type-check in `next-headless-cms-fe/`
-- **Production:** manual `workflow_dispatch` only
-  - `deploy-bike.yml` → `vukans-bike` (Vercel secrets `BIKE_VERCEL_*`, `BIKE_STRAPI_*` — Strapi is required for this tenant)
-  - `deploy-resort.yml` → `resort-example` (Vercel secrets `RESORT_VERCEL_*`)
-
-Deploy **one tenant per Vercel project / artifact**. Set `TENANT_ID` for that project. Details for agents: `next-headless-cms-fe/.cursor/rules/deployment.mdc`.
+- **CI** (`.github/workflows/ci.yml`): lint matrix per tenant + type-check
+- **Production:** manual `workflow_dispatch` — `deploy-bike.yml`, `deploy-resort.yml`
+- One tenant per Vercel project (`TENANT_ID`)
 
 ## Backend (Strapi)
 
@@ -119,12 +88,4 @@ npm install
 npm run develop
 ```
 
-See [`headless-cms-backend/README.md`](headless-cms-backend/README.md) and [`next-headless-cms-fe/docs/STRAPI-MIGRATION.md`](next-headless-cms-fe/docs/STRAPI-MIGRATION.md). **vukans-bike** reads live content from Strapi (`dataAdapter: "strapi"`). **resort-example** still uses mock JSON. Seed vukans-bike content with `npm run seed:vukans-bike` in the backend.
-
-## Cursor / agent rules
-
-| App | Start here |
-|-----|------------|
-| Frontend | `next-headless-cms-fe/.cursor/rules/rules-sync.mdc` |
-| Backend (Strapi) | `headless-cms-backend/.cursor/rules/strapi-backend.mdc` |
-| Monorepo | `.cursor/rules/monorepo.mdc` |
+See [`headless-cms-backend/README.md`](headless-cms-backend/README.md). Seed: `npm run seed:vukans-bike`.

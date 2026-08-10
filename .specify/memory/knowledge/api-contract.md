@@ -1,8 +1,7 @@
----
-description: Strapi REST API contract for the StrapiAdapter — endpoints, populate, response shapes.
-globs: src/core/data/adapters/strapi.adapter.ts,src/core/data/strapi/**
-alwaysApply: false
----
+# API Contract
+
+**Maintenance**: Update this Spec Kit knowledge doc in the same change set when related code changes. Sync map: `.specify/memory/project-context.md`.
+
 
 # API Contract
 
@@ -187,7 +186,7 @@ The `StrapiAdapter` is a thin orchestrator. Responsibilities are split so adding
 | `strapi/strapi-client.ts` | Native `fetch` + `qs` query serialization, `StrapiQuery` type, `StrapiError`, `strapiFetch` / `strapiFetchAll` |
 | `strapi/strapi-query.ts` | Query-object builders (`tenantScope`, `normalizeLogicalSlug`) — **never hand-build bracket strings** |
 | `strapi/strapi-document.ts` | Raw response → domain types; pattern matching (`findPatternMatch`) |
-| `data/cache-tags.ts` | Single source of truth for cache tags (shared with revalidation routes) |
+| `src/core/data/cache-tags.ts` | Single source of truth for cache tags (shared with revalidation routes) |
 
 Queries are plain objects serialized with `qs.stringify(query, { encodeValuesOnly: true })`. The HTTP layer uses Next.js `fetch` (`next: { revalidate, tags }`), **not** axios — axios/`apiClient` is reserved for tenant integrations (e.g. resort LiteAPI).
 

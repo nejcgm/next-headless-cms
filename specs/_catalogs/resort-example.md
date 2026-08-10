@@ -1,12 +1,11 @@
----
-description: Resort Example catalog — read before edits; update whenever resort code or mock JSON changes.
-globs: src/tenants/resort-example/**,src/core/mock-data.ts/resort/**,.cursor/rules/tenants/resort-example/**
-alwaysApply: false
----
+# Tenant catalog: `resort-example`
+
+**Maintenance**: Update `specs/_catalogs/resort-example.md` when this tenant's blocks, templates, pages, or integrations change. Sync map: `.specify/memory/project-context.md`.
+
 
 # Resort Example (`resort-example`)
 
-> **Maintenance**: Keep this file in sync when blocks, templates, mock pages, navigation, or integrations change (`rules-sync.mdc`).
+> **Maintenance**: Keep this file in sync when blocks, templates, mock pages, navigation, or integrations change (`.specify/memory/project-context.md` (sync map)).
 
 Mountain hotel / resort demo (Kope). Locales: `en` (default), `de`, `sl`. Adapter: `mock` → Strapi later.
 
@@ -22,7 +21,8 @@ page JSON → MockAdapter.getPage → page.tsx
 
 - **Config**: `src/tenants/resort-example/config.ts`
 - **Registration**: `src/tenants/resort-example/blocks/index.ts`
-- **Mock pages**: `src/core/mock-data.ts/resort/pages/*.json`
+- **Mock pages**: `src/core/mock-data.ts/resort/pages/*.json` — **legacy** `{ id, type, props }` blocks + top-level `locale` (not yet migrated to Strapi `__component` shape). `toPageData` drops those blocks today → empty `blocks[]` until pages are converted (see `.specify/memory/knowledge/mock-data.md`).
+- **Nav**: loaded in `page.tsx` via `loadPageWithNavigation`; templates use `page.navigation`.
 
 ## Templates (`src/tenants/resort-example/templates/`)
 

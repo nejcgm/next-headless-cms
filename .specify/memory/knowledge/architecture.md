@@ -1,11 +1,11 @@
----
-description: Core architecture rules for the multi-tenant headless CMS. Enforces folder boundaries, dependency direction, and multi-tenancy patterns.
-alwaysApply: true
----
+# Architecture
+
+**Maintenance**: Update `.specify/memory/knowledge/architecture.md` when layers, routing, or tenant isolation change. Sync map: `.specify/memory/project-context.md`.
+
 
 # Multi-Tenant CMS Architecture
 
-Canonical agent instructions live in `.cursor/rules/*.mdc`. When you change code this file describes, update `project-architecture.mdc` in the same turn — see `rules-sync.mdc`.
+Canonical agent instructions live in Spec Kit (`.specify/memory/`). When you change code this file describes, update `.specify/memory/knowledge/architecture.md` in the same change set — see `.specify/memory/project-context.md`.
 
 ## Dependency Direction (STRICT)
 
@@ -23,7 +23,7 @@ These cross-boundary imports exist by architectural necessity:
 - `core/routing/resolver.tsx` dynamically imports `@tenant/templates/{name}`
 - `core/data/fetcher.ts` and `core/data/adapters/mock.adapter.ts` import `@tenant/config` and `@mock-data` (per `TENANT_ID` build)
 - `shared/components/blocks/index.ts` imports `registerSharedBlocks` from `core/blocks/registry`
-- `shared/components/layout/footer.tsx` imports `NavItem` from `core/types`
+- `shared/components/layout/footer.tsx` imports `NavItem` from `@core/types/navigation`
 
 Do NOT add new cross-boundary imports. If you need one, refactor the shared type or function into the correct layer first.
 
@@ -55,8 +55,8 @@ Each tenant lives in `src/tenants/{tenant-id}/` with `blocks/`, `templates/`, `i
 
 ## Per-tenant documentation
 
-Catalogs: `.cursor/rules/tenants/{tenant-id}/catalog.mdc`. See `tenant-context.mdc` and **`rules-sync.mdc`** — update every affected `.mdc` in the same change when code behavior changes.
+Catalogs: `specs/_catalogs/{tenant-id}.md`. See `.specify/memory/project-context.md` — update every affected Spec Kit knowledge/catalog file in the same change when code behavior changes.
 
 ## Monorepo
 
-Repo root: `headless-cms/`. Human docs: `README.md`, `next-headless-cms-fe/docs/`. Frontend: `next-headless-cms-fe/`. Backend (Strapi): `headless-cms-backend/`. CI workflows run from repo root with `working-directory: next-headless-cms-fe`. See `deployment.mdc` and repo-root `monorepo.mdc`.
+Repo root: `headless-cms/`. Human docs: `README.md`, `next-headless-cms-fe/docs/`, `headless-cms-backend/README.md`. Frontend: `next-headless-cms-fe/`. Backend (Strapi): `headless-cms-backend/`. CI workflows run from repo root with `working-directory: next-headless-cms-fe`. See `.specify/memory/knowledge/deployment.md` and `.specify/memory/constitution.md`.

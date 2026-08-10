@@ -1,12 +1,11 @@
----
-description: Vukan's Bike catalog — read before edits; update whenever vukans-bike code or mock JSON changes.
-globs: src/tenants/vukans-bike/**,src/core/mock-data.ts/vukans-bike/**,.cursor/rules/tenants/vukans-bike/**
-alwaysApply: false
----
+# Tenant catalog: `vukans-bike`
+
+**Maintenance**: Update `specs/_catalogs/vukans-bike.md` when this tenant's blocks, templates, pages, or integrations change. Sync map: `.specify/memory/project-context.md`.
+
 
 # Vukan's Bike (`vukans-bike`)
 
-> **Maintenance**: Keep this file in sync when blocks, templates, mock pages, navigation, or integrations change (`rules-sync.mdc`).
+> **Maintenance**: Keep this file in sync when blocks, templates, mock pages, navigation, or integrations change (`.specify/memory/project-context.md` (sync map)).
 
 Bike shop in Apače: service, sales, bike school, guided tours. Locales: `sl` (default), `de`, `en`. **`dataAdapter: "strapi"`** — live content from Strapi; mock JSON is seed/reference only.
 
@@ -22,7 +21,7 @@ StrapiAdapter.getPage → page.tsx
 - **Config**: `src/tenants/vukans-bike/config.ts` — theme, domains, contact, `dataAdapter`.
 - **Registration**: `src/tenants/vukans-bike/blocks/index.ts` — all tenant block types + data contracts.
 - **Mock pages** (fallback): `src/core/mock-data.ts/vukans-bike/pages/*.json` — mirrors Strapi API response shape (has `__component`, numeric `id`, flat fields, `lang`).
-- **Mock collections**: `src/core/mock-data.ts/vukans-bike/collections/products.json` — all 3 bikes with full `slug`, `specs`, `images`, etc.
+- **Mock collections**: `src/core/mock-data.ts/vukans-bike/collections/products.json` — currently **1** product (`merida`) with `slug`, `specs`, `images`, etc. (plus `en--` / `de--` locale files).
 - **Navigation**: `navigation.json`, `en--navigation.json`, `de--navigation.json`
 
 ## Templates (`src/tenants/vukans-bike/templates/`)
@@ -32,7 +31,7 @@ StrapiAdapter.getPage → page.tsx
 | `default` | Header + footer | All current pages |
 | `bare` | None | Campaign / embed pages (`"template": "bare"`) |
 
-Templates fetch nav via `getNavigationCached` and render `@tenant/blocks/header/header` + `@tenant/blocks/footer/footer` (footer re-exports `@shared/components/layout/footer`).
+`page.tsx` loads nav via `loadPageWithNavigation` / `getNavigationCached` and merges it onto `page.navigation`. Templates render `@tenant/blocks/header/header` + `@tenant/blocks/footer/footer` (footer re-exports `@shared/components/layout/footer`) from that prop — they do not fetch nav themselves.
 
 ## Layout chrome (not blocks)
 
@@ -104,7 +103,7 @@ Keep adapter calls inside the loader files — never inline them in `blocks/inde
 
 ## Products collection in Strapi
 
-- 3 bikes × 3 locales seeded via `headless-cms-backend/scripts/seed-vukans-bike-cms.js`.
+- **1** bike (`merida`) × 3 locales seeded via `headless-cms-backend/scripts/seed-vukans-bike-cms.js` (`KEEP_PRODUCT_SLUGS = ["merida"]`).
 - Public `find` permission must be granted in Strapi admin (Settings → Users & Permissions → Roles → Public → Product → find).
 - `getCollection` filters by `filters[lang][$eq]` (not `locale` — Strapi i18n reserves that param).
 - `getEntry` uses `filters[slug][$eq]` + `pagination[pageSize]=1` — slug is the application-level unique identifier.

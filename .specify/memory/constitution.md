@@ -1,50 +1,75 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+# Headless CMS Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. One Build, One Tenant (NON-NEGOTIABLE)
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+Every dev, CI, and production build MUST set `TENANT_ID` to exactly one tenant folder (`vukans-bike`, `resort-example`, etc.). Each tenant gets an isolated bundle: `@tenant` alias, tenant blocks/templates, and optional mock data. Cross-tenant imports and bundled code are forbidden. Verify with `pnpm verify:build` after tenant builds.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### II. Strict Layer Boundaries
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+Dependency direction is fixed: `app/` → `core/` → `shared/` and `app/` → `tenants/` → `shared/`. `core/` MUST NOT import from `tenants/` except documented exceptions (`fetcher`, `mock.adapter`, `resolver`, `init`). `shared/` MUST NOT import from `tenants/`. New cross-boundary imports require refactoring shared types/functions first — never widening exceptions casually.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### III. Single Route, Block Composition
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+There is ONE page route: `next-headless-cms-fe/src/app/[domain]/[[...slug]]/page.tsx`. All pages render via the block registry and tenant templates. Dynamic URLs (e.g. `/bikes/:slug`, `/rooms/:id`) use slug-pattern matching in the CMS adapter — never new Next.js route files per page.
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### IV. Spec Kit Single Source of Truth (NON-NEGOTIABLE)
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+Agent guidance for this monorepo lives in Spec Kit only:
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+| Artifact | Path |
+|----------|------|
+| Constitution | `.specify/memory/constitution.md` |
+| Project index & sync map | `.specify/memory/project-context.md` |
+| Domain knowledge | `.specify/memory/knowledge/*.md` |
+| Tenant catalogs | `specs/_catalogs/{tenant-id}.md` |
+| Feature work | `specs/{nnn-feature}/` |
+
+When behavior changes, update the matching Spec Kit artifact **in the same change set** (see sync map in `project-context.md`). Do not maintain parallel Cursor `.mdc` rule trees for agent context.
+
+Human docs (`README.md`, `next-headless-cms-fe/docs/`, `headless-cms-backend/README.md`) remain for people and MUST stay consistent with Spec Kit when they overlap. READMEs may include a short Spec Kit pointer only.
+
+### V. Minimal, Focused Changes
+
+Prefer the smallest correct diff. Reuse existing blocks, adapters, templates, and conventions. Do not over-engineer. Do not add unrelated refactors to feature PRs. Match surrounding code style.
+
+### VI. Data Adapter Contract
+
+Frontend reads content through `CmsAdapter` (`mock` or `strapi` per tenant config). Strapi queries filter by `tenant` + `lang` (custom field — **not** Strapi i18n plugin). REST contract changes require coordinated updates: backend schema, `strapi.adapter.ts`, frontend types, and Spec Kit `knowledge/api-contract.md` + `knowledge/content-model.md` in one change set.
+
+## Monorepo Constraints
+
+| Package | Tooling | Purpose |
+|---------|---------|---------|
+| `next-headless-cms-fe/` | **pnpm** only | Next.js 15 multi-tenant CMS |
+| `headless-cms-backend/` | **npm** | Strapi v5 content API |
+| `.github/workflows/` | repo root | CI + manual Vercel deploys per tenant |
+
+Run pnpm only inside `next-headless-cms-fe/`. CI sets `working-directory: next-headless-cms-fe` for frontend jobs.
+
+**Tenants today:** `vukans-bike` (`dataAdapter: "strapi"`), `resort-example` (`dataAdapter: "mock"`).
+
+## Quality Gates
+
+- **Lint**: matrix per tenant (`pnpm lint:bike`, `pnpm lint:resort`)
+- **Type-check**: `pnpm type-check` in frontend
+- **Build isolation**: `pnpm verify:build` after `pnpm build:{tenant}`
+- **Strapi schema changes**: `npm run types:generate` in backend; re-seed if content shape changes
+- **Secrets**: never commit `.env`; production must not use default `REVALIDATE_SECRET`
+- **Docs**: Spec Kit knowledge/catalog updated when described behavior changes
+- **Backend Spec Kit**: `strapi-backend`, `content-model`, and `api-contract` knowledge docs are first-class (same bar as frontend knowledge)
+
+## Development Workflow
+
+1. **New features**: `/speckit-specify` → `/speckit-plan` → `/speckit-tasks` → `/speckit-implement`
+2. **Bug fixes / small edits**: follow constitution + relevant knowledge doc and tenant catalog; open a feature spec if the contract changes
+3. Before tenant-specific work: read `specs/_catalogs/{tenant-id}.md`
+4. Header/footer live in tenant **templates**, not domain layout
+5. Do not add route-level `loading.tsx` when templates own chrome (use `NavigationProgressBar` + block-level Suspense)
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution defines non-negotiable architectural and process constraints. Amendments require updating `.specify/memory/constitution.md` and noting the change in the active feature spec or a dedicated governance spec.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.2.0 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-08-10

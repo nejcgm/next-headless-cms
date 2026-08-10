@@ -1,61 +1,63 @@
-# 🚀 Getting started with Strapi
+# Strapi backend (`headless-cms-backend`)
 
-Strapi comes with a full featured [Command Line Interface](https://docs.strapi.io/dev-docs/cli) (CLI) which lets you scaffold and manage your project in seconds.
+Headless CMS content API for the monorepo. Serves the Next.js app in `next-headless-cms-fe/` via REST (Strapi v5).
 
-### `develop`
+**AI agents:** use Spec Kit — start at [`.specify/memory/project-context.md`](../.specify/memory/project-context.md) (backend knowledge: `strapi-backend`, `content-model`, `api-contract`).
 
-Start your Strapi application with autoReload enabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-develop)
+## Requirements
 
-```
+- Node.js 20+
+- **npm** (not pnpm) in this package
+
+## Quick start
+
+```bash
+cd headless-cms-backend
+npm install
 npm run develop
-# or
-yarn develop
 ```
 
-### `start`
+- Admin: http://localhost:1337/admin  
+- API: http://localhost:1337/api  
 
-Start your Strapi application with autoReload disabled. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-start)
+## Useful scripts
 
-```
-npm run start
-# or
-yarn start
-```
+| Command | Purpose |
+|---------|---------|
+| `npm run develop` | Strapi with auto-reload |
+| `npm run start` | Production-mode Strapi |
+| `npm run build` | Build admin panel |
+| `npm run types:generate` | Regenerate `types/generated/` after schema changes |
+| `npm run seed:vukans-bike` | Seed pages/nav/products from frontend mock JSON |
 
-### `build`
+Seed example:
 
-Build your admin panel. [Learn more](https://docs.strapi.io/dev-docs/cli#strapi-build)
-
-```
-npm run build
-# or
-yarn build
-```
-
-## ⚙️ Deployment
-
-Strapi gives you many possible deployment options for your project including [Strapi Cloud](https://cloud.strapi.io). Browse the [deployment section of the documentation](https://docs.strapi.io/dev-docs/deployment) to find the best solution for your use case.
-
-```
-yarn strapi deploy
+```bash
+STRAPI_API_TOKEN=your-full-access-token npm run seed:vukans-bike
 ```
 
-## 📚 Learn more
+## Environment
 
-- [Resource center](https://strapi.io/resource-center) - Strapi resource center.
-- [Strapi documentation](https://docs.strapi.io) - Official Strapi documentation.
-- [Strapi tutorials](https://strapi.io/tutorials) - List of tutorials made by the core team and the community.
-- [Strapi blog](https://strapi.io/blog) - Official Strapi blog containing articles made by the Strapi team and the community.
-- [Changelog](https://strapi.io/changelog) - Find out about the Strapi product updates, new features and general improvements.
+Configure DB and secrets via `.env` (see Strapi docs). Local default is often SQLite; production typically uses Postgres (`DATABASE_URL`).
 
-Feel free to check out the [Strapi GitHub repository](https://github.com/strapi/strapi). Your feedback and contributions are welcome!
+Frontend needs:
 
-## ✨ Community
+```env
+STRAPI_URL=http://localhost:1337
+STRAPI_API_TOKEN=your-read-token
+```
 
-- [Discord](https://discord.strapi.io) - Come chat with the Strapi community including the core team.
-- [Forum](https://forum.strapi.io/) - Place to discuss, ask questions and find answers, show your Strapi project and get feedback or just talk with other Community members.
-- [Awesome Strapi](https://github.com/strapi/awesome-strapi) - A curated list of awesome things related to Strapi.
+Human frontend guide: [`next-headless-cms-fe/docs/STRAPI-MIGRATION.md`](../next-headless-cms-fe/docs/STRAPI-MIGRATION.md).
 
----
+## Content types
 
-<sub>🤫 Psst! [Strapi is hiring](https://strapi.io/careers).</sub>
+Primary collections: **page**, **navigation**, **product**. Locale field is **`lang`** (not `locale` — reserved by Strapi i18n). Filter by `tenant` + `lang` on every query.
+
+## Monorepo
+
+| Package | Role |
+|---------|------|
+| `next-headless-cms-fe/` | Next.js multi-tenant frontend (pnpm) |
+| `headless-cms-backend/` | This Strapi API (npm) |
+
+Repo overview: [`../README.md`](../README.md).

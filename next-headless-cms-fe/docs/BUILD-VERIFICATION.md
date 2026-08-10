@@ -62,7 +62,7 @@ pnpm build:my
 TENANT_ID=my-tenant pnpm verify:build
 ```
 
-See [new-tenant checklist](../.cursor/rules/new-tenant-checklist.mdc) for CI/deploy steps.
+See [new-tenant knowledge](../../.specify/memory/knowledge/new-tenant.md) for CI/deploy steps.
 
 ## Manual spot checks (optional)
 
