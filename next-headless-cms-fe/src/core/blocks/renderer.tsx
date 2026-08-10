@@ -3,12 +3,17 @@ import type { ZodSchema } from "zod";
 import type { BlockInstance } from "@core/types/page";
 import { logger } from "@shared/lib/logger";
 import { resolveBlock } from "./registry";
+import {
+  pickSearchParams,
+  type NormalizedSearchParams,
+} from "./search-params";
 
 interface Props {
   blocks: BlockInstance[];
   tenant: string;
   locale: string;
   slug?: string;
+  searchParams?: NormalizedSearchParams;
 }
 
 function blockReactKey(block: BlockInstance, index: number): string {
@@ -43,7 +48,13 @@ function isBlockVisible(block: BlockInstance, locale: string): boolean {
   return true;
 }
 
-export async function BlockRenderer({ blocks, tenant, locale, slug }: Props) {
+export async function BlockRenderer({
+  blocks,
+  tenant,
+  locale,
+  slug,
+  searchParams = {},
+}: Props) {
   const renderedBlocks = await Promise.all(
     blocks.map(async (block, index) => {
       const key = blockReactKey(block, index);
@@ -58,10 +69,24 @@ export async function BlockRenderer({ blocks, tenant, locale, slug }: Props) {
 
       if (!isBlockVisible(block, locale)) return null;
 
+      const allowlist = definition.acceptSearchParams;
+      const propsWithRequest =
+        allowlist && allowlist.length > 0
+          ? {
+              ...block.props,
+              ...pickSearchParams(searchParams, allowlist),
+            }
+          : block.props;
+
       let extraData: Record<string, unknown> = {};
       if (definition.dataContract) {
         try {
-          extraData = await definition.dataContract(block.props, { tenant, locale, slug });
+          extraData = await definition.dataContract(propsWithRequest, {
+            tenant,
+            locale,
+            slug,
+            searchParams,
+          });
         } catch (error) {
           logger.error(`Data contract failed for block ${block.type}`, {
             error: error instanceof Error ? error.message : String(error),
@@ -69,7 +94,7 @@ export async function BlockRenderer({ blocks, tenant, locale, slug }: Props) {
         }
       }
 
-      const mergedProps = { ...block.props, ...extraData };
+      const mergedProps = { ...propsWithRequest, ...extraData };
       validateBlockProps(block.type, definition.schema, mergedProps);
 
       const Component = definition.component;

@@ -1,5 +1,6 @@
 import type { Room, Hotel } from "../integrations/grmovsek-hotel/types";
 import type { AvailabilityResult } from "../integrations/grmovsek-hotel/client";
+import type { NormalizedSearchParams } from "@core/blocks/search-params";
 
 export interface RoomDetailData extends Record<string, unknown> {
   room: Room | null;
@@ -25,7 +26,7 @@ async function fetchHotel() {
 
 export async function fetchRoomDetailData(
   slug: string | undefined,
-  props: Record<string, unknown>
+  searchParams: NormalizedSearchParams = {}
 ): Promise<RoomDetailData> {
   const roomId = extractRoomId(slug);
   if (!roomId) {
@@ -46,10 +47,10 @@ export async function fetchRoomDetailData(
     "../integrations/grmovsek-hotel/client"
   );
 
-  // Check availability if dates provided in props (from searchParams)
+  // Request dates come from ctx.searchParams (not CMS props)
   let availability = null;
-  const checkin = props.checkin as string | undefined;
-  const checkout = props.checkout as string | undefined;
+  const checkin = searchParams.checkin;
+  const checkout = searchParams.checkout;
 
   if (checkin && checkout) {
     availability = await checkAvailability({

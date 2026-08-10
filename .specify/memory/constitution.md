@@ -38,6 +38,17 @@ Prefer the smallest correct diff. Reuse existing blocks, adapters, templates, an
 
 Frontend reads content through `CmsAdapter` (`mock` or `strapi` per tenant config). Strapi queries filter by `tenant` + `lang` (custom field — **not** Strapi i18n plugin). REST contract changes require coordinated updates: backend schema, `strapi.adapter.ts`, frontend types, and Spec Kit `knowledge/api-contract.md` + `knowledge/content-model.md` in one change set.
 
+### VII. Clean, Maintainable Code (NON-NEGOTIABLE for agents)
+
+Agents and contributors MUST write code that a human teammate can read, change, and trust later.
+
+- **Comments**: Keep comments **minimal**. Prefer clear names and structure over narration. Do not add comments that restate the code, mark obvious steps, or leave “AI essay” blocks. Comment only when intent is non-obvious (why, not what): invariants, workarounds, security, or subtle domain rules.
+- **Readability**: Prefer straightforward, human-readable TypeScript/JS — small functions, explicit names, no clever one-liners that hide control flow.
+- **Maintainability**: Match existing patterns in the touched package. Avoid drive-by abstractions and unused helpers. Delete dead code you introduce; do not leave TODOs that restate the task.
+- **Abstraction**: Introduce types, helpers, or layers only when they remove real duplication or clarify a boundary. Prefer the project’s existing folder layout over new parallel trees.
+- **Folder structure**: Place code where the monorepo already expects it (`app/` thin, `core/` engine, `tenants/{id}/` tenant UI/data, `shared/` reusable UI, Strapi under `headless-cms-backend/src/{api,components}/`). Do not invent alternate package layouts for the same concern.
+- **Interfaces & types**: Prefer explicit interfaces/types at public boundaries (adapters, block props, contracts, shared helpers). Avoid `any` except established registry exceptions. Keep frontend `PageData` / navigation / block props aligned with the content model when those contracts change.
+
 ## Monorepo Constraints
 
 | Package | Tooling | Purpose |
@@ -59,6 +70,7 @@ Run pnpm only inside `next-headless-cms-fe/`. CI sets `working-directory: next-h
 - **Secrets**: never commit `.env`; production must not use default `REVALIDATE_SECRET`
 - **Docs**: Spec Kit knowledge/catalog updated when described behavior changes
 - **Backend Spec Kit**: `strapi-backend`, `content-model`, and `api-contract` knowledge docs are first-class (same bar as frontend knowledge)
+- **Code quality**: diffs follow Principle VII (minimal comments, clear types, correct folder placement)
 
 ## Development Workflow
 
@@ -72,4 +84,4 @@ Run pnpm only inside `next-headless-cms-fe/`. CI sets `working-directory: next-h
 
 This constitution defines non-negotiable architectural and process constraints. Amendments require updating `.specify/memory/constitution.md` and noting the change in the active feature spec or a dedicated governance spec.
 
-**Version**: 1.2.1 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-08-10
+**Version**: 1.3.0 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-08-10

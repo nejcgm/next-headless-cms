@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import tenantConfig from "@tenant/config";
 import { getPageCached, loadPageWithNavigation } from "@core/data/fetcher";
 import { BlockRenderer } from "@core/blocks/renderer";
+import { normalizeSearchParams } from "@core/blocks/search-params";
 import {
   parseLocaleFromSegments,
   segmentsToLogicalPathname,
@@ -13,7 +14,7 @@ import { logger } from "@shared/lib/logger";
 
 interface PageProps {
   params: Promise<{ domain: string; slug?: string[] }>;
-  searchParams: Promise<Record<string, string | undefined>>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 }
 
 function resolveLocaleAndPaths(slug: string[] | undefined) {
@@ -29,17 +30,21 @@ function resolveLocaleAndPaths(slug: string[] | undefined) {
 
 export async function generateMetadata({ params }: PageProps) {
   const { slug } = await params;
-  const { locale, logicalPathname, visiblePathname } = resolveLocaleAndPaths(slug);
+  const { locale, logicalPathname, visiblePathname } =
+    resolveLocaleAndPaths(slug);
 
   const page = await getPageCached(tenantConfig.id, logicalPathname, locale);
 
   if (!page) return {};
-  return buildMetadata(page.seo, tenantConfig, { pathname: visiblePathname, locale: page.locale });
+  return buildMetadata(page.seo, tenantConfig, {
+    pathname: visiblePathname,
+    locale: page.locale,
+  });
 }
 
 export default async function TenantPage({ params, searchParams }: PageProps) {
   const { slug } = await params;
-  const query = await searchParams;
+  const query = normalizeSearchParams(await searchParams);
   const { locale, logicalPathname } = resolveLocaleAndPaths(slug);
 
   const { page, navigation } = await loadPageWithNavigation(
@@ -49,21 +54,15 @@ export default async function TenantPage({ params, searchParams }: PageProps) {
   );
 
   if (!page) {
-    logger.warn(`Page not found: ${tenantConfig.id}${logicalPathname} (locale ${locale})`);
+    logger.warn(
+      `Page not found: ${tenantConfig.id}${logicalPathname} (locale ${locale})`
+    );
     notFound();
   }
 
   const pageWithNav = navigation ? { ...page, navigation } : page;
 
   const Template = await resolveTemplate(pageWithNav.template);
-
-  const blocksWithQuery = page.blocks.map((block) => ({
-    ...block,
-    props: {
-      ...block.props,
-      ...query,
-    },
-  }));
 
   return (
     <>
@@ -75,10 +74,11 @@ export default async function TenantPage({ params, searchParams }: PageProps) {
       ) : null}
       <Template page={pageWithNav} tenant={tenantConfig}>
         <BlockRenderer
-          blocks={blocksWithQuery}
+          blocks={page.blocks}
           tenant={tenantConfig.id}
           locale={pageWithNav.locale}
           slug={logicalPathname}
+          searchParams={query}
         />
       </Template>
     </>

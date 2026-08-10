@@ -30,7 +30,7 @@ hero: { component: Hero, schema: heroSchema },
 ```
 
 Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blockId`,
-merged search params) are stripped, so they won't cause false failures. See
+allowlisted request params) are stripped, so they won't cause false failures. See
 `blocks/hero/schema.ts` for the reference pattern.
 
 ## Shared vs tenant block
@@ -54,10 +54,11 @@ Header/footer are **not** blocks — they live under `blocks/header`, `blocks/fo
 Data contracts in `blocks/index.ts` must be SHORT (1-3 lines). Complex logic goes in `src/tenants/{tenant}/services/{name}.service.ts`.
 
 ```typescript
-// GOOD — delegate to service
+// GOOD — delegate to service; request query via ctx.searchParams
 "room-detail": {
   component: RoomDetail,
-  dataContract: (props, ctx) => fetchRoomDetailData(ctx.slug, props),
+  dataContract: (_props, ctx) =>
+    fetchRoomDetailData(ctx.slug, ctx.searchParams),
 },
 
 // BAD — too much logic inline
@@ -74,7 +75,20 @@ Data contracts in `blocks/index.ts` must be SHORT (1-3 lines). Complex logic goe
 
 ## Data Contract Context
 
-The `ctx` object contains `{ tenant, locale, slug }`. Use `ctx.slug` for dynamic routes (e.g. extracting a roomId from `/rooms/123`). URL search params are merged into `props` by the page renderer.
+The `ctx` object contains `{ tenant, locale, slug, searchParams }`.
+
+- Use `ctx.slug` for dynamic routes (e.g. extracting a roomId from `/rooms/123`).
+- Use `ctx.searchParams` for request/query input (filters, dates). **Do not** expect the page to merge all URL query into every block’s CMS `props`.
+
+### How blocks get URL / request params
+
+| Channel | When to use |
+|---------|-------------|
+| `ctx.searchParams` in `dataContract` | Server loaders needing query (preferred) |
+| `acceptSearchParams: string[]` on registration | Component needs selected keys on props; renderer merges **only** those keys |
+| Client `useSearchParams()` | Interactive client UI managing its own URL state |
+
+Never reintroduce a page-level “spread all query into all block props” merge.
 
 ## React Keys
 

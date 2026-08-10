@@ -33,7 +33,8 @@ registerTenantBlocks("resort-example", {
 
   "room-detail": {
     component: RoomDetail,
-    dataContract: (props, ctx) => fetchRoomDetailData(ctx.slug, props),
+    dataContract: (_props, ctx) =>
+      fetchRoomDetailData(ctx.slug, ctx.searchParams),
   },
 
   "hotel-info": {
