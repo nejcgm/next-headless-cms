@@ -36,7 +36,7 @@ Do NOT add new cross-boundary imports. If you need one, refactor the shared type
 
 ## Single Page Route
 
-There is only ONE page route: `src/app/[domain]/[[...slug]]/page.tsx`. NEVER create additional page routes. All pages are rendered through this catch-all using the block system. Dynamic pages like `/rooms/123` use slug pattern matching in the mock adapter, NOT new route files.
+There is only ONE page route: `src/app/[domain]/[[...slug]]/page.tsx`. NEVER create additional page routes. All pages are rendered through this catch-all using the block system. Dynamic pages like `/rooms/123` or `/bikes/merida` use slug pattern matching in the CMS adapter, NOT new route files.
 
 ## Tenant Isolation
 

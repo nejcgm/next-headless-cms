@@ -47,7 +47,20 @@ The `[domain]` segment is the **tenant id** (from middleware rewrite), not a hos
 - Nav in templates: `getNavigationCached(tenant.id, page.locale)` — dedupes within one RSC request, not across navigations
 - Always pass nav through `localizeNavItems` before `Header` / `Footer`
 
+### Data adapters (per tenant)
+
+Set `dataAdapter` in `src/tenants/{id}/config.ts`:
+
+| Tenant | Adapter | Notes |
+|--------|---------|-------|
+| `vukans-bike` | `"strapi"` | Requires `STRAPI_URL` + `STRAPI_API_TOKEN`. Start Strapi before `pnpm dev:bike`. |
+| `resort-example` | `"mock"` | Reads JSON from `src/core/mock-data.ts/resort/` |
+
+See [STRAPI-MIGRATION.md](./STRAPI-MIGRATION.md) for Strapi local setup, seed, preview, and revalidation.
+
 ## Mock data
+
+Used when `dataAdapter: "mock"` (and as the **seed source** for vukans-bike Strapi content):
 
 - Paths: `src/core/mock-data.ts/{vukans-bike|resort}/` (aliases in `scripts/tenant-mock-map.json`)
 - Page files: `{slug}.json` or `{locale}--{slug}.json`
@@ -65,4 +78,5 @@ See [new-tenant checklist](../.cursor/rules/new-tenant-checklist.mdc).
 ## Related docs
 
 - [Build verification](./BUILD-VERIFICATION.md) — tenant isolation checks
+- [Strapi setup (vukans-bike)](./STRAPI-MIGRATION.md) — local Strapi, env, seed, preview
 - [Deployment](../.cursor/rules/deployment.mdc) — CI, Vercel, env vars (agent-oriented)

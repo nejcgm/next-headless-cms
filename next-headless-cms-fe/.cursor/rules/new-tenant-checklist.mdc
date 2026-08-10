@@ -36,9 +36,9 @@ The scaffold prints a **manual checklist** for CI, deploy, and catalog updates.
 
 ## Required steps (manual after scaffold)
 
-1. Customize `src/tenants/{tenant-id}/config.ts` — domains, locales, theme, `dataAdapter`
+1. Customize `src/tenants/{tenant-id}/config.ts` — domains, locales, theme, **`dataAdapter`** (`"mock"` or `"strapi"`)
 2. Register blocks in `src/tenants/{tenant-id}/blocks/index.ts`
-3. Add mock pages under `src/core/mock-data.ts/{folder}/pages/` as needed
+3. Add mock pages under `src/core/mock-data.ts/{folder}/pages/` as needed (skip if `dataAdapter: "strapi"` — use Strapi + seed instead)
 4. Update **`.cursor/rules/tenants/{tenant-id}/catalog.mdc`**
 5. Add tenant to **`.cursor/rules/tenant-context.mdc`** catalog table
 6. Add CI matrix entry in **`.github/workflows/ci.yml`** (`lint` + `build-tenants`)
@@ -83,7 +83,7 @@ const config: TenantConfig = {
     },
     borderRadius: "0.375rem",
   },
-  dataAdapter: "mock",
+  dataAdapter: "mock", // or "strapi" — see docs/STRAPI-MIGRATION.md; scaffold defaults to mock
 };
 
 export default config;

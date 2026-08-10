@@ -66,7 +66,7 @@ pnpm build:resort:analyze
 - **Single page route:** `next-headless-cms-fe/src/app/[domain]/[[...slug]]/page.tsx` (catch-all; no per-page route files)
 - **Templates** own header/footer; pages pick a template via mock/Strapi data
 - **Build-time isolation:** `@tenant`, `@tenant/config`, `@mock-data` aliases — one tenant per build
-- **Data:** mock adapter by default; Strapi adapter available (`dataAdapter` in tenant config)
+- **Data:** per-tenant `dataAdapter` in `src/tenants/{id}/config.ts` — `vukans-bike` uses **Strapi**; `resort-example` uses **mock JSON**
 
 ## Environment variables
 
@@ -82,8 +82,10 @@ Common variables:
 | Variable | When |
 |----------|------|
 | `TENANT_ID` | Set automatically by dev/build scripts; required for `next.config.ts` |
-| `STRAPI_URL` | Strapi adapter |
-| `STRAPI_API_TOKEN` | Strapi adapter |
+| `STRAPI_URL` | Required when tenant `dataAdapter` is `"strapi"` (`vukans-bike`) |
+| `STRAPI_API_TOKEN` | Required when tenant `dataAdapter` is `"strapi"` (read token; draft preview needs draft access) |
+| `REVALIDATE_SECRET` | On-demand cache revalidation (`/api/revalidate`, `/api/webhooks/strapi`) |
+| `PREVIEW_SECRET` | Optional — draft preview via `/api/preview` |
 
 ## Scripts (frontend)
 
@@ -104,7 +106,7 @@ Run from `next-headless-cms-fe/`:
 
 - **CI** (`.github/workflows/ci.yml`): lint (matrix per tenant) and type-check in `next-headless-cms-fe/`
 - **Production:** manual `workflow_dispatch` only
-  - `deploy-bike.yml` → `vukans-bike` (Vercel secrets `BIKE_VERCEL_*`, optional `BIKE_STRAPI_*`)
+  - `deploy-bike.yml` → `vukans-bike` (Vercel secrets `BIKE_VERCEL_*`, `BIKE_STRAPI_*` — Strapi is required for this tenant)
   - `deploy-resort.yml` → `resort-example` (Vercel secrets `RESORT_VERCEL_*`)
 
 Deploy **one tenant per Vercel project / artifact**. Set `TENANT_ID` for that project. Details for agents: `next-headless-cms-fe/.cursor/rules/deployment.mdc`.
@@ -117,7 +119,7 @@ npm install
 npm run develop
 ```
 
-See [`headless-cms-backend/README.md`](headless-cms-backend/README.md). Frontend Strapi integration is not fully wired yet; tenant configs still use `dataAdapter: "mock"` until migration.
+See [`headless-cms-backend/README.md`](headless-cms-backend/README.md) and [`next-headless-cms-fe/docs/STRAPI-MIGRATION.md`](next-headless-cms-fe/docs/STRAPI-MIGRATION.md). **vukans-bike** reads live content from Strapi (`dataAdapter: "strapi"`). **resort-example** still uses mock JSON. Seed vukans-bike content with `npm run seed:vukans-bike` in the backend.
 
 ## Cursor / agent rules
 

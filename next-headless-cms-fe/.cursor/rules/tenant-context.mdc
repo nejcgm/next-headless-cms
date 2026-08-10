@@ -9,10 +9,10 @@ alwaysApply: true
 
 ## Catalogs
 
-| Tenant ID | Catalog |
-|-----------|---------|
-| `vukans-bike` | `.cursor/rules/tenants/vukans-bike/catalog.mdc` |
-| `resort-example` | `.cursor/rules/tenants/resort-example/catalog.mdc` |
+| Tenant ID | Catalog | `dataAdapter` |
+|-----------|---------|---------------|
+| `vukans-bike` | `.cursor/rules/tenants/vukans-bike/catalog.mdc` | `"strapi"` |
+| `resort-example` | `.cursor/rules/tenants/resort-example/catalog.mdc` | `"mock"` |
 
 ## How to pick the tenant
 

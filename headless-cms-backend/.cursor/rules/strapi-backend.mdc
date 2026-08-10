@@ -9,7 +9,7 @@ Stack: **Strapi 5.44** (`headless-cms-backend/`). Serves the Next.js app in `nex
 
 ## Goal
 
-Model **pages** (block composition + SEO + template), **navigation** (header/footer), and **products** (bike catalog) so `StrapiAdapter` replaces mock JSON. Tenants: `vukans-bike`, `resort-example` — filter every query by `tenant` + `lang`.
+Model **pages** (block composition + SEO + template), **navigation** (header/footer), and **products** (bike catalog) for the Next.js `StrapiAdapter`. **vukans-bike** is live on Strapi; **resort-example** still uses mock JSON on the frontend. Filter every query by `tenant` + `lang`.
 
 ## Project layout (Strapi 5)
 
@@ -20,7 +20,7 @@ Model **pages** (block composition + SEO + template), **navigation** (header/foo
 | `src/api/{name}/controllers|services|routes/` | API layer — prefer `factories.createCore*` unless custom transform needed |
 | `config/` | `database.ts`, `plugins.ts`, `middlewares.ts`, `api.ts` |
 | `types/generated/` | Auto-generated — do not hand-edit |
-| `scripts/seed.js` | Legacy blog seed — replace with CMS-shaped seed when migrating |
+| `scripts/seed-vukans-bike-cms.js` | Seed vukans-bike pages, navigation, products from frontend mock JSON (`npm run seed:vukans-bike`) |
 
 ## Strapi 5 conventions
 

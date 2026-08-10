@@ -69,7 +69,16 @@ If connecting the repo in Vercel UI:
 
 Add new vars to `src/env.ts` (Zod). Deploy secrets go in GitHub Actions and/or Vercel project settings.
 
-Bike deploy workflow also passes `STRAPI_URL` / `STRAPI_API_TOKEN` when set — adapter is still `mock` in tenant config until migration.
+**vukans-bike** (`dataAdapter: "strapi"`) requires on Vercel (and in `deploy-bike.yml`):
+
+| Variable | Purpose |
+|----------|---------|
+| `STRAPI_URL` | Strapi REST base URL |
+| `STRAPI_API_TOKEN` | Authenticated reads (including draft when preview is enabled) |
+| `REVALIDATE_SECRET` | Webhook + manual revalidation (min 16 chars; do not use the default in production) |
+| `PREVIEW_SECRET` | Optional — `/api/preview` draft mode entry |
+
+**resort-example** uses mock data only — no Strapi env required.
 
 ## New tenant deploy checklist
 

@@ -22,7 +22,7 @@ Update matching rules when you change behavior in the same task.
 | REST paths or query params | `src/core/data/adapters/strapi.adapter.ts`, `src/core/data/strapi/**` |
 | Cache tag format | `src/core/data/cache-tags.ts` + revalidation routes (`app/api/revalidate`, `app/api/webhooks/strapi`) |
 | New block types in CMS | Tenant `blocks/index.ts` + `catalog.mdc` (frontend) |
-| Mock parity | `src/core/mock-data.ts/**` (until Strapi is source of truth) |
+| Mock parity / seed source | `src/core/mock-data.ts/**` (required for mock tenants; vukans-bike uses it for `seed:vukans-bike`) |
 
 ## Monorepo
 

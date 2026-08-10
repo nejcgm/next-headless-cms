@@ -8,7 +8,7 @@ alwaysApply: false
 
 > **Maintenance**: Keep this file in sync when blocks, templates, mock pages, navigation, or integrations change (`rules-sync.mdc`).
 
-Bike shop in Apače: service, sales, bike school, guided tours. Locales: `sl` (default), `de`, `en`. Adapter: `strapi` (Strapi backend live; `mock` as fallback during dev).
+Bike shop in Apače: service, sales, bike school, guided tours. Locales: `sl` (default), `de`, `en`. **`dataAdapter: "strapi"`** — live content from Strapi; mock JSON is seed/reference only.
 
 ## Render pipeline
 
