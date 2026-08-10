@@ -28,7 +28,7 @@ Agent guidance for this monorepo lives in Spec Kit only:
 
 When behavior changes, update the matching Spec Kit artifact **in the same change set** (see sync map in `project-context.md`). Do not maintain parallel Cursor `.mdc` rule trees for agent context.
 
-Human docs (`README.md`, `next-headless-cms-fe/docs/`, `headless-cms-backend/README.md`) remain for people and MUST stay consistent with Spec Kit when they overlap. READMEs may include a short Spec Kit pointer only.
+Human docs (`README.md`, `next-headless-cms-fe/README.md`, `headless-cms-backend/README.md`) remain for people and MUST stay consistent with Spec Kit when they overlap. READMEs may include a short Spec Kit pointer only.
 
 ### V. Minimal, Focused Changes
 
@@ -84,4 +84,8 @@ Run pnpm only inside `next-headless-cms-fe/`. CI sets `working-directory: next-h
 
 This constitution defines non-negotiable architectural and process constraints. Amendments require updating `.specify/memory/constitution.md` and noting the change in the active feature spec or a dedicated governance spec.
 
-**Version**: 1.3.0 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-08-10
+**Amendments**
+
+- **1.3.1** — Human frontend docs are `next-headless-cms-fe/README.md` only (removed `docs/` folder); Spec Kit remains agent SoT.
+
+**Version**: 1.3.1 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-08-10

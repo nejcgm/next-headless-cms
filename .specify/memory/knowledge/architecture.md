@@ -40,11 +40,11 @@ There is only ONE page route: `src/app/[domain]/[[...slug]]/page.tsx`. NEVER cre
 
 ## Tenant Isolation
 
-Each tenant lives in `src/tenants/{tenant-id}/` with `blocks/`, `templates/`, `integrations/`, `services/`, and `config.ts`. Mock data: `src/core/mock-data.ts/vukans-bike/` or `…/resort/` (folder name may differ from tenant id). Tenants must never import from other tenants.
+Each tenant lives in `src/tenants/{tenant-id}/` with `blocks/`, `templates/`, `integrations/`, `services/`, `config.ts`, and (when needed) `mock-data/` for mock/seed JSON. Tenants must never import from other tenants.
 
 ## Tenant resolution
 
-- **Build-time**: `TENANT_ID` + `scripts/prepare-tenant.js` set `@tenant` → `src/tenants/{tenant-id}/`. Mock folder aliases: `scripts/tenant-mock-map.json`. New tenants: `pnpm create:tenant`; validate with `pnpm check:tenant`.
+- **Build-time**: `TENANT_ID` + `scripts/prepare-tenant.js` set `@tenant` → `src/tenants/{tenant-id}/` and `@mock-data` → `src/tenants/{id}/mock-data` (mock) or `scripts/mock-data-stub` (Strapi). New tenants: `pnpm create:tenant`; validate with `pnpm check:tenant`.
 - **Runtime**: `middleware.ts` rewrites URLs with `/{tenantId}` prefix; sets `x-pathname` for visible path.
 - **Config**: `import tenantConfig from "@tenant/config"` in app and adapters.
 
@@ -59,4 +59,4 @@ Catalogs: `specs/_catalogs/{tenant-id}.md`. See `.specify/memory/project-context
 
 ## Monorepo
 
-Repo root: `headless-cms/`. Human docs: `README.md`, `next-headless-cms-fe/docs/`, `headless-cms-backend/README.md`. Frontend: `next-headless-cms-fe/`. Backend (Strapi): `headless-cms-backend/`. CI workflows run from repo root with `working-directory: next-headless-cms-fe`. See `.specify/memory/knowledge/deployment.md` and `.specify/memory/constitution.md`.
+Repo root: `headless-cms/`. Human docs: root `README.md`, `next-headless-cms-fe/README.md`, `headless-cms-backend/README.md`. Frontend: `next-headless-cms-fe/`. Backend (Strapi): `headless-cms-backend/`. CI workflows run from repo root with `working-directory: next-headless-cms-fe`. See `.specify/memory/knowledge/deployment.md` and `.specify/memory/constitution.md`.

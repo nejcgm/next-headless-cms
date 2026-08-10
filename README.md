@@ -41,7 +41,7 @@ pnpm build:resort
 pnpm verify:build
 ```
 
-**Docs:** [next-headless-cms-fe/docs/](next-headless-cms-fe/docs/) — [development](next-headless-cms-fe/docs/DEVELOPMENT.md), [build verification](next-headless-cms-fe/docs/BUILD-VERIFICATION.md), [Strapi setup](next-headless-cms-fe/docs/STRAPI-MIGRATION.md).
+**Docs:** [next-headless-cms-fe/README.md](next-headless-cms-fe/README.md) · [headless-cms-backend/README.md](headless-cms-backend/README.md).
 
 ## Frontend — how it works
 

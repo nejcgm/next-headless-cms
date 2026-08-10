@@ -20,9 +20,9 @@ StrapiAdapter.getPage → page.tsx
 
 - **Config**: `src/tenants/vukans-bike/config.ts` — theme, domains, contact, `dataAdapter`.
 - **Registration**: `src/tenants/vukans-bike/blocks/index.ts` — all tenant block types + data contracts.
-- **Mock pages** (fallback): `src/core/mock-data.ts/vukans-bike/pages/*.json` — mirrors Strapi API response shape (has `__component`, numeric `id`, flat fields, `lang`).
-- **Mock collections**: `src/core/mock-data.ts/vukans-bike/collections/products.json` — currently **1** product (`merida`) with `slug`, `specs`, `images`, etc. (plus `en--` / `de--` locale files).
-- **Navigation**: `navigation.json`, `en--navigation.json`, `de--navigation.json`
+- **Seed/reference pages**: `src/tenants/vukans-bike/mock-data/pages/*.json` — mirrors Strapi API response shape (has `__component`, numeric `id`, flat fields, `lang`). Not loaded at runtime (`dataAdapter: "strapi"`).
+- **Seed collections**: `src/tenants/vukans-bike/mock-data/collections/products.json` — currently **1** product (`merida`) with `slug`, `specs`, `images`, etc. (plus `en--` / `de--` locale files).
+- **Navigation**: `mock-data/navigation.json`, `en--navigation.json`, `de--navigation.json`
 
 ## Templates (`src/tenants/vukans-bike/templates/`)
 

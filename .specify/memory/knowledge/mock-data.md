@@ -38,12 +38,12 @@ Rules for this shape:
 
 ## Current tenant reality
 
-| Tenant folder | Path | Purpose / shape |
-|---------------|------|-----------------|
-| `vukans-bike` | `src/core/mock-data.ts/vukans-bike/` | **Product** seed/reference — canonical (`__component` + `lang`) |
-| `resort` (`resort-example`) | `src/core/mock-data.ts/resort/` | **Build-isolation fixture** only. May keep legacy `{ id, type, props }` + `locale`; runtime page fidelity is out of scope. Do **not** copy this format for new product tenants |
+| Tenant | Path | Purpose / shape |
+|--------|------|-----------------|
+| `vukans-bike` | `src/tenants/vukans-bike/mock-data/` | **Product** seed/reference — canonical (`__component` + `lang`). Runtime uses Strapi; JSON is seed/shape reference. |
+| `resort-example` | `src/tenants/resort-example/mock-data/` | **Build-isolation fixture** only. May keep legacy `{ id, type, props }` + `locale`; runtime page fidelity is out of scope. Do **not** copy this format for new product tenants |
 
-**New product tenants** (mock or Strapi seed JSON): always use the canonical shape above. Scaffold stubs from `create:tenant` should stay Strapi-compatible.
+**New product tenants** (mock or Strapi seed JSON): always use the canonical shape above. Scaffold stubs from `create:tenant` write under `src/tenants/{id}/mock-data/`.
 
 ## Block IDs
 
@@ -87,7 +87,7 @@ Must be `"blocks.{type}"` matching a Strapi component and a key in `registerTena
 
 ## Collections
 
-Collection files live at `src/core/mock-data.ts/{folder}/collections/{name}.json`. They are loaded by `MockAdapter.getCollection`.
+Collection files live at `src/tenants/{tenantId}/mock-data/collections/{name}.json`. They are loaded by `MockAdapter.getCollection`.
 
 `getEntry` matches `item.slug === id || item.id === id`. Prefer a `slug` for entries looked up by URL segment (e.g. products). List-only collections (e.g. resort `reviews.json`) may use `id` only — that is fine when consumers only call `getCollection`.
 
@@ -105,4 +105,4 @@ Locale-specific overrides: `{locale}--{name}.json` (e.g. `en--products.json`).
 
 Update this knowledge doc and the tenant catalog (`specs/_catalogs/{id}.md`) when behavior changes (see `.specify/memory/project-context.md`).
 
-Mock folder vs tenant id: see `scripts/tenant-mock-map.json` (e.g. `resort-example` → `src/core/mock-data.ts/resort/`).
+`@mock-data` resolves to `src/tenants/{tenantId}/mock-data` for mock-adapter tenants, or `scripts/mock-data-stub` for Strapi tenants (seed JSON may still live under `mock-data/` on disk).

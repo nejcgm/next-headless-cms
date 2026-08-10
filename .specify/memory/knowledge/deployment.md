@@ -20,12 +20,30 @@
 
 Every dev/build/deploy must set `TENANT_ID` to the tenant folder name (`vukans-bike` product, or `resort-example` isolation fixture, or a new product tenant id).
 
-1. `scripts/prepare-tenant.js` — sets `@tenant` and `@mock-data` paths in `tsconfig.json` (mock aliases: `scripts/tenant-mock-map.json`)
+1. `scripts/prepare-tenant.js` — sets `@tenant` and `@mock-data` paths in `tsconfig.json` (`src/tenants/{id}/mock-data` for mock; stub for Strapi)
 2. `next.config.ts` — fails without `TENANT_ID`; uses `.next-{tenantId}` locally, `.next` when `NEXT_USE_VERCEL_DIST=1`
 3. `pnpm verify:build` — scans all build JS for cross-tenant source paths (resort exists so leakage against a second tree stays testable)
 4. `pnpm create:tenant` — scaffolds a new **product** tenant (plug-and-play); `pnpm check:tenant` validates required files — pattern off `vukans-bike`, not resort
 
-Mock data folder can differ: `resort-example` → `src/core/mock-data.ts/resort/` (see `tenant-mock-map.json`).
+Tenant content JSON lives under `src/tenants/{tenantId}/mock-data/`.
+
+### What `verify:build` checks
+
+`scripts/verify-build.js`:
+
+1. Confirms the built **middleware** embeds the expected tenant id
+2. Scans **every** `.js` file under the build directory
+3. Fails if any file contains another tenant’s source path (`tenants/{other-id}` / `src/tenants/{other-id}`, including colocated `mock-data/`)
+
+Tenant lists come from `src/tenants/` via `scripts/tenant-registry.js`. CI runs `verify:build` after each tenant build in `build-tenants`.
+
+```bash
+pnpm build:bike
+TENANT_ID=vukans-bike pnpm verify:build
+pnpm build:resort
+TENANT_ID=resort-example pnpm verify:build
+# optional: pnpm build:bike:analyze → analyze/client-*.html
+```
 
 ## Local commands
 

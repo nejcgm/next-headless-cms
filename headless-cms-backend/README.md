@@ -47,7 +47,7 @@ STRAPI_URL=http://localhost:1337
 STRAPI_API_TOKEN=your-read-token
 ```
 
-Human frontend guide: [`next-headless-cms-fe/docs/STRAPI-MIGRATION.md`](../next-headless-cms-fe/docs/STRAPI-MIGRATION.md).
+Frontend human guide: [`next-headless-cms-fe/README.md`](../next-headless-cms-fe/README.md).
 
 ## Content types
 

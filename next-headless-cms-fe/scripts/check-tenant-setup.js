@@ -14,10 +14,8 @@ const path = require("path");
 const {
   repoRoot,
   listTenantIds,
-  getMockDataFolder,
   getDataAdapter,
   usesMockData,
-  readMockMap,
 } = require("./tenant-registry");
 
 /**
@@ -65,7 +63,6 @@ function checkTenant(tenantId) {
   const errors = [];
   /** @type {string[]} */
   const warnings = [];
-  const mockFolder = getMockDataFolder(tenantId);
   const dataAdapter = getDataAdapter(tenantId);
 
   const requiredFiles = [
@@ -84,9 +81,9 @@ function checkTenant(tenantId) {
 
   if (usesMockData(tenantId)) {
     requiredFiles.push(
-      `src/core/mock-data.ts/${mockFolder}/pages/home.json`,
-      `src/core/mock-data.ts/${mockFolder}/navigation.json`,
-      `src/core/mock-data.ts/${mockFolder}/sitemap.json`
+      `src/tenants/${tenantId}/mock-data/pages/home.json`,
+      `src/tenants/${tenantId}/mock-data/navigation.json`,
+      `src/tenants/${tenantId}/mock-data/sitemap.json`
     );
   }
 
@@ -128,11 +125,6 @@ function checkTenant(tenantId) {
     }
   } else {
     warnings.push(`Missing .specify/memory/project-context.md (Spec Kit index)`);
-  }
-
-  const map = readMockMap();
-  if (map[tenantId] && map[tenantId] !== mockFolder) {
-    errors.push(`Mock map mismatch for ${tenantId}`);
   }
 
   return { tenantId, errors, warnings };

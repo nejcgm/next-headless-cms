@@ -41,3 +41,21 @@ Only three collection APIs exist under `src/api/`: **`page`**, **`navigation`**,
 - Frontend contract: `next-headless-cms-fe/src/core/types/page.ts`, `navigation.ts`
 - Frontend consumer: `src/core/data/adapters/strapi.adapter.ts`
 - When API shape changes: update Spec Kit knowledge (`content-model.md`, `api-contract.md`) + frontend adapter/types in the same change set (`.specify/memory/project-context.md` sync map).
+
+## Frontend local pairing (vukans-bike)
+
+Two terminals: Strapi (`npm run develop` here) + `pnpm dev:bike` in `next-headless-cms-fe/`.
+
+Frontend env: `STRAPI_URL`, `STRAPI_API_TOKEN` (required for `dataAdapter: "strapi"`), optional `REVALIDATE_SECRET` / `PREVIEW_SECRET`.
+
+**API token:** grant find on `page`, `navigation`, `product`. Seed needs create/update/publish. Prefer a token over relying on Public `find` alone (Public find is optional; see `api-contract.md`).
+
+**Seed source:** `next-headless-cms-fe/src/tenants/vukans-bike/mock-data/` — not loaded at FE runtime for Strapi tenants (`@mock-data` → stub).
+
+```bash
+STRAPI_API_TOKEN=your-full-access-token npm run seed:vukans-bike
+```
+
+Prefer a **local** DB for re-seeds (SQLite default). After schema changes: `npm run types:generate`, restart develop, re-seed if needed.
+
+**Draft preview / revalidation (frontend routes):** `/api/preview?secret=PREVIEW_SECRET&slug=/path`; production edits should `POST /api/webhooks/strapi` with `x-revalidate-secret`. Details: `api-contract.md`. Strapi admin preview button and lifecycle webhooks are not fully wired yet — configure when going live.

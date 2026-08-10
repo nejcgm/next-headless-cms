@@ -23,7 +23,7 @@ const KEEP_PRODUCT_SLUGS = new Set(["merida"]);
 const ORPHAN_BIKE_PAGE_SLUGS = ["/bikes/all-terrain-ebike", "/bikes/trailblazer-x1"];
 const MOCK_ROOT = path.resolve(
   __dirname,
-  "../../next-headless-cms-fe/src/core/mock-data.ts/vukans-bike"
+  "../../next-headless-cms-fe/src/tenants/vukans-bike/mock-data"
 );
 
 if (!TOKEN) {

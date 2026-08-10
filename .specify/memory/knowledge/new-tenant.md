@@ -18,11 +18,9 @@ pnpm create:tenant -- --id my-tenant --name "My Site" --short my --port 3003
 This creates:
 
 - `src/tenants/{tenant-id}/` — config, blocks index, header (from `vukans-bike`), footer, templates
-- `src/core/mock-data.ts/{folder}/` — stub `pages/home.json`, `navigation.json`, `sitemap.json`
+- `src/tenants/{tenant-id}/mock-data/` — stub `pages/home.json`, `navigation.json`, `sitemap.json` (skipped when `--adapter strapi`)
 - `specs/_catalogs/{tenant-id}.md` — stub catalog
 - `pnpm` scripts: `dev:{short}`, `build:{short}`, `lint:{short}`, `start:{short}`
-
-Optional: `--mock-folder other-name` when the mock folder name differs from tenant id (updates `scripts/tenant-mock-map.json`).
 
 Then validate:
 
@@ -47,8 +45,6 @@ The scaffold prints a **manual checklist** for CI, deploy, and catalog updates.
 8. After `pnpm build:{short}`, run `TENANT_ID={id} pnpm verify:build` (isolation vs other tenants, including the resort fixture)
 
 Block registration is automatic: root `app/layout.tsx` imports `@core/init`, which imports `@tenant/blocks`.
-
-If `mock-data` folder name ≠ tenant id, set mapping in `scripts/tenant-mock-map.json` (or pass `--mock-folder` to `create:tenant`).
 
 ## Tenant config shape
 
@@ -85,7 +81,7 @@ const config: TenantConfig = {
     },
     borderRadius: "0.375rem",
   },
-  dataAdapter: "mock", // or "strapi" — see docs/STRAPI-MIGRATION.md; scaffold defaults to mock
+  dataAdapter: "mock", // or "strapi" — see knowledge/strapi-backend.md; scaffold defaults to mock
 };
 
 export default config;
@@ -99,7 +95,7 @@ After `pnpm build:{short}`:
 TENANT_ID={tenant-id} pnpm verify:build
 ```
 
-`scripts/verify-build.js` scans **all** JS output for other tenants' source paths (`tenants/*`, `mock-data.ts/*`). Tenant discovery is dynamic via `scripts/tenant-registry.js`. Keeping `resort-example` in the repo is intentional so leakage against a second tree stays testable.
+`scripts/verify-build.js` scans **all** JS output for other tenants' source paths (`tenants/{otherId}`). Tenant discovery is dynamic via `scripts/tenant-registry.js`. Keeping `resort-example` in the repo is intentional so leakage against a second tree stays testable.
 
 ## After any later change
 

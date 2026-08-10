@@ -18,7 +18,7 @@ Use path aliases for static imports:
 - `@core/` → `src/core/`
 - `@shared/` → `src/shared/`
 - `@tenant` → `src/tenants/{TENANT_ID}` (build-time, from prepare-tenant.js)
-- `@mock-data` → `src/core/mock-data.ts/{tenant}` (vukans-bike or resort)
+- `@mock-data` → `src/tenants/{TENANT_ID}/mock-data` (mock adapter) or `scripts/mock-data-stub` (Strapi)
 
 For dynamic `import()` statements, use RELATIVE PATHS only. Next.js cannot resolve aliases in dynamic imports.
 
@@ -83,7 +83,7 @@ All env vars must be added to the Zod schema in `src/env.ts`. Access via `import
 
 - `error.tsx` must be a client component (`"use client"`)
 - `not-found.tsx` can be a server component
-- Avoid route-level `loading.tsx` under `[[...slug]]` when templates render header/footer — see `docs/DEVELOPMENT.md`
+- Avoid route-level `loading.tsx` under `[[...slug]]` when templates render header/footer — use `NavigationProgressBar` in tenant headers instead (see `knowledge/block-system.md`).
 
 ## ESLint / Next.js (CI-enforced)
 

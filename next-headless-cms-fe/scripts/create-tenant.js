@@ -6,16 +6,11 @@
  *
  * Usage:
  *   node scripts/create-tenant.js --id my-tenant --name "My Site" --short my [--port 3003]
- *   node scripts/create-tenant.js --id my-tenant --name "My Site" --short my --mock-folder my
  */
 
 const fs = require("fs");
 const path = require("path");
-const {
-  repoRoot,
-  listTenantIds,
-  setMockDataFolder,
-} = require("./tenant-registry");
+const { repoRoot, listTenantIds } = require("./tenant-registry");
 
 const TENANT_ID_RE = /^[a-z][a-z0-9-]*$/;
 const SHORT_RE = /^[a-z][a-z0-9-]*$/;
@@ -27,7 +22,6 @@ const HEADER_SOURCE_TENANT = "vukans-bike";
  * @property {string} [name]
  * @property {string} [short]
  * @property {number} [port]
- * @property {string} [mockFolder]
  * @property {string} [adapter]
  * @property {boolean} [help]
  */
@@ -38,7 +32,6 @@ const HEADER_SOURCE_TENANT = "vukans-bike";
  * @property {string} name
  * @property {string} short
  * @property {number} port
- * @property {string} mockFolder
  * @property {"mock" | "strapi"} dataAdapter
  */
 
@@ -55,7 +48,6 @@ function parseArgs(argv) {
     else if (key === "--name") args.name = argv[++i];
     else if (key === "--short") args.short = argv[++i];
     else if (key === "--port") args.port = Number(argv[++i]);
-    else if (key === "--mock-folder") args.mockFolder = argv[++i];
     else if (key === "--adapter") args.adapter = argv[++i];
     else if (key === "--help" || key === "-h") args.help = true;
   }
@@ -69,7 +61,6 @@ Usage:
 
 Options:
   --port <number>        Dev server port (default: 3099)
-  --mock-folder <name>   Mock data folder under src/core/mock-data.ts/ (default: tenant id)
   --adapter mock|strapi  Data source (default: mock). Strapi skips mock JSON scaffold.
 
 Example:
@@ -266,7 +257,7 @@ function catalogTemplate(vars) {
 
 Locales: \`en\` (default). Adapter: \`${vars.dataAdapter}\`.
 
-${vars.dataAdapter === "strapi" ? "**No mock data** — content comes from Strapi." : `**Mock data folder**: \`src/core/mock-data.ts/${vars.mockFolder}/\``}
+${vars.dataAdapter === "strapi" ? "**No mock data at runtime** — content comes from Strapi. Optional seed/reference JSON may live under \`src/tenants/${vars.id}/mock-data/\`." : `**Mock data**: \`src/tenants/${vars.id}/mock-data/\``}
 
 ## Render pipeline
 
@@ -276,7 +267,7 @@ page JSON → MockAdapter.getPage → page.tsx → resolveTemplate → BlockRend
 
 - **Config**: \`src/tenants/${vars.id}/config.ts\`
 - **Registration**: \`src/tenants/${vars.id}/blocks/index.ts\`
-- **Mock pages**: \`src/core/mock-data.ts/${vars.mockFolder}/pages/*.json\`
+- **Mock pages**: \`src/tenants/${vars.id}/mock-data/pages/*.json\`
 
 ## Templates
 
@@ -337,7 +328,7 @@ function printChecklist(vars) {
    src/tenants/${vars.id}/blocks/index.ts
 
 3. Add mock pages under:
-   src/core/mock-data.ts/${vars.mockFolder}/pages/
+   src/tenants/${vars.id}/mock-data/pages/
 
 4. Update tenant catalog:
    specs/_catalogs/${vars.id}.md
@@ -373,7 +364,6 @@ function main() {
   const name = args.name.trim();
   const short = args.short.trim();
   const port = args.port || 3099;
-  const mockFolder = args.mockFolder?.trim() || id;
   const dataAdapter = args.adapter === "strapi" ? "strapi" : "mock";
 
   if (args.adapter && dataAdapter !== "strapi" && args.adapter !== "mock") {
@@ -399,11 +389,10 @@ function main() {
     name,
     short,
     port,
-    mockFolder,
     dataAdapter,
   });
   const tenantRoot = path.join(repoRoot, "src", "tenants", id);
-  const mockRoot = path.join(repoRoot, "src", "core", "mock-data.ts", mockFolder);
+  const dataRoot = path.join(tenantRoot, "mock-data");
   const headerSource = path.join(
     repoRoot,
     "src",
@@ -430,14 +419,9 @@ function main() {
   }
 
   if (dataAdapter === "mock") {
-    writeFileEnsuringDir(path.join(mockRoot, "pages", "home.json"), `${homeJsonTemplate(vars)}\n`);
-    writeFileEnsuringDir(path.join(mockRoot, "navigation.json"), `${navigationJsonTemplate()}\n`);
-    writeFileEnsuringDir(path.join(mockRoot, "sitemap.json"), `${sitemapJsonTemplate()}\n`);
-
-    if (mockFolder !== id) {
-      setMockDataFolder(id, mockFolder);
-      console.log(`   ✅ Mock folder map: ${id} → ${mockFolder} (scripts/tenant-mock-map.json)`);
-    }
+    writeFileEnsuringDir(path.join(dataRoot, "pages", "home.json"), `${homeJsonTemplate(vars)}\n`);
+    writeFileEnsuringDir(path.join(dataRoot, "navigation.json"), `${navigationJsonTemplate()}\n`);
+    writeFileEnsuringDir(path.join(dataRoot, "sitemap.json"), `${sitemapJsonTemplate()}\n`);
   }
 
   writeFileEnsuringDir(
@@ -453,9 +437,9 @@ function main() {
   console.log("\n✅ Tenant scaffold created:");
   console.log(`   • src/tenants/${id}/`);
   if (dataAdapter === "mock") {
-    console.log(`   • src/core/mock-data.ts/${mockFolder}/`);
+    console.log(`   • src/tenants/${id}/mock-data/`);
   } else {
-    console.log(`   • dataAdapter: strapi (no mock data folder)`);
+    console.log(`   • dataAdapter: strapi (no mock data scaffold)`);
   }
   console.log(`   • specs/_catalogs/${id}.md`);
 

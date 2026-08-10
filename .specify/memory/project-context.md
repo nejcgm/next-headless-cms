@@ -2,7 +2,7 @@
 
 **Agent start here.** Spec Kit is the single source of truth for agent guidance.
 
-**Humans:** root `README.md`, `next-headless-cms-fe/docs/`, `headless-cms-backend/README.md`.
+**Humans:** root `README.md`, `next-headless-cms-fe/README.md`, `headless-cms-backend/README.md`.
 
 ## Agent load order
 
@@ -65,7 +65,7 @@ When code behavior changes, update matching Spec Kit docs **in the same change s
 | `next-headless-cms-fe/src/app/**`, `middleware.ts` | `knowledge/architecture.md` (+ constitution if invariant) |
 | `src/core/blocks/**`, `shared/components/blocks/**` | `knowledge/block-system.md` |
 | `src/tenants/*/blocks/**`, `templates/**` | `knowledge/block-system.md` + `specs/_catalogs/{tenant}.md` |
-| `src/core/mock-data.ts/**` | `knowledge/mock-data.md` + catalog |
+| `src/tenants/{id}/mock-data/**` | `knowledge/mock-data.md` + catalog |
 | `src/core/data/adapters/**`, `strapi/**` | `knowledge/api-contract.md`, `architecture.md` |
 | `src/core/i18n/**` | `knowledge/i18n.md` + catalog |
 | `src/tenants/*/integrations/**`, `services/**` | `knowledge/integrations.md` + catalog |
@@ -76,14 +76,14 @@ When code behavior changes, update matching Spec Kit docs **in the same change s
 | Strapi REST / cache tags | `api-contract.md` + frontend adapter/types |
 | Spec Kit memory layout | `constitution.md`, this file |
 | Feature behavior | Active `specs/{nnn-feature}/` |
-| How humans run apps | Root / FE / BE `README.md` and `docs/` (human audience) |
+| How humans run apps | Root / FE / BE `README.md` (human audience) |
 
 ## Human documentation
 
 | Doc | Purpose |
 |-----|---------|
 | `README.md` | Monorepo overview, scripts; short Spec Kit pointer |
-| `next-headless-cms-fe/docs/*` | Frontend human guides |
+| `next-headless-cms-fe/README.md` | Frontend human setup, routing, data, verify:build |
 | `headless-cms-backend/README.md` | Backend human setup/run/seed |
 
 ## Key runtime facts

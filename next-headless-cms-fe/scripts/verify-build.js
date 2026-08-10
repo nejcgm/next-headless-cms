@@ -192,7 +192,7 @@ function main() {
 
   console.log(`\n✅ PASSED — scanned ${jsFiles.length} files; no cross-tenant path leaks`);
   console.log("\n📝 Notes:");
-  console.log("   • Checks source-path strings (tenants/*, mock-data.ts/*)");
+  console.log("   • Checks source-path strings (tenants/*)");
   console.log("   • Run with ANALYZE=true for bundle composition reports");
   process.exit(0);
 }

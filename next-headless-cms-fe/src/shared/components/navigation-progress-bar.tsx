@@ -29,10 +29,6 @@ function isSameDestination(href: string): boolean {
   }
 }
 
-/**
- * Indeterminate progress bar for client-side route changes.
- * Mount inside the sticky site header so it sits flush under the menu.
- */
 function NavigationProgressBarInner() {
   const pathname = usePathname();
   const searchParams = useSearchParams();

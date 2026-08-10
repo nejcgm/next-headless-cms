@@ -126,7 +126,7 @@ Rules:
 - ALWAYS pass the full nav data through `localizeNavItems` before passing to Header / Footer.
 - For a page with NO header and NO footer, set `"template": "bare"` in the page data — never add a boolean flag.
 - Never put header/footer in `layout.tsx` — the domain layout only wraps `ThemeProvider` + `TenantAnalytics`.
-- Do **not** add `app/[domain]/[[...slug]]/loading.tsx` — it unmounts templates and flashes chrome. Use `NavigationProgressBar` in tenant headers for in-app loading feedback (`docs/DEVELOPMENT.md`).
+- Do **not** add `app/[domain]/[[...slug]]/loading.tsx` — it unmounts templates and flashes chrome. Use `NavigationProgressBar` in tenant headers for in-app loading feedback.
 - After adding or changing a template, update the tenant catalog.
 
 ## Links and navigation

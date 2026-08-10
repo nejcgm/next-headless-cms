@@ -5,25 +5,17 @@ const path = require("path");
 /** @type {typeof import("./tenant-build-utils.cjs")} */
 const buildUtils = require("./tenant-build-utils.cjs");
 
-/** @typedef {Record<string, string>} MockMap */
 /** @typedef {"mock" | "strapi"} DataAdapter */
 
 const {
   repoRoot,
   tenantsDir,
-  mockMapPath,
-  readMockMap,
   getDataAdapter,
   usesMockData,
   getMockDataFolder,
   getMockDataTsconfigPaths,
   getMockDataWebpackAlias,
 } = buildUtils;
-
-/** @param {MockMap} map */
-function writeMockMap(map) {
-  fs.writeFileSync(mockMapPath, `${JSON.stringify(map, null, 2)}\n`);
-}
 
 /** @returns {string[]} */
 function listTenantIds() {
@@ -35,17 +27,6 @@ function listTenantIds() {
     .sort();
 }
 
-/** @param {string} tenantId @param {string} folder */
-function setMockDataFolder(tenantId, folder) {
-  const map = readMockMap();
-  if (folder === tenantId) {
-    delete map[tenantId];
-  } else {
-    map[tenantId] = folder;
-  }
-  writeMockMap(map);
-}
-
 /** @param {string} tenantId @returns {string[]} */
 function getOtherTenants(tenantId) {
   return listTenantIds().filter((id) => id !== tenantId);
@@ -53,19 +34,9 @@ function getOtherTenants(tenantId) {
 
 /** @param {string} otherTenantId @returns {string[]} */
 function getLeakPatternsForTenant(otherTenantId) {
-  const patterns = [`tenants/${otherTenantId}`, `src/tenants/${otherTenantId}`];
-
-  if (!usesMockData(otherTenantId)) {
-    return patterns;
-  }
-
-  const mockFolder = getMockDataFolder(otherTenantId);
-  if (mockFolder !== otherTenantId) {
-    patterns.push(`mock-data.ts/${mockFolder}`);
-  }
-  patterns.push(`mock-data.ts/${otherTenantId}`);
-
-  return Array.from(new Set(patterns));
+  return Array.from(
+    new Set([`tenants/${otherTenantId}`, `src/tenants/${otherTenantId}`])
+  );
 }
 
 /** @param {string | undefined} tenantId @returns {string} */
@@ -94,16 +65,12 @@ function detectTenantFromBuild(buildDir) {
 module.exports = {
   repoRoot,
   tenantsDir,
-  mockMapPath,
-  readMockMap,
-  writeMockMap,
   listTenantIds,
   getDataAdapter,
   usesMockData,
   getMockDataFolder,
   getMockDataTsconfigPaths,
   getMockDataWebpackAlias,
-  setMockDataFolder,
   getOtherTenants,
   getLeakPatternsForTenant,
   resolveBuildDir,
