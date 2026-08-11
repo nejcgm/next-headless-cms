@@ -35,16 +35,16 @@
         "./src/shared/*"
       ],
       "@tenant/*": [
-        "./src/tenants/vukans-bike/*"
+        "./src/tenants/resort-example/*"
       ],
       "@mock-data/*": [
-        "./scripts/mock-data-stub/*"
+        "./src/tenants/resort-example/mock-data/*"
       ],
       "@tenant": [
-        "./src/tenants/vukans-bike"
+        "./src/tenants/resort-example"
       ],
       "@mock-data": [
-        "./scripts/mock-data-stub"
+        "./src/tenants/resort-example/mock-data"
       ]
     },
     "target": "ES2017"
