@@ -44,6 +44,8 @@ Domain `layout.tsx` only applies theme + analytics — no header/footer.
 
 ## Tenant blocks
 
+Every registered content block has a Zod `schema` in `blocks/{name}/schema.ts` wired at registration (`blocks/index.ts`). Schemas validate authored CMS props in development only; `dataContract`-injected fields (e.g. `products`, `bike`) are omitted from the schema.
+
 | Block type | Component | Data | Used on / purpose |
 |------------|-----------|------|-------------------|
 | `hero` | `blocks/hero/hero.tsx` | Props only | Top of most pages — headline, subheadline, CTAs, optional image |
@@ -65,7 +67,7 @@ Domain `layout.tsx` only applies theme + analytics — no header/footer.
 
 ## Shared blocks (registered globally)
 
-Used in vukans-bike mock pages — defined in `src/shared/components/blocks/`:
+Used in vukans-bike mock pages — defined in `src/shared/components/blocks/` (each has a sibling `{block}.schema.ts` wired in `index.ts`):
 
 | Block type | Typical use on this tenant |
 |------------|----------------------------|

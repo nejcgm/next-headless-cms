@@ -12,26 +12,25 @@
 Every block lives in `src/tenants/{tenant}/blocks/{block-name}/` with:
 - `{block-name}.tsx` — Component (default export or named export)
 - `types.ts` — Props interface
-- `schema.ts` — Zod validation (optional)
+- `schema.ts` — Zod prop schema (**required** for registered content blocks)
 
-Register it in `src/tenants/{tenant}/blocks/index.ts`.
+Register it in `src/tenants/{tenant}/blocks/index.ts` and wire `schema:` on the registration.
+
+Shared blocks use a sibling `{block}.schema.ts` next to the component under `src/shared/components/blocks/` and register in `shared/components/blocks/index.ts`.
 
 After registering or changing a block, update `.specify/memory/knowledge/block-system.md` and the tenant catalog (`specs/_catalogs/{id}.md`) (see `.specify/memory/project-context.md` (sync map)).
 
-## Schema validation (optional, dev-only)
+## Schema validation (required, dev-only)
 
-A block may declare a `schema` (Zod) in its registration. The renderer validates the
-**merged props** (`block.props` + `dataContract` output) against it in **development only**
-and logs a `logger.warn` with the failing paths on mismatch. It never blocks rendering and is
-a **no-op in production** (zero cost). Use it to catch CMS/mock data drift early.
+Every registered content block MUST declare a `schema` (Zod) in its registration. Header/footer chrome are not content blocks and are out of scope.
+
+The renderer validates the **merged props** (`block.props` + `dataContract` output + allowlisted search params) against the schema in **development only** and logs a `logger.warn` with the failing paths on mismatch. It never blocks rendering and is a **no-op in production** (zero cost). Use it to catch CMS/mock data drift early.
 
 ```typescript
 hero: { component: Hero, schema: heroSchema },
 ```
 
-Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blockId`,
-allowlisted request params) are stripped, so they won't cause false failures. See
-`blocks/hero/schema.ts` for the reference pattern.
+Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blockId`, allowlisted request params, `dataContract` payloads) are stripped, so they won't cause false failures. Validate **authored CMS props** only; omit injected entities/collections (see `room-list` / `product-list`). Reference: `blocks/hero/schema.ts` (tenant) or `cta-banner.schema.ts` (shared).
 
 ## Shared vs tenant block
 

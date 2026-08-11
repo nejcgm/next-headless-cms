@@ -35,4 +35,6 @@ Fixture pages may still use legacy `{ id, type, props }` + `locale`. That is **a
 
 `hero`, `room-list`, `room-detail`, `hotel-info`, `about-story`, `location-contact`, `amenities-grid`, `team-gallery`, `booking-widget`, `testimonials`
 
+Each has a Zod `schema` in `blocks/{name}/schema.ts` wired in `blocks/index.ts` (dev-only prop validation). Authored CMS props only; omit `dataContract`-injected fields.
+
 Keep these **distinct** from bike block trees so leakage scans stay meaningful. Prefer minimal changes unless isolation tooling or CI requires updates.
