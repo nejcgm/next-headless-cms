@@ -67,7 +67,7 @@ Every registered content block has a Zod `schema` in `blocks/{name}/schema.ts` w
 
 ## Shared blocks (registered globally)
 
-Used in vukans-bike mock pages — defined in `src/shared/components/blocks/` (each has a sibling `{block}.schema.ts` wired in `index.ts`):
+Used in vukans-bike mock pages — defined in `src/shared/components/blocks/{block}/` (`{block}.tsx` + `schema.ts`, wired in `index.ts`):
 
 | Block type | Typical use on this tenant |
 |------------|----------------------------|

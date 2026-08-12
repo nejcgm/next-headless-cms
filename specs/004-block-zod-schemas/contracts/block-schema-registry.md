@@ -23,7 +23,7 @@ File locations:
 
 | Registry | Path pattern |
 |----------|----------------|
-| Shared | `src/shared/components/blocks/{block}.schema.ts` |
+| Shared | `src/shared/components/blocks/{block}/schema.ts` |
 | Tenant | `src/tenants/{tenantId}/blocks/{block}/schema.ts` |
 
 ## Coverage checklist (implement → all Yes)

@@ -9,14 +9,14 @@
 
 ## Creating a New Block
 
-Every block lives in `src/tenants/{tenant}/blocks/{block-name}/` with:
+Every tenant block lives in `src/tenants/{tenant}/blocks/{block-name}/` with:
 - `{block-name}.tsx` — Component (default export or named export)
-- `types.ts` — Props interface
+- `types.ts` — Props interface (optional if props stay colocated)
 - `schema.ts` — Zod prop schema (**required** for registered content blocks)
 
 Register it in `src/tenants/{tenant}/blocks/index.ts` and wire `schema:` on the registration.
 
-Shared blocks use a sibling `{block}.schema.ts` next to the component under `src/shared/components/blocks/` and register in `shared/components/blocks/index.ts`.
+Shared blocks use the same folder shape under `src/shared/components/blocks/{block-name}/` (`{block-name}.tsx` + `schema.ts`) and register in `shared/components/blocks/index.ts`.
 
 After registering or changing a block, update `.specify/memory/knowledge/block-system.md` and the tenant catalog (`specs/_catalogs/{id}.md`) (see `.specify/memory/project-context.md` (sync map)).
 
@@ -30,7 +30,7 @@ The renderer validates the **merged props** (`block.props` + `dataContract` outp
 hero: { component: Hero, schema: heroSchema },
 ```
 
-Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blockId`, allowlisted request params, `dataContract` payloads) are stripped, so they won't cause false failures. Validate **authored CMS props** only; omit injected entities/collections (see `room-list` / `product-list`). Reference: `blocks/hero/schema.ts` (tenant) or `cta-banner.schema.ts` (shared).
+Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blockId`, allowlisted request params, `dataContract` payloads) are stripped, so they won't cause false failures. Validate **authored CMS props** only; omit injected entities/collections (see `room-list` / `product-list`). Reference: `blocks/hero/schema.ts` (tenant) or `shared/components/blocks/cta-banner/schema.ts` (shared).
 
 ## Shared vs tenant block
 
