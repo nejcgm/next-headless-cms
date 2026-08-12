@@ -42,6 +42,9 @@ jobs:
       - name: Type check
         run: pnpm type-check
 
+      - name: Types-style check
+        run: pnpm check:types-style
+
       - name: Build resort tenant
         run: pnpm build:resort
 

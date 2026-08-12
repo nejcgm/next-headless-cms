@@ -15,7 +15,7 @@ export function ProductList({
 }: ProductListProps) {
   const activeLocale = locale ?? tenantConfig.defaultLocale;
   const bikeHref = (slug: string) =>
-    prefixPathname(`/bikes/${slug}`, activeLocale, tenantConfig.defaultLocale);
+    prefixPathname({ logicalPathname: `/bikes/${slug}`, locale: activeLocale, defaultLocale: tenantConfig.defaultLocale });
 
   return (
     <section
@@ -67,11 +67,11 @@ export function ProductList({
                 </p>
                 <div className="mt-3 flex items-center gap-2">
                   <span className="font-bold text-[var(--color-foreground)]">
-                    {formatCurrency(product.price, "EUR")}
+                    {formatCurrency({ amount: product.price, currency: "EUR" })}
                   </span>
                   {product.compareAtPrice && (
                     <span className="text-sm text-[var(--color-muted-foreground)] line-through">
-                      {formatCurrency(product.compareAtPrice, "EUR")}
+                      {formatCurrency({ amount: product.compareAtPrice, currency: "EUR" })}
                     </span>
                   )}
                 </div>

@@ -62,7 +62,7 @@ More backend detail: [`../headless-cms-backend/README.md`](../headless-cms-backe
 | `pnpm build:bike` / `build:resort` | Production builds (`.next-{tenantId}`) |
 | `TENANT_ID=… pnpm verify:build` | Fail if another tenant’s paths appear in the build |
 | `pnpm create:tenant` / `check:tenant` | Scaffold / validate a tenant |
-| `pnpm lint` / `type-check` | Quality |
+| `pnpm lint` / `type-check` / `check:types-style` | Quality (`check:types-style` enforces options-object + colocated `types.ts` props; see Spec Kit `typescript.md`) |
 
 Analyze bundles: `pnpm build:bike:analyze` then open `analyze/client-*.html`.
 

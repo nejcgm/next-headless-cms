@@ -23,12 +23,15 @@ export async function POST(request: NextRequest) {
     const revalidated: string[] = [];
 
     if (slug) {
-      const tag = cacheTags.pageGroup(tenant, normalizeLogicalSlug(slug));
+      const tag = cacheTags.pageGroup({
+        tenant,
+        slug: normalizeLogicalSlug(slug),
+      });
       revalidateTag(tag);
       revalidated.push(tag);
     }
     if (collection) {
-      const tag = cacheTags.collection(tenant, collection);
+      const tag = cacheTags.collection({ tenant, collection });
       revalidateTag(tag);
       revalidated.push(tag);
     }

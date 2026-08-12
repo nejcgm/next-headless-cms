@@ -1,7 +1,7 @@
-import type { ServicePricingProps, ServicePackage } from "./types";
+import type { ServiceItemProps, ServicePricingProps } from "./types";
 import { isExternalHref } from "@shared/utils/url";
 
-function ServiceItem({ pkg }: { pkg: ServicePackage }) {
+function ServiceItem({ pkg }: ServiceItemProps) {
   return (
     <div className="flex flex-col md:flex-row md:items-start gap-4 p-5 md:p-6 bg-[var(--color-muted)] border border-[var(--color-border)] rounded-[var(--radius)] hover:border-[var(--color-primary)]/40 transition-colors">
       <div className="md:w-36 flex-shrink-0">

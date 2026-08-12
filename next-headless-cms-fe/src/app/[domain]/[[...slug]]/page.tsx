@@ -12,17 +12,14 @@ import { resolveTemplate } from "@core/routing/resolver";
 import { buildMetadata } from "@core/seo/metadata";
 import { logger } from "@shared/lib/logger";
 
-interface PageProps {
-  params: Promise<{ domain: string; slug?: string[] }>;
-  searchParams: Promise<Record<string, string | string[] | undefined>>;
-}
+import type { PageProps } from "./types";
 
 function resolveLocaleAndPaths(slug: string[] | undefined) {
-  const { locale, restSegments } = parseLocaleFromSegments(
-    slug,
-    tenantConfig.locales,
-    tenantConfig.defaultLocale
-  );
+  const { locale, restSegments } = parseLocaleFromSegments({
+    segments: slug,
+    locales: tenantConfig.locales,
+    defaultLocale: tenantConfig.defaultLocale,
+  });
   const logicalPathname = segmentsToLogicalPathname(restSegments);
   const visiblePathname = visiblePathnameFromSlugSegments(slug);
   return { locale, logicalPathname, visiblePathname };
@@ -33,12 +30,20 @@ export async function generateMetadata({ params }: PageProps) {
   const { locale, logicalPathname, visiblePathname } =
     resolveLocaleAndPaths(slug);
 
-  const page = await getPageCached(tenantConfig.id, logicalPathname, locale);
+  const page = await getPageCached({
+    tenantId: tenantConfig.id,
+    slug: logicalPathname,
+    locale,
+  });
 
   if (!page) return {};
-  return buildMetadata(page.seo, tenantConfig, {
-    pathname: visiblePathname,
-    locale: page.locale,
+  return buildMetadata({
+    seo: page.seo,
+    tenant: tenantConfig,
+    ctx: {
+      pathname: visiblePathname,
+      locale: page.locale,
+    },
   });
 }
 
@@ -47,11 +52,11 @@ export default async function TenantPage({ params, searchParams }: PageProps) {
   const query = normalizeSearchParams(await searchParams);
   const { locale, logicalPathname } = resolveLocaleAndPaths(slug);
 
-  const { page, navigation } = await loadPageWithNavigation(
-    tenantConfig.id,
-    logicalPathname,
-    locale
-  );
+  const { page, navigation } = await loadPageWithNavigation({
+    tenantId: tenantConfig.id,
+    slug: logicalPathname,
+    locale,
+  });
 
   if (!page) {
     logger.warn(

@@ -1,13 +1,5 @@
-import type { FooterCopy, NavItem } from "@core/types/navigation";
-import type { TenantContact } from "@core/types/tenant";
+import type { FooterProps } from "./types";
 import { isExternalHref } from "@shared/utils/url";
-
-export interface FooterProps {
-  tenantName: string;
-  navigation: NavItem[];
-  contact?: TenantContact | null;
-  copy: FooterCopy;
-}
 
 export function Footer({ tenantName, navigation, contact, copy }: FooterProps) {
   const currentYear = new Date().getFullYear();

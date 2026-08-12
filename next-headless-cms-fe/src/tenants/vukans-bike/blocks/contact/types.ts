@@ -27,3 +27,9 @@ export interface ContactProps {
   email: string;
   hoursNote?: string;
 }
+
+export interface AddressBlockProps {
+  address: ContactAddress;
+  directionsLink: string;
+  labels: ContactLabels;
+}

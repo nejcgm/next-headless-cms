@@ -1,14 +1,10 @@
-import type { ContactProps, ContactAddress, ContactLabels } from "./types";
+import type { AddressBlockProps, ContactProps } from "./types";
 
 function AddressBlock({
   address,
   directionsLink,
   labels,
-}: {
-  address: ContactAddress;
-  directionsLink: string;
-  labels: ContactLabels;
-}) {
+}: AddressBlockProps) {
   const line1 = [address.street].filter(Boolean).join(", ");
   const line2 = [address.postalCode, address.city].filter(Boolean).join(" ");
   const line3 = address.country;

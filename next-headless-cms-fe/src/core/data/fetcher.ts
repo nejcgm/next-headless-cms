@@ -1,5 +1,9 @@
 import { cache } from "react";
-import type { CmsAdapter } from "./contracts";
+import type {
+  CmsAdapter,
+  PageWithNavigationResult,
+  TenantPageParams,
+} from "./types";
 import type { PageData } from "@core/types/page";
 import type { NavigationData } from "@core/types/navigation";
 import { StrapiAdapter } from "./adapters/strapi.adapter";
@@ -50,15 +54,23 @@ export async function getAdapter(): Promise<CmsAdapter> {
     : getMockAdapter();
 }
 
-export const getPageCached = cache(
+const getPageCachedImpl = cache(
   async (
     tenantId: string,
     slug: string,
     locale: string
   ): Promise<PageData | null> => {
-    return (await getAdapter()).getPage(tenantId, slug, locale);
+    return (await getAdapter()).getPage({ tenant: tenantId, slug, locale });
   }
 );
+
+export function getPageCached({
+  tenantId,
+  slug,
+  locale,
+}: TenantPageParams): Promise<PageData | null> {
+  return getPageCachedImpl(tenantId, slug, locale);
+}
 
 export const getNavigationCached = cache(
   async (tenantId: string, locale: string): Promise<NavigationData | null> => {
@@ -66,15 +78,14 @@ export const getNavigationCached = cache(
   }
 );
 
-export async function loadPageWithNavigation(
-  tenantId: string,
-  slug: string,
-  locale: string
-): Promise<{ page: PageData | null; navigation: NavigationData | null }> {
-  const page = await getPageCached(tenantId, slug, locale);
+export async function loadPageWithNavigation({
+  tenantId,
+  slug,
+  locale,
+}: TenantPageParams): Promise<PageWithNavigationResult> {
+  const page = await getPageCached({ tenantId, slug, locale });
   if (!page) return { page: null, navigation: null };
   if (!templateUsesSiteChrome(page.template)) return { page, navigation: null };
-
   const navigation = await getNavigationCached(tenantId, locale);
   return { page, navigation };
 }

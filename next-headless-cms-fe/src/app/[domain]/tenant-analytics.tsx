@@ -1,10 +1,7 @@
 "use client";
 
 import { Analytics } from "@vercel/analytics/next";
-
-interface TenantAnalyticsProps {
-  tenant: string;
-}
+import type { TenantAnalyticsProps } from "./types";
 
 export function TenantAnalytics({ tenant }: TenantAnalyticsProps) {
   return (

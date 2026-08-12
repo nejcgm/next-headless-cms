@@ -182,11 +182,14 @@ The `StrapiAdapter` is a thin orchestrator. Responsibilities are split so adding
 
 | File | Responsibility |
 |------|----------------|
+| `strapi/types.ts` | `StrapiQuery`, list response/meta, fetch options (`StrapiFetchAllArgs`, etc.), `PatternCandidate`, `StrapiCollection` |
 | `strapi/strapi-config.ts` | `strapiConfig` (base url/token), `STRAPI_COLLECTIONS`, `POPULATE` specs, `REVALIDATE` TTLs, `PAGINATION` bounds |
-| `strapi/strapi-client.ts` | Native `fetch` + `qs` query serialization, `StrapiQuery` type, `StrapiError`, `strapiFetch` / `strapiFetchAll` |
+| `strapi/strapi-client.ts` | Native `fetch` + `qs` query serialization, `StrapiError`, `strapiFetch` / `strapiFetchAll({ … })` |
 | `strapi/strapi-query.ts` | Query-object builders (`tenantScope`, `normalizeLogicalSlug`) — **never hand-build bracket strings** |
 | `strapi/strapi-document.ts` | Raw response → domain types; pattern matching (`findPatternMatch`) |
-| `src/core/data/cache-tags.ts` | Single source of truth for cache tags (shared with revalidation routes) |
+| `src/core/data/types.ts` | `CmsAdapter` and related data-layer contracts |
+| `src/core/data/adapters/types.ts` | Adapter helper options (`FindOneArgs`, `MatchPatternPageArgs`, `LogFailureArgs`, …) |
+| `src/core/data/cache-tags.ts` | Single source of truth for cache tags; builders take options objects (`page`, `entry`, `pageGroup`, `collection`, …) shared with revalidation routes |
 
 Queries are plain objects serialized with `qs.stringify(query, { encodeValuesOnly: true })`. The HTTP layer uses Next.js `fetch` (`next: { revalidate, tags }`), **not** axios — axios/`apiClient` is reserved for tenant integrations (e.g. resort LiteAPI).
 

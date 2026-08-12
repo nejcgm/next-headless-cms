@@ -1,6 +1,6 @@
 import type { Room, Hotel } from "../integrations/grmovsek-hotel/types";
 import type { AvailabilityResult } from "../integrations/grmovsek-hotel/client";
-import type { NormalizedSearchParams } from "@core/blocks/search-params";
+import type { NormalizedSearchParams } from "@core/blocks/types";
 
 export interface RoomDetailData extends Record<string, unknown> {
   room: Room | null;

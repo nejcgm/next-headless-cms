@@ -1,6 +1,7 @@
 import type { BlockInstance, PageData, PageSeo } from "@core/types/page";
 import type { FooterCopy, NavigationData, NavItem } from "@core/types/navigation";
 import { normalizeLogicalSlug } from "./strapi-query";
+import type { PatternCandidate } from "./types";
 
 export function unwrapStrapiDocument(raw: unknown): Record<string, unknown> | null {
   if (raw == null || typeof raw !== "object") return null;
@@ -177,11 +178,6 @@ export function patternToRegex(pattern: string): RegExp {
     .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
     .replace(/:[\w-]+/g, "([^/]+)");
   return new RegExp(`^${escaped}$`);
-}
-
-export interface PatternCandidate {
-  slug: string;
-  slugPattern?: string;
 }
 
 export function findPatternMatch(

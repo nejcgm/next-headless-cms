@@ -2,14 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
-
-interface ImageLightboxProps {
-  images: string[];
-  initialIndex?: number;
-  isOpen: boolean;
-  onClose: () => void;
-  altPrefix?: string;
-}
+import type { ImageLightboxProps } from "./types";
 
 export function ImageLightbox({
   images,

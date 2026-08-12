@@ -65,6 +65,9 @@ jobs:
       - name: Type check
         run: pnpm type-check
 
+      - name: Types-style check
+        run: pnpm check:types-style
+
   build-tenants:
     runs-on: ubuntu-latest
     needs: [lint, type-check]

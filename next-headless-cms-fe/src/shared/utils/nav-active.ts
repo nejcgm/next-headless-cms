@@ -1,4 +1,5 @@
 import { stripLocaleFromPathname } from "@core/i18n/locale-path";
+import type { IsNavItemActiveArgs } from "./types";
 
 /**
  * Strip `/{tenantId}` prefix when present (Next middleware rewrite exposes it in pathname).
@@ -18,21 +19,21 @@ export function normalizeTenantPathname(pathname: string, tenantId: string): str
  * When `locales` and `defaultLocale` are passed, locale prefix is stripped from `pathname` before compare.
  * Hash-only hrefs are never active.
  */
-export function isNavItemActive(
-  pathname: string,
-  href: string,
-  locales?: readonly string[],
-  defaultLocale?: string
-): boolean {
+export function isNavItemActive({
+  pathname,
+  href,
+  locales,
+  defaultLocale,
+}: IsNavItemActiveArgs): boolean {
   if (!href || href.startsWith("#")) return false;
   const pathForCompare =
     locales && defaultLocale !== undefined
-      ? stripLocaleFromPathname(pathname, locales, defaultLocale)
+      ? stripLocaleFromPathname({ pathname, locales, defaultLocale })
       : pathname;
   const hrefIsAbsolute = /^https?:\/\//i.test(href);
   const hrefLogical =
     !hrefIsAbsolute && locales && defaultLocale !== undefined
-      ? stripLocaleFromPathname(href, locales, defaultLocale)
+      ? stripLocaleFromPathname({ pathname: href, locales, defaultLocale })
       : href;
   const h = hrefLogical === "/" ? "/" : hrefLogical.replace(/\/$/, "") || "/";
   const p = pathForCompare.replace(/\/$/, "") || "/";

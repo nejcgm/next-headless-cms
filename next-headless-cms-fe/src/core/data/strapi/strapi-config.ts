@@ -11,8 +11,6 @@ export const STRAPI_COLLECTIONS = {
   products: "products",
 } as const;
 
-export type StrapiCollection = (typeof STRAPI_COLLECTIONS)[keyof typeof STRAPI_COLLECTIONS];
-
 export const POPULATE = {
   page: { seo: true, blocks: { populate: "*" } },
   navigation: { header: { populate: "*" }, footer: { populate: "*" }, footerCopy: true },

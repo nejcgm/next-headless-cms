@@ -1,6 +1,4 @@
-import type { TemplateProps } from "@core/types/page";
-
-export type TemplateComponent = (props: TemplateProps) => React.ReactNode;
+import type { TemplateComponent } from "./types";
 
 export async function resolveTemplate(templateName: string): Promise<TemplateComponent> {
   try {

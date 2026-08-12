@@ -104,11 +104,11 @@ export function BikeDetail({ bike, labels }: BikeDetailProps) {
             {/* Price */}
             <div className="flex items-baseline gap-3 py-4 border-y border-[var(--color-border)]">
               <span className="text-3xl md:text-4xl font-bold text-[var(--color-primary)]">
-                {formatCurrency(bike.price, "EUR")}
+                {formatCurrency({ amount: bike.price, currency: "EUR" })}
               </span>
               {bike.compareAtPrice && (
                 <span className="text-xl text-[var(--color-muted-foreground)] line-through">
-                  {formatCurrency(bike.compareAtPrice, "EUR")}
+                  {formatCurrency({ amount: bike.compareAtPrice, currency: "EUR" })}
                 </span>
               )}
               {!bike.inStock && (

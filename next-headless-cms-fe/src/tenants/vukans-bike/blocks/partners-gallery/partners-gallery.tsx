@@ -1,7 +1,7 @@
 import Image from "next/image";
-import type { PartnersGalleryProps, Partner } from "./types";
+import type { PartnerCardProps, PartnersGalleryProps } from "./types";
 
-function PartnerCard({ partner, defaultPartnerLinkLabel }: { partner: Partner; defaultPartnerLinkLabel: string }) {
+function PartnerCard({ partner, defaultPartnerLinkLabel }: PartnerCardProps) {
   const content = (
     <div className="group relative h-full w-full min-w-0">
       {/* Dark card */}

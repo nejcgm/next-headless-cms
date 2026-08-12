@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import type { ServiceFaqProps, FaqItem } from "./types";
+import type { FaqAccordionProps, ServiceFaqProps } from "./types";
 import { isExternalHref } from "@shared/utils/url";
 
-function FaqAccordion({ item, isOpen, onToggle }: { item: FaqItem; isOpen: boolean; onToggle: () => void }) {
+function FaqAccordion({ item, isOpen, onToggle }: FaqAccordionProps) {
   return (
     <div className="border border-[var(--color-border)] rounded-[var(--radius)] overflow-hidden bg-[var(--color-muted)]">
       <button

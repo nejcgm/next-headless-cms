@@ -23,3 +23,9 @@ export interface ProductListProps {
   locale?: string;
   products: Product[];
 }
+
+export interface LoadProductsParams {
+  tenant: string;
+  locale: string;
+  props: { limit?: number };
+}

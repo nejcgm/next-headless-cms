@@ -2,11 +2,7 @@ import type { Metadata } from "next";
 import tenantConfig from "@tenant/config";
 import { ThemeProvider } from "@core/theme/provider";
 import { TenantAnalytics } from "./tenant-analytics";
-
-interface LayoutProps {
-  children: React.ReactNode;
-  params: Promise<{ domain: string }>;
-}
+import type { LayoutProps } from "./types";
 
 export async function generateMetadata(): Promise<Metadata> {
   if (!tenantConfig.logoUrl) return {};

@@ -37,12 +37,12 @@ export async function POST(request: NextRequest) {
     case "page": {
       tag(cacheTags.allPages(tenant));
       if (typeof entry?.slug === "string") {
-        tag(cacheTags.pageGroup(tenant, normalizeLogicalSlug(entry.slug)));
+        tag(cacheTags.pageGroup({ tenant, slug: normalizeLogicalSlug(entry.slug) }));
       }
       for (const key of ["previousSlug", "oldSlug"] as const) {
         const previous = entry?.[key];
         if (typeof previous === "string") {
-          tag(cacheTags.pageGroup(tenant, normalizeLogicalSlug(previous)));
+          tag(cacheTags.pageGroup({ tenant, slug: normalizeLogicalSlug(previous) }));
         }
       }
       break;
@@ -52,8 +52,8 @@ export async function POST(request: NextRequest) {
       break;
     }
     default: {
-      tag(cacheTags.collection(tenant, model));
-      tag(cacheTags.collection(tenant, `${model}s`));
+      tag(cacheTags.collection({ tenant, collection: model }));
+      tag(cacheTags.collection({ tenant, collection: `${model}s` }));
     }
   }
 

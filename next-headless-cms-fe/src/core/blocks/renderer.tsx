@@ -1,30 +1,19 @@
 import { Suspense } from "react";
-import type { ZodSchema } from "zod";
 import type { BlockInstance } from "@core/types/page";
 import { logger } from "@shared/lib/logger";
 import { resolveBlock } from "./registry";
-import {
-  pickSearchParams,
-  type NormalizedSearchParams,
-} from "./search-params";
-
-interface Props {
-  blocks: BlockInstance[];
-  tenant: string;
-  locale: string;
-  slug?: string;
-  searchParams?: NormalizedSearchParams;
-}
+import { pickSearchParams } from "./search-params";
+import type {
+  BlockRendererProps,
+  UnknownBlockProps,
+  ValidateBlockPropsArgs,
+} from "./types";
 
 function blockReactKey(block: BlockInstance, index: number): string {
   return `${block.type}-${block.id}-${index}`;
 }
 
-function validateBlockProps(
-  type: string,
-  schema: ZodSchema | undefined,
-  props: Record<string, unknown>
-): void {
+function validateBlockProps({ type, schema, props }: ValidateBlockPropsArgs): void {
   if (!schema || process.env.NODE_ENV !== "development") return;
   const result = schema.safeParse(props);
   if (!result.success) {
@@ -54,7 +43,7 @@ export async function BlockRenderer({
   locale,
   slug,
   searchParams = {},
-}: Props) {
+}: BlockRendererProps) {
   const renderedBlocks = await Promise.all(
     blocks.map(async (block, index) => {
       const key = blockReactKey(block, index);
@@ -95,7 +84,11 @@ export async function BlockRenderer({
       }
 
       const mergedProps = { ...propsWithRequest, ...extraData };
-      validateBlockProps(block.type, definition.schema, mergedProps);
+      validateBlockProps({
+        type: block.type,
+        schema: definition.schema,
+        props: mergedProps,
+      });
 
       const Component = definition.component;
 
@@ -110,7 +103,7 @@ export async function BlockRenderer({
   return <>{renderedBlocks}</>;
 }
 
-function UnknownBlock({ type }: { type: string }) {
+function UnknownBlock({ type }: UnknownBlockProps) {
   return (
     <div className="border-2 border-dashed border-amber-400 bg-amber-50 p-4 rounded-lg text-sm text-amber-800 my-4">
       Unknown block type: <code className="font-mono bg-amber-100 px-1 py-0.5 rounded">{type}</code>

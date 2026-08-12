@@ -19,7 +19,8 @@
     "lint": "pnpm lint:bike && pnpm lint:resort",
     "lint:bike": "TENANT_ID=vukans-bike next lint",
     "lint:resort": "TENANT_ID=resort-example next lint",
-    "type-check": "tsc --noEmit && tsc -p scripts/tsconfig.json"
+    "type-check": "tsc --noEmit && tsc -p scripts/tsconfig.json",
+    "check:types-style": "node scripts/check-types-style.cjs"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",

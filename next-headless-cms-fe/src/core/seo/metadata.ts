@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
-import type { PageSeo } from "@core/types/page";
-import type { TenantConfig } from "@core/types/tenant";
 import { getSiteOrigin, ogLocaleFromPageLocale } from "@core/seo/site-url";
+import type { BuildMetadataArgs } from "./types";
 
-export interface BuildMetadataContext {
-  pathname: string;
-  locale?: string;
-}
-
-export function buildMetadata(
-  seo: PageSeo,
-  tenant: TenantConfig,
-  ctx?: BuildMetadataContext
-): Metadata {
+export function buildMetadata({
+  seo,
+  tenant,
+  ctx,
+}: BuildMetadataArgs): Metadata {
   const origin = getSiteOrigin(tenant);
   const path = ctx?.pathname ?? "/";
   const pathname = path === "" ? "/" : path.startsWith("/") ? path : `/${path}`;

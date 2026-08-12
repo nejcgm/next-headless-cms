@@ -1,9 +1,4 @@
-export type SearchParamsInput = Record<
-  string,
-  string | string[] | undefined
->;
-
-export type NormalizedSearchParams = Record<string, string | undefined>;
+import type { SearchParamsInput, NormalizedSearchParams } from "./types";
 
 export function normalizeSearchParams(
   input: SearchParamsInput | null | undefined

@@ -10,3 +10,8 @@ export interface AboutValuesProps {
   subheading?: string;
   items: AboutValueItem[];
 }
+
+export interface ValueCardProps {
+  item: AboutValueItem;
+  index: number;
+}

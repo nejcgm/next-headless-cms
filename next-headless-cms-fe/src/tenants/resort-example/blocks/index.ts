@@ -88,9 +88,13 @@ registerTenantBlocks("resort-example", {
     dataContract: async (props, ctx) => {
       const { getAdapter } = await import("../../../core/data/fetcher");
       const adapter = await getAdapter();
-      const reviews = await adapter.getCollection(ctx.tenant, "reviews", {
-        limit: (props.limit as number) ?? 3,
-        locale: ctx.locale,
+      const reviews = await adapter.getCollection({
+        tenant: ctx.tenant,
+        collection: "reviews",
+        params: {
+          limit: (props.limit as number) ?? 3,
+          locale: ctx.locale,
+        },
       });
       return { reviews };
     },

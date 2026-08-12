@@ -1,19 +1,17 @@
-import type { CmsAdapter, CollectionParams, EntryParams, SitemapEntry } from "../contracts";
+import type {
+  CmsAdapter,
+  GetCollectionArgs,
+  GetEntryArgs,
+  GetPageArgs,
+  SitemapEntry,
+} from "../types";
 import type { PageData, NavigationData } from "@core/types/page";
 import { logger } from "@shared/lib/logger";
 import tenantConfig from "@tenant/config";
 import { toPageData, toNavigationData, patternToRegex } from "../strapi/strapi-document";
+import type { SitemapJson } from "./types";
 
 import sitemapFile from "@mock-data/sitemap.json";
-
-interface SitemapJsonEntry {
-  pathname: string;
-  lastModified?: string;
-}
-
-interface SitemapJson {
-  entries: SitemapJsonEntry[];
-}
 
 const pageContext = (require as unknown as { context: (d: string, b: boolean, r: RegExp) => { keys: () => string[] } }).context(
   "@mock-data/pages",
@@ -51,7 +49,7 @@ async function findPageByPattern(slug: string): Promise<PageData | null> {
 }
 
 export class MockAdapter implements CmsAdapter {
-  async getPage(_tenant: string, slug: string, locale: string): Promise<PageData | null> {
+  async getPage({ slug, locale }: GetPageArgs): Promise<PageData | null> {
     const normalized = slug === "/" ? "home" : slug.replace(/^\//, "").replace(/\//g, "--");
     const defaultLocale = tenantConfig.defaultLocale;
 
@@ -93,7 +91,10 @@ export class MockAdapter implements CmsAdapter {
     return page;
   }
 
-  async getCollection<T>(_tenant: string, collection: string, params?: CollectionParams): Promise<T[]> {
+  async getCollection<T>({
+    collection,
+    params,
+  }: GetCollectionArgs): Promise<T[]> {
     const defaultLocale = tenantConfig.defaultLocale;
     const locale = params?.locale ?? defaultLocale;
 
@@ -130,15 +131,16 @@ export class MockAdapter implements CmsAdapter {
     return data;
   }
 
-  async getEntry<T>(
-    _tenant: string,
-    collection: string,
-    id: string,
-    params?: EntryParams
-  ): Promise<T | null> {
+  async getEntry<T>({
+    collection,
+    id,
+    params,
+  }: GetEntryArgs): Promise<T | null> {
     const locale = params?.locale ?? tenantConfig.defaultLocale;
-    const items = await this.getCollection<T & { id?: string; slug?: string }>("", collection, {
-      locale,
+    const items = await this.getCollection<T & { id?: string; slug?: string }>({
+      tenant: "",
+      collection,
+      params: { locale },
     });
     return (items.find((item) => item.slug === id || item.id === id) as T) ?? null;
   }

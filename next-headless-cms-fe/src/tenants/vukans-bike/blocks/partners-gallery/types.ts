@@ -13,3 +13,8 @@ export interface PartnersGalleryProps {
   subheading?: string;
   partners: Partner[];
 }
+
+export interface PartnerCardProps {
+  partner: Partner;
+  defaultPartnerLinkLabel: string;
+}

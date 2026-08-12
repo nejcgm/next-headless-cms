@@ -17,3 +17,7 @@ export interface ServicePricingProps {
   contactCta?: string;
   contactHref?: string;
 }
+
+export interface ServiceItemProps {
+  pkg: ServicePackage;
+}

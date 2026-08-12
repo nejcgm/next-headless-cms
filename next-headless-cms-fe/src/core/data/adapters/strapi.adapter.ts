@@ -1,9 +1,15 @@
 import type {
   CmsAdapter,
-  CollectionParams,
-  EntryParams,
+  GetCollectionArgs,
+  GetEntryArgs,
+  GetPageArgs,
   SitemapEntry,
-} from "../contracts";
+} from "../types";
+import type {
+  FindOneArgs,
+  LogFailureArgs,
+  MatchPatternPageArgs,
+} from "./types";
 import type { PageData, NavigationData } from "@core/types/page";
 import { logger } from "@shared/lib/logger";
 import { cacheTags } from "../cache-tags";
@@ -12,11 +18,8 @@ import {
   REVALIDATE,
   STRAPI_COLLECTIONS,
 } from "../strapi/strapi-config";
-import {
-  strapiFetch,
-  strapiFetchAll,
-  type StrapiQuery,
-} from "../strapi/strapi-client";
+import { strapiFetch, strapiFetchAll } from "../strapi/strapi-client";
+import type { PatternCandidate } from "../strapi/types";
 import { resolvePublicationContext } from "../strapi/strapi-publication";
 import { normalizeLogicalSlug, tenantScope } from "../strapi/strapi-query";
 import {
@@ -26,27 +29,26 @@ import {
   toPageData,
   toPatternCandidate,
   unwrapStrapiDocument,
-  type PatternCandidate,
 } from "../strapi/strapi-document";
 
 export class StrapiAdapter implements CmsAdapter {
-  async getPage(
-    tenant: string,
-    slug: string,
-    locale: string
-  ): Promise<PageData | null> {
+  async getPage({
+    tenant,
+    slug,
+    locale,
+  }: GetPageArgs): Promise<PageData | null> {
     const logicalSlug = normalizeLogicalSlug(slug);
     const { status, bypassCache } = await resolvePublicationContext();
     const pageTags = [
-      cacheTags.page(tenant, logicalSlug, locale),
-      cacheTags.pageGroup(tenant, logicalSlug),
+      cacheTags.page({ tenant, slug: logicalSlug, locale }),
+      cacheTags.pageGroup({ tenant, slug: logicalSlug }),
       cacheTags.allPages(tenant),
     ];
 
     try {
-      const exact = await this.findOne(
-        STRAPI_COLLECTIONS.pages,
-        {
+      const exact = await this.findOne({
+        collection: STRAPI_COLLECTIONS.pages,
+        query: {
           filters: {
             ...tenantScope(tenant, locale),
             slug: { $eq: logicalSlug },
@@ -54,40 +56,46 @@ export class StrapiAdapter implements CmsAdapter {
           populate: POPULATE.page,
           status,
         },
-        { revalidate: REVALIDATE.page, tags: pageTags, bypassCache }
-      );
+        revalidate: REVALIDATE.page,
+        tags: pageTags,
+        bypassCache,
+      });
 
       const direct = exact ? toPageData(exact, locale) : null;
       if (direct) return direct;
 
-      return await this.matchPatternPage(
+      return await this.matchPatternPage({
         tenant,
         logicalSlug,
         locale,
         status,
-        bypassCache
-      );
+        bypassCache,
+      });
     } catch (err) {
-      this.logFailure("getPage", err, { tenant, slug: logicalSlug, locale });
+      this.logFailure({
+        method: "getPage",
+        err,
+        context: { tenant, slug: logicalSlug, locale },
+      });
       return null;
     }
   }
 
-  private async matchPatternPage(
-    tenant: string,
-    logicalSlug: string,
-    locale: string,
-    status: "published" | "draft",
-    bypassCache: boolean
-  ): Promise<PageData | null> {
+  private async matchPatternPage({
+    tenant,
+    logicalSlug,
+    locale,
+    status,
+    bypassCache,
+  }: MatchPatternPageArgs): Promise<PageData | null> {
     const tags = [
-      cacheTags.pageGroup(tenant, `pattern:${locale}`),
+      cacheTags.pageGroup({ tenant, slug: `pattern:${locale}` }),
       cacheTags.allPages(tenant),
     ];
 
-    const rows = await strapiFetchAll(
-      STRAPI_COLLECTIONS.pages,
-      {
+    const rows = await strapiFetchAll({
+      collection: STRAPI_COLLECTIONS.pages,
+      query: {
         filters: {
           ...tenantScope(tenant, locale),
           slugPattern: { $notNull: true },
@@ -95,8 +103,10 @@ export class StrapiAdapter implements CmsAdapter {
         fields: ["slug", "slugPattern"],
         status,
       },
-      { revalidate: REVALIDATE.page, tags, bypassCache }
-    );
+      revalidate: REVALIDATE.page,
+      tags,
+      bypassCache,
+    });
 
     const candidates = rows
       .map(toPatternCandidate)
@@ -105,9 +115,9 @@ export class StrapiAdapter implements CmsAdapter {
     const matchedPattern = findPatternMatch(candidates, logicalSlug);
     if (!matchedPattern) return null;
 
-    const full = await this.findOne(
-      STRAPI_COLLECTIONS.pages,
-      {
+    const full = await this.findOne({
+      collection: STRAPI_COLLECTIONS.pages,
+      query: {
         filters: {
           ...tenantScope(tenant, locale),
           slugPattern: { $eq: matchedPattern },
@@ -115,15 +125,13 @@ export class StrapiAdapter implements CmsAdapter {
         populate: POPULATE.page,
         status,
       },
-      {
-        revalidate: REVALIDATE.page,
-        tags: [
-          cacheTags.pageGroup(tenant, logicalSlug),
-          cacheTags.allPages(tenant),
-        ],
-        bypassCache,
-      }
-    );
+      revalidate: REVALIDATE.page,
+      tags: [
+        cacheTags.pageGroup({ tenant, slug: logicalSlug }),
+        cacheTags.allPages(tenant),
+      ],
+      bypassCache,
+    });
 
     return full ? toPageData(full, locale) : null;
   }
@@ -135,35 +143,37 @@ export class StrapiAdapter implements CmsAdapter {
     const { status, bypassCache } = await resolvePublicationContext();
 
     try {
-      const doc = await this.findOne(
-        STRAPI_COLLECTIONS.navigations,
-        {
+      const doc = await this.findOne({
+        collection: STRAPI_COLLECTIONS.navigations,
+        query: {
           filters: tenantScope(tenant, locale),
           populate: POPULATE.navigation,
           status,
         },
-        {
-          revalidate: REVALIDATE.navigation,
-          tags: [
-            cacheTags.navigation(tenant, locale),
-            cacheTags.navigationGroup(tenant),
-          ],
-          bypassCache,
-        }
-      );
+        revalidate: REVALIDATE.navigation,
+        tags: [
+          cacheTags.navigation({ tenant, locale }),
+          cacheTags.navigationGroup(tenant),
+        ],
+        bypassCache,
+      });
 
       return doc ? toNavigationData(doc) : null;
     } catch (err) {
-      this.logFailure("getNavigation", err, { tenant, locale });
+      this.logFailure({
+        method: "getNavigation",
+        err,
+        context: { tenant, locale },
+      });
       return null;
     }
   }
 
-  async getCollection<T>(
-    tenant: string,
-    collection: string,
-    params?: CollectionParams
-  ): Promise<T[]> {
+  async getCollection<T>({
+    tenant,
+    collection,
+    params,
+  }: GetCollectionArgs): Promise<T[]> {
     const { status, bypassCache } = await resolvePublicationContext();
 
     try {
@@ -178,50 +188,61 @@ export class StrapiAdapter implements CmsAdapter {
           pagination: { limit: params?.limit, start: params?.offset },
         },
         revalidate: REVALIDATE.collection,
-        tags: [cacheTags.collection(tenant, collection)],
+        tags: [cacheTags.collection({ tenant, collection })],
         bypassCache,
       });
       return res.data ?? [];
     } catch (err) {
-      this.logFailure("getCollection", err, { tenant, collection });
+      this.logFailure({
+        method: "getCollection",
+        err,
+        context: { tenant, collection },
+      });
       return [];
     }
   }
 
-  async getEntry<T>(
-    tenant: string,
-    collection: string,
-    id: string,
-    params?: EntryParams
-  ): Promise<T | null> {
+  async getEntry<T>({
+    tenant,
+    collection,
+    id,
+    params,
+  }: GetEntryArgs): Promise<T | null> {
     const { status, bypassCache } = await resolvePublicationContext();
 
     try {
-      const entry = await this.findOne<T>(
+      const entry = await this.findOne<T>({
         collection,
-        {
+        query: {
           filters: {
             ...tenantScope(tenant, params?.locale),
             slug: { $eq: id },
           },
           status,
         },
-        {
-          revalidate: REVALIDATE.collection,
-          tags: [
-            cacheTags.entry(tenant, collection, id, params?.locale),
-            cacheTags.collection(tenant, collection),
-          ],
-          bypassCache,
-        }
-      );
+        revalidate: REVALIDATE.collection,
+        tags: [
+          cacheTags.entry({
+            tenant,
+            collection,
+            id,
+            locale: params?.locale,
+          }),
+          cacheTags.collection({ tenant, collection }),
+        ],
+        bypassCache,
+      });
       return entry;
     } catch (err) {
-      this.logFailure("getEntry", err, {
-        tenant,
-        collection,
-        id,
-        locale: params?.locale,
+      this.logFailure({
+        method: "getEntry",
+        err,
+        context: {
+          tenant,
+          collection,
+          id,
+          locale: params?.locale,
+        },
       });
       return null;
     }
@@ -232,22 +253,20 @@ export class StrapiAdapter implements CmsAdapter {
     locale: string
   ): Promise<SitemapEntry[]> {
     try {
-      const rows = await strapiFetchAll(
-        STRAPI_COLLECTIONS.pages,
-        {
+      const rows = await strapiFetchAll({
+        collection: STRAPI_COLLECTIONS.pages,
+        query: {
           filters: tenantScope(tenant, locale),
           fields: ["slug", "updatedAt"],
           populate: { seo: true },
           status: "published",
         },
-        {
-          revalidate: REVALIDATE.page,
-          tags: [
-            cacheTags.pageGroup(tenant, "sitemap"),
-            cacheTags.allPages(tenant),
-          ],
-        }
-      );
+        revalidate: REVALIDATE.page,
+        tags: [
+          cacheTags.pageGroup({ tenant, slug: "sitemap" }),
+          cacheTags.allPages(tenant),
+        ],
+      });
 
       const entries = rows.flatMap((row) => {
         const entry = this.toSitemapEntry(row);
@@ -256,21 +275,27 @@ export class StrapiAdapter implements CmsAdapter {
 
       return entries.length > 0 ? entries : [{ pathname: "/" }];
     } catch (err) {
-      this.logFailure("listSitemapEntries", err, { tenant, locale });
+      this.logFailure({
+        method: "listSitemapEntries",
+        err,
+        context: { tenant, locale },
+      });
       return [{ pathname: "/" }];
     }
   }
 
-  private async findOne<T = unknown>(
-    collection: string,
-    query: StrapiQuery,
-    cache: { revalidate: number; tags: string[]; bypassCache?: boolean }
-  ): Promise<T | null> {
+  private async findOne<T = unknown>({
+    collection,
+    query,
+    revalidate,
+    tags,
+    bypassCache,
+  }: FindOneArgs): Promise<T | null> {
     const res = await strapiFetch<T>(collection, {
       query: { ...query, pagination: { ...query.pagination, pageSize: 1 } },
-      revalidate: cache.revalidate,
-      tags: cache.tags,
-      bypassCache: cache.bypassCache,
+      revalidate,
+      tags,
+      bypassCache,
     });
     return res.data?.[0] ?? null;
   }
@@ -292,11 +317,7 @@ export class StrapiAdapter implements CmsAdapter {
     };
   }
 
-  private logFailure(
-    method: string,
-    err: unknown,
-    context: Record<string, unknown>
-  ) {
+  private logFailure({ method, err, context }: LogFailureArgs) {
     logger.warn(`StrapiAdapter.${method} failed`, {
       ...context,
       error: err instanceof Error ? err.message : String(err),

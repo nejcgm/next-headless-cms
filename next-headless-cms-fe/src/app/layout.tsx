@@ -3,6 +3,7 @@ import "./globals.css";
 import "@core/init";
 import tenantConfig from "@tenant/config";
 import { getSiteOrigin } from "@core/seo/site-url";
+import type { RootLayoutProps } from "./types";
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteOrigin(tenantConfig)),
@@ -15,14 +16,12 @@ export const metadata: Metadata = {
     `${tenantConfig.name} — multi-tenant CMS site`,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang={tenantConfig.defaultLocale} suppressHydrationWarning>
-      <body className="antialiased" suppressHydrationWarning>{children}</body>
+      <body className="antialiased" suppressHydrationWarning>
+        {children}
+      </body>
     </html>
   );
 }

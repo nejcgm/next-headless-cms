@@ -30,14 +30,22 @@ export function Header({
 
   const { activeLocale, logicalPathname } = useMemo(() => {
     const segments = currentPath.split("/").filter(Boolean);
-    const { locale, restSegments } = parseLocaleFromSegments(segments, locales, defaultLocale);
+    const { locale, restSegments } = parseLocaleFromSegments({
+      segments,
+      locales,
+      defaultLocale,
+    });
     return {
       activeLocale: locale,
       logicalPathname: segmentsToLogicalPathname(restSegments),
     };
   }, [currentPath, locales, defaultLocale]);
 
-  const homeHref = prefixPathname("/", activeLocale, defaultLocale);
+  const homeHref = prefixPathname({
+    logicalPathname: "/",
+    locale: activeLocale,
+    defaultLocale,
+  });
 
   return (
     <header className="sticky top-0 z-40 border-b border-[var(--color-border)] bg-[var(--color-background)]">
@@ -66,7 +74,11 @@ export function Header({
               aria-label="Language"
             >
               {locales.map((loc) => {
-                const href = prefixPathname(logicalPathname, loc, defaultLocale);
+                const href = prefixPathname({
+                  logicalPathname,
+                  locale: loc,
+                  defaultLocale,
+                });
                 const active = loc === activeLocale;
                 return (
                   <a
@@ -89,8 +101,19 @@ export function Header({
 
           <nav className="hidden md:flex flex-1 items-center justify-end gap-1">
             {navigation.map((item) => {
-              const navHref = localizeHref(item.href, activeLocale, defaultLocale, locales, isExternalHref);
-              const active = isNavItemActive(currentPath, item.href, locales, defaultLocale);
+              const navHref = localizeHref({
+                href: item.href,
+                activeLocale,
+                defaultLocale,
+                locales,
+                isExternal: isExternalHref,
+              });
+              const active = isNavItemActive({
+                pathname: currentPath,
+                href: item.href,
+                locales,
+                defaultLocale,
+              });
               const external = isExternalHref(item.href);
               return (
                 <a
@@ -137,8 +160,19 @@ export function Header({
         >
           <div className="space-y-1 py-2">
             {navigation.map((item) => {
-              const navHref = localizeHref(item.href, activeLocale, defaultLocale, locales, isExternalHref);
-              const active = isNavItemActive(currentPath, item.href, locales, defaultLocale);
+              const navHref = localizeHref({
+                href: item.href,
+                activeLocale,
+                defaultLocale,
+                locales,
+                isExternal: isExternalHref,
+              });
+              const active = isNavItemActive({
+                pathname: currentPath,
+                href: item.href,
+                locales,
+                defaultLocale,
+              });
               const external = isExternalHref(item.href);
               return (
                 <a

@@ -16,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     tenantConfig.locales.map(async (locale) => {
       const entries = await adapter.listSitemapEntries(tenantConfig.id, locale);
       return entries.map(({ pathname, lastModified }) => ({
-        pathname: prefixPathname(pathname, locale, tenantConfig.defaultLocale),
+        pathname: prefixPathname({ logicalPathname: pathname, locale, defaultLocale: tenantConfig.defaultLocale }),
         lastModified,
       }));
     })

@@ -11,3 +11,9 @@ export interface ServiceFaqProps {
   contactCtaLabel?: string;
   contactCtaHref?: string;
 }
+
+export interface FaqAccordionProps {
+  item: FaqItem;
+  isOpen: boolean;
+  onToggle: () => void;
+}

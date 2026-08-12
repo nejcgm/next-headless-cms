@@ -3,41 +3,12 @@ import "server-only";
 import qs from "qs";
 import { logger } from "@shared/lib/logger";
 import { FETCH_TIMEOUT_MS, PAGINATION, strapiConfig } from "./strapi-config";
-
-export interface StrapiQuery {
-  filters?: Record<string, unknown>;
-  populate?: Record<string, unknown> | string;
-  fields?: string[];
-  sort?: string | string[];
-  pagination?: {
-    page?: number;
-    pageSize?: number;
-    limit?: number;
-    start?: number;
-  };
-  status?: "published" | "draft";
-}
-
-export interface StrapiListMeta {
-  pagination?: {
-    page: number;
-    pageSize: number;
-    pageCount: number;
-    total: number;
-  };
-}
-
-export interface StrapiListResponse<T = unknown> {
-  data: T[];
-  meta?: StrapiListMeta;
-}
-
-export interface StrapiFetchOptions {
-  query?: StrapiQuery;
-  revalidate: number;
-  tags: string[];
-  bypassCache?: boolean;
-}
+import type {
+  StrapiFetchAllArgs,
+  StrapiFetchOptions,
+  StrapiListResponse,
+  StrapiQuery,
+} from "./types";
 
 export class StrapiError extends Error {
   constructor(
@@ -102,11 +73,13 @@ export async function strapiFetch<T = unknown>(
   }
 }
 
-export async function strapiFetchAll<T = unknown>(
-  collection: string,
-  query: StrapiQuery,
-  options: { revalidate: number; tags: string[]; bypassCache?: boolean }
-): Promise<T[]> {
+export async function strapiFetchAll<T = unknown>({
+  collection,
+  query,
+  revalidate,
+  tags,
+  bypassCache,
+}: StrapiFetchAllArgs): Promise<T[]> {
   const rows: T[] = [];
   let page = 1;
   let pageCount = 1;
@@ -114,9 +87,9 @@ export async function strapiFetchAll<T = unknown>(
   while (page <= pageCount && page <= PAGINATION.maxPages) {
     const res = await strapiFetch<T>(collection, {
       query: { ...query, pagination: { page, pageSize: PAGINATION.pageSize } },
-      revalidate: options.revalidate,
-      tags: options.tags,
-      bypassCache: options.bypassCache,
+      revalidate,
+      tags,
+      bypassCache,
     });
     rows.push(...(res.data ?? []));
     pageCount = res.meta?.pagination?.pageCount ?? 1;

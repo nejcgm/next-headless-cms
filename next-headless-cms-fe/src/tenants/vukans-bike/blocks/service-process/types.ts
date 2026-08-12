@@ -11,3 +11,9 @@ export interface ServiceProcessProps {
   subheading?: string;
   steps: ProcessStep[];
 }
+
+export interface StepCardProps {
+  step: ProcessStep;
+  index: number;
+  isLast: boolean;
+}

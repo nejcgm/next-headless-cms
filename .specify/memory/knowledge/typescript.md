@@ -28,6 +28,17 @@ For dynamic `import()` statements, use RELATIVE PATHS only. Next.js cannot resol
 - Add `"use client"` only when using hooks, event handlers, or browser APIs
 - Keep client components small and leaf-level
 
+## Type file layout (whole FE)
+
+Applies to `src/app/`, `src/core/`, `src/shared/`, and `src/tenants/`.
+
+- **Global domain contracts** — `src/core/types/` (`page`, `navigation`, `tenant`). Shared across modules; do not duplicate in module `types.ts`.
+- **Per-module types** — each module keeps a colocated `types.ts` with every type that module owns (component props, function arg objects, labels). Implementation files **import** from `./types`; do **not** re-export types from implementation files — consumers import from the module `types.ts` (or `core/types/*` for domain shapes).
+- **Components (always)** — props live in the module `types.ts` (including Next.js route shells: page/layout/error/not-found and private helper components). No inline `{ … }` prop type literals on component signatures.
+- **Functions with 3+ parameters** — take a single options object typed in the module `types.ts` (destructure in the signature). Canonical example: `loadPageWithNavigation({ … }: TenantPageParams)`.
+- **Exceptions only** — React `cache()` primitive-key internals (e.g. `getPageCachedImpl`) and platform/third-party APIs. Not exempt: `formatCurrency`, logger helpers, `cacheTags` builders, adapter helpers (`findOne`, etc.).
+- **Compliance** — `pnpm check:types-style` (`scripts/check-types-style.cjs`) fails on positional arity ≥3 and colocated/inline props; wired in CI with `pnpm type-check`.
+
 ## Interface vs Type
 
 - `interface` for component props and object shapes
@@ -103,7 +114,7 @@ These rules are enforced by `next lint` in CI. Violations fail the build.
 
 - Never use `any` — use `unknown`, generics, or `Record<string, unknown>`.
 - Block registry components use `ComponentType<any>` with `// eslint-disable-next-line @typescript-eslint/no-explicit-any` (Zod validates props at runtime).
-- Templates use `TemplateComponent` from `@core/routing/resolver` — not `ComponentType<any>`.
+- Templates use `TemplateComponent` from `@core/routing/types` — not `ComponentType<any>`.
 
 ### Template components
 

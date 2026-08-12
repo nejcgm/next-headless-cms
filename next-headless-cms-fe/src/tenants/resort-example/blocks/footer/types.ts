@@ -1,1 +1,1 @@
-export type { FooterProps } from "@shared/components/layout/footer";
+export type { FooterProps } from "@shared/components/layout/types";

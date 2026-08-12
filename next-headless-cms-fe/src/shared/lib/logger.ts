@@ -1,16 +1,9 @@
-type LogLevel = "debug" | "info" | "warn" | "error";
-
-interface LogEntry {
-  level: LogLevel;
-  message: string;
-  timestamp: string;
-  context?: Record<string, unknown>;
-}
+import type { LogEntry, LoggerLogArgs } from "./types";
 
 class Logger {
   private isDev = process.env.NODE_ENV === "development";
 
-  private log(level: LogLevel, message: string, context?: Record<string, unknown>) {
+  private log({ level, message, context }: LoggerLogArgs) {
     if (!this.isDev && level === "debug") return;
 
     const entry: LogEntry = {
@@ -25,19 +18,19 @@ class Logger {
   }
 
   debug(message: string, context?: Record<string, unknown>) {
-    this.log("debug", message, context);
+    this.log({ level: "debug", message, context });
   }
 
   info(message: string, context?: Record<string, unknown>) {
-    this.log("info", message, context);
+    this.log({ level: "info", message, context });
   }
 
   warn(message: string, context?: Record<string, unknown>) {
-    this.log("warn", message, context);
+    this.log({ level: "warn", message, context });
   }
 
   error(message: string, context?: Record<string, unknown>) {
-    this.log("error", message, context);
+    this.log({ level: "error", message, context });
   }
 }
 

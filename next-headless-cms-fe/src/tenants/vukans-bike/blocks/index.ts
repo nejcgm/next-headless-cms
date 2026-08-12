@@ -64,7 +64,11 @@ registerTenantBlocks("vukans-bike", {
     component: BikeDetail,
     schema: bikeDetailSchema,
     dataContract: (_props, ctx) =>
-      loadBikeForBikeDetailBlock(ctx.tenant, ctx.locale, ctx.slug),
+      loadBikeForBikeDetailBlock({
+        tenant: ctx.tenant,
+        locale: ctx.locale,
+        pageSlug: ctx.slug,
+      }),
   },
 
   "bike-school-intro": {
@@ -95,7 +99,12 @@ registerTenantBlocks("vukans-bike", {
   "product-list": {
     component: ProductList,
     schema: productListSchema,
-    dataContract: (props, ctx) => loadProductsForProductListBlock(ctx.tenant, ctx.locale, props),
+    dataContract: (props, ctx) =>
+      loadProductsForProductListBlock({
+        tenant: ctx.tenant,
+        locale: ctx.locale,
+        props,
+      }),
   },
 
   "service-pricing": {

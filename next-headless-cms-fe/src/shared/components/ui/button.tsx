@@ -1,10 +1,5 @@
 import { cn } from "@shared/utils/cn";
-
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: "primary" | "secondary" | "outline" | "ghost";
-  size?: "sm" | "md" | "lg";
-  children: React.ReactNode;
-}
+import type { ButtonProps } from "./types";
 
 export function Button({
   variant = "primary",

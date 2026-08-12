@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactNode } from "react";
-import type { ServiceProcessProps, ProcessStep } from "./types";
+import type { ServiceProcessProps, StepCardProps } from "./types";
 
 const stepIcons: Record<string, ReactNode> = {
   contact: (
@@ -30,7 +30,7 @@ const stepIcons: Record<string, ReactNode> = {
   ),
 };
 
-function StepCard({ step, index, isLast }: { step: ProcessStep; index: number; isLast: boolean }) {
+function StepCard({ step, index, isLast }: StepCardProps) {
   const iconContent = step.icon && stepIcons[step.icon] ? (
     stepIcons[step.icon]
   ) : (

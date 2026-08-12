@@ -1,11 +1,18 @@
 import type { NavItem } from "@core/types/navigation";
 import { isExternalHref } from "@shared/utils/url";
+import type {
+  LocalizeHrefArgs,
+  LocalizeNavItemsArgs,
+  ParseLocaleFromSegmentsArgs,
+  PrefixPathnameArgs,
+  StripLocaleFromPathnameArgs,
+} from "./types";
 
-export function parseLocaleFromSegments(
-  segments: string[] | undefined,
-  locales: readonly string[],
-  defaultLocale: string
-): { locale: string; restSegments: string[] } {
+export function parseLocaleFromSegments({
+  segments,
+  locales,
+  defaultLocale,
+}: ParseLocaleFromSegmentsArgs): { locale: string; restSegments: string[] } {
   const segs = segments?.filter(Boolean) ?? [];
   if (segs.length === 0) {
     return { locale: defaultLocale, restSegments: [] };
@@ -28,7 +35,11 @@ export function visiblePathnameFromSlugSegments(slug: string[] | undefined): str
   return `/${segs.join("/")}`;
 }
 
-export function prefixPathname(logicalPathname: string, locale: string, defaultLocale: string): string {
+export function prefixPathname({
+  logicalPathname,
+  locale,
+  defaultLocale,
+}: PrefixPathnameArgs): string {
   const norm =
     logicalPathname === "" || logicalPathname === "/"
       ? "/"
@@ -42,11 +53,11 @@ export function prefixPathname(logicalPathname: string, locale: string, defaultL
   return `/${locale}${norm}`;
 }
 
-export function stripLocaleFromPathname(
-  pathname: string,
-  locales: readonly string[],
-  defaultLocale: string
-): string {
+export function stripLocaleFromPathname({
+  pathname,
+  locales,
+  defaultLocale,
+}: StripLocaleFromPathnameArgs): string {
   const trimmed = pathname.replace(/\/$/, "") || "/";
   const parts = trimmed.split("/").filter(Boolean);
   if (parts.length === 0) return "/";
@@ -57,28 +68,39 @@ export function stripLocaleFromPathname(
   return trimmed === "/" ? "/" : `/${parts.join("/")}`;
 }
 
-export function localizeNavItems(
-  items: NavItem[],
-  locale: string,
-  defaultLocale: string,
-  locales: readonly string[],
-): NavItem[] {
+export function localizeNavItems({
+  items,
+  locale,
+  defaultLocale,
+  locales,
+}: LocalizeNavItemsArgs): NavItem[] {
   return items.map((item) => ({
     ...item,
-    href: localizeHref(item.href, locale, defaultLocale, locales, isExternalHref),
+    href: localizeHref({
+      href: item.href,
+      activeLocale: locale,
+      defaultLocale,
+      locales,
+      isExternal: isExternalHref,
+    }),
     children: item.children
-      ? localizeNavItems(item.children, locale, defaultLocale, locales)
+      ? localizeNavItems({
+          items: item.children,
+          locale,
+          defaultLocale,
+          locales,
+        })
       : undefined,
   }));
 }
 
-export function localizeHref(
-  href: string,
-  activeLocale: string,
-  defaultLocale: string,
-  locales: readonly string[],
-  isExternal: (h: string) => boolean
-): string {
+export function localizeHref({
+  href,
+  activeLocale,
+  defaultLocale,
+  locales,
+  isExternal,
+}: LocalizeHrefArgs): string {
   if (!href || isExternal(href)) return href;
   const hashIdx = href.indexOf("#");
   const pathPart = hashIdx >= 0 ? href.slice(0, hashIdx) : href;
@@ -86,6 +108,14 @@ export function localizeHref(
   if (pathPart === "" || pathPart === "#") return href;
 
   const logical = pathPart.startsWith("/") ? pathPart : `/${pathPart}`;
-  const stripped = stripLocaleFromPathname(logical, locales, defaultLocale);
-  return `${prefixPathname(stripped, activeLocale, defaultLocale)}${hashPart}`;
+  const stripped = stripLocaleFromPathname({
+    pathname: logical,
+    locales,
+    defaultLocale,
+  });
+  return `${prefixPathname({
+    logicalPathname: stripped,
+    locale: activeLocale,
+    defaultLocale,
+  })}${hashPart}`;
 }

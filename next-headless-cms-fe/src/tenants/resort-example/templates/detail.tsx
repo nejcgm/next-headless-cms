@@ -7,10 +7,10 @@ export default async function DetailTemplate({ page, tenant, children }: Templat
   const nav = page.navigation;
 
   const headerNav = nav?.header
-    ? localizeNavItems(nav.header, page.locale, tenant.defaultLocale, tenant.locales)
+    ? localizeNavItems({ items: nav.header, locale: page.locale, defaultLocale: tenant.defaultLocale, locales: tenant.locales })
     : [];
   const footerNav = nav?.footer
-    ? localizeNavItems(nav.footer, page.locale, tenant.defaultLocale, tenant.locales)
+    ? localizeNavItems({ items: nav.footer, locale: page.locale, defaultLocale: tenant.defaultLocale, locales: tenant.locales })
     : [];
 
   return (

@@ -37,3 +37,9 @@ export interface BikeDetailProps {
   labels: BikeDetailLabels;
   bike?: BikeData;
 }
+
+export interface LoadBikeParams {
+  tenant: string;
+  locale: string;
+  pageSlug: string | undefined;
+}

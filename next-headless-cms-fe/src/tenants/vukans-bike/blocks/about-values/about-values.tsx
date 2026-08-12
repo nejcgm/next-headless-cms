@@ -1,4 +1,4 @@
-import type { AboutValuesProps, AboutValueItem } from "./types";
+import type { AboutValuesProps, ValueCardProps } from "./types";
 
 const iconMap: Record<string, React.ReactNode> = {
   bike: (
@@ -55,7 +55,7 @@ const iconMap: Record<string, React.ReactNode> = {
   ),
 };
 
-function ValueCard({ item, index }: { item: AboutValueItem; index: number }) {
+function ValueCard({ item, index }: ValueCardProps) {
   const iconContent = iconMap[item.icon] || (
     <span className="w-7 h-7 flex items-center justify-center font-bold text-lg">
       {item.icon.charAt(0)}

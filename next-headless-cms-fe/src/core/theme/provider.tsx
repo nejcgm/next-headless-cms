@@ -1,9 +1,4 @@
-import type { ThemeTokens } from "@core/types/tenant";
-
-interface ThemeProviderProps {
-  tokens: ThemeTokens;
-  children: React.ReactNode;
-}
+import type { ThemeProviderProps } from "./types";
 
 export function ThemeProvider({ tokens, children }: ThemeProviderProps) {
   const cssVars: React.CSSProperties = {
