@@ -2,7 +2,6 @@ import { cache } from "react";
 import type { CmsAdapter } from "./contracts";
 import type { PageData } from "@core/types/page";
 import type { NavigationData } from "@core/types/navigation";
-import { templateUsesSiteChrome } from "@core/routing/template-chrome";
 import { StrapiAdapter } from "./adapters/strapi.adapter";
 import tenantConfig from "@tenant/config";
 import { env } from "@/env";
@@ -36,6 +35,12 @@ function ensureStrapiEnv(): void {
       'STRAPI_API_TOKEN is required in production when dataAdapter is "strapi"'
     );
   }
+}
+
+function templateUsesSiteChrome(templateName: string): boolean {
+  const entry = tenantConfig.templates?.[templateName];
+  if (entry) return entry.usesSiteChrome !== false;
+  return true;
 }
 
 export async function getAdapter(): Promise<CmsAdapter> {

@@ -23,8 +23,7 @@
       "props": {
         "limit": 12,
         "layout": "grid"
-      },
-      "dataContract": "rooms"
+      }
     }
   ],
   "navigation": {

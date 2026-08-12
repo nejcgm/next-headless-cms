@@ -18,12 +18,10 @@ export interface BlockInstance {
   id: string;
   type: string;
   props: Record<string, unknown>;
-  dataContract?: string;
   visibility?: BlockVisibility;
 }
 
 export interface BlockVisibility {
-  devices?: ("mobile" | "tablet" | "desktop")[];
   locales?: string[];
   dateRange?: { from?: string; to?: string };
 }

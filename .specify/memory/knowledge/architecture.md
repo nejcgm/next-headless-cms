@@ -17,15 +17,16 @@ Canonical agent instructions live in Spec Kit (`.specify/memory/`). When you cha
 
 ### Allowed Exceptions
 
-These cross-boundary imports exist by architectural necessity:
+These cross-boundary imports exist by architectural necessity (build-time `@tenant` alias — one tenant per build):
 
-- `core/init.ts` is imported from root `app/layout.tsx`; it loads shared blocks and `@tenant/blocks` (build-time alias)
-- `core/routing/resolver.tsx` dynamically imports `@tenant/templates/{name}`
-- `core/data/fetcher.ts` and `core/data/adapters/mock.adapter.ts` import `@tenant/config` and `@mock-data` (per `TENANT_ID` build)
-- `shared/components/blocks/index.ts` imports `registerSharedBlocks` from `core/blocks/registry`
-- `shared/components/layout/footer.tsx` imports `NavItem` from `@core/types/navigation`
+- `core/init.ts` — loads shared blocks and `@tenant/blocks`
+- `core/routing/resolver.tsx` — dynamic import of `@tenant/templates/{name}`
+- `core/data/fetcher.ts` — `@tenant/config` (`dataAdapter`, template chrome flags for nav loading)
+- `core/data/adapters/mock.adapter.ts` — `@tenant/config` + `@mock-data`
+- `shared/components/blocks/index.ts` — `registerSharedBlocks` from `core/blocks/registry`
+- `shared/components/layout/footer.tsx` — `NavItem` from `@core/types/navigation`
 
-Do NOT add new cross-boundary imports. If you need one, refactor the shared type or function into the correct layer first.
+Do **not** add new `core/` → `@tenant` imports. ESLint `no-restricted-imports` on `src/core/**` enforces this (allowlisted exception files above). If you need tenant data in core, pass it in from `app/` / an existing exception, or extend the allowlist **and** this list in the same change.
 
 ## Folder Responsibilities
 

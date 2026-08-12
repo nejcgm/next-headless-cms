@@ -159,7 +159,7 @@ Always pass `locale` for localized collections. Used by `bike-detail` → `load-
 | Input (Strapi) | Output (frontend) |
 |----------------|-------------------|
 | `__component: "blocks.hero"` → strips to `type: "hero"` | `BlockInstance.type` |
-| Numeric `id` → `String(id)` | `BlockInstance.id` |
+| Numeric/string `id` → `String(id)`; if missing → `` `${type}-${index}` `` (stable zone order) | `BlockInstance.id` |
 | All other fields → `props` | `BlockInstance.props` |
 | `__component` + `id` stripped recursively from nested components | Nested `props` match frontend interface |
 | `header[]` (nav-item components) → `NavItem[]` via `toNavItem` | `NavigationData.header` |

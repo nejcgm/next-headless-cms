@@ -9,6 +9,38 @@
       "rules": {
         "@typescript-eslint/no-require-imports": "off"
       }
+    },
+    {
+      "files": ["src/core/**/*.{ts,tsx}"],
+      "excludedFiles": [
+        "src/core/init.ts",
+        "src/core/routing/resolver.tsx",
+        "src/core/data/fetcher.ts",
+        "src/core/data/adapters/mock.adapter.ts"
+      ],
+      "rules": {
+        "no-restricted-imports": [
+          "error",
+          {
+            "paths": [
+              {
+                "name": "@tenant/config",
+                "message": "core/ may only import @tenant/config from fetcher.ts or mock.adapter.ts (documented exceptions)."
+              }
+            ],
+            "patterns": [
+              {
+                "group": ["@tenant", "@tenant/*"],
+                "message": "core/ must not import @tenant/* except init.ts, resolver.tsx, fetcher.ts, mock.adapter.ts — see Spec Kit architecture.md."
+              },
+              {
+                "group": ["**/tenants/**", "**/src/tenants/**"],
+                "message": "core/ must not import tenant source paths; use @tenant only in documented exception files."
+              }
+            ]
+          }
+        ]
+      }
     }
   ]
 }

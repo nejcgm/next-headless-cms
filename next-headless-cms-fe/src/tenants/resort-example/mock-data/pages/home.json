@@ -41,8 +41,7 @@
     {
       "id": "hotel-info-1",
       "type": "hotel-info",
-      "props": {},
-      "dataContract": "hotel"
+      "props": {}
     },
     {
       "id": "rooms-1",
@@ -56,8 +55,7 @@
           "label": "View All Rooms",
           "href": "/rooms"
         }
-      },
-      "dataContract": "rooms"
+      }
     },
     {
       "id": "booking-1",
@@ -75,8 +73,7 @@
         "subheading": "Real experiences from real travelers",
         "limit": 3,
         "layout": "grid"
-      },
-      "dataContract": "reviews"
+      }
     },
     {
       "id": "gallery-1",

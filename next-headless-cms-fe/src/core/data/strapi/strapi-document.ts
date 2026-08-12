@@ -34,7 +34,7 @@ function stripComponentMeta(obj: Record<string, unknown>): Record<string, unknow
   return result;
 }
 
-function toDynamicZoneBlock(raw: unknown): BlockInstance | null {
+function toDynamicZoneBlock(raw: unknown, index: number): BlockInstance | null {
   if (!isPlainObject(raw)) return null;
   const { __component, id, ...rest } = raw as Record<string, unknown>;
   if (typeof __component !== "string") return null;
@@ -42,7 +42,10 @@ function toDynamicZoneBlock(raw: unknown): BlockInstance | null {
   const type = __component.includes(".") ? __component.split(".").pop()! : __component;
 
   return {
-    id: typeof id === "number" || typeof id === "string" ? String(id) : String(Math.random()),
+    id:
+      typeof id === "number" || typeof id === "string"
+        ? String(id)
+        : `${type}-${index}`,
     type,
     props: stripComponentMeta(rest),
   };
@@ -72,8 +75,8 @@ export function toPageData(raw: unknown, requestLocale: string): PageData | null
   const slug = normalizeLogicalSlug(slugRaw.trim());
 
   const blocks: BlockInstance[] = Array.isArray(doc.blocks)
-    ? doc.blocks.flatMap((item) => {
-        const block = toDynamicZoneBlock(item);
+    ? doc.blocks.flatMap((item, index) => {
+        const block = toDynamicZoneBlock(item, index);
         return block ? [block] : [];
       })
     : [];

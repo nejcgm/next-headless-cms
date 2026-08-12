@@ -97,6 +97,7 @@ These rules are enforced by `next lint` in CI. Violations fail the build.
 ### Imports
 
 - Use ESM `import` — never `require()` (use `import "server-only"` + static imports for server modules like `next/cache`).
+- `src/core/**` must not import `@tenant/*` except allowlisted files (`init.ts`, `routing/resolver.tsx`, `data/fetcher.ts`, `data/adapters/mock.adapter.ts`). Enforced via ESLint `no-restricted-imports`; keep the list in sync with `knowledge/architecture.md` Allowed Exceptions.
 
 ### Types
 
