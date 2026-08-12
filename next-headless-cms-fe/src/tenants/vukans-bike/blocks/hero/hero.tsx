@@ -1,14 +1,5 @@
 import { isExternalHref } from "@shared/utils/url";
-
-interface HeroProps {
-  headline: string;
-  subheadline?: string;
-  backgroundImage: string;
-  backgroundFit?: "cover" | "contain";
-  overlay?: number;
-  cta: { label: string; href: string };
-  secondaryCta?: { label: string; href: string };
-}
+import type { HeroProps } from "./types";
 
 export function Hero({
   headline,

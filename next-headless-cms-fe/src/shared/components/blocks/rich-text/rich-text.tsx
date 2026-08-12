@@ -1,7 +1,4 @@
-interface RichTextProps {
-  content: string;
-  className?: string;
-}
+import type { RichTextProps } from "./types";
 
 export function RichText({ content, className }: RichTextProps) {
   return (

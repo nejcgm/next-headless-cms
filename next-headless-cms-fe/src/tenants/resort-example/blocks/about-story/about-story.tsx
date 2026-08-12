@@ -1,18 +1,5 @@
 import Image from "next/image";
-
-interface AboutStoryProps {
-  title?: string;
-  subtitle?: string;
-  story?: string;
-  mission?: string;
-  image?: string;
-  yearEstablished?: string;
-  highlights?: Array<{
-    value: string;
-    label: string;
-  }>;
-  imagePosition?: "left" | "right";
-}
+import type { AboutStoryProps } from "./types";
 
 export function AboutStory({
   title = "Our Story",

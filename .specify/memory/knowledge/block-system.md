@@ -11,12 +11,14 @@
 
 Every tenant block lives in `src/tenants/{tenant}/blocks/{block-name}/` with:
 - `{block-name}.tsx` — Component (default export or named export)
-- `types.ts` — Props interface (optional if props stay colocated)
+- `types.ts` — All block-specific types (**required**): props, labels, nested entities — import into the component; do not colocate or split into `labels.ts`
 - `schema.ts` — Zod prop schema (**required** for registered content blocks)
 
 Register it in `src/tenants/{tenant}/blocks/index.ts` and wire `schema:` on the registration.
 
-Shared blocks use the same folder shape under `src/shared/components/blocks/{block-name}/` (`{block-name}.tsx` + `schema.ts`) and register in `shared/components/blocks/index.ts`.
+Shared blocks use the same folder shape under `src/shared/components/blocks/{block-name}/` (`{block-name}.tsx` + `types.ts` + `schema.ts`) and register in `shared/components/blocks/index.ts`.
+
+Header/footer chrome under `blocks/header` and `blocks/footer` also keep a `types.ts` (header defines props; footer may re-export shared `FooterProps`).
 
 After registering or changing a block, update `.specify/memory/knowledge/block-system.md` and the tenant catalog (`specs/_catalogs/{id}.md`) (see `.specify/memory/project-context.md` (sync map)).
 

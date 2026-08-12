@@ -2,7 +2,7 @@ import type { FooterCopy, NavItem } from "@core/types/navigation";
 import type { TenantContact } from "@core/types/tenant";
 import { isExternalHref } from "@shared/utils/url";
 
-interface FooterProps {
+export interface FooterProps {
   tenantName: string;
   navigation: NavItem[];
   contact?: TenantContact | null;

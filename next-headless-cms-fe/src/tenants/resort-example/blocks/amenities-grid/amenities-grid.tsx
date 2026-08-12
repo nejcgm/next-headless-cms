@@ -1,16 +1,4 @@
-interface AmenityItem {
-  icon?: string;
-  title: string;
-  description?: string;
-}
-
-interface AmenitiesGridProps {
-  title?: string;
-  subtitle?: string;
-  amenities: AmenityItem[];
-  columns?: 2 | 3 | 4;
-  showDescription?: boolean;
-}
+import type { AmenityItem, AmenitiesGridProps } from "./types";
 
 const defaultAmenities: AmenityItem[] = [
   { icon: "wifi", title: "Free WiFi" },

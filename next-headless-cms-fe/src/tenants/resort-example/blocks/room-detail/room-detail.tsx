@@ -5,17 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { ImageLightbox } from "@shared/components/ui/image-lightbox";
-import type { Room, Hotel } from "../../integrations/grmovsek-hotel/types";
-import type { AvailabilityResult } from "../../integrations/grmovsek-hotel/client";
-
-interface RoomDetailProps {
-  room: Room;
-  hotel: Hotel;
-  availability?: AvailabilityResult | null;
-  initialCheckin?: string;
-  initialCheckout?: string;
-  unavailableDates?: string[];
-}
+import type { RoomDetailProps } from "./types";
 
 export function RoomDetail({
   room,

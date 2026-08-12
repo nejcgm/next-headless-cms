@@ -1,17 +1,7 @@
 import Image from "next/image";
 import { cn } from "@shared/utils/cn";
 import { isExternalHref } from "@shared/utils/url";
-
-interface ImageTextProps {
-  layout?: "image-left" | "image-right";
-  image: {
-    src: string;
-    alt: string;
-  };
-  heading: string;
-  body: string;
-  cta?: { label: string; href: string };
-}
+import type { ImageTextProps } from "./types";
 
 export function ImageText({ layout = "image-left", image, heading, body, cta }: ImageTextProps) {
   const isImageLeft = layout === "image-left";

@@ -1,7 +1,5 @@
 import { getAdapter } from "@core/data/fetcher";
-import type { BikeDetailProps } from "./types";
-
-type BikeData = NonNullable<BikeDetailProps["bike"]>;
+import type { BikeData } from "./types";
 
 export async function loadBikeForBikeDetailBlock(
   tenant: string,

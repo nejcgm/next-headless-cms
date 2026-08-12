@@ -1,10 +1,5 @@
 import { cn } from "@shared/utils/cn";
-
-interface SectionHeaderProps {
-  heading: string;
-  subheading?: string;
-  centered?: boolean;
-}
+import type { SectionHeaderProps } from "./types";
 
 export function SectionHeader({ heading, subheading, centered = true }: SectionHeaderProps) {
   return (

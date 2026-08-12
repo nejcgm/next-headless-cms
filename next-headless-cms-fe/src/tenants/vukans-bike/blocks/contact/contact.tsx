@@ -1,5 +1,4 @@
-import type { ContactProps, ContactAddress } from "./types";
-import type { ContactLabels } from "./labels";
+import type { ContactProps, ContactAddress, ContactLabels } from "./types";
 
 function AddressBlock({
   address,

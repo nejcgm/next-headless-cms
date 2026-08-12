@@ -3,21 +3,10 @@
 import Image from "next/image";
 import { useState } from "react";
 import { cn } from "@shared/utils/cn";
-
-interface Image {
-  src: string;
-  alt: string;
-}
-
-interface ImageGalleryProps {
-  heading?: string;
-  images: Image[];
-  columns?: 2 | 3 | 4;
-  lightbox?: boolean;
-}
+import type { GalleryImage, ImageGalleryProps } from "./types";
 
 export function ImageGallery({ heading, images, columns = 4, lightbox = false }: ImageGalleryProps) {
-  const [selectedImage, setSelectedImage] = useState<Image | null>(null);
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
   const gridCols = {
     2: "grid-cols-1 md:grid-cols-2",

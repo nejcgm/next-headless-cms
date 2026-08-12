@@ -1,17 +1,5 @@
 import Image from "next/image";
-
-interface TeamMember {
-  name: string;
-  role: string;
-  image?: string;
-  bio?: string;
-}
-
-interface TeamGalleryProps {
-  title?: string;
-  subtitle?: string;
-  members: TeamMember[];
-}
+import type { TeamGalleryProps } from "./types";
 
 export function TeamGallery({
   title = "Meet Our Team",

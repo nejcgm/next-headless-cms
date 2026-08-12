@@ -1,13 +1,5 @@
 import { isExternalHref } from "@shared/utils/url";
-
-interface HeroProps {
-  headline: string;
-  subheadline?: string;
-  backgroundImage: string;
-  overlay?: number;
-  cta: { label: string; href: string };
-  secondaryCta?: { label: string; href: string };
-}
+import type { HeroProps } from "./types";
 
 export function Hero({ headline, subheadline, backgroundImage, cta, secondaryCta, overlay = 0.3 }: HeroProps) {
   const ctaIsExternal = isExternalHref(cta.href);

@@ -1,11 +1,4 @@
-interface Stat {
-  value: string;
-  label: string;
-}
-
-interface StatsBarProps {
-  stats: Stat[];
-}
+import type { StatsBarProps } from "./types";
 
 export function StatsBar({ stats }: StatsBarProps) {
   return (

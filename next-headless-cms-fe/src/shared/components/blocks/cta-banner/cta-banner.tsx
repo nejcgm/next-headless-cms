@@ -1,12 +1,6 @@
 import { cn } from "@shared/utils/cn";
 import { isExternalHref } from "@shared/utils/url";
-
-interface CtaBannerProps {
-  heading: string;
-  subheading?: string;
-  cta: { label: string; href: string };
-  background?: "primary" | "muted" | "dark";
-}
+import type { CtaBannerProps } from "./types";
 
 export function CtaBanner({ heading, subheading, cta, background = "primary" }: CtaBannerProps) {
   const ctaIsExternal = isExternalHref(cta.href);

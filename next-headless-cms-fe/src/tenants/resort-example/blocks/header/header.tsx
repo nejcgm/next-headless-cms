@@ -10,20 +10,11 @@ import {
   prefixPathname,
   segmentsToLogicalPathname,
 } from "@core/i18n/locale-path";
-import type { NavItem } from "@core/types/navigation";
 import { cn } from "@shared/utils/cn";
 import { isNavItemActive, normalizeTenantPathname } from "@shared/utils/nav-active";
 import { NavigationProgressBar } from "@shared/components/navigation-progress-bar";
 import { isExternalHref } from "@shared/utils/url";
-
-interface HeaderProps {
-  tenantId: string;
-  tenantName: string;
-  navigation: NavItem[];
-  logoUrl?: string;
-  locales: string[];
-  defaultLocale: string;
-}
+import type { HeaderProps } from "./types";
 
 export function Header({
   tenantId,
