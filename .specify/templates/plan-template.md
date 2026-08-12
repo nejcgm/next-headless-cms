@@ -14,7 +14,7 @@
 
 <!--
   DEFAULT for headless-cms monorepo — replace or extend per feature in /speckit-plan.
-  See also: .specify/memory/constitution.md and .specify/memory/project-context.md
+  See also: .specify/memory/constitution.md (Agent bootstrap) and .specify/memory/project-context.md
 -->
 
 **Language/Version**: TypeScript; Node.js 20+; Next.js 15 (frontend); Strapi 5.44 (backend)

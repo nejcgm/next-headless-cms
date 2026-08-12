@@ -106,6 +106,12 @@ Load only the minimal necessary context from each artifact:
 
 - Load `.specify/memory/constitution.md` for principle validation
 
+**From project memory (REQUIRED — this monorepo):**
+
+- Load `.specify/memory/project-context.md`
+- Load matching `.specify/memory/knowledge/*.md` and tenant catalogs for domains in the feature (knowledge index)
+- Flag plans/tasks that contradict knowledge SoT the same way as constitution MUST conflicts when clearly in scope
+
 ### 3. Build Semantic Models
 
 Create internal representations (do not include raw artifacts in output):

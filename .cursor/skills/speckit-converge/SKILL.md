@@ -100,6 +100,8 @@ Run `.specify/scripts/bash/check-prerequisites.sh --json --require-tasks --inclu
 - PLAN = FEATURE_DIR/plan.md
 - TASKS = FEATURE_DIR/tasks.md
 - CONSTITUTION = `.specify/memory/constitution.md` (if present)
+- PROJECT_CONTEXT = `.specify/memory/project-context.md` (REQUIRED for this monorepo — load after constitution)
+- Knowledge/catalogs from PROJECT_CONTEXT index for domains in SPEC/PLAN/TASKS
 If `spec.md`, `plan.md`, or `tasks.md` is missing, STOP with a clear, actionable message naming the
 prerequisite command to run (`/speckit-specify` for a missing spec, `/speckit-plan` for a missing plan,
 `/speckit-tasks` for missing tasks). Do not produce partial output.
@@ -132,6 +134,11 @@ Load only the minimal necessary context from each artifact:
 **From constitution (if not an unfilled template):**
 
 - Principle names and MUST/SHOULD normative statements
+
+**From project memory (REQUIRED — this monorepo):**
+
+- `.specify/memory/project-context.md` knowledge index + sync map
+- Matching `.specify/memory/knowledge/*.md` and `specs/_catalogs/{tenant}.md` for domains under convergence
 
 ### 3. Build the Intent Inventory
 

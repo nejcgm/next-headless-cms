@@ -93,7 +93,8 @@ You **MUST** consider the user input before proceeding (if not empty).
    - **IF EXISTS**: Read data-model.md for entities and relationships
    - **IF EXISTS**: Read contracts/ for API specifications and test requirements
    - **IF EXISTS**: Read research.md for technical decisions and constraints
-   - **IF EXISTS**: Read .specify/memory/constitution.md for governance constraints
+   - **REQUIRED**: Read `.specify/memory/constitution.md` for governance constraints
+   - **REQUIRED**: Read `.specify/memory/project-context.md`, then Read every matching `.specify/memory/knowledge/*.md` and tenant catalog(s) for files/domains touched by tasks.md (use knowledge index + sync map). Do not implement from constitution + feature docs alone.
    - **IF EXISTS**: Read quickstart.md for integration scenarios
 
 4. **Project Setup Verification**:

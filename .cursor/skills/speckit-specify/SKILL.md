@@ -112,8 +112,9 @@ Given that feature description, do this:
 4. Load the resolved active `spec-template` file to understand required sections.
 
 5. **IF EXISTS**: Load `.specify/memory/constitution.md` for project principles and governance constraints.
+6. **REQUIRED (this monorepo)**: Read `.specify/memory/project-context.md`, then Read matching `.specify/memory/knowledge/*.md` and `specs/_catalogs/{tenant}.md` for the feature domain (knowledge index). Spec Kit stock steps name only the constitution — Principle IV / Agent bootstrap require the full memory stack before writing the spec.
 
-6. Follow this execution flow:
+7. Follow this execution flow:
     1. Parse user description from arguments
        If empty: ERROR "No feature description provided"
     2. Extract key concepts from description

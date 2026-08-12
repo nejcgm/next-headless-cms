@@ -26,7 +26,19 @@ Agent guidance for this monorepo lives in Spec Kit only:
 | Tenant catalogs | `specs/_catalogs/{tenant-id}.md` |
 | Feature work | `specs/{nnn-feature}/` |
 
-When behavior changes, update the matching Spec Kit artifact **in the same change set** (see sync map in `project-context.md`). Do not maintain parallel Cursor `.mdc` rule trees for agent context.
+When behavior changes, update the matching Spec Kit artifact **in the same change set** (see sync map in `project-context.md`). Do not maintain parallel Cursor `.mdc` rule trees that **restate** domain guidance. A single always-on bootstrap rule that **only points** at Spec Kit paths is allowed (discovery bridge).
+
+### Agent bootstrap (NON-NEGOTIABLE)
+
+Agents MUST load Spec Kit memory in this order before domain design or implementation:
+
+1. This constitution  
+2. `.specify/memory/project-context.md` (index + sync map)  
+3. Every relevant `.specify/memory/knowledge/*.md` for the task domain (use the knowledge index)  
+4. `specs/_catalogs/{tenant-id}.md` when the work is tenant-specific  
+5. Active `specs/{nnn-feature}/` when implementing a feature  
+
+Spec Kit commands that only name the constitution are incomplete for this monorepo until steps 2–4 are done.
 
 Human docs (`README.md`, `next-headless-cms-fe/README.md`, `headless-cms-backend/README.md`) remain for people and MUST stay consistent with Spec Kit when they overlap. READMEs may include a short Spec Kit pointer only.
 
@@ -79,8 +91,8 @@ Run pnpm only inside `next-headless-cms-fe/`. CI sets `working-directory: next-h
 
 ## Development Workflow
 
-1. **New features**: `/speckit-specify` → `/speckit-plan` → `/speckit-tasks` → `/speckit-implement`
-2. **Bug fixes / small edits**: follow constitution + relevant knowledge doc and tenant catalog; open a feature spec if the contract changes
+1. **New features**: `/speckit-specify` → `/speckit-plan` → `/speckit-tasks` → `/speckit-implement` (each command MUST run Agent bootstrap above)
+2. **Bug fixes / small edits**: Agent bootstrap → relevant knowledge + catalog; open a feature spec if the contract changes
 3. Before tenant-specific work: read `specs/_catalogs/{tenant-id}.md`
 4. Header/footer live in tenant **templates**, not domain layout
 5. Do not add route-level `loading.tsx` when templates own chrome (use `NavigationProgressBar` + block-level Suspense)
@@ -94,5 +106,6 @@ This constitution defines non-negotiable architectural and process constraints. 
 - **1.3.1** — Human frontend docs are `next-headless-cms-fe/README.md` only (removed `docs/` folder); Spec Kit remains agent SoT.
 - **1.3.2** — Principle VII comments: explicit keep/remove rules (no narrating or obvious JSDoc; keep why/contract/tooling comments).
 - **1.3.3** — No comments inside `interface` / `type` bodies; contracts live in Spec Kit. Lint/`@ts-*` suppressions remain allowed with a reason.
+- **1.3.4** — Agent bootstrap: constitution → project-context → knowledge → catalogs (wired into Spec Kit skills + thin Cursor bootstrap rule).
 
-**Version**: 1.3.3 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-08-11
+**Version**: 1.3.4 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-08-12

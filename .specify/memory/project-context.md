@@ -6,10 +6,14 @@
 
 ## Agent load order
 
+**REQUIRED** at the start of Spec Kit commands and before domain coding in this repo:
+
 1. `.specify/memory/constitution.md` — non-negotiable principles  
-2. This file — find the right knowledge doc / catalog  
+2. **This file** — find the right knowledge doc / catalog  
 3. `.specify/memory/knowledge/{domain}.md` and/or `specs/_catalogs/{tenant-id}.md`  
 4. Active feature under `specs/{nnn-feature}/` when implementing a feature  
+
+Do not treat constitution-only context as enough for design or implementation.
 
 ## Repository layout
 
