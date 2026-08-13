@@ -156,7 +156,7 @@ Strapi dynamic zone entries arrive as:
 
 If Strapi omits `id`, the fallback is `` `${type}-${index}` `` (index in the page `blocks` array), not a random value.
 
-`__component` and `id` are stripped recursively from all nested component objects. No further normalisation. `BlockInstance` has no string `dataContract` field — data contracts are registered on the block definition only. Visibility supports `locales` / `dateRange` only (no device targeting).
+`__component` and `id` are stripped recursively from nested **non-DZ** component objects. Arrays whose items have `__component` (nested dynamic zones, if introduced later) are mapped to `BlockInstance[]` (`{ id, type, props }`). Visibility supports `locales` / `dateRange` only (no device targeting).
 
 ---
 

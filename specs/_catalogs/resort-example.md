@@ -12,12 +12,12 @@
 |--|--|
 | Locales | `en` (default), `de`, `sl` |
 | `dataAdapter` | `"mock"` |
-| Mock data | `src/tenants/resort-example/mock-data/` |
+| Mock data | `src/tenants/resort-example/mock-data/` (home includes `grid` + nested `image` composition proof) |
 | Port | `:3001` (`pnpm dev:resort`) |
 
-## Why mock pages look “broken”
+## Mock pages
 
-Fixture pages may still use legacy `{ id, type, props }` + `locale`. That is **acceptable for this fixture** — runtime page fidelity is not the goal. Product/mock tenants must use the canonical Strapi dynamic-zone shape (see `knowledge/mock-data.md`).
+Use the canonical Strapi dynamic-zone shape (`__component` + `lang`) — see `knowledge/mock-data.md`. Home includes a `blocks.grid` with nested `primitives.image` items for composition playground testing.
 
 ## Inventory (for isolation / edits)
 

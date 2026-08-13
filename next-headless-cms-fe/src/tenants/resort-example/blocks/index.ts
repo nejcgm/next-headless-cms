@@ -27,7 +27,7 @@ async function fetchHotel() {
 }
 
 registerTenantBlocks("resort-example", {
-  hero: {
+  "hero": {
     component: Hero,
     schema: heroSchema,
   },
@@ -82,7 +82,7 @@ registerTenantBlocks("resort-example", {
     schema: bookingWidgetSchema,
   },
 
-  testimonials: {
+  "testimonials": {
     component: Testimonials,
     schema: testimonialsSchema,
     dataContract: async (props, ctx) => {

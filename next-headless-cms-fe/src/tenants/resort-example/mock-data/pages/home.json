@@ -1,6 +1,5 @@
 {
   "slug": "/",
-  "locale": "en",
   "template": "default",
   "seo": {
     "title": "Kope — Luxury Mountain Retreat",
@@ -9,115 +8,129 @@
   },
   "blocks": [
     {
-      "id": "hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Escape to the Alps",
-        "subheadline": "Luxury rooms, mountain air, unforgettable views. Your perfect alpine retreat awaits.",
-        "backgroundImage": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&h=1080&fit=crop",
-        "overlay": 0.4,
-        "cta": {
-          "label": "Explore Rooms",
-          "href": "/rooms"
+      "__component": "blocks.hero",
+      "id": 1,
+      "headline": "Escape to the Alps",
+      "subheadline": "Luxury rooms, mountain air, unforgettable views. Your perfect alpine retreat awaits.",
+      "backgroundImage": "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&h=1080&fit=crop",
+      "overlay": 0.4,
+      "cta": {
+        "label": "Explore Rooms",
+        "href": "/rooms",
+        "id": 2
+      },
+      "secondaryCta": {
+        "label": "Check Availability",
+        "href": "/booking",
+        "id": 3
+      }
+    },
+    {
+      "__component": "blocks.stats-bar",
+      "id": 4,
+      "stats": [
+        {
+          "value": "5",
+          "label": "Room Types",
+          "id": 5
         },
-        "secondaryCta": {
-          "label": "Check Availability",
-          "href": "/booking"
-        }
-      }
-    },
-    {
-      "id": "stats-1",
-      "type": "stats-bar",
-      "props": {
-        "stats": [
-          { "value": "5", "label": "Room Types" },
-          { "value": "4.8★", "label": "Guest Rating" },
-          { "value": "Kope", "label": "Location" },
-          { "value": "Full Service", "label": "Spa & Wellness" }
-        ]
-      }
-    },
-    {
-      "id": "hotel-info-1",
-      "type": "hotel-info",
-      "props": {}
-    },
-    {
-      "id": "rooms-1",
-      "type": "room-list",
-      "props": {
-        "heading": "Our Rooms",
-        "subheading": "From cosy doubles to panoramic suites. Each room tells a story.",
-        "limit": 3,
-        "layout": "grid",
-        "cta": {
-          "label": "View All Rooms",
-          "href": "/rooms"
-        }
-      }
-    },
-    {
-      "id": "booking-1",
-      "type": "booking-widget",
-      "props": {
-        "heading": "Check Availability",
-        "layout": "inline"
-      }
-    },
-    {
-      "id": "testimonials-1",
-      "type": "testimonials",
-      "props": {
-        "heading": "What Our Guests Say",
-        "subheading": "Real experiences from real travelers",
-        "limit": 3,
-        "layout": "grid"
-      }
-    },
-    {
-      "id": "gallery-1",
-      "type": "image-gallery",
-      "props": {
-        "heading": "Experience the Resort",
-        "images": [
-          { "src": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop", "alt": "Outdoor pool with mountain view" },
-          { "src": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop", "alt": "Fine dining restaurant" },
-          { "src": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop", "alt": "Relaxing spa" },
-          { "src": "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800&h=600&fit=crop", "alt": "Mountain hiking" }
-        ],
-        "columns": 4,
-        "lightbox": true
-      }
-    },
-    {
-      "id": "cta-1",
-      "type": "cta-banner",
-      "props": {
-        "heading": "Ready to book your stay?",
-        "subheading": "Special rates available for direct bookings. Free cancellation up to 48 hours before arrival.",
-        "cta": {
-          "label": "Book Direct",
-          "href": "/booking"
+        {
+          "value": "4.8★",
+          "label": "Guest Rating",
+          "id": 6
         },
-        "background": "primary"
+        {
+          "value": "Kope",
+          "label": "Location",
+          "id": 7
+        },
+        {
+          "value": "Full Service",
+          "label": "Spa & Wellness",
+          "id": 8
+        }
+      ]
+    },
+    {
+      "__component": "blocks.hotel-info",
+      "id": 9
+    },
+    {
+      "__component": "blocks.room-list",
+      "id": 10,
+      "heading": "Our Rooms",
+      "subheading": "From cosy doubles to panoramic suites. Each room tells a story.",
+      "limit": 3,
+      "layout": "grid",
+      "cta": {
+        "label": "View All Rooms",
+        "href": "/rooms",
+        "id": 11
       }
+    },
+    {
+      "__component": "blocks.booking-widget",
+      "id": 12,
+      "heading": "Check Availability",
+      "layout": "inline"
+    },
+    {
+      "__component": "blocks.testimonials",
+      "id": 13,
+      "heading": "What Our Guests Say",
+      "subheading": "Real experiences from real travelers",
+      "limit": 3,
+      "layout": "grid"
+    },
+    {
+      "__component": "blocks.grid",
+      "id": 14,
+      "heading": "Experience the Resort",
+      "columns": 3,
+      "gap": "md",
+      "items": [
+        {
+          "__component": "primitives.image",
+          "id": 15,
+          "src": "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=800&h=600&fit=crop",
+          "alt": "Outdoor pool with mountain view",
+          "aspect": "square"
+        },
+        {
+          "__component": "primitives.image",
+          "id": 16,
+          "src": "https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&h=600&fit=crop",
+          "alt": "Fine dining restaurant",
+          "aspect": "square"
+        },
+        {
+          "__component": "primitives.image",
+          "id": 17,
+          "src": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&h=600&fit=crop",
+          "alt": "Relaxing spa",
+          "aspect": "square"
+        },
+        {
+          "__component": "primitives.image",
+          "id": 18,
+          "src": "https://images.unsplash.com/photo-1602002418082-a4443e081dd1?w=800&h=600&fit=crop",
+          "alt": "Mountain hiking",
+          "aspect": "square"
+        }
+      ]
+    },
+    {
+      "__component": "blocks.cta-banner",
+      "id": 19,
+      "heading": "Ready to book your stay?",
+      "subheading": "Special rates available for direct bookings. Free cancellation up to 48 hours before arrival.",
+      "cta": {
+        "label": "Book Direct",
+        "href": "/booking",
+        "id": 20
+      },
+      "background": "primary"
     }
   ],
-  "navigation": {
-    "header": [
-      { "label": "Home", "href": "/" },
-      { "label": "Rooms", "href": "/rooms" },
-      { "label": "Dining", "href": "/dining" },
-      { "label": "Spa", "href": "/spa" },
-      { "label": "Activities", "href": "/activities" },
-      { "label": "Contact", "href": "/contact" }
-    ],
-    "footer": [
-      { "label": "About", "href": "/about" },
-      { "label": "Careers", "href": "/careers" },
-      { "label": "Privacy Policy", "href": "/privacy" },
-      { "label": "Terms of Service", "href": "/terms" }
-    ]
-  }
+  "lang": "en"
 }

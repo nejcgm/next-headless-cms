@@ -1,7 +1,6 @@
 {
   "slug": "/rooms/:roomId",
   "slugPattern": "/rooms/:roomId",
-  "locale": "en",
   "template": "default",
   "seo": {
     "title": "Room Details — Grmovsek Hotel",
@@ -10,9 +9,9 @@
   },
   "blocks": [
     {
-      "id": "room-detail-1",
-      "type": "room-detail",
-      "props": {}
+      "__component": "blocks.room-detail",
+      "id": 1
     }
-  ]
+  ],
+  "lang": "en"
 }

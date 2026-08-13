@@ -16,6 +16,14 @@ Every tenant block lives in `src/tenants/{tenant}/blocks/{block-name}/` with:
 
 Register it in `src/tenants/{tenant}/blocks/index.ts` and wire `schema:` on the registration.
 
+**Registry keys — always quote.** In `registerSharedBlocks` / `registerTenantBlocks`, every block type key MUST be a quoted string (`"hero"`, `"grid"`, `"cta-banner"`), even when the name is a valid JS identifier. Do not mix bare keys (`grid:`) with quoted ones (`"cta-banner":`).
+
+```typescript
+"hero": { component: Hero, schema: heroSchema },
+"grid": { component: GridBlock, schema: gridSchema },
+"cta-banner": { component: CtaBanner, schema: ctaBannerSchema },
+```
+
 Shared blocks use the same folder shape under `src/shared/components/blocks/{block-name}/` (`{block-name}.tsx` + `types.ts` + `schema.ts`) and register in `shared/components/blocks/index.ts`.
 
 Header/footer chrome under `blocks/header` and `blocks/footer` also keep a `types.ts` (header defines props; footer may re-export shared `FooterProps`).
@@ -29,7 +37,7 @@ Every registered content block MUST declare a `schema` (Zod) in its registration
 The renderer validates the **merged props** (`block.props` + `dataContract` output + allowlisted search params) against the schema in **development only** and logs a `logger.warn` with the failing paths on mismatch. It never blocks rendering and is a **no-op in production** (zero cost). Use it to catch CMS/mock data drift early.
 
 ```typescript
-hero: { component: Hero, schema: heroSchema },
+"hero": { component: Hero, schema: heroSchema },
 ```
 
 Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blockId`, allowlisted request params, `dataContract` payloads) are stripped, so they won't cause false failures. Validate **authored CMS props** only; omit injected entities/collections (see `room-list` / `product-list`). Reference: `blocks/hero/schema.ts` (tenant) or `shared/components/blocks/cta-banner/schema.ts` (shared).
@@ -40,11 +48,17 @@ Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blo
 |-----------|------|
 | `src/shared/components/blocks/` | Same UI on **any** tenant; no tenant branding logic; register in `shared/components/blocks/index.ts` |
 | `src/tenants/{tenant}/blocks/` | Tenant-specific layout, copy patterns, or data wiring; register in tenant `blocks/index.ts` |
+| `src/shared/components/primitives/` | Nested leaf UI (`image`, …). Register in shared blocks for resolution, but **do not** add to the page DZ — only embed inside composition shells (e.g. `grid.items`) |
 
 Examples today:
 
-- **Shared**: `cta-banner`, `stats-bar`, `image-text`, `section-header`, `image-gallery`, `rich-text`
+- **Shared**: `cta-banner`, `stats-bar`, `image-text`, `section-header`, `image-gallery`, `rich-text`, `grid` (composition shell)
+- **Nested primitives**: `image` (inside `grid` only)
 - **Tenant**: `room-list`, `bike-detail`, `service-pricing`, tenant `hero` variants
+
+### Nested composition (resort playground)
+
+FE-only for now (no Strapi schemas). `grid` + nested `image` are registered in shared blocks; exercise via `resort-example` mock home (`grid` with `items: BlockInstance[]`). `NestedBlockList` resolves children one level deep. Cap nesting — do not recurse grids inside grids yet.
 
 Do not copy a shared block into a tenant folder unless the design or behavior truly diverges. Extend props or wrap the shared component instead.
 

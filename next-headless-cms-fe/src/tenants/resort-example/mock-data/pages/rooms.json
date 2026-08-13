@@ -1,6 +1,5 @@
 {
   "slug": "/rooms",
-  "locale": "en",
   "template": "default",
   "seo": {
     "title": "Our Rooms — Kope",
@@ -9,37 +8,18 @@
   },
   "blocks": [
     {
-      "id": "section-header-1",
-      "type": "section-header",
-      "props": {
-        "heading": "Our Rooms & Suites",
-        "subheading": "47 unique spaces, each designed for your perfect alpine retreat",
-        "centered": true
-      }
+      "__component": "blocks.section-header",
+      "id": 1,
+      "heading": "Our Rooms & Suites",
+      "subheading": "47 unique spaces, each designed for your perfect alpine retreat",
+      "centered": true
     },
     {
-      "id": "rooms-all",
-      "type": "room-list",
-      "props": {
-        "limit": 12,
-        "layout": "grid"
-      }
+      "__component": "blocks.room-list",
+      "id": 2,
+      "limit": 12,
+      "layout": "grid"
     }
   ],
-  "navigation": {
-    "header": [
-      { "label": "Home", "href": "/" },
-      { "label": "Rooms", "href": "/rooms" },
-      { "label": "Dining", "href": "/dining" },
-      { "label": "Spa", "href": "/spa" },
-      { "label": "Activities", "href": "/activities" },
-      { "label": "Contact", "href": "/contact" }
-    ],
-    "footer": [
-      { "label": "About", "href": "/about" },
-      { "label": "Careers", "href": "/careers" },
-      { "label": "Privacy Policy", "href": "/privacy" },
-      { "label": "Terms of Service", "href": "/terms" }
-    ]
-  }
+  "lang": "en"
 }

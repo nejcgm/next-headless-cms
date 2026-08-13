@@ -41,7 +41,7 @@ Rules for this shape:
 | Tenant | Path | Purpose / shape |
 |--------|------|-----------------|
 | `vukans-bike` | `src/tenants/vukans-bike/mock-data/` | **Product** seed/reference — canonical (`__component` + `lang`). Runtime uses Strapi; JSON is seed/shape reference. |
-| `resort-example` | `src/tenants/resort-example/mock-data/` | **Build-isolation fixture** only. May keep legacy `{ id, type, props }` + `locale`; runtime page fidelity is out of scope. Do **not** copy this format for new product tenants |
+| `resort-example` | `src/tenants/resort-example/mock-data/` | **Playground / isolation fixture.** Use canonical `__component` + `lang` page JSON (same as product). |
 
 **New product tenants** (mock or Strapi seed JSON): always use the canonical shape above. Scaffold stubs from `create:tenant` write under `src/tenants/{id}/mock-data/`.
 

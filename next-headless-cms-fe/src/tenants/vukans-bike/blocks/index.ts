@@ -35,12 +35,12 @@ import { GuidedTourExperience } from "./guided-tour-experience/guided-tour-exper
 import { guidedTourExperienceSchema } from "./guided-tour-experience/schema";
 
 registerTenantBlocks("vukans-bike", {
-  hero: {
+  "hero": {
     component: Hero,
     schema: heroSchema,
   },
 
-  contact: {
+  "contact": {
     component: Contact,
     schema: contactSchema,
   },
@@ -81,7 +81,7 @@ registerTenantBlocks("vukans-bike", {
     schema: bikeSchoolProgramSchema,
   },
 
-  gallery: {
+  "gallery": {
     component: Gallery,
     schema: gallerySchema,
   },

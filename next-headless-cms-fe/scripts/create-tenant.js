@@ -124,8 +124,8 @@ function blocksIndexTemplate(vars) {
   return `import { registerTenantBlocks } from "@core/blocks/registry";
 
 registerTenantBlocks("${vars.id}", {
-  // Register tenant-specific blocks here, e.g.:
-  // hero: { component: Hero },
+  // Register tenant-specific blocks here (always quote keys), e.g.:
+  // "hero": { component: Hero, schema: heroSchema },
 });
 `;
 }

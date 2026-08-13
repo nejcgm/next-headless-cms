@@ -1,6 +1,5 @@
 {
   "slug": "/about",
-  "locale": "en",
   "template": "default",
   "seo": {
     "title": "About Us — Guest House Grmovškov dom Kope",
@@ -9,119 +8,134 @@
   },
   "blocks": [
     {
-      "id": "about-hero-1",
-      "type": "hero",
-      "props": {
-        "headline": "Our Story",
-        "subheadline": "A mountain retreat where adventure meets comfort",
-        "backgroundImage": "https://static.cupid.travel/hotels/ex_ea343c0b_z.jpg",
-        "overlay": 0.5,
-        "cta": {
-          "label": "View Rooms",
-          "href": "/rooms"
+      "__component": "blocks.hero",
+      "id": 1,
+      "headline": "Our Story",
+      "subheadline": "A mountain retreat where adventure meets comfort",
+      "backgroundImage": "https://static.cupid.travel/hotels/ex_ea343c0b_z.jpg",
+      "overlay": 0.5,
+      "cta": {
+        "label": "View Rooms",
+        "href": "/rooms",
+        "id": 2
+      }
+    },
+    {
+      "__component": "blocks.about-story",
+      "id": 3,
+      "title": "Family Tradition Since 1985",
+      "subtitle": "Nestled in the Pohorje Mountains",
+      "story": "Guest House Grmovškov dom Kope has been welcoming guests for nearly four decades. What started as a small family lodge has grown into a beloved mountain retreat, while maintaining the warm hospitality that defines us. Our ski-in/ski-out location makes us the perfect base for winter adventures, while our proximity to hiking and biking trails offers endless summer exploration.",
+      "mission": "To provide authentic mountain hospitality where every guest feels at home, surrounded by nature's beauty.",
+      "image": "https://static.cupid.travel/hotels/ex_084c7ad8_z.jpg",
+      "yearEstablished": "1985",
+      "highlights": [
+        {
+          "value": "49",
+          "label": "Guest Rooms",
+          "id": 4
+        },
+        {
+          "value": "2",
+          "label": "Restaurants",
+          "id": 5
+        },
+        {
+          "value": "3★",
+          "label": "Rating",
+          "id": 6
         }
-      }
+      ],
+      "imagePosition": "right"
     },
     {
-      "id": "about-story-1",
-      "type": "about-story",
-      "props": {
-        "title": "Family Tradition Since 1985",
-        "subtitle": "Nestled in the Pohorje Mountains",
-        "story": "Guest House Grmovškov dom Kope has been welcoming guests for nearly four decades. What started as a small family lodge has grown into a beloved mountain retreat, while maintaining the warm hospitality that defines us. Our ski-in/ski-out location makes us the perfect base for winter adventures, while our proximity to hiking and biking trails offers endless summer exploration.",
-        "mission": "To provide authentic mountain hospitality where every guest feels at home, surrounded by nature's beauty.",
-        "image": "https://static.cupid.travel/hotels/ex_084c7ad8_z.jpg",
-        "yearEstablished": "1985",
-        "highlights": [
-          { "value": "49", "label": "Guest Rooms" },
-          { "value": "2", "label": "Restaurants" },
-          { "value": "3★", "label": "Rating" }
-        ],
-        "imagePosition": "right"
-      }
-    },
-    {
-      "id": "amenities-grid-1",
-      "type": "amenities-grid",
-      "props": {
-        "title": "What We Offer",
-        "subtitle": "Everything you need for a perfect mountain getaway",
-        "columns": 3,
-        "amenities": [
-          {
-            "icon": "ski",
-            "title": "Ski-In/Ski-Out",
-            "description": "Direct access to Kope ski slopes from your doorstep"
-          },
-          {
-            "icon": "restaurant",
-            "title": "Two Restaurants",
-            "description": "Savor local and international cuisine on-site"
-          },
-          {
-            "icon": "wifi",
-            "title": "Free WiFi",
-            "description": "Stay connected throughout the property"
-          },
-          {
-            "icon": "parking",
-            "title": "Free Parking",
-            "description": "Complimentary parking for all guests"
-          },
-          {
-            "icon": "bar",
-            "title": "Bar & Lounge",
-            "description": "Relax with drinks after a day of adventure"
-          },
-          {
-            "icon": "fireplace",
-            "title": "Cozy Atmosphere",
-            "description": "Mountain charm with modern comfort"
-          }
-        ]
-      }
-    },
-    {
-      "id": "team-gallery-1",
-      "type": "team-gallery",
-      "props": {
-        "title": "Meet Our Family",
-    "subtitle": "The people behind your unforgettable stay",
-        "members": [
-          {
-            "name": "Marjan Novak",
-            "role": "General Manager",
-            "bio": "Third generation host with 25 years of hospitality experience"
-          },
-          {
-            "name": "Ana Novak",
-            "role": "Head Chef",
-            "bio": "Creates authentic Slovenian mountain cuisine"
-          },
-          {
-            "name": "Luka Kovač",
-            "role": "Guest Relations",
-            "bio": "Your go-to for local tips and trail recommendations"
-          },
-          {
-            "name": "Maja Horvat",
-            "role": "Housekeeping",
-            "bio": "Ensures every room feels like home"
-          }
-        ]
-      }
-    },
-    {
-      "id": "cta-banner-1",
-      "type": "cta-banner",
-      "props": {
-        "headline": "Ready to Experience Kope?",
-        "subheadline": "Book your mountain getaway today",
-        "cta": {
-          "label": "Check Availability",
-          "href": "/rooms"
+      "__component": "blocks.amenities-grid",
+      "id": 7,
+      "title": "What We Offer",
+      "subtitle": "Everything you need for a perfect mountain getaway",
+      "columns": 3,
+      "amenities": [
+        {
+          "icon": "ski",
+          "title": "Ski-In/Ski-Out",
+          "description": "Direct access to Kope ski slopes from your doorstep",
+          "id": 8
+        },
+        {
+          "icon": "restaurant",
+          "title": "Two Restaurants",
+          "description": "Savor local and international cuisine on-site",
+          "id": 9
+        },
+        {
+          "icon": "wifi",
+          "title": "Free WiFi",
+          "description": "Stay connected throughout the property",
+          "id": 10
+        },
+        {
+          "icon": "parking",
+          "title": "Free Parking",
+          "description": "Complimentary parking for all guests",
+          "id": 11
+        },
+        {
+          "icon": "bar",
+          "title": "Bar & Lounge",
+          "description": "Relax with drinks after a day of adventure",
+          "id": 12
+        },
+        {
+          "icon": "fireplace",
+          "title": "Cozy Atmosphere",
+          "description": "Mountain charm with modern comfort",
+          "id": 13
         }
+      ]
+    },
+    {
+      "__component": "blocks.team-gallery",
+      "id": 14,
+      "title": "Meet Our Family",
+      "subtitle": "The people behind your unforgettable stay",
+      "members": [
+        {
+          "name": "Marjan Novak",
+          "role": "General Manager",
+          "bio": "Third generation host with 25 years of hospitality experience",
+          "id": 15
+        },
+        {
+          "name": "Ana Novak",
+          "role": "Head Chef",
+          "bio": "Creates authentic Slovenian mountain cuisine",
+          "id": 16
+        },
+        {
+          "name": "Luka Kovač",
+          "role": "Guest Relations",
+          "bio": "Your go-to for local tips and trail recommendations",
+          "id": 17
+        },
+        {
+          "name": "Maja Horvat",
+          "role": "Housekeeping",
+          "bio": "Ensures every room feels like home",
+          "id": 18
+        }
+      ]
+    },
+    {
+      "__component": "blocks.cta-banner",
+      "id": 19,
+      "headline": "Ready to Experience Kope?",
+      "subheadline": "Book your mountain getaway today",
+      "cta": {
+        "label": "Check Availability",
+        "href": "/rooms",
+        "id": 20
       }
     }
-  ]
+  ],
+  "lang": "en"
 }
