@@ -12,6 +12,7 @@ export const boxStyleSchema = z.object({
   backgroundColor: z.string().optional(),
   color: z.string().optional(),
   border: z.string().optional(),
+  borderTop: z.string().optional(),
   borderRadius: z.string().optional(),
   overflow: z.enum(["visible", "hidden", "auto"]).optional(),
   fontSize: z.string().optional(),
@@ -34,6 +35,7 @@ export function toBoxStyle(props: BoxStyle): CSSProperties {
   }
   if (props.color) style.color = resolveColor(props.color);
   if (props.border) style.border = props.border;
+  if (props.borderTop) style.borderTop = props.borderTop;
   if (props.borderRadius) style.borderRadius = props.borderRadius;
   if (props.overflow) style.overflow = props.overflow;
   if (props.fontSize) style.fontSize = props.fontSize;

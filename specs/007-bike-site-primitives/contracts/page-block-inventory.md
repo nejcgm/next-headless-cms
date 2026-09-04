@@ -20,10 +20,12 @@ Define which block types may appear on Vukan's Bike pages after this feature, wh
 | `blocks.heading` | L1 leaf |
 | `blocks.text` | L1 leaf |
 | `blocks.image` | L1 leaf |
+| `blocks.iframe` | L1 leaf |
+| `blocks.icon` | L1 leaf |
 | `blocks.button` | L1 leaf |
+| `blocks.link` | L1 leaf |
 | `blocks.product-list` | L3 Keep |
 | `blocks.bike-detail` | L3 Keep |
-| `blocks.contact` | L3 Keep |
 | `blocks.gallery` | L3 Keep |
 | `blocks.partners-gallery` | L3 Keep |
 | `blocks.service-pricing` | L3 Keep |
@@ -56,6 +58,7 @@ These MUST have **0** hits in bike mock pages, bike `blocks/index.ts`, and Strap
 | `blocks.guided-tour-experience` | Bike proprietary |
 | `blocks.service-process` | Bike proprietary |
 | `blocks.service-contact` | Bike proprietary |
+| `blocks.contact` | Bike proprietary (replaced by L1 + `iframe`) |
 
 ## Resort fixture contract
 

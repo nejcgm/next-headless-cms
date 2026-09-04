@@ -1,4 +1,4 @@
-import "@shared/components/blocks";
+import "@shared/components";
 import "@tenant/blocks";
 
 export {};

@@ -28,7 +28,10 @@ Composition runtime entities (`BlockInstance`, `CompositionPolicy`, `slots`, max
 | `heading` | leaf | `level` 1–6 + `variant` display\|title\|section |
 | `text` | leaf | `variant` body\|lead\|caption\|label |
 | `image` | leaf | Real visual anchors |
+| `iframe` | leaf | Embeds (maps, video) |
+| `icon` | leaf | Decorative icons (`map-pin`, `phone`, `mail`) |
 | `button` | leaf | CTAs |
+| `link` | leaf | Text links (`accent` / `muted`) |
 
 #### Level 3 Keep (bike proprietary — retain)
 
@@ -36,7 +39,6 @@ Composition runtime entities (`BlockInstance`, `CompositionPolicy`, `slots`, max
 |------|---------|---------|
 | `product-list` | leaf (+ dataContract) | Home, shop |
 | `bike-detail` | leaf (+ dataContract) | `/bikes/{slug}` |
-| `contact` | leaf | Contact |
 | `gallery` | leaf | Bike school, guided tours |
 | `partners-gallery` | leaf | Brands |
 | `service-pricing` | leaf | Service |
@@ -49,16 +51,16 @@ Header, footer templates — unchanged.
 ### Superseded types (delete after zero bike references)
 
 **Shared**: `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`  
-**Bike proprietary**: `hero`, `about-story`, `about-person`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`
+**Bike proprietary**: `contact`, `hero`, `about-story`, `about-person`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`
 
 ### Composition allowlist (update)
 
-Layout primitives MUST allow Keep L3 leaves in `default` (in addition to L1):
+Shared layout policies allow **L1 only**. Bike Keep L3 is registered via tenant nest allow:
 
 ```text
-nestAllow = [
-  stack, flex, grid, heading, text, image, button,
-  product-list, bike-detail, contact, gallery,
+shared nestAllow = [stack, flex, grid, heading, text, image, iframe, icon, button, link]
+tenant nestAllow extras = [
+  product-list, bike-detail, gallery,
   partners-gallery, service-pricing, service-faq
 ]
 ```
@@ -73,8 +75,8 @@ After cleanup, `page.blocks` components list:
 
 ```text
 blocks.section, blocks.stack, blocks.flex, blocks.grid,
-blocks.heading, blocks.text, blocks.image, blocks.button,
-blocks.product-list, blocks.bike-detail, blocks.contact,
+blocks.heading, blocks.text, blocks.image, blocks.iframe, blocks.icon, blocks.button, blocks.link,
+blocks.product-list, blocks.bike-detail,
 blocks.gallery, blocks.partners-gallery,
 blocks.service-pricing, blocks.service-faq
 ```

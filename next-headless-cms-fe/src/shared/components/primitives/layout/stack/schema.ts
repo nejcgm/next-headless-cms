@@ -1,7 +1,7 @@
 import { z } from "zod";
 import type { CompositionPolicy } from "@core/blocks/types";
 import { boxStyleSchema } from "@shared/utils/box-style";
-import { STACK_NEST_ALLOW } from "../composition-allow";
+import { STACK_NEST_ALLOW } from "../../../composition-allow";
 
 export const stackSchema = boxStyleSchema.extend({
   gap: z.enum(["sm", "md", "lg"]).optional(),
@@ -10,7 +10,7 @@ export const stackSchema = boxStyleSchema.extend({
 
 export const stackPolicy: CompositionPolicy = {
   level: 1,
-  maxDepth: 3,
+  maxDepth: 4,
   slots: {
     default: {
       allow: [...STACK_NEST_ALLOW],

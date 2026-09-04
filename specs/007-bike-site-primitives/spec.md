@@ -72,7 +72,6 @@ Complex interactive or data-bound experiences that cannot be faithfully rebuilt 
 |------|-----------|-------------------|
 | `product-list` | Bike proprietary | Catalog `dataContract`, product cards, stock labels |
 | `bike-detail` | Bike proprietary | Catalog `dataContract`, product gallery/specs UX |
-| `contact` | Bike proprietary | Map embed, structured hours/address/labels |
 | `gallery` | Bike proprietary | Lightbox / expand interaction beyond static images |
 | `partners-gallery` | Bike proprietary | Partner entities with logos, blurbs, outbound links |
 | `service-pricing` | Bike proprietary | Structured packages/prices/features tables |
@@ -93,6 +92,7 @@ Complex interactive or data-bound experiences that cannot be faithfully rebuilt 
 | `bike-school-intro`, `bike-school-program` | Bike proprietary | Same primitive vocabulary (program tiers as stacks of text) |
 | `guided-tour-experience` | Bike proprietary | `section` + `grid`/`stack` of text (+ optional images) |
 | `service-process`, `service-contact` | Bike proprietary | `section` + stacks/buttons (process as ordered text stacks) |
+| `contact` | Bike proprietary | `section` + `grid`/`stack` + `heading`/`text`/`button` + `iframe` (map) |
 
 ---
 
@@ -128,7 +128,7 @@ After bike pages no longer reference a replaceable type, that type is removed fr
 - **FR-001**: System MUST redesign all public Vukan's Bike pages in mock JSON using the shared L1 primitive vocabulary plus approved L3 Keep compounds only.
 - **FR-002**: System MUST preserve locales `sl`, `en`, and `de` for every redesigned page with equivalent information architecture.
 - **FR-003**: System MUST NOT leave replaceable opaque section types in bike mock page trees after migration — covering **both** shared opaques and bike proprietary expressible blocks listed under Replace.
-- **FR-004**: System MUST retain Keep compounds (`product-list`, `bike-detail`, `contact`, `gallery`, `partners-gallery`, `service-pricing`, `service-faq`) where the page needs their irreducible behavior.
+- **FR-004**: System MUST retain Keep compounds (`product-list`, `bike-detail`, `gallery`, `partners-gallery`, `service-pricing`, `service-faq`) where the page needs their irreducible behavior.
 - **FR-005**: System MUST remove superseded bike proprietary block implementations from the bike registry once unused.
 - **FR-006**: System MUST remove superseded Strapi components from the page dynamic zone and delete unused component definitions that no tenant content requires (shared and bike proprietary alike when bike no longer needs them).
 - **FR-007**: System MUST drop (delete, not rewrite) any `resort-example` mock page nodes whose shared opaque types are deleted because Vukan's Bike no longer needs them, so the fixture keeps building without depending on those types.
@@ -154,7 +154,7 @@ After bike pages no longer reference a replaceable type, that type is removed fr
 
 - **SC-001**: 100% of public bike pages in all three locales load successfully from mock data after redesign.
 - **SC-002**: 0 references to the Replace list remain in bike mock page JSON.
-- **SC-003**: 100% of Keep-list capabilities still appear on the pages that previously relied on them (catalog, contact map, FAQ, pricing, galleries, partners, bike detail).
+- **SC-003**: 100% of Keep-list capabilities still appear on the pages that previously relied on them (catalog, FAQ, pricing, galleries, partners, bike detail); contact map/address remains via L1 `iframe` + stacks.
 - **SC-004**: Superseded types (shared and bike proprietary) show 0 registrations where removed and 0 Strapi page-DZ entries after cleanup.
 - **SC-005**: A reviewer can open every public bike page and confirm each primary section has a single clear purpose, brand-consistent presentation, and professional restraint (not leftover opaque sections or vibecoded filler).
 - **SC-006**: On a structured design review of home, service, about, shop, contact, bike school, guided tours, and brands, the first viewport of each marketing page passes the brand/hero-budget test (brand or place remains dominant if nav were ignored), and zero pages rely on vanity metric strips or decorative card grids as the main section idea.
@@ -168,4 +168,4 @@ After bike pages no longer reference a replaceable type, that type is removed fr
 - No new primitives are required beyond the existing L1 set for this redesign; if a gap appears, prefer composition first.
 - Vukan's Bike decides which shared types remain; `resort-example` only drops deleted shared nodes from mock pages so the fixture still builds — not a product redesign and not a primitive rewrite of resort.
 - Visual editor remains out of scope; trees are hand-authored in JSON.
-- Pricing tables, FAQ accordion, contact map, partner gallery lightbox/links, and product catalog UIs stay compounds rather than lossy primitive approximations.
+- Pricing tables, FAQ accordion, partner gallery lightbox/links, and product catalog UIs stay compounds rather than lossy primitive approximations. Contact map/address is L1 (`iframe` + stacks/buttons).

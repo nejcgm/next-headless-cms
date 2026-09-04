@@ -53,33 +53,230 @@
       }
     },
     {
-      "__component": "blocks.contact",
+      "__component": "blocks.section",
       "id": 200,
-      "labels": {
-        "id": 201,
-        "addressHeading": "Adresse",
-        "directionsLinkText": "In Google Maps öffnen →",
-        "phoneHeading": "Telefon",
-        "emailHeading": "E-Mail",
-        "mapIframeTitle": "Standort auf der Karte — Google Maps",
-        "mapFallbackTitle": "In Google Maps öffnen",
-        "mapFullscreenLink": "In Google Maps öffnen (Vollbild) →"
-      },
-      "heading": "So finden Sie uns",
-      "subheading": "Vukan's Bike Shop — Service und Verkauf aller Fahrradarten in Apače.",
-      "address": {
-        "id": 202,
-        "street": "Apače 66a",
-        "postalCode": "9253",
-        "city": "Apače",
-        "country": "Slowenien"
-      },
-      "directionsLink": "https://www.google.com/maps/place/Vukans+bike/@46.696131,15.9088762,19.13z/data=!4m6!3m5!1s0x476f1311eca9b685:0x1751e62b3f51766c!8m2!3d46.6961521!4d15.9091873!16s%2Fg%2F11xdx3n8xg?entry=ttu",
-      "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.074!2d15.9091873!3d46.6961521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476f1311eca9b685%3A0x1751e62b3f51766c!2sVukan%27s%20Bike!5e0!3m2!1ssl!2ssi!4v1735689600000!5m2!1ssl!2ssi",
-      "phone": "070 815 379",
-      "phoneHref": "+38670815379",
-      "email": "vukansbike@gmail.com",
-      "hoursNote": "Öffnungszeiten nach Vereinbarung. Für Service und Besichtigung rufen Sie bitte zuerst an oder schreiben Sie uns."
+      "padding": "lg",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 202,
+            "gap": "sm",
+            "align": "center",
+            "maxWidth": "640px",
+            "margin": "0 auto 48px",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 203,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "So finden Sie uns",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 204,
+                  "variant": "lead",
+                  "content": "Vukan's Bike Shop — Service und Verkauf aller Fahrradarten in Apače.",
+                  "textAlign": "center",
+                  "color": "secondary",
+                  "maxWidth": "640px"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.grid",
+            "id": 210,
+            "columns": { "mobile": 1, "desktop": 2 },
+            "gap": "lg",
+            "maxWidth": "1100px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 220,
+                  "gap": "lg",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.flex",
+                        "id": 221,
+                        "gap": "md",
+                        "align": "start",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.icon",
+                              "id": 222,
+                              "name": "map-pin",
+                              "label": "Adresse",
+                              "size": "md"
+                            },
+                            {
+                              "__component": "blocks.stack",
+                              "id": 223,
+                              "gap": "sm",
+                              "slots": {
+                                "default": [
+                                  {
+                                    "__component": "blocks.heading",
+                                    "id": 224,
+                                    "level": 3,
+                                    "variant": "section",
+                                    "content": "Adresse"
+                                  },
+                                  {
+                                    "__component": "blocks.text",
+                                    "id": 225,
+                                    "variant": "body",
+                                    "content": "Apače 66a, 9253 Apače, Slowenien",
+                                    "color": "secondary"
+                                  },
+                                  {
+                                    "__component": "blocks.link",
+                                    "id": 226,
+                                    "label": "In Google Maps öffnen",
+                                    "href": "https://www.google.com/maps/place/Vukans+bike/@46.696131,15.9088762,19.13z/data=!4m6!3m5!1s0x476f1311eca9b685:0x1751e62b3f51766c!8m2!3d46.6961521!4d15.9091873!16s%2Fg%2F11xdx3n8xg?entry=ttu",
+                                    "variant": "accent",
+                                    "showArrow": true,
+                                    "margin": "4px 0 0"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 230,
+                        "gap": "md",
+                        "align": "start",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.icon",
+                              "id": 231,
+                              "name": "phone",
+                              "label": "Telefon",
+                              "size": "md"
+                            },
+                            {
+                              "__component": "blocks.stack",
+                              "id": 232,
+                              "gap": "sm",
+                              "slots": {
+                                "default": [
+                                  {
+                                    "__component": "blocks.heading",
+                                    "id": 233,
+                                    "level": 3,
+                                    "variant": "section",
+                                    "content": "Telefon"
+                                  },
+                                  {
+                                    "__component": "blocks.link",
+                                    "id": 234,
+                                    "label": "070 815 379",
+                                    "href": "tel:+38670815379",
+                                    "variant": "muted"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 240,
+                        "gap": "md",
+                        "align": "start",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.icon",
+                              "id": 241,
+                              "name": "mail",
+                              "label": "E-Mail",
+                              "size": "md"
+                            },
+                            {
+                              "__component": "blocks.stack",
+                              "id": 242,
+                              "gap": "sm",
+                              "slots": {
+                                "default": [
+                                  {
+                                    "__component": "blocks.heading",
+                                    "id": 243,
+                                    "level": 3,
+                                    "variant": "section",
+                                    "content": "E-Mail"
+                                  },
+                                  {
+                                    "__component": "blocks.link",
+                                    "id": 244,
+                                    "label": "vukansbike@gmail.com",
+                                    "href": "mailto:vukansbike@gmail.com",
+                                    "variant": "muted"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 250,
+                        "variant": "caption",
+                        "content": "Öffnungszeiten nach Vereinbarung. Für Service und Besichtigung rufen Sie bitte zuerst an oder schreiben Sie uns.",
+                        "color": "secondary",
+                        "margin": "8px 0 0",
+                        "padding": "20px 0 0",
+                        "borderTop": "1px solid var(--color-border)"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 260,
+                  "gap": "sm",
+                  "align": "center",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.iframe",
+                        "id": 261,
+                        "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.074!2d15.9091873!3d46.6961521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476f1311eca9b685%3A0x1751e62b3f51766c!2sVukan%27s%20Bike!5e0!3m2!1ssl!2ssi!4v1735689600000!5m2!1ssl!2ssi",
+                        "title": "Standort auf der Karte — Google Maps",
+                        "aspect": "map",
+                        "minHeight": "320px",
+                        "borderRadius": "16px"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 262,
+                        "label": "In Google Maps öffnen (Vollbild)",
+                        "href": "https://www.google.com/maps/place/Vukans+bike/@46.696131,15.9088762,19.13z/data=!4m6!3m5!1s0x476f1311eca9b685:0x1751e62b3f51766c!8m2!3d46.6961521!4d15.9091873!16s%2Fg%2F11xdx3n8xg?entry=ttu",
+                        "variant": "accent",
+                        "showArrow": true,
+                        "margin": "8px 0 0"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   ],
   "lang": "de"

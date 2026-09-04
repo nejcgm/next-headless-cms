@@ -1,7 +1,7 @@
 import { z } from "zod";
 import type { CompositionPolicy } from "@core/blocks/types";
 import { boxStyleSchema } from "@shared/utils/box-style";
-import { LAYOUT_NEST_ALLOW } from "../composition-allow";
+import { LAYOUT_NEST_ALLOW } from "../../../composition-allow";
 
 export const flexSchema = boxStyleSchema.extend({
   direction: z.enum(["row", "column"]).optional(),
@@ -13,7 +13,7 @@ export const flexSchema = boxStyleSchema.extend({
 
 export const flexPolicy: CompositionPolicy = {
   level: 1,
-  maxDepth: 3,
+  maxDepth: 4,
   slots: {
     default: {
       allow: [...LAYOUT_NEST_ALLOW],

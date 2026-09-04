@@ -67,7 +67,7 @@ When code behavior changes, update matching Spec Kit docs **in the same change s
 | If you edit | Update |
 |-------------|--------|
 | `next-headless-cms-fe/src/app/**`, `middleware.ts` | `knowledge/architecture.md` (+ constitution if invariant) |
-| `src/core/blocks/**`, `shared/components/blocks/**` | `knowledge/block-system.md` |
+| `src/core/blocks/**`, `shared/components/primitives/**`, `shared/components/{index,composition-allow}.ts` | `knowledge/block-system.md` |
 | `src/tenants/*/blocks/**`, `templates/**` | `knowledge/block-system.md` + `specs/_catalogs/{tenant}.md` |
 | `src/tenants/{id}/mock-data/**` | `knowledge/mock-data.md` + catalog |
 | `src/core/data/adapters/**`, `strapi/**` | `knowledge/api-contract.md`, `architecture.md` |

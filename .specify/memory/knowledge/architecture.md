@@ -23,7 +23,7 @@ These cross-boundary imports exist by architectural necessity (build-time `@tena
 - `core/routing/resolver.tsx` — dynamic import of `@tenant/templates/{name}`
 - `core/data/fetcher.ts` — `@tenant/config` (`dataAdapter`, template chrome flags for nav loading)
 - `core/data/adapters/mock.adapter.ts` — `@tenant/config` + `@mock-data`
-- `shared/components/blocks/index.ts` — `registerSharedBlocks` from `core/blocks/registry`
+- `shared/components/index.ts` — `registerSharedBlocks` from `core/blocks/registry` (L1 under `primitives/`)
 - `shared/components/layout/footer.tsx` — `NavItem` from `@core/types/navigation`
 
 Do **not** add new `core/` → `@tenant` imports. ESLint `no-restricted-imports` on `src/core/**` enforces this (allowlisted exception files above). If you need tenant data in core, pass it in from `app/` / an existing exception, or extend the allowlist **and** this list in the same change.

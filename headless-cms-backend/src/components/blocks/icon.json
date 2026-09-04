@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_blocks_icons",
+  "info": {
+    "displayName": "Icon",
+    "icon": "bulletList",
+    "description": "Decorative icon leaf (map-pin, phone, mail)"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "enumeration",
+      "enum": ["map-pin", "phone", "mail"],
+      "required": true
+    },
+    "label": { "type": "string" },
+    "size": {
+      "type": "enumeration",
+      "enum": ["sm", "md", "lg"],
+      "default": "md"
+    },
+    "width": { "type": "string" },
+    "height": { "type": "string" },
+    "minHeight": { "type": "string" },
+    "maxWidth": { "type": "string" },
+    "padding": { "type": "string" },
+    "margin": { "type": "string" },
+    "backgroundColor": { "type": "string" },
+    "color": { "type": "string" },
+    "border": { "type": "string" },
+    "borderRadius": { "type": "string" },
+    "overflow": {
+      "type": "enumeration",
+      "enum": ["visible", "hidden", "auto"]
+    }
+  }
+}

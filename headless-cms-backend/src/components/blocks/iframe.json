@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_blocks_iframes",
+  "info": {
+    "displayName": "Iframe",
+    "icon": "landscape",
+    "description": "Embed leaf (maps, video, etc.)"
+  },
+  "options": {},
+  "attributes": {
+    "src": { "type": "string", "required": true },
+    "title": { "type": "string", "required": true },
+    "allowFullscreen": { "type": "boolean", "default": true },
+    "aspect": {
+      "type": "enumeration",
+      "enum": ["video", "map", "square"],
+      "default": "map"
+    },
+    "width": { "type": "string" },
+    "height": { "type": "string" },
+    "minHeight": { "type": "string" },
+    "maxWidth": { "type": "string" },
+    "padding": { "type": "string" },
+    "margin": { "type": "string" },
+    "backgroundColor": { "type": "string" },
+    "color": { "type": "string" },
+    "border": { "type": "string" },
+    "borderRadius": { "type": "string" },
+    "overflow": {
+      "type": "enumeration",
+      "enum": ["visible", "hidden", "auto"]
+    }
+  }
+}

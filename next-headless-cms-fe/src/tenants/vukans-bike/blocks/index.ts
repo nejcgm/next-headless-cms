@@ -11,8 +11,6 @@ import { ServiceFaq } from "./service-faq/service-faq";
 import { serviceFaqSchema } from "./service-faq/schema";
 import { PartnersGallery } from "./partners-gallery/partners-gallery";
 import { partnersGallerySchema } from "./partners-gallery/schema";
-import { Contact } from "./contact/contact";
-import { contactSchema } from "./contact/schema";
 import { BikeDetail } from "./bike-detail/bike-detail";
 import { bikeDetailSchema } from "./bike-detail/schema";
 import { loadBikeForBikeDetailBlock } from "./bike-detail/load-bike";
@@ -28,7 +26,6 @@ const keepLeafPolicy = {
 registerTenantLayoutNestAllow("vukans-bike", [
   "product-list",
   "bike-detail",
-  "contact",
   "gallery",
   "partners-gallery",
   "service-pricing",
@@ -36,12 +33,6 @@ registerTenantLayoutNestAllow("vukans-bike", [
 ]);
 
 registerTenantBlocks("vukans-bike", {
-  contact: {
-    component: Contact,
-    schema: contactSchema,
-    policy: keepLeafPolicy,
-  },
-
   "bike-detail": {
     component: BikeDetail,
     schema: bikeDetailSchema,

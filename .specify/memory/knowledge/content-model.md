@@ -86,9 +86,10 @@ Footer text labels. Fields: `tagline`, `linksHeading`, `contactHeading`, `contac
 
 Each component maps to one `BlockInstance.type`. After Strapi strips `__component` and `id` meta, the remaining fields become `BlockInstance.props` — no further mapping needed.
 
-Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Keep components below. Deleted from DZ and disk: shared opaques (`cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`) and bike proprietary marketing blocks (`hero`, `about-*`, `bike-school-*`, `guided-tour-experience`, `service-process`, `service-contact`).
+Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Keep components below. Deleted from DZ and disk: shared opaques (`cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`), bike proprietary marketing blocks (`hero`, `about-*`, `bike-school-*`, `guided-tour-experience`, `service-process`, `service-contact`), and `contact` (+ `contact-address` / `contact-labels`) now expressed as L1 + `iframe`.
 
 ### Shared L1 (available to all tenants)
+
 
 | Component | `type` in frontend | Key fields |
 |-----------|--------------------|-----------|
@@ -99,19 +100,19 @@ Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Kee
 | `blocks.heading` | `heading` | Leaf: `content`, `level` (1–6), `variant` (`display`/`title`/`section`), slim box styles |
 | `blocks.text` | `text` | Leaf: `content`, `variant` (`body`/`lead`/`caption`/`label`), slim box styles (stats = stack of two texts) |
 | `blocks.image` | `image` | Leaf: `src`, `alt?`, `fit?`, slim box styles |
-| `blocks.button` | `button` | Leaf: `label`, `href`, `variant?`, slim box styles |
+| `blocks.iframe` | `iframe` | Leaf: `src`, `title`, `allowFullscreen?`, `aspect?` (`video`/`map`/`square`), slim box styles |
+| `blocks.icon` | `icon` | Leaf: `name` (`map-pin`/`phone`/`mail`), `label?`, `size?` (`sm`/`md`/`lg`), slim box styles |
+| `blocks.button` | `button` | Leaf: `label`, `href`, `variant?` (`primary`/`secondary`), slim box styles |
+| `blocks.link` | `link` | Leaf: `label`, `href`, `variant?` (`accent`/`muted`), `showArrow?`, slim box styles |
 
-**Box styles** (shared L1): `width`, `height`, `minHeight`, `maxWidth`, `padding` (not on `section`), `margin`, `backgroundColor`, `color`, `border`, `borderRadius`, `overflow`, `fontSize`, `fontWeight`, `textAlign`.
+**Box styles** (shared L1): `width`, `height`, `minHeight`, `maxWidth`, `padding` (not on `section`), `margin`, `backgroundColor`, `color`, `border`, `borderTop`, `borderRadius`, `overflow`, `fontSize`, `fontWeight`, `textAlign`.
 
-**Composition nesting**: Page DZ roots stay flat. Nesting uses `slots` JSON shaped like `{ "default": [ { "__component": "blocks.text", "id": 1, ... }, ... ] }`. Frontend `toPageData(raw, locale, tenantId)` recursively validates via registry policies into `BlockInstance.slots`. Layout policies allow Keep L3 under `section` / `stack` / `flex` / `grid` (`composition-allow.ts`).
+**Composition nesting**: Page DZ roots stay flat. Nesting uses `slots` JSON shaped like `{ "default": [ { "__component": "blocks.text", "id": 1, ... }, ... ] }`. Frontend `toPageData(raw, locale, tenantId)` recursively validates via registry policies into `BlockInstance.slots`. Shared layout policies allow **L1 only** (`composition-allow.ts`); bike Keep L3 is added via `registerTenantLayoutNestAllow`.
 
 ### Vukan's Bike Keep L3
 
 | Component | `type` | Key fields |
 |-----------|--------|-----------|
-| `blocks.contact` | `contact` | `heading`, `subheading?`, `phone`, `email`, `directionsLink`, `mapEmbedUrl?`, `hoursNote?`, `address` (`blocks.contact-address`), `labels` (`blocks.contact-labels`) |
-| `blocks.contact-address` | — (sub-component) | `street`, `postalCode`, `city`, `country?` |
-| `blocks.contact-labels` | — (sub-component) | `addressHeading`, `directionsLinkText`, `phoneHeading`, `emailHeading`, `mapIframeTitle`, `mapFallbackTitle`, `mapFullscreenLink` |
 | `blocks.gallery` | `gallery` | `heading`, `subheading?`, `images` (repeatable shared.image-item), `defaultImageAlt`, `showLessLabel`, `showMorePrefix`, `showMoreSuffix`, `lightboxAltPrefix` |
 | `blocks.partners-gallery` | `partners-gallery` | `eyebrowBadge`, `defaultPartnerLinkLabel`, `heading`, `subheading?`, `partners` (repeatable `blocks.partner-item`) |
 | `blocks.partner-item` | — (sub-component) | `name`, `icon` (image URL), `about`, `url?`, `linkLabel?` |

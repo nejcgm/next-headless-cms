@@ -42,9 +42,15 @@ Spec Kit commands that only name the constitution are incomplete for this monore
 
 Human docs (`README.md`, `next-headless-cms-fe/README.md`, `headless-cms-backend/README.md`) remain for people and MUST stay consistent with Spec Kit when they overlap. READMEs may include a short Spec Kit pointer only.
 
-### V. Minimal, Focused Changes
+### V. Minimal, Focused Changes (NON-NEGOTIABLE for agents)
 
 Prefer the smallest correct diff. Reuse existing blocks, adapters, templates, and conventions. Do not over-engineer. Do not add unrelated refactors to feature PRs. Match surrounding code style.
+
+**No drive-by edits (NON-NEGOTIABLE)**: When adding or changing one primitive, block, utility, or page tree, do **not** also “improve,” restyle, or bugfix sibling files that are outside the requested change. Examples of forbidden drive-bys: editing `button` while adding `link`; changing global `iframe` / `text` defaults for one page’s look; opportunistic `mailto`/`tel` fixes on unrelated components.
+
+- Put page-specific look in **mock/CMS props** (box styles, variants) or in the **new** primitive — not by mutating other shared leaves.
+- If a real bug in a sibling is noticed, **mention it** and wait for an explicit ask (or a separate task) before touching it.
+- Spec Kit / catalog updates still apply for behavior you *did* intentionally change — do not expand the code diff to match.
 
 ### VI. Data Adapter Contract
 
@@ -107,5 +113,6 @@ This constitution defines non-negotiable architectural and process constraints. 
 - **1.3.2** — Principle VII comments: explicit keep/remove rules (no narrating or obvious JSDoc; keep why/contract/tooling comments).
 - **1.3.3** — No comments inside `interface` / `type` bodies; contracts live in Spec Kit. Lint/`@ts-*` suppressions remain allowed with a reason.
 - **1.3.4** — Agent bootstrap: constitution → project-context → knowledge → catalogs (wired into Spec Kit skills + thin Cursor bootstrap rule).
+- **1.3.5** — Principle V: no drive-by edits to unrelated shared primitives/utilities while adding or redesigning something else; page look via props or the new primitive only.
 
-**Version**: 1.3.4 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-08-12
+**Version**: 1.3.5 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-09-04

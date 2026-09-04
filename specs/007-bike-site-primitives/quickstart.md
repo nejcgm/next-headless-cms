@@ -41,13 +41,13 @@ pnpm lint:resort
 
 ```bash
 cd next-headless-cms-fe
-rg 'blocks\.(cta-banner|stats-bar|image-text|section-header|rich-text|image-gallery|hero|about-story|about-person|about-values|bike-school-intro|bike-school-program|guided-tour-experience|service-process|service-contact)' \
+rg 'blocks\.(cta-banner|stats-bar|image-text|section-header|rich-text|image-gallery|hero|about-story|about-person|about-values|bike-school-intro|bike-school-program|guided-tour-experience|service-process|service-contact|contact)' \
   src/tenants/vukans-bike/mock-data/pages
 ```
 
 **Expect**: Zero matches.
 
-Confirm Keep types still present where needed (`product-list`, `contact`, `gallery`, `partners-gallery`, `service-pricing`, `service-faq`, `bike-detail`).
+Confirm Keep types still present where needed (`product-list`, `gallery`, `partners-gallery`, `service-pricing`, `service-faq`, `bike-detail`). Contact page is L1 + `iframe`.
 
 ### 3. Dev render (all public pages)
 

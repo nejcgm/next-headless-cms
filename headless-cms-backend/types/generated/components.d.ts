@@ -68,65 +68,6 @@ export interface BlocksButton extends Struct.ComponentSchema {
   };
 }
 
-export interface BlocksContact extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_contacts';
-  info: {
-    description: 'Contact section with address, map embed, phone, email and opening hours';
-    displayName: 'Contact';
-    icon: 'phone';
-    name: 'Contact';
-  };
-  attributes: {
-    address: Schema.Attribute.Component<'blocks.contact-address', false> &
-      Schema.Attribute.Required;
-    directionsLink: Schema.Attribute.String & Schema.Attribute.Required;
-    email: Schema.Attribute.String & Schema.Attribute.Required;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    hoursNote: Schema.Attribute.String;
-    labels: Schema.Attribute.Component<'blocks.contact-labels', false> &
-      Schema.Attribute.Required;
-    mapEmbedUrl: Schema.Attribute.String;
-    phone: Schema.Attribute.String & Schema.Attribute.Required;
-    phoneHref: Schema.Attribute.String;
-    subheading: Schema.Attribute.String;
-  };
-}
-
-export interface BlocksContactAddress extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_contact_addresses';
-  info: {
-    description: 'Structured postal address for the contact block';
-    displayName: 'Contact \u2014 Address';
-    icon: 'map-pin';
-    name: 'ContactAddress';
-  };
-  attributes: {
-    city: Schema.Attribute.String & Schema.Attribute.Required;
-    country: Schema.Attribute.String;
-    postalCode: Schema.Attribute.String & Schema.Attribute.Required;
-    street: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface BlocksContactLabels extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_contact_labels';
-  info: {
-    description: 'Translatable UI strings for the contact block';
-    displayName: 'Contact \u2014 UI Labels';
-    icon: 'translate';
-    name: 'ContactLabels';
-  };
-  attributes: {
-    addressHeading: Schema.Attribute.String & Schema.Attribute.Required;
-    directionsLinkText: Schema.Attribute.String & Schema.Attribute.Required;
-    emailHeading: Schema.Attribute.String & Schema.Attribute.Required;
-    mapFallbackTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    mapFullscreenLink: Schema.Attribute.String & Schema.Attribute.Required;
-    mapIframeTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    phoneHeading: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 export interface BlocksFaqItem extends Struct.ComponentSchema {
   collectionName: 'components_blocks_faq_items';
   info: {
@@ -261,6 +202,61 @@ export interface BlocksHeading extends Struct.ComponentSchema {
   };
 }
 
+export interface BlocksIcon extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_icons';
+  info: {
+    description: 'Decorative icon leaf (map-pin, phone, mail)';
+    displayName: 'Icon';
+    icon: 'bulletList';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String;
+    border: Schema.Attribute.String;
+    borderRadius: Schema.Attribute.String;
+    color: Schema.Attribute.String;
+    height: Schema.Attribute.String;
+    label: Schema.Attribute.String;
+    margin: Schema.Attribute.String;
+    maxWidth: Schema.Attribute.String;
+    minHeight: Schema.Attribute.String;
+    name: Schema.Attribute.Enumeration<['map-pin', 'phone', 'mail']> &
+      Schema.Attribute.Required;
+    overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
+    padding: Schema.Attribute.String;
+    size: Schema.Attribute.Enumeration<['sm', 'md', 'lg']> &
+      Schema.Attribute.DefaultTo<'md'>;
+    width: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksIframe extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_iframes';
+  info: {
+    description: 'Embed leaf (maps, video, etc.)';
+    displayName: 'Iframe';
+    icon: 'landscape';
+  };
+  attributes: {
+    allowFullscreen: Schema.Attribute.Boolean &
+      Schema.Attribute.DefaultTo<true>;
+    aspect: Schema.Attribute.Enumeration<['video', 'map', 'square']> &
+      Schema.Attribute.DefaultTo<'map'>;
+    backgroundColor: Schema.Attribute.String;
+    border: Schema.Attribute.String;
+    borderRadius: Schema.Attribute.String;
+    color: Schema.Attribute.String;
+    height: Schema.Attribute.String;
+    margin: Schema.Attribute.String;
+    maxWidth: Schema.Attribute.String;
+    minHeight: Schema.Attribute.String;
+    overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
+    padding: Schema.Attribute.String;
+    src: Schema.Attribute.String & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    width: Schema.Attribute.String;
+  };
+}
+
 export interface BlocksImage extends Struct.ComponentSchema {
   collectionName: 'components_blocks_images';
   info: {
@@ -283,6 +279,36 @@ export interface BlocksImage extends Struct.ComponentSchema {
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
     padding: Schema.Attribute.String;
     src: Schema.Attribute.String & Schema.Attribute.Required;
+    width: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksLink extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_links';
+  info: {
+    description: 'Text link leaf (accent or muted)';
+    displayName: 'Link';
+    icon: 'link';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String;
+    border: Schema.Attribute.String;
+    borderRadius: Schema.Attribute.String;
+    color: Schema.Attribute.String;
+    fontSize: Schema.Attribute.String;
+    fontWeight: Schema.Attribute.String;
+    height: Schema.Attribute.String;
+    href: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    margin: Schema.Attribute.String;
+    maxWidth: Schema.Attribute.String;
+    minHeight: Schema.Attribute.String;
+    overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
+    padding: Schema.Attribute.String;
+    showArrow: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    textAlign: Schema.Attribute.Enumeration<['left', 'center', 'right']>;
+    variant: Schema.Attribute.Enumeration<['accent', 'muted']> &
+      Schema.Attribute.DefaultTo<'accent'>;
     width: Schema.Attribute.String;
   };
 }
@@ -626,15 +652,15 @@ declare module '@strapi/strapi' {
       'blocks.bike-detail': BlocksBikeDetail;
       'blocks.bike-detail-labels': BlocksBikeDetailLabels;
       'blocks.button': BlocksButton;
-      'blocks.contact': BlocksContact;
-      'blocks.contact-address': BlocksContactAddress;
-      'blocks.contact-labels': BlocksContactLabels;
       'blocks.faq-item': BlocksFaqItem;
       'blocks.flex': BlocksFlex;
       'blocks.gallery': BlocksGallery;
       'blocks.grid': BlocksGrid;
       'blocks.heading': BlocksHeading;
+      'blocks.icon': BlocksIcon;
+      'blocks.iframe': BlocksIframe;
       'blocks.image': BlocksImage;
+      'blocks.link': BlocksLink;
       'blocks.partner-item': BlocksPartnerItem;
       'blocks.partners-gallery': BlocksPartnersGallery;
       'blocks.product-list': BlocksProductList;

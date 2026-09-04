@@ -1,18 +1,20 @@
 {
-  "collectionName": "components_blocks_texts",
+  "collectionName": "components_blocks_links",
   "info": {
-    "displayName": "Text",
-    "icon": "bold",
-    "description": "Body / lead / caption / label leaf"
+    "displayName": "Link",
+    "icon": "link",
+    "description": "Text link leaf (accent or muted)"
   },
   "options": {},
   "attributes": {
-    "content": { "type": "text", "required": true },
+    "label": { "type": "string", "required": true },
+    "href": { "type": "string", "required": true },
     "variant": {
       "type": "enumeration",
-      "enum": ["body", "lead", "caption", "label"],
-      "default": "body"
+      "enum": ["accent", "muted"],
+      "default": "accent"
     },
+    "showArrow": { "type": "boolean", "default": false },
     "width": { "type": "string" },
     "height": { "type": "string" },
     "minHeight": { "type": "string" },
@@ -22,11 +24,16 @@
     "backgroundColor": { "type": "string" },
     "color": { "type": "string" },
     "border": { "type": "string" },
-    "borderTop": { "type": "string" },
     "borderRadius": { "type": "string" },
-    "overflow": { "type": "enumeration", "enum": ["visible", "hidden", "auto"] },
+    "overflow": {
+      "type": "enumeration",
+      "enum": ["visible", "hidden", "auto"]
+    },
     "fontSize": { "type": "string" },
     "fontWeight": { "type": "string" },
-    "textAlign": { "type": "enumeration", "enum": ["left", "center", "right"] }
+    "textAlign": {
+      "type": "enumeration",
+      "enum": ["left", "center", "right"]
+    }
   }
 }
