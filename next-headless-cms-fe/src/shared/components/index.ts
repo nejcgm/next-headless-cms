@@ -8,8 +8,6 @@ import { Flex } from "./primitives/layout/flex/flex";
 import { flexPolicy, flexSchema } from "./primitives/layout/flex/schema";
 import { Grid } from "./primitives/layout/grid/grid";
 import { gridPolicy, gridSchema } from "./primitives/layout/grid/schema";
-import { Heading } from "./primitives/content/heading/heading";
-import { headingPolicy, headingSchema } from "./primitives/content/heading/schema";
 import { Text } from "./primitives/content/text/text";
 import { textPolicy, textSchema } from "./primitives/content/text/schema";
 import { ImageBlock } from "./primitives/content/image/image";
@@ -28,7 +26,6 @@ registerSharedBlocks({
   stack: { component: Stack, schema: stackSchema, policy: stackPolicy },
   flex: { component: Flex, schema: flexSchema, policy: flexPolicy },
   grid: { component: Grid, schema: gridSchema, policy: gridPolicy },
-  heading: { component: Heading, schema: headingSchema, policy: headingPolicy },
   text: { component: Text, schema: textSchema, policy: textPolicy },
   image: { component: ImageBlock, schema: imageSchema, policy: imagePolicy },
   iframe: { component: IframeBlock, schema: iframeSchema, policy: iframePolicy },

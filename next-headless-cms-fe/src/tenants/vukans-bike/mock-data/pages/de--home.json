@@ -53,15 +53,14 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 102,
-                  "level": 1,
-                  "variant": "display",
                   "content": "Vukan's Bike",
-                  "textAlign": "center",
+                  "bold": true,
                   "color": "foreground",
                   "fontSize": "72px",
-                  "fontWeight": "800"
+                  "fontWeight": "800",
+                  "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
@@ -133,11 +132,12 @@
                   "textAlign": "center"
                 },
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 203,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Zuerst in die Hände. Dann auf den Trail.",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center",
                   "maxWidth": "520px"
                 },
@@ -200,11 +200,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 305,
-                        "level": 2,
-                        "variant": "title",
-                        "content": "Präzise. Ohne Eile."
+                        "content": "Präzise. Ohne Eile.",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "36px"
                       },
                       {
                         "__component": "blocks.text",
@@ -265,11 +266,12 @@
                   "textAlign": "center"
                 },
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 403,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Räder, bereit zur Fahrt",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 }
               ]
@@ -325,11 +327,12 @@
                         "margin": "0 0 8px"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 504,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Fahrradschule"
+                        "content": "Fahrradschule",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -368,11 +371,12 @@
                         "margin": "0 0 8px"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 509,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Geführte Touren"
+                        "content": "Geführte Touren",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -426,12 +430,12 @@
                   "textAlign": "center"
                 },
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 603,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Apače 66a",
+                  "bold": true,
                   "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {

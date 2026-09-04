@@ -13,6 +13,10 @@
       "enum": ["body", "lead", "caption", "label"],
       "default": "body"
     },
+    "bold": {
+      "type": "boolean",
+      "default": false
+    },
     "width": { "type": "string" },
     "height": { "type": "string" },
     "minHeight": { "type": "string" },

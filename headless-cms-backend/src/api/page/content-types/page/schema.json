@@ -44,7 +44,6 @@
         "blocks.stack",
         "blocks.flex",
         "blocks.grid",
-        "blocks.heading",
         "blocks.text",
         "blocks.image",
         "blocks.iframe",

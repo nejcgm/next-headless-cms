@@ -17,7 +17,6 @@ Define which block types may appear on Vukan's Bike pages after this feature, wh
 | `blocks.stack` | L1 layout |
 | `blocks.flex` | L1 layout |
 | `blocks.grid` | L1 layout |
-| `blocks.heading` | L1 leaf |
 | `blocks.text` | L1 leaf |
 | `blocks.image` | L1 leaf |
 | `blocks.iframe` | L1 leaf |
@@ -59,6 +58,7 @@ These MUST have **0** hits in bike mock pages, bike `blocks/index.ts`, and Strap
 | `blocks.service-process` | Bike proprietary |
 | `blocks.service-contact` | Bike proprietary |
 | `blocks.contact` | Bike proprietary (replaced by L1 + `iframe`) |
+| `blocks.heading` | Shared (replaced by `text` + `fontSize` / `bold`) |
 
 ## Resort fixture contract
 

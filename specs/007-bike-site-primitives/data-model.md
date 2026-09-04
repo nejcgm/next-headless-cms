@@ -25,8 +25,7 @@ Composition runtime entities (`BlockInstance`, `CompositionPolicy`, `slots`, max
 | `stack` | `default` | Vertical rhythm |
 | `flex` | `default` | Row/column arrangement |
 | `grid` | `default` | Columns number **or** `{ mobile, tablet?, desktop? }` |
-| `heading` | leaf | `level` 1–6 + `variant` display\|title\|section |
-| `text` | leaf | `variant` body\|lead\|caption\|label |
+| `text` | leaf | `variant` body\|lead\|caption\|label; titles via `fontSize` + `bold` |
 | `image` | leaf | Real visual anchors |
 | `iframe` | leaf | Embeds (maps, video) |
 | `icon` | leaf | Decorative icons (`map-pin`, `phone`, `mail`) |
@@ -50,7 +49,7 @@ Header, footer templates — unchanged.
 
 ### Superseded types (delete after zero bike references)
 
-**Shared**: `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`  
+**Shared**: `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`, `heading`  
 **Bike proprietary**: `contact`, `hero`, `about-story`, `about-person`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`
 
 ### Composition allowlist (update)
@@ -58,7 +57,7 @@ Header, footer templates — unchanged.
 Shared layout policies allow **L1 only**. Bike Keep L3 is registered via tenant nest allow:
 
 ```text
-shared nestAllow = [stack, flex, grid, heading, text, image, iframe, icon, button, link]
+shared nestAllow = [stack, flex, grid, text, image, iframe, icon, button, link]
 tenant nestAllow extras = [
   product-list, bike-detail, gallery,
   partners-gallery, service-pricing, service-faq
@@ -75,7 +74,7 @@ After cleanup, `page.blocks` components list:
 
 ```text
 blocks.section, blocks.stack, blocks.flex, blocks.grid,
-blocks.heading, blocks.text, blocks.image, blocks.iframe, blocks.icon, blocks.button, blocks.link,
+blocks.text, blocks.image, blocks.iframe, blocks.icon, blocks.button, blocks.link,
 blocks.product-list, blocks.bike-detail,
 blocks.gallery, blocks.partners-gallery,
 blocks.service-pricing, blocks.service-faq

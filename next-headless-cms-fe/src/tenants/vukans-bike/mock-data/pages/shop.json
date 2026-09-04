@@ -27,15 +27,14 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 102,
-                  "level": 1,
-                  "variant": "display",
                   "content": "Trgovina",
-                  "textAlign": "center",
+                  "bold": true,
                   "color": "foreground",
                   "fontSize": "64px",
-                  "fontWeight": "800"
+                  "fontWeight": "800",
+                  "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
@@ -107,11 +106,12 @@
                   "textAlign": "center"
                 },
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 203,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Kolesa na prodajo",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {
@@ -158,12 +158,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 402,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Vprašanje o kolesu?",
+                  "bold": true,
                   "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {

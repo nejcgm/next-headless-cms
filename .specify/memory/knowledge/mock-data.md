@@ -25,7 +25,7 @@ Mock page JSON is loaded by `MockAdapter`, then passed through `strapi-document.
       "padding": "lg",
       "slots": {
         "default": [
-          { "__component": "blocks.heading", "id": 2, "content": "...", "level": 1, "variant": "display" },
+          { "__component": "blocks.text", "id": 2, "content": "...", "fontSize": "56px", "bold": true, "color": "foreground" },
           { "__component": "blocks.text", "id": 3, "content": "...", "variant": "lead" },
           { "__component": "blocks.button", "id": 4, "label": "...", "href": "/contact" }
         ]

@@ -27,15 +27,14 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 102,
-                  "level": 1,
-                  "variant": "display",
                   "content": "Servis koles",
-                  "textAlign": "center",
+                  "bold": true,
                   "color": "foreground",
                   "fontSize": "64px",
-                  "fontWeight": "800"
+                  "fontWeight": "800",
+                  "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
@@ -191,11 +190,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 302,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Kako poteka servis",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {
@@ -214,7 +214,11 @@
           {
             "__component": "blocks.grid",
             "id": 310,
-            "columns": { "mobile": 1, "tablet": 2, "desktop": 4 },
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 4
+            },
             "gap": "lg",
             "slots": {
               "default": [
@@ -233,11 +237,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 313,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Kontakt"
+                        "content": "Kontakt",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -271,11 +276,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 318,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Predaja kolesa"
+                        "content": "Predaja kolesa",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -309,11 +315,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 323,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Servis"
+                        "content": "Servis",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -347,11 +354,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 328,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Prevzem"
+                        "content": "Prevzem",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -433,12 +441,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 502,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Kontakt za servis",
+                  "bold": true,
                   "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {
@@ -488,14 +496,32 @@
   ],
   "navigation": {
     "header": [
-      { "label": "Domov", "href": "/" },
-      { "label": "Servis", "href": "/service" },
-      { "label": "Kontakt", "href": "/contact" }
+      {
+        "label": "Domov",
+        "href": "/"
+      },
+      {
+        "label": "Servis",
+        "href": "/service"
+      },
+      {
+        "label": "Kontakt",
+        "href": "/contact"
+      }
     ],
     "footer": [
-      { "label": "O nas", "href": "/about" },
-      { "label": "Zasebnost", "href": "/privacy" },
-      { "label": "Pogoji", "href": "/terms" }
+      {
+        "label": "O nas",
+        "href": "/about"
+      },
+      {
+        "label": "Zasebnost",
+        "href": "/privacy"
+      },
+      {
+        "label": "Pogoji",
+        "href": "/terms"
+      }
     ]
   },
   "lang": "sl"

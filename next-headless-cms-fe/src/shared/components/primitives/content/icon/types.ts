@@ -8,3 +8,8 @@ export type IconProps = BoxStyle & {
   size?: "sm" | "md" | "lg";
   blockId?: string;
 };
+
+export type IconSvgProps = {
+  name: IconName;
+  size: number;
+};

@@ -483,7 +483,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'blocks.stack',
         'blocks.flex',
         'blocks.grid',
-        'blocks.heading',
         'blocks.text',
         'blocks.image',
         'blocks.iframe',

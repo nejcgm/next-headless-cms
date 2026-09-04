@@ -27,15 +27,14 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 102,
-                  "level": 1,
-                  "variant": "display",
                   "content": "Fahrradservice",
-                  "textAlign": "center",
+                  "bold": true,
                   "color": "foreground",
                   "fontSize": "64px",
-                  "fontWeight": "800"
+                  "fontWeight": "800",
+                  "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
@@ -191,11 +190,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 302,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Ablauf des Service",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {
@@ -237,11 +237,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 313,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Kontakt"
+                        "content": "Kontakt",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -275,11 +276,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 318,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Rad abgeben"
+                        "content": "Rad abgeben",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -313,11 +315,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 323,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Service"
+                        "content": "Service",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -351,11 +354,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 328,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Abholung"
+                        "content": "Abholung",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -437,12 +441,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 502,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Kontakt Service",
+                  "bold": true,
                   "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {

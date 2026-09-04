@@ -2,7 +2,6 @@ export const LAYOUT_NEST_ALLOW = [
   "stack",
   "flex",
   "grid",
-  "heading",
   "text",
   "image",
   "iframe",
@@ -14,7 +13,6 @@ export const LAYOUT_NEST_ALLOW = [
 export const STACK_NEST_ALLOW = [
   "stack",
   "flex",
-  "heading",
   "text",
   "image",
   "iframe",
@@ -26,7 +24,6 @@ export const STACK_NEST_ALLOW = [
 export const GRID_NEST_ALLOW = [
   "stack",
   "flex",
-  "heading",
   "text",
   "image",
   "iframe",

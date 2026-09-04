@@ -25,7 +25,7 @@ Register it in `src/tenants/{tenant}/blocks/index.ts` and wire `schema:` on the 
 
 Shared L1 primitives live under `src/shared/components/primitives/{layout|content|actions}/{name}/` (`{name}.tsx` + `types.ts` + `schema.ts`) and register in `shared/components/index.ts`. Nesting primitives also export a **`policy`** (`CompositionPolicy`) and pass it on registration.
 
-**When adding a new L1 primitive** (constitution Principle V): touch only that primitive’s files, registration/`composition-allow`, Strapi component + page DZ, mocks that need it, and Spec Kit sync. Do **not** edit sibling primitives (e.g. do not change `button` while adding `link`, or global `iframe`/`text` styling for one page). Prefer authored box-style / variant props on the page tree for local look.
+**When adding a new L1 primitive** (constitution Principle V): touch only that primitive’s files, registration/`composition-allow`, Strapi component + page DZ, mocks that need it, and Spec Kit sync. Do **not** edit sibling primitives (e.g. do not change `button` while adding `link`, or global `iframe`/`text` styling for one page). Prefer authored box-style / variant props on the page tree for local look. Every component and private helper props type MUST live in that module’s `types.ts` — then run `pnpm check:types-style` (see `knowledge/typescript.md`).
 
 Header/footer chrome under `blocks/header` and `blocks/footer` also keep a `types.ts` (header defines props; footer may re-export shared `FooterProps`).
 
@@ -56,19 +56,17 @@ Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blo
 
 **Levels**
 
-1. **Primitives (L1)** — shared only: `section`, `stack`, `flex`, `grid`, `heading`, `text`, `image`, `iframe`, `icon`, `button`, `link`
+1. **Primitives (L1)** — shared only: `section`, `stack`, `flex`, `grid`, `text`, `image`, `iframe`, `icon`, `button`, `link`
 2. **Compositions (L2)** — authored/saved subtrees of L1 (same renderer; no separate types)
 3. **Compounds (L3)** — encapsulated domain nodes (bike Keep: `product-list`, `bike-detail`, `gallery`, `partners-gallery`, `service-pricing`, `service-faq`); composable in the tree, not CMS-decomposed
 
 **Deleted shared opaques** (no longer registered): `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`. Prefer L1/L2 for marketing layouts. **Bike is SoT for shared L1 types.**
 
-**Box styles (L1)** — shared bag via `boxStyleSchema` / `toBoxStyle`: `width`, `height`, `minHeight`, `maxWidth`, `padding`, `margin`, `backgroundColor`, `color`, `border`, `borderTop`, `borderRadius`, `overflow`, `fontSize`, `fontWeight`, `textAlign`. Prefer **px**; theme tokens or `#hex` via `resolveColor`. `border` is CSS shorthand; `borderTop` for hairline rules. Box typography fields are intentional **CMS overrides**; prefer `heading`/`text` variants for defaults. Layout alignment is **not** in the box bag — use component props.
+**Box styles (L1)** — shared bag via `boxStyleSchema` / `toBoxStyle`: `width`, `height`, `minHeight`, `maxWidth`, `padding`, `margin`, `backgroundColor`, `color`, `border`, `borderTop`, `borderRadius`, `overflow`, `fontSize`, `fontWeight`, `textAlign`. Prefer **px**; theme tokens or `#hex` via `resolveColor`. `border` is CSS shorthand; `borderTop` for hairline rules. Box typography fields are intentional **CMS overrides**. Titles/display copy use `text` with `fontSize` + `bold` (there is no separate `heading` primitive). Layout alignment is **not** in the box bag — use component props.
 
 **`section`** — structural band. `justify` / `align` are **content alignment** (`start`\|`center`\|`end`) and turn the section into a column flex container when set. Also: enum `padding`, `surface` / `backgroundColor`, optional hero `backgroundImage` / `overlay` / `anchorId`.
 
-**`heading`** — semantic leaf: `content`, `level` (1–6 → `h1`…`h6`), `variant` (`display`\|`title`\|`section`) for visual size (independent of level).
-
-**`text`** — body leaf: `content`, `variant` (`body`\|`lead`\|`caption`\|`label`). Stats = `stack` of two `text` nodes with box overrides as needed.
+**`text`** — copy leaf: `content`, `variant` (`body`\|`lead`\|`caption`\|`label`), optional `bold`, plus box styles (`fontSize`, `color`, …). Former heading roles are plain `text` with size/weight. Stats = `stack` of two `text` nodes.
 
 **`grid`** — `columns` is either a number (legacy responsive defaults) or `{ mobile, tablet?, desktop? }` (1–4). Prefer the object form.
 

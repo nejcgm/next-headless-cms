@@ -27,15 +27,14 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 102,
-                  "level": 1,
-                  "variant": "display",
                   "content": "Über uns",
-                  "textAlign": "center",
+                  "bold": true,
                   "color": "foreground",
                   "fontSize": "64px",
-                  "fontWeight": "800"
+                  "fontWeight": "800",
+                  "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
@@ -117,11 +116,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 204,
-                        "level": 2,
-                        "variant": "title",
-                        "content": "Von der Leidenschaft zu Service und Laden"
+                        "content": "Von der Leidenschaft zu Service und Laden",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "36px"
                       },
                       {
                         "__component": "blocks.text",
@@ -201,11 +201,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 305,
-                        "level": 2,
-                        "variant": "title",
-                        "content": "Gregor Vukan"
+                        "content": "Gregor Vukan",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "36px"
                       },
                       {
                         "__component": "blocks.text",
@@ -256,11 +257,12 @@
                   "textAlign": "center"
                 },
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 403,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Warum wir",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {
@@ -295,11 +297,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 412,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Alle Fahrradarten"
+                        "content": "Alle Fahrradarten",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -319,11 +322,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 415,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Persönlicher Ansatz"
+                        "content": "Persönlicher Ansatz",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -343,11 +347,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 418,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Fairer Preis"
+                        "content": "Fairer Preis",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -367,11 +372,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 421,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Lokal in Apače"
+                        "content": "Lokal in Apače",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -409,12 +415,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 502,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Bereit für Service oder ein neues Rad?",
+                  "bold": true,
                   "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {

@@ -27,15 +27,14 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 102,
-                  "level": 1,
-                  "variant": "display",
                   "content": "Partnerji in znamke",
-                  "textAlign": "center",
+                  "bold": true,
                   "color": "foreground",
                   "fontSize": "56px",
-                  "fontWeight": "800"
+                  "fontWeight": "800",
+                  "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
@@ -167,12 +166,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 302,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Iščete kolo ali servis?",
+                  "bold": true,
                   "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {
@@ -204,15 +203,36 @@
   ],
   "navigation": {
     "header": [
-      { "label": "Domov", "href": "/" },
-      { "label": "Znamke", "href": "/brands" },
-      { "label": "Servis", "href": "/service" },
-      { "label": "Kontakt", "href": "/contact" }
+      {
+        "label": "Domov",
+        "href": "/"
+      },
+      {
+        "label": "Znamke",
+        "href": "/brands"
+      },
+      {
+        "label": "Servis",
+        "href": "/service"
+      },
+      {
+        "label": "Kontakt",
+        "href": "/contact"
+      }
     ],
     "footer": [
-      { "label": "O nas", "href": "/about" },
-      { "label": "Zasebnost", "href": "/privacy" },
-      { "label": "Pogoji", "href": "/terms" }
+      {
+        "label": "O nas",
+        "href": "/about"
+      },
+      {
+        "label": "Zasebnost",
+        "href": "/privacy"
+      },
+      {
+        "label": "Pogoji",
+        "href": "/terms"
+      }
     ]
   },
   "lang": "sl"

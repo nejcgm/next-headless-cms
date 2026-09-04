@@ -27,15 +27,14 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 102,
-                  "level": 1,
-                  "variant": "display",
                   "content": "Guided tours",
-                  "textAlign": "center",
+                  "bold": true,
                   "color": "foreground",
                   "fontSize": "64px",
-                  "fontWeight": "800"
+                  "fontWeight": "800",
+                  "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
@@ -99,11 +98,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 202,
-                  "level": 2,
-                  "variant": "title",
                   "content": "What to expect",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {
@@ -138,11 +138,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 212,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Route to match you"
+                        "content": "Route to match you",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -162,11 +163,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 215,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Guided on the trail"
+                        "content": "Guided on the trail",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -186,11 +188,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 218,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Small groups"
+                        "content": "Small groups",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -210,11 +213,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 221,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Safety and clarity"
+                        "content": "Safety and clarity",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -302,11 +306,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 402,
-                  "level": 2,
-                  "variant": "title",
                   "content": "How we run a tour",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {
@@ -348,11 +353,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 413,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Enquiry"
+                        "content": "Enquiry",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -386,11 +392,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 418,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Plan the route"
+                        "content": "Plan the route",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -424,11 +431,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 423,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Ride day"
+                        "content": "Ride day",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -462,11 +470,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 428,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Wrap-up"
+                        "content": "Wrap-up",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -511,12 +520,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 502,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Book your guided tour",
+                  "bold": true,
                   "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {

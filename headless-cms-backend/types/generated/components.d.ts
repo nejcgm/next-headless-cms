@@ -165,43 +165,6 @@ export interface BlocksGrid extends Struct.ComponentSchema {
   };
 }
 
-export interface BlocksHeading extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_headings';
-  info: {
-    description: 'Semantic heading leaf (level + visual variant)';
-    displayName: 'Heading';
-    icon: 'heading';
-  };
-  attributes: {
-    backgroundColor: Schema.Attribute.String;
-    border: Schema.Attribute.String;
-    borderRadius: Schema.Attribute.String;
-    color: Schema.Attribute.String;
-    content: Schema.Attribute.Text & Schema.Attribute.Required;
-    fontSize: Schema.Attribute.String;
-    fontWeight: Schema.Attribute.String;
-    height: Schema.Attribute.String;
-    level: Schema.Attribute.Integer &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 6;
-          min: 1;
-        },
-        number
-      > &
-      Schema.Attribute.DefaultTo<2>;
-    margin: Schema.Attribute.String;
-    maxWidth: Schema.Attribute.String;
-    minHeight: Schema.Attribute.String;
-    overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
-    padding: Schema.Attribute.String;
-    textAlign: Schema.Attribute.Enumeration<['left', 'center', 'right']>;
-    variant: Schema.Attribute.Enumeration<['display', 'title', 'section']> &
-      Schema.Attribute.DefaultTo<'title'>;
-    width: Schema.Attribute.String;
-  };
-}
-
 export interface BlocksIcon extends Struct.ComponentSchema {
   collectionName: 'components_blocks_icons';
   info: {
@@ -517,8 +480,10 @@ export interface BlocksText extends Struct.ComponentSchema {
   };
   attributes: {
     backgroundColor: Schema.Attribute.String;
+    bold: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     border: Schema.Attribute.String;
     borderRadius: Schema.Attribute.String;
+    borderTop: Schema.Attribute.String;
     color: Schema.Attribute.String;
     content: Schema.Attribute.Text & Schema.Attribute.Required;
     fontSize: Schema.Attribute.String;
@@ -656,7 +621,6 @@ declare module '@strapi/strapi' {
       'blocks.flex': BlocksFlex;
       'blocks.gallery': BlocksGallery;
       'blocks.grid': BlocksGrid;
-      'blocks.heading': BlocksHeading;
       'blocks.icon': BlocksIcon;
       'blocks.iframe': BlocksIframe;
       'blocks.image': BlocksImage;

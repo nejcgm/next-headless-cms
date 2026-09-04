@@ -37,7 +37,7 @@ A visitor browses every public Vukan's Bike page (home, shop, service, about, co
 
 ### User Story 2 - Replace expressible sections with primitives (Priority: P1)
 
-Authors rebuild expressible marketing and layout sections as trees of shared primitives (`section`, `stack`, `flex`, `grid`, `heading`, `text`, `image`, `button`) instead of dedicated section components. **Design quality is a primary acceptance gate**, not a polish pass: the site must read as a professional workshop/trail brand (Apače, craft, place) — coherent type hierarchy, intentional spacing, real visual anchors, and restrained section rhythm. Reject generic “AI landing page” patterns (stacked unrelated promo blocks, vanity stat strips, card grids for non-interactive content, competing heroes, cluttered chip/pill rows).
+Authors rebuild expressible marketing and layout sections as trees of shared primitives (`section`, `stack`, `flex`, `grid`, `text`, `image`, `button`, …) instead of dedicated section components. **Design quality is a primary acceptance gate**, not a polish pass: the site must read as a professional workshop/trail brand (Apače, craft, place) — coherent type hierarchy, intentional spacing, real visual anchors, and restrained section rhythm. Reject generic “AI landing page” patterns (stacked unrelated promo blocks, vanity stat strips, card grids for non-interactive content, competing heroes, cluttered chip/pill rows).
 
 **Why this priority**: Removing opaque sections without rebuilding content would blank pages; replacement is the core delivery, and a sloppy composition would undermine the product.
 
@@ -82,17 +82,18 @@ Complex interactive or data-bound experiences that cannot be faithfully rebuilt 
 
 | Type | Ownership | Typical replacement |
 |------|-----------|---------------------|
-| `cta-banner` | Shared | `section` + `stack` / `heading` / `text` / `button` |
+| `cta-banner` | Shared | `section` + `stack` / `text` / `button` |
 | `stats-bar` | Shared | `section` + `grid` / `stack` / `text` |
 | `image-text` | Shared | `section` + `grid` + `image` + `stack` |
-| `section-header` | Shared | `heading` + `text` |
+| `section-header` | Shared | `text` (`fontSize` + `bold`) + body `text` |
 | `rich-text`, `image-gallery` (when used on bike) | Shared | Prefer `text` / `image`+`grid`; default is replace and drop if unused |
-| `hero` | Bike proprietary | `section` (image/overlay) + `heading` / `text` / `button` |
-| `about-story`, `about-person`, `about-values` | Bike proprietary | `section` / `grid` / `stack` / `image` / `heading` / `text` / `button` |
+| `hero` | Bike proprietary | `section` (image/overlay) + `text` / `button` |
+| `about-story`, `about-person`, `about-values` | Bike proprietary | `section` / `grid` / `stack` / `image` / `text` / `button` |
 | `bike-school-intro`, `bike-school-program` | Bike proprietary | Same primitive vocabulary (program tiers as stacks of text) |
 | `guided-tour-experience` | Bike proprietary | `section` + `grid`/`stack` of text (+ optional images) |
 | `service-process`, `service-contact` | Bike proprietary | `section` + stacks/buttons (process as ordered text stacks) |
-| `contact` | Bike proprietary | `section` + `grid`/`stack` + `heading`/`text`/`button` + `iframe` (map) |
+| `contact` | Bike proprietary | `section` + `grid`/`stack` + `text`/`link`/`icon` + `iframe` (map) |
+| `heading` | Shared | `text` with `fontSize` + `bold` (+ `color`) |
 
 ---
 

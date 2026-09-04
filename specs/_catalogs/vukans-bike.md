@@ -66,7 +66,7 @@ Defined in `src/shared/components/primitives/{layout|content|actions}/{block}/` 
 
 | Block type | Notes |
 |------------|--------|
-| `section`, `stack`, `flex`, `grid`, `heading`, `text`, `image`, `iframe`, `icon`, `button`, `link` | Level 1 composition primitives |
+| `section`, `stack`, `flex`, `grid`, `text`, `image`, `iframe`, `icon`, `button`, `link` | Level 1 composition primitives (`text` carries titles via `fontSize` + `bold`) |
 
 **Deleted shared opaques**: `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`.
 

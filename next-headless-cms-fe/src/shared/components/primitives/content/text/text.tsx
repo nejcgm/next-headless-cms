@@ -5,15 +5,21 @@ import type { TextProps } from "./types";
 export function Text({
   content,
   variant = "body",
+  bold = false,
   className,
   ...box
 }: TextProps & { className?: string }) {
   const style = toBoxStyle(box);
+  const weight = bold ? "font-bold" : undefined;
 
   if (variant === "lead") {
     return (
       <p
-        className={cn("text-xl md:text-2xl text-[var(--color-muted-foreground)]", className)}
+        className={cn(
+          "text-xl md:text-2xl text-[var(--color-muted-foreground)]",
+          weight,
+          className
+        )}
         style={style}
       >
         {content}
@@ -23,7 +29,11 @@ export function Text({
   if (variant === "caption") {
     return (
       <p
-        className={cn("text-sm text-[var(--color-muted-foreground)]", className)}
+        className={cn(
+          "text-sm text-[var(--color-muted-foreground)]",
+          weight,
+          className
+        )}
         style={style}
       >
         {content}
@@ -35,6 +45,7 @@ export function Text({
       <p
         className={cn(
           "text-xs font-semibold uppercase tracking-wide text-[var(--color-muted-foreground)]",
+          weight,
           className
         )}
         style={style}
@@ -46,7 +57,11 @@ export function Text({
 
   return (
     <p
-      className={cn("text-lg text-[var(--color-muted-foreground)] leading-relaxed", className)}
+      className={cn(
+        "text-lg text-[var(--color-muted-foreground)] leading-relaxed",
+        weight,
+        className
+      )}
       style={style}
     >
       {content}

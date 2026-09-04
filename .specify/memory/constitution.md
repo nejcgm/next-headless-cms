@@ -88,6 +88,7 @@ Run pnpm only inside `next-headless-cms-fe/`. CI sets `working-directory: next-h
 
 - **Lint**: matrix per tenant (`pnpm lint:bike`, `pnpm lint:resort`)
 - **Type-check**: `pnpm type-check` in frontend
+- **Types-style**: `pnpm check:types-style` in frontend (no inline component prop literals; 3+ args → options object) — agents MUST run after component/type edits; CI enforces with type-check
 - **Build isolation**: `pnpm verify:build` after `pnpm build:{tenant}`
 - **Strapi schema changes**: `npm run types:generate` in backend; re-seed if content shape changes
 - **Secrets**: never commit `.env`; production must not use default `REVALIDATE_SECRET`

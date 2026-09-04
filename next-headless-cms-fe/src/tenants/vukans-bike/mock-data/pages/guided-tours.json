@@ -27,15 +27,14 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 102,
-                  "level": 1,
-                  "variant": "display",
                   "content": "Vodene ture",
-                  "textAlign": "center",
+                  "bold": true,
                   "color": "foreground",
                   "fontSize": "64px",
-                  "fontWeight": "800"
+                  "fontWeight": "800",
+                  "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
@@ -99,11 +98,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 202,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Kaj dobite na vodenih turah",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {
@@ -122,7 +122,11 @@
           {
             "__component": "blocks.grid",
             "id": 210,
-            "columns": { "mobile": 1, "tablet": 2, "desktop": 4 },
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 4
+            },
             "gap": "lg",
             "slots": {
               "default": [
@@ -134,11 +138,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 212,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Trasa po meri"
+                        "content": "Trasa po meri",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -158,11 +163,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 215,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Vodenje na terenu"
+                        "content": "Vodenje na terenu",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -182,11 +188,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 218,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Majhne skupine"
+                        "content": "Majhne skupine",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -206,11 +213,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 221,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Varnost in preglednost"
+                        "content": "Varnost in preglednost",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -298,11 +306,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 402,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Kako poteka organizacija ture",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {
@@ -321,7 +330,11 @@
           {
             "__component": "blocks.grid",
             "id": 410,
-            "columns": { "mobile": 1, "tablet": 2, "desktop": 4 },
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 4
+            },
             "gap": "lg",
             "slots": {
               "default": [
@@ -340,11 +353,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 413,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Povpraševanje"
+                        "content": "Povpraševanje",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -378,11 +392,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 418,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Dogovor o trasi"
+                        "content": "Dogovor o trasi",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -416,11 +431,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 423,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Vodenje na terenu"
+                        "content": "Vodenje na terenu",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -454,11 +470,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 428,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Zaključek"
+                        "content": "Zaključek",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -503,12 +520,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 502,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Dogovorimo se za vašo vodeno turo",
+                  "bold": true,
                   "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {

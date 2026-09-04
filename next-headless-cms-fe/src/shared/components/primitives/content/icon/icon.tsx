@@ -1,6 +1,6 @@
 import { cn } from "@shared/utils/cn";
 import { toBoxStyle } from "@shared/utils/box-style";
-import type { IconName, IconProps } from "./types";
+import type { IconProps, IconSvgProps } from "./types";
 
 const sizeClass = {
   sm: "h-8 w-8",
@@ -14,7 +14,7 @@ const svgSize = {
   lg: 22,
 } as const;
 
-function IconSvg({ name, size }: { name: IconName; size: number }) {
+function IconSvg({ name, size }: IconSvgProps) {
   const common = {
     width: size,
     height: size,
@@ -65,7 +65,7 @@ export function IconBlock({
       aria-label={label}
       aria-hidden={label ? undefined : true}
       className={cn(
-        "inline-flex shrink-0 items-center justify-center rounded-full border border-[var(--color-primary)] text-[var(--color-primary)]",
+        "inline-flex shrink-0 items-center justify-center text-[var(--color-primary)]",
         sizeClass[size],
         className
       )}

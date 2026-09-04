@@ -34,10 +34,10 @@ Applies to `src/app/`, `src/core/`, `src/shared/`, and `src/tenants/`.
 
 - **Global domain contracts** — `src/core/types/` (`page`, `navigation`, `tenant`). Shared across modules; do not duplicate in module `types.ts`.
 - **Per-module types** — each module keeps a colocated `types.ts` with every type that module owns (component props, function arg objects, labels). Implementation files **import** from `./types`; do **not** re-export types from implementation files — consumers import from the module `types.ts` (or `core/types/*` for domain shapes).
-- **Components (always)** — props live in the module `types.ts` (including Next.js route shells: page/layout/error/not-found and private helper components). No inline `{ … }` prop type literals on component signatures.
+- **Components (always)** — props live in the module `types.ts` (including Next.js route shells: page/layout/error/not-found and **private helper components** inside the same file). No inline `{ … }` prop type literals on **any** component / helper signature (`function Foo({ … }: { … })` is a CI failure).
 - **Functions with 3+ parameters** — take a single options object typed in the module `types.ts` (destructure in the signature). Canonical example: `loadPageWithNavigation({ … }: TenantPageParams)`.
 - **Exceptions only** — React `cache()` primitive-key internals (e.g. `getPageCachedImpl`) and platform/third-party APIs. Not exempt: `formatCurrency`, logger helpers, `cacheTags` builders, adapter helpers (`findOne`, etc.).
-- **Compliance** — `pnpm check:types-style` (`scripts/check-types-style.cjs`) fails on positional arity ≥3 and colocated/inline props; wired in CI with `pnpm type-check`.
+- **Compliance (NON-NEGOTIABLE for agents)** — After adding or editing components under `src/`, run `pnpm check:types-style` in `next-headless-cms-fe/` and fix findings before finishing. Do not rely on `tsc` alone — CI runs `check:types-style` with `type-check`. Script: `scripts/check-types-style.cjs`.
 
 ## Interface vs Type
 

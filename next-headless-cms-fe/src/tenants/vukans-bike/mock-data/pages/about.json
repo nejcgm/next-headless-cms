@@ -27,15 +27,14 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 102,
-                  "level": 1,
-                  "variant": "display",
                   "content": "O nas",
-                  "textAlign": "center",
+                  "bold": true,
                   "color": "foreground",
                   "fontSize": "64px",
-                  "fontWeight": "800"
+                  "fontWeight": "800",
+                  "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
@@ -93,7 +92,11 @@
           {
             "__component": "blocks.grid",
             "id": 201,
-            "columns": { "mobile": 1, "tablet": 2, "desktop": 2 },
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 2
+            },
             "gap": "lg",
             "slots": {
               "default": [
@@ -113,11 +116,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 204,
-                        "level": 2,
-                        "variant": "title",
-                        "content": "Od strasti do servisa in trgovine"
+                        "content": "Od strasti do servisa in trgovine",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "36px"
                       },
                       {
                         "__component": "blocks.text",
@@ -164,7 +168,11 @@
           {
             "__component": "blocks.grid",
             "id": 301,
-            "columns": { "mobile": 1, "tablet": 2, "desktop": 2 },
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 2
+            },
             "gap": "lg",
             "slots": {
               "default": [
@@ -193,11 +201,12 @@
                         "color": "primary"
                       },
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 305,
-                        "level": 2,
-                        "variant": "title",
-                        "content": "Gregor Vukan"
+                        "content": "Gregor Vukan",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "36px"
                       },
                       {
                         "__component": "blocks.text",
@@ -248,11 +257,12 @@
                   "textAlign": "center"
                 },
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 403,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Zakaj mi",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {
@@ -271,7 +281,11 @@
           {
             "__component": "blocks.grid",
             "id": 410,
-            "columns": { "mobile": 1, "tablet": 2, "desktop": 4 },
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 4
+            },
             "gap": "lg",
             "slots": {
               "default": [
@@ -283,11 +297,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 412,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Vse vrste koles"
+                        "content": "Vse vrste koles",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -307,11 +322,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 415,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Osebni pristop"
+                        "content": "Osebni pristop",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -331,11 +347,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 418,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Poštena cena"
+                        "content": "Poštena cena",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -355,11 +372,12 @@
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.heading",
+                        "__component": "blocks.text",
                         "id": 421,
-                        "level": 3,
-                        "variant": "section",
-                        "content": "Lokalno, v Apačah"
+                        "content": "Lokalno, v Apačah",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "24px"
                       },
                       {
                         "__component": "blocks.text",
@@ -397,12 +415,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 502,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Pripravljeni na servis ali novo kolo?",
+                  "bold": true,
                   "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {

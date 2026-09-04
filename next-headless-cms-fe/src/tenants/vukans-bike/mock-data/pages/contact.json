@@ -28,14 +28,14 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 102,
-                  "level": 1,
-                  "variant": "display",
                   "content": "Kontakt",
-                  "textAlign": "center",
+                  "bold": true,
+                  "color": "foreground",
                   "fontSize": "56px",
-                  "fontWeight": "800"
+                  "fontWeight": "800",
+                  "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
@@ -68,11 +68,12 @@
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.heading",
+                  "__component": "blocks.text",
                   "id": 203,
-                  "level": 2,
-                  "variant": "title",
                   "content": "Kje smo",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
                   "textAlign": "center"
                 },
                 {
@@ -90,7 +91,10 @@
           {
             "__component": "blocks.grid",
             "id": 210,
-            "columns": { "mobile": 1, "desktop": 2 },
+            "columns": {
+              "mobile": 1,
+              "desktop": 2
+            },
             "gap": "lg",
             "maxWidth": "1100px",
             "margin": "0 auto",
@@ -114,7 +118,7 @@
                               "id": 222,
                               "name": "map-pin",
                               "label": "Naslov",
-                              "size": "md"
+                              "size": "lg"
                             },
                             {
                               "__component": "blocks.stack",
@@ -123,11 +127,12 @@
                               "slots": {
                                 "default": [
                                   {
-                                    "__component": "blocks.heading",
+                                    "__component": "blocks.text",
                                     "id": 224,
-                                    "level": 3,
-                                    "variant": "section",
-                                    "content": "Naslov"
+                                    "content": "Naslov",
+                                    "bold": true,
+                                    "color": "foreground",
+                                    "fontSize": "24px"
                                   },
                                   {
                                     "__component": "blocks.text",
@@ -163,7 +168,7 @@
                               "id": 231,
                               "name": "phone",
                               "label": "Telefon",
-                              "size": "md"
+                              "size": "lg"
                             },
                             {
                               "__component": "blocks.stack",
@@ -172,11 +177,12 @@
                               "slots": {
                                 "default": [
                                   {
-                                    "__component": "blocks.heading",
+                                    "__component": "blocks.text",
                                     "id": 233,
-                                    "level": 3,
-                                    "variant": "section",
-                                    "content": "Telefon"
+                                    "content": "Telefon",
+                                    "bold": true,
+                                    "color": "foreground",
+                                    "fontSize": "24px"
                                   },
                                   {
                                     "__component": "blocks.link",
@@ -203,7 +209,7 @@
                               "id": 241,
                               "name": "mail",
                               "label": "E-pošta",
-                              "size": "md"
+                              "size": "lg"
                             },
                             {
                               "__component": "blocks.stack",
@@ -212,11 +218,12 @@
                               "slots": {
                                 "default": [
                                   {
-                                    "__component": "blocks.heading",
+                                    "__component": "blocks.text",
                                     "id": 243,
-                                    "level": 3,
-                                    "variant": "section",
-                                    "content": "E-pošta"
+                                    "content": "E-pošta",
+                                    "bold": true,
+                                    "color": "foreground",
+                                    "fontSize": "24px"
                                   },
                                   {
                                     "__component": "blocks.link",

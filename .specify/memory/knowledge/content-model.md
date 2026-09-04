@@ -86,7 +86,7 @@ Footer text labels. Fields: `tagline`, `linksHeading`, `contactHeading`, `contac
 
 Each component maps to one `BlockInstance.type`. After Strapi strips `__component` and `id` meta, the remaining fields become `BlockInstance.props` — no further mapping needed.
 
-Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Keep components below. Deleted from DZ and disk: shared opaques (`cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`), bike proprietary marketing blocks (`hero`, `about-*`, `bike-school-*`, `guided-tour-experience`, `service-process`, `service-contact`), and `contact` (+ `contact-address` / `contact-labels`) now expressed as L1 + `iframe`.
+Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Keep components below. Deleted from DZ and disk: shared opaques (`cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`), `heading` (use `text` + `fontSize`/`bold`), bike proprietary marketing blocks (`hero`, `about-*`, `bike-school-*`, `guided-tour-experience`, `service-process`, `service-contact`), and `contact` (+ `contact-address` / `contact-labels`) now expressed as L1 + `iframe`.
 
 ### Shared L1 (available to all tenants)
 
@@ -97,8 +97,7 @@ Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Kee
 | `blocks.stack` | `stack` | `gap?`, `align?`, slim box styles, **`slots` (json)** |
 | `blocks.flex` | `flex` | `direction?`, `gap?`, `align?`, `justify?`, `wrap?`, slim box styles, **`slots` (json)** |
 | `blocks.grid` | `grid` | `columns?` (number **or** `{ mobile, tablet?, desktop? }` 1–4), `gap?`, slim box styles, **`slots` (json)** |
-| `blocks.heading` | `heading` | Leaf: `content`, `level` (1–6), `variant` (`display`/`title`/`section`), slim box styles |
-| `blocks.text` | `text` | Leaf: `content`, `variant` (`body`/`lead`/`caption`/`label`), slim box styles (stats = stack of two texts) |
+| `blocks.text` | `text` | Leaf: `content`, `variant` (`body`/`lead`/`caption`/`label`), `bold?`, slim box styles (`fontSize`, `color`, …) — titles use size + bold, not a separate heading type |
 | `blocks.image` | `image` | Leaf: `src`, `alt?`, `fit?`, slim box styles |
 | `blocks.iframe` | `iframe` | Leaf: `src`, `title`, `allowFullscreen?`, `aspect?` (`video`/`map`/`square`), slim box styles |
 | `blocks.icon` | `icon` | Leaf: `name` (`map-pin`/`phone`/`mail`), `label?`, `size?` (`sm`/`md`/`lg`), slim box styles |
@@ -141,7 +140,7 @@ Frontend components split at render time — no adapter transformation needed.
 
 Strapi dynamic zone entries arrive as:
 ```json
-{ "__component": "blocks.section", "id": 1, "padding": "lg", "slots": { "default": [ { "__component": "blocks.heading", "id": 2, "content": "...", "level": 1 } ] } }
+{ "__component": "blocks.section", "id": 1, "padding": "lg", "slots": { "default": [ { "__component": "blocks.text", "id": 2, "content": "...", "fontSize": "56px", "bold": true, "color": "foreground" } ] } }
 ```
 
 `strapi-document.ts → toDynamicZoneBlock` maps this to:
