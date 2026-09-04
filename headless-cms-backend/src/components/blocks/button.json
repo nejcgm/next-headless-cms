@@ -1,0 +1,65 @@
+{
+  "collectionName": "components_blocks_buttons",
+  "info": {
+    "displayName": "Button",
+    "icon": "cursor",
+    "description": "Button / link leaf"
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "variant": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary"
+      ],
+      "default": "primary"
+    },
+    "width": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    },
+    "minHeight": {
+      "type": "string"
+    },
+    "maxWidth": {
+      "type": "string"
+    },
+    "padding": {
+      "type": "string"
+    },
+    "margin": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "border": {
+      "type": "string"
+    },
+    "borderRadius": {
+      "type": "string"
+    },
+    "overflow": {
+      "type": "enumeration",
+      "enum": [
+        "visible",
+        "hidden",
+        "auto"
+      ]
+    }
+  }
+}

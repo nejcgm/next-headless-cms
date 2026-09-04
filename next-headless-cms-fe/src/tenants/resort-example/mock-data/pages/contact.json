@@ -95,17 +95,6 @@
           "id": 13
         }
       ]
-    },
-    {
-      "__component": "blocks.cta-banner",
-      "id": 14,
-      "headline": "Have Questions?",
-      "subheadline": "Our team is ready to help you plan the perfect stay",
-      "cta": {
-        "label": "Send Email",
-        "href": "mailto:info@grmovskovdom.si",
-        "id": 15
-      }
     }
   ],
   "lang": "en"

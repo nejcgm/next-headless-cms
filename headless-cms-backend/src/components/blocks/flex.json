@@ -1,0 +1,90 @@
+{
+  "collectionName": "components_blocks_flexes",
+  "info": {
+    "displayName": "Flex",
+    "icon": "arrows",
+    "description": "Flex layout"
+  },
+  "options": {},
+  "attributes": {
+    "direction": {
+      "type": "enumeration",
+      "enum": [
+        "row",
+        "column"
+      ],
+      "default": "row"
+    },
+    "gap": {
+      "type": "enumeration",
+      "enum": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "align": {
+      "type": "enumeration",
+      "enum": [
+        "start",
+        "center",
+        "end",
+        "stretch"
+      ]
+    },
+    "justify": {
+      "type": "enumeration",
+      "enum": [
+        "start",
+        "center",
+        "end",
+        "between"
+      ]
+    },
+    "wrap": {
+      "type": "boolean",
+      "default": false
+    },
+    "width": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    },
+    "minHeight": {
+      "type": "string"
+    },
+    "maxWidth": {
+      "type": "string"
+    },
+    "padding": {
+      "type": "string"
+    },
+    "margin": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "border": {
+      "type": "string"
+    },
+    "slots": {
+      "type": "json"
+    },
+    "borderRadius": {
+      "type": "string"
+    },
+    "overflow": {
+      "type": "enumeration",
+      "enum": [
+        "visible",
+        "hidden",
+        "auto"
+      ]
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "slug": "/guided-tours",
+  "slug": "/de/guided-tours",
   "template": "default",
   "seo": {
     "id": 1,
@@ -9,155 +9,541 @@
   },
   "blocks": [
     {
-      "__component": "blocks.hero",
-      "id": 4,
-      "headline": "Geführte Touren",
-      "subheadline": "Touren organisieren wir nach Vereinbarung. Tempo, Länge und Schwierigkeit passen wir der Gruppe an.",
+      "__component": "blocks.section",
+      "id": 100,
       "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
-      "overlay": 0.5,
-      "cta": {
-        "id": 2,
-        "label": "Termin anfragen",
-        "href": "/de/contact"
-      },
-      "secondaryCta": {
-        "id": 3,
-        "label": "Ablauf",
-        "href": "#potek"
+      "overlay": 0.4,
+      "padding": "lg",
+      "minHeight": "85vh",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 101,
+            "gap": "lg",
+            "align": "center",
+            "maxWidth": "720px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 102,
+                  "level": 1,
+                  "variant": "display",
+                  "content": "Geführte Touren",
+                  "textAlign": "center",
+                  "color": "foreground",
+                  "fontSize": "64px",
+                  "fontWeight": "800"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 103,
+                  "variant": "lead",
+                  "content": "Touren organisieren wir nach Vereinbarung. Tempo, Länge und Schwierigkeit passen wir der Gruppe an.",
+                  "color": "foreground",
+                  "textAlign": "center",
+                  "fontSize": "22px",
+                  "maxWidth": "520px"
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 104,
+                  "justify": "center",
+                  "wrap": true,
+                  "gap": "md",
+                  "margin": "16px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.button",
+                        "id": 105,
+                        "label": "Termin anfragen",
+                        "href": "/de/contact",
+                        "padding": "18px 40px"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 106,
+                        "label": "Ablauf",
+                        "href": "#potek",
+                        "variant": "secondary",
+                        "color": "foreground",
+                        "border": "2px solid var(--color-foreground)",
+                        "backgroundColor": "transparent",
+                        "padding": "18px 40px"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     {
-      "__component": "blocks.guided-tour-experience",
-      "id": 9,
-      "heading": "Das erwartet Sie",
-      "subheading": "Jede Tour wird auf die Gruppe zugeschnitten — mit klarem Plan und sicherem Tempo.",
-      "items": [
-        {
-          "id": 5,
-          "icon": "route",
-          "title": "Route nach Maß",
-          "description": "Vor der Tour stimmen wir Gelände, Länge und Höhenmeter mit Ihren Wünschen und Ihrer Fitness ab."
-        },
-        {
-          "id": 6,
-          "icon": "coach",
-          "title": "Führung vor Ort",
-          "description": "Wir leiten Tempo und Linienwahl, damit die Fahrt flüssig, sicher und für alle angenehm ist."
-        },
-        {
-          "id": 7,
-          "icon": "group",
-          "title": "Kleine Gruppen",
-          "description": "Am besten arbeiten wir in kleinen Gruppen, damit wir die Erfahrung auf jeden abstimmen können."
-        },
-        {
-          "id": 8,
-          "icon": "safety",
-          "title": "Sicherheit und Transparenz",
-          "description": "Vor dem Start gibt es klare Anweisungen; während der Tour sorgen wir für gutes Tempo und Organisation."
-        }
-      ]
+      "__component": "blocks.section",
+      "id": 200,
+      "padding": "lg",
+      "surface": "muted",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 201,
+            "gap": "sm",
+            "align": "center",
+            "margin": "0 0 40px",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 202,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Das erwartet Sie",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 203,
+                  "variant": "body",
+                  "content": "Jede Tour wird auf die Gruppe zugeschnitten — mit klarem Plan und sicherem Tempo.",
+                  "textAlign": "center",
+                  "color": "secondary",
+                  "maxWidth": "520px",
+                  "margin": "0 auto"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.grid",
+            "id": 210,
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 4
+            },
+            "gap": "lg",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 211,
+                  "gap": "sm",
+                  "align": "start",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.heading",
+                        "id": 212,
+                        "level": 3,
+                        "variant": "section",
+                        "content": "Route nach Maß"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 213,
+                        "variant": "body",
+                        "content": "Vor der Tour stimmen wir Gelände, Länge und Höhenmeter mit Ihren Wünschen und Ihrer Fitness ab.",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 214,
+                  "gap": "sm",
+                  "align": "start",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.heading",
+                        "id": 215,
+                        "level": 3,
+                        "variant": "section",
+                        "content": "Führung vor Ort"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 216,
+                        "variant": "body",
+                        "content": "Wir leiten Tempo und Linienwahl, damit die Fahrt flüssig, sicher und für alle angenehm ist.",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 217,
+                  "gap": "sm",
+                  "align": "start",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.heading",
+                        "id": 218,
+                        "level": 3,
+                        "variant": "section",
+                        "content": "Kleine Gruppen"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 219,
+                        "variant": "body",
+                        "content": "Am besten arbeiten wir in kleinen Gruppen, damit wir die Erfahrung auf jeden abstimmen können.",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 220,
+                  "gap": "sm",
+                  "align": "start",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.heading",
+                        "id": 221,
+                        "level": 3,
+                        "variant": "section",
+                        "content": "Sicherheit und Transparenz"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 222,
+                        "variant": "body",
+                        "content": "Vor dem Start gibt es klare Anweisungen; während der Tour sorgen wir für gutes Tempo und Organisation.",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
     },
     {
       "__component": "blocks.gallery",
-      "id": 18,
+      "id": 300,
       "heading": "Galerie geführte Touren",
       "subheading": "Aktuell nutzen wir bestehende Fotos; bald ergänzen wir Eindrücke von den Touren.",
-      "defaultImageAlt": "Geführte Touren",
+      "defaultImageAlt": "Galerie geführte Touren",
       "showLessLabel": "Weniger anzeigen",
       "showMorePrefix": "Mehr anzeigen (",
       "showMoreSuffix": ")",
       "lightboxAltPrefix": "Galerie",
       "images": [
         {
-          "id": 10,
+          "id": 301,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
           "alt": "Geführte Tour 1"
         },
         {
-          "id": 11,
+          "id": 302,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
           "alt": "Geführte Tour 2"
         },
         {
-          "id": 12,
+          "id": 303,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
           "alt": "Geführte Tour 3"
         },
         {
-          "id": 13,
+          "id": 304,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
           "alt": "Geführte Tour 4"
         },
         {
-          "id": 14,
+          "id": 305,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
           "alt": "Geführte Tour 5"
         },
         {
-          "id": 15,
+          "id": 306,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480191/IMG_2611_wxpwqs.heic",
           "alt": "Geführte Tour 6"
         },
         {
-          "id": 16,
+          "id": 307,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480188/1000026613_nfxcr7.jpg",
           "alt": "Geführte Tour 7"
         },
         {
-          "id": 17,
+          "id": 308,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480178/1000006042_tivdyq.jpg",
           "alt": "Geführte Tour 8"
         }
       ]
     },
     {
-      "__component": "blocks.service-process",
-      "id": 23,
-      "heading": "So organisieren wir die Tour",
-      "subheading": "Einfach und schnell — alles nach Vereinbarung.",
-      "steps": [
-        {
-          "id": 19,
-          "title": "Anfrage",
-          "description": "Sie nennen Wunschdatum, Gruppengröße und ungefähre Vorstellung der Tour.",
-          "icon": "contact",
-          "details": "Telefon oder E-Mail\nTerminvorschläge"
-        },
-        {
-          "id": 20,
-          "title": "Route abstimmen",
-          "description": "Gemeinsam legen wir Niveau, Länge und Gelände fest (leichte Wege oder technisch anspruchsvoller).",
-          "icon": "bike",
-          "details": "Anpassung an die Gruppe\nDauer und Tempo"
-        },
-        {
-          "id": 21,
-          "title": "Führung vor Ort",
-          "description": "Am Tourtag sorgen wir für klare Führung, Sicherheitshinweise und ein gutes Fahrgefühl.",
-          "icon": "tools",
-          "details": "Sicherheit vor dem Start\nPausen nach Absprache"
-        },
-        {
-          "id": 22,
-          "title": "Abschluss",
-          "description": "Nach der Tour ein kurzes Feedback; auf Wunsch schlagen wir die nächste Strecke vor.",
-          "icon": "check",
-          "details": "Kurzes Resümee\nVorschlag für den nächsten Termin"
-        }
-      ]
+      "__component": "blocks.section",
+      "id": 400,
+      "padding": "lg",
+      "surface": "background",
+      "anchorId": "potek",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 401,
+            "gap": "sm",
+            "align": "center",
+            "margin": "0 0 40px",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 402,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "So organisieren wir die Tour",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 403,
+                  "variant": "body",
+                  "content": "Einfach und schnell — alles nach Vereinbarung.",
+                  "textAlign": "center",
+                  "color": "secondary",
+                  "maxWidth": "480px",
+                  "margin": "0 auto"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.grid",
+            "id": 410,
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 4
+            },
+            "gap": "lg",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 411,
+                  "gap": "sm",
+                  "align": "start",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 412,
+                        "variant": "label",
+                        "content": "01",
+                        "color": "primary"
+                      },
+                      {
+                        "__component": "blocks.heading",
+                        "id": 413,
+                        "level": 3,
+                        "variant": "section",
+                        "content": "Anfrage"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 414,
+                        "variant": "body",
+                        "content": "Sie nennen Wunschdatum, Gruppengröße und ungefähre Vorstellung der Tour.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 415,
+                        "variant": "caption",
+                        "content": "Telefon oder E-Mail · Terminvorschläge",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 416,
+                  "gap": "sm",
+                  "align": "start",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 417,
+                        "variant": "label",
+                        "content": "02",
+                        "color": "primary"
+                      },
+                      {
+                        "__component": "blocks.heading",
+                        "id": 418,
+                        "level": 3,
+                        "variant": "section",
+                        "content": "Route abstimmen"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 419,
+                        "variant": "body",
+                        "content": "Gemeinsam legen wir Niveau, Länge und Gelände fest (leichte Wege oder technisch anspruchsvoller).",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 420,
+                        "variant": "caption",
+                        "content": "Anpassung an die Gruppe · Dauer und Tempo",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 421,
+                  "gap": "sm",
+                  "align": "start",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 422,
+                        "variant": "label",
+                        "content": "03",
+                        "color": "primary"
+                      },
+                      {
+                        "__component": "blocks.heading",
+                        "id": 423,
+                        "level": 3,
+                        "variant": "section",
+                        "content": "Führung vor Ort"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 424,
+                        "variant": "body",
+                        "content": "Am Tourtag sorgen wir für klare Führung, Sicherheitshinweise und ein gutes Fahrgefühl.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 425,
+                        "variant": "caption",
+                        "content": "Sicherheit vor dem Start · Pausen nach Absprache",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 426,
+                  "gap": "sm",
+                  "align": "start",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 427,
+                        "variant": "label",
+                        "content": "04",
+                        "color": "primary"
+                      },
+                      {
+                        "__component": "blocks.heading",
+                        "id": 428,
+                        "level": 3,
+                        "variant": "section",
+                        "content": "Abschluss"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 429,
+                        "variant": "body",
+                        "content": "Nach der Tour ein kurzes Feedback; auf Wunsch schlagen wir die nächste Strecke vor.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 430,
+                        "variant": "caption",
+                        "content": "Kurzes Resümee · Vorschlag für den nächsten Termin",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
     },
     {
-      "__component": "blocks.cta-banner",
-      "id": 25,
-      "heading": "Vereinbaren Sie Ihre geführte Tour",
-      "subheading": "Touren organisieren wir nach Vereinbarung und je nach freien Terminen.",
-      "cta": {
-        "id": 24,
-        "label": "Kontakt",
-        "href": "/de/contact"
-      },
-      "background": "primary"
+      "__component": "blocks.section",
+      "id": 500,
+      "surface": "primary",
+      "padding": "lg",
+      "minHeight": "420px",
+      "justify": "center",
+      "align": "center",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 501,
+            "gap": "md",
+            "align": "center",
+            "maxWidth": "480px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 502,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Vereinbaren Sie Ihre geführte Tour",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 503,
+                  "variant": "lead",
+                  "content": "Touren organisieren wir nach Vereinbarung und je nach freien Terminen.",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.button",
+                  "id": 504,
+                  "label": "Kontakt",
+                  "href": "/de/contact",
+                  "variant": "secondary",
+                  "backgroundColor": "foreground",
+                  "color": "primary",
+                  "border": "none",
+                  "margin": "12px 0 0",
+                  "padding": "18px 40px"
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   ],
   "lang": "de"

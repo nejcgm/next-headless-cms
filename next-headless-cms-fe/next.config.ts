@@ -37,9 +37,12 @@ const nextConfig: NextConfig = {
     config.resolve.alias["@tenant"] = tenantPath;
     config.resolve.alias["@tenant/config"] = path.join(tenantPath, "config");
     const mockDataAlias = getMockDataWebpackAlias(tenantId);
-    if (mockDataAlias) {
-      config.resolve.alias["@mock-data"] = mockDataAlias;
-    }
+    config.resolve.alias["@mock-data"] = mockDataAlias;
+    config.resolve.alias["@mock-data/pages"] = path.join(mockDataAlias, "pages");
+    config.resolve.alias["@mock-data/collections"] = path.join(
+      mockDataAlias,
+      "collections"
+    );
 
     if (analyze) {
       // eslint-disable-next-line @typescript-eslint/no-require-imports -- sync webpack hook; optional dev-only plugin

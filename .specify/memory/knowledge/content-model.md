@@ -21,7 +21,7 @@ Field names match frontend TypeScript interfaces directly to minimise adapter no
 | `slug` | `string` | `string` | URL path, e.g. `"/service"` |
 | `slugPattern` | `string` | `string?` | e.g. `"/bikes/:slug"` for dynamic pages |
 | `template` | `enumeration` (default/detail/bare) | `string` | Resolves to a tenant template component |
-| `blocks` | **dynamiczone** | `BlockInstance[]` | See Block Components below |
+| `blocks` | **dynamiczone** | `BlockInstance[]` | L1 primitives + bike Keep L3 only (see below) |
 | `seo` | component `shared.seo` | `PageSeo` | Required on every page |
 
 ### `navigation` (`src/api/navigation/content-types/navigation/schema.json`)
@@ -63,13 +63,13 @@ One entry per SKU per tenant + locale. Used by `product-list` (collection query)
 Maps directly to frontend `PageSeo`: `title`, `description`, `ogImage`, `canonical`, `noIndex`, `jsonLd`.
 
 ### `shared.cta-link`
-Reusable CTA button pair. Fields: `label` (string), `href` (string).
+Reusable CTA button pair. Fields: `label` (string), `href` (string). (Legacy helper; L1 `button` is preferred for page CTAs.)
 
 ### `shared.image-item`
-Image with alt text. Fields: `src` (string), `alt` (string?).
+Image with alt text. Fields: `src` (string), `alt` (string?). Used by Keep `gallery`.
 
 ### `shared.stat-item`
-Social-proof stat. Fields: `value` (string), `label` (string).
+Social-proof stat. Fields: `value` (string), `label` (string). (Legacy helper; stats are authored as L1 `stack` of `text` nodes.)
 
 ### `shared.nav-item`
 Top-level nav link. Fields: `label`, `href`, `isExternal` (bool, default false), `children` (repeatable `shared.nav-item-child`).
@@ -86,57 +86,51 @@ Footer text labels. Fields: `tagline`, `linksHeading`, `contactHeading`, `contac
 
 Each component maps to one `BlockInstance.type`. After Strapi strips `__component` and `id` meta, the remaining fields become `BlockInstance.props` — no further mapping needed.
 
-### Shared blocks (available to all tenants)
+Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Keep components below. Deleted from DZ and disk: shared opaques (`cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`) and bike proprietary marketing blocks (`hero`, `about-*`, `bike-school-*`, `guided-tour-experience`, `service-process`, `service-contact`).
+
+### Shared L1 (available to all tenants)
 
 | Component | `type` in frontend | Key fields |
 |-----------|--------------------|-----------|
-| `blocks.hero` | `hero` | `headline`, `subheadline?`, `backgroundImage`, `backgroundFit` (cover/contain), `overlay` (decimal), `cta` (shared.cta-link), `secondaryCta?` (shared.cta-link) |
-| `blocks.cta-banner` | `cta-banner` | `heading`, `subheading?`, `cta` (shared.cta-link), `background` (primary/muted/dark) |
-| `blocks.stats-bar` | `stats-bar` | `stats` (repeatable shared.stat-item) |
-| `blocks.image-text` | `image-text` | `heading`, `body` (text), `layout` (image-left/image-right), `image` (shared.image-item), `cta?` (shared.cta-link) |
-| `blocks.section-header` | `section-header` | `heading`, `subheading?`, `centered` (bool) |
-| `blocks.rich-text` | `rich-text` | `content` (richtext/Markdown) |
-| `blocks.image-gallery` | `image-gallery` | `heading?`, `columns` (2-4), `lightbox` (bool), `images` (repeatable shared.image-item) |
+| `blocks.section` | `section` | Layout band: enum `padding?`, `backgroundImage?`, `backgroundFit?`, `overlay?`, `anchorId?`, `surface?` / `backgroundColor?`, content `justify?` / `align?` (`start`\|`center`\|`end`), slim box styles, **`slots` (json)** |
+| `blocks.stack` | `stack` | `gap?`, `align?`, slim box styles, **`slots` (json)** |
+| `blocks.flex` | `flex` | `direction?`, `gap?`, `align?`, `justify?`, `wrap?`, slim box styles, **`slots` (json)** |
+| `blocks.grid` | `grid` | `columns?` (number **or** `{ mobile, tablet?, desktop? }` 1–4), `gap?`, slim box styles, **`slots` (json)** |
+| `blocks.heading` | `heading` | Leaf: `content`, `level` (1–6), `variant` (`display`/`title`/`section`), slim box styles |
+| `blocks.text` | `text` | Leaf: `content`, `variant` (`body`/`lead`/`caption`/`label`), slim box styles (stats = stack of two texts) |
+| `blocks.image` | `image` | Leaf: `src`, `alt?`, `fit?`, slim box styles |
+| `blocks.button` | `button` | Leaf: `label`, `href`, `variant?`, slim box styles |
 
-### Vukan's Bike tenant blocks
+**Box styles** (shared L1): `width`, `height`, `minHeight`, `maxWidth`, `padding` (not on `section`), `margin`, `backgroundColor`, `color`, `border`, `borderRadius`, `overflow`, `fontSize`, `fontWeight`, `textAlign`.
+
+**Composition nesting**: Page DZ roots stay flat. Nesting uses `slots` JSON shaped like `{ "default": [ { "__component": "blocks.text", "id": 1, ... }, ... ] }`. Frontend `toPageData(raw, locale, tenantId)` recursively validates via registry policies into `BlockInstance.slots`. Layout policies allow Keep L3 under `section` / `stack` / `flex` / `grid` (`composition-allow.ts`).
+
+### Vukan's Bike Keep L3
 
 | Component | `type` | Key fields |
 |-----------|--------|-----------|
-| `blocks.about-person` | `about-person` | `name`, `role`, `bio` (text), `image?`, `cta?` (shared.cta-link) |
-| `blocks.about-story` | `about-story` | `kicker?`, `headline`, `quote?`, `body` (**text** — paragraphs split on `\n\n`), `image?`, `imagePosition` (left/right) |
-| `blocks.about-values` | `about-values` | `eyebrowBadge`, `heading`, `subheading?`, `items` (repeatable `blocks.about-value-item`) |
-| `blocks.about-value-item` | — (sub-component) | `icon` (string), `title`, `description` |
-| `blocks.bike-school-intro` | `bike-school-intro` | `kicker?`, `heading`, `subheading?`, `dateRange`, `location`, `cta` (shared.cta-link), `secondaryCta?` |
-| `blocks.bike-school-program` | `bike-school-program` | `heading`, `subheading?`, `items` (repeatable `blocks.bike-school-program-item`) |
-| `blocks.bike-school-program-item` | — (sub-component) | `title`, `level`, `description`, `bullets` (**text** — split on `\n`), `ctaLabel?`, `ctaHref?` |
 | `blocks.contact` | `contact` | `heading`, `subheading?`, `phone`, `email`, `directionsLink`, `mapEmbedUrl?`, `hoursNote?`, `address` (`blocks.contact-address`), `labels` (`blocks.contact-labels`) |
 | `blocks.contact-address` | — (sub-component) | `street`, `postalCode`, `city`, `country?` |
 | `blocks.contact-labels` | — (sub-component) | `addressHeading`, `directionsLinkText`, `phoneHeading`, `emailHeading`, `mapIframeTitle`, `mapFallbackTitle`, `mapFullscreenLink` |
 | `blocks.gallery` | `gallery` | `heading`, `subheading?`, `images` (repeatable shared.image-item), `defaultImageAlt`, `showLessLabel`, `showMorePrefix`, `showMoreSuffix`, `lightboxAltPrefix` |
-| `blocks.guided-tour-experience` | `guided-tour-experience` | `heading`, `subheading?`, `items` (repeatable `blocks.guided-tour-item`) |
-| `blocks.guided-tour-item` | — (sub-component) | `icon` (route/coach/group/safety), `title`, `description` |
 | `blocks.partners-gallery` | `partners-gallery` | `eyebrowBadge`, `defaultPartnerLinkLabel`, `heading`, `subheading?`, `partners` (repeatable `blocks.partner-item`) |
 | `blocks.partner-item` | — (sub-component) | `name`, `icon` (image URL), `about`, `url?`, `linkLabel?` |
 | `blocks.product-list` | `product-list` | `heading?`, `subheading?`, `outOfStockLabel`, `limit?`, `category?`, `layout` (grid/list), `anchorId?` — products loaded at runtime via `dataContract` |
-| `blocks.service-contact` | `service-contact` | `heading`, `text?`, `phone`, `phoneHref?`, `email`, `emailHref?`, `ctaText?` |
 | `blocks.service-faq` | `service-faq` | `heading`, `subheading?`, `items` (repeatable `blocks.faq-item`), `contactCtaText?`, `contactCtaLabel?`, `contactCtaHref?` |
 | `blocks.faq-item` | — (sub-component) | `question`, `answer` (text) |
 | `blocks.service-pricing` | `service-pricing` | `heading`, `subheading?`, `packages` (repeatable `blocks.service-package`), `note?`, `contactCta?`, `contactHref?` |
 | `blocks.service-package` | — (sub-component) | `name`, `description`, `label?`, `price` (decimal), `priceDisplay?`, `priceNote?`, `features` (**text** — split on `\n`), `turnaround?` |
-| `blocks.service-process` | `service-process` | `heading`, `subheading?`, `steps` (repeatable `blocks.process-step`) |
-| `blocks.process-step` | — (sub-component) | `title`, `description?`, `icon?`, `duration?`, `details?` (**text** — split on `\n`) |
 | `blocks.bike-detail` | `bike-detail` | `labels` (`blocks.bike-detail-labels`) — bike data loaded at runtime via `dataContract` |
 | `blocks.bike-detail-labels` | — (sub-component) | 16 UI label strings (notFoundTitle, breadcrumbHome, outOfStock, …) |
+
+Header/footer chrome are tenant templates, not DZ components.
 
 ---
 
 ## String arrays → `text` fields
 
 Some frontend types historically used `string[]`. These are now **`text`** (textarea) fields in Strapi where:
-- `about-story.body` → paragraphs separated by `\n\n`
-- `bike-school-program-item.bullets` → one per line, split on `\n`
 - `service-package.features` → one per line, split on `\n`
-- `process-step.details` → one per line, split on `\n`
 
 Frontend components split at render time — no adapter transformation needed.
 
@@ -146,12 +140,12 @@ Frontend components split at render time — no adapter transformation needed.
 
 Strapi dynamic zone entries arrive as:
 ```json
-{ "__component": "blocks.hero", "id": 1, "headline": "...", "cta": { "__component": "shared.cta-link", "id": 5, "label": "...", "href": "..." } }
+{ "__component": "blocks.section", "id": 1, "padding": "lg", "slots": { "default": [ { "__component": "blocks.heading", "id": 2, "content": "...", "level": 1 } ] } }
 ```
 
 `strapi-document.ts → toDynamicZoneBlock` maps this to:
 ```json
-{ "id": "1", "type": "hero", "props": { "headline": "...", "cta": { "label": "...", "href": "..." } } }
+{ "id": "1", "type": "section", "props": { "padding": "lg" }, "slots": { "default": [ { "id": "2", "type": "heading", "props": { "content": "...", "level": 1 } } ] } }
 ```
 
 If Strapi omits `id`, the fallback is `` `${type}-${index}` `` (index in the page `blocks` array), not a random value.

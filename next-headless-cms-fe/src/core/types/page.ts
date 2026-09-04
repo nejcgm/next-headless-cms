@@ -18,6 +18,7 @@ export interface BlockInstance {
   id: string;
   type: string;
   props: Record<string, unknown>;
+  slots?: Record<string, BlockInstance[]>;
   visibility?: BlockVisibility;
 }
 

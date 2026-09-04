@@ -1,0 +1,64 @@
+{
+  "collectionName": "components_blocks_images",
+  "info": {
+    "displayName": "Image",
+    "icon": "picture",
+    "description": "Image leaf"
+  },
+  "options": {},
+  "attributes": {
+    "src": {
+      "type": "string",
+      "required": true
+    },
+    "alt": {
+      "type": "string"
+    },
+    "fit": {
+      "type": "enumeration",
+      "enum": [
+        "cover",
+        "contain"
+      ],
+      "default": "cover"
+    },
+    "width": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    },
+    "minHeight": {
+      "type": "string"
+    },
+    "maxWidth": {
+      "type": "string"
+    },
+    "padding": {
+      "type": "string"
+    },
+    "margin": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "border": {
+      "type": "string"
+    },
+    "borderRadius": {
+      "type": "string"
+    },
+    "overflow": {
+      "type": "enumeration",
+      "enum": [
+        "visible",
+        "hidden",
+        "auto"
+      ]
+    }
+  }
+}

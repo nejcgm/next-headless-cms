@@ -9,71 +9,310 @@
   },
   "blocks": [
     {
-      "__component": "blocks.hero",
-      "id": 4,
-      "headline": "Kolesarska šola",
-      "subheadline": "Dve skupini šole na Flat Out Days: Basic School za prve korake in Advanced School za napredek na zahtevnejših trailih.",
+      "__component": "blocks.section",
+      "id": 100,
       "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
-      "overlay": 0.5,
-      "cta": {
-        "id": 2,
-        "label": "Karte na Flat Out Days",
-        "href": "https://flatoutdays.com/activities/bike-school/basic-school"
-      },
-      "secondaryCta": {
-        "id": 3,
-        "label": "Basic School",
-        "href": "https://flatoutdays.com/activities/bike-school/basic-school"
+      "overlay": 0.4,
+      "padding": "lg",
+      "minHeight": "85vh",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 101,
+            "gap": "lg",
+            "align": "center",
+            "maxWidth": "720px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 102,
+                  "level": 1,
+                  "variant": "display",
+                  "content": "Kolesarska šola",
+                  "textAlign": "center",
+                  "color": "foreground",
+                  "fontSize": "64px",
+                  "fontWeight": "800"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 103,
+                  "variant": "lead",
+                  "content": "Dve skupini šole na Flat Out Days: Basic School za prve korake in Advanced School za napredek na zahtevnejših trailih.",
+                  "color": "foreground",
+                  "textAlign": "center",
+                  "fontSize": "22px",
+                  "maxWidth": "560px"
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 104,
+                  "justify": "center",
+                  "wrap": true,
+                  "gap": "md",
+                  "margin": "16px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.button",
+                        "id": 105,
+                        "label": "Karte na Flat Out Days",
+                        "href": "https://flatoutdays.com/activities/bike-school/basic-school",
+                        "padding": "18px 40px"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 106,
+                        "label": "Basic School",
+                        "href": "https://flatoutdays.com/activities/bike-school/basic-school",
+                        "variant": "secondary",
+                        "color": "foreground",
+                        "border": "2px solid var(--color-foreground)",
+                        "backgroundColor": "transparent",
+                        "padding": "18px 40px"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     {
-      "__component": "blocks.bike-school-intro",
-      "id": 7,
-      "kicker": "Flat Out Days 2026",
-      "heading": "Dve kolesarski šoli: Basic in Advanced",
-      "subheading": "Program je razdeljen na začetni in napredni nivo. Obe skupini delata v manjših ekipah (do 8 udeležencev) z enim trenerjem, poudarek pa je na varni tehniki, samozavesti in napredku na terenu.",
-      "dateRange": "13.-19. julij",
-      "location": "Festival Flat Out Days",
-      "cta": {
-        "id": 5,
-        "label": "Basic School podrobnosti",
-        "href": "https://flatoutdays.com/activities/bike-school/basic-school"
-      },
-      "secondaryCta": {
-        "id": 6,
-        "label": "Advanced School podrobnosti",
-        "href": "https://flatoutdays.com/activities/bike-school/advanced-school"
+      "__component": "blocks.section",
+      "id": 200,
+      "surface": "muted",
+      "padding": "lg",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 201,
+            "gap": "md",
+            "align": "center",
+            "maxWidth": "640px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 202,
+                  "variant": "label",
+                  "content": "Flat Out Days 2026",
+                  "color": "primary",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.heading",
+                  "id": 203,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Dve kolesarski šoli: Basic in Advanced",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 204,
+                  "variant": "body",
+                  "content": "Program je razdeljen na začetni in napredni nivo. Obe skupini delata v manjših ekipah (do 8 udeležencev) z enim trenerjem, poudarek pa je na varni tehniki, samozavesti in napredku na terenu.",
+                  "textAlign": "center",
+                  "color": "secondary",
+                  "maxWidth": "560px",
+                  "margin": "0 auto"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 205,
+                  "variant": "caption",
+                  "content": "13.–19. julij · Festival Flat Out Days",
+                  "textAlign": "center",
+                  "color": "foreground",
+                  "fontWeight": "600",
+                  "margin": "8px 0 0"
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 206,
+                  "justify": "center",
+                  "wrap": true,
+                  "gap": "md",
+                  "margin": "16px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.button",
+                        "id": 207,
+                        "label": "Basic School podrobnosti",
+                        "href": "https://flatoutdays.com/activities/bike-school/basic-school",
+                        "variant": "secondary"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 208,
+                        "label": "Advanced School podrobnosti",
+                        "href": "https://flatoutdays.com/activities/bike-school/advanced-school",
+                        "variant": "secondary"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     {
-      "__component": "blocks.bike-school-program",
-      "id": 10,
-      "heading": "Program po nivojih",
-      "subheading": "Izberi skupino glede na predznanje in cilje; oba programa potekata med torkom in petkom (ali po posameznih dneh), 4 ure na dan s krajšim odmorom.",
-      "items": [
-        {
-          "id": 8,
-          "title": "Basic School",
-          "level": "Začetni nivo",
-          "description": "Za vse, ki začenjajo z gorskim kolesarjenjem ali želijo bolj stabilne osnove. Trening je postopen, brez pritiska, z veliko praktičnega dela in jasnimi razlagami.",
-          "bullets": "Temelji: položaj na kolesu, ravnotežje, tekoče zaviranje in osnovna vodljivost\nSkupine do 8 udeležencev z enim trenerjem\n4h dnevno + kratek snack odmor; minimalna starost 6 let\nObvezna osnovna zaščita: čelada, ščitniki za kolena in rokavice\nV slabem vremenu del programa poteka v notranjih prostorih (setup, osnove vzdrževanja, nasveti)\nJeziki: slovenščina, nemščina, angleščina",
-          "ctaLabel": "Odpri Basic School",
-          "ctaHref": "https://flatoutdays.com/activities/bike-school/basic-school"
-        },
-        {
-          "id": 9,
-          "title": "Advanced School",
-          "level": "Napredni nivo",
-          "description": "Za riderje z osnovnim znanjem, ki želijo napredovati na rdečih/črnih trailih, tehničnih odsekih in pri srednjih table skokih.",
-          "bullets": "Napredna tehnika: drža na strmem terenu, natančno zaviranje, cornering in izbira linije\nGradnja kontrole in samozavesti na tehničnih odsekih ter flow elementih\nSkupine do 8 udeležencev z certificiranim trenerjem\n4h dnevno + kratek snack odmor; možno tudi po dnevih (tor-pet)\nČe so pogoji nevarni, se del programa prestavi v notranjost (napredni setup, vzdrževanje, video analiza)\nJeziki: slovenščina, nemščina, angleščina",
-          "ctaLabel": "Odpri Advanced School",
-          "ctaHref": "https://flatoutdays.com/activities/bike-school/advanced-school"
-        }
-      ]
+      "__component": "blocks.section",
+      "id": 300,
+      "padding": "lg",
+      "surface": "background",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 301,
+            "gap": "sm",
+            "align": "center",
+            "margin": "0 0 40px",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 302,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Program po nivojih",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 303,
+                  "variant": "body",
+                  "content": "Izberi skupino glede na predznanje in cilje; oba programa potekata med torkom in petkom (ali po posameznih dneh), 4 ure na dan s krajšim odmorom.",
+                  "textAlign": "center",
+                  "color": "secondary",
+                  "maxWidth": "560px",
+                  "margin": "0 auto"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.grid",
+            "id": 310,
+            "columns": { "mobile": 1, "tablet": 2, "desktop": 2 },
+            "gap": "lg",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 311,
+                  "gap": "md",
+                  "align": "start",
+                  "padding": "16px 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 312,
+                        "variant": "label",
+                        "content": "Začetni nivo",
+                        "color": "primary"
+                      },
+                      {
+                        "__component": "blocks.heading",
+                        "id": 313,
+                        "level": 3,
+                        "variant": "section",
+                        "content": "Basic School"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 314,
+                        "variant": "body",
+                        "content": "Za vse, ki začenjajo z gorskim kolesarjenjem ali želijo bolj stabilne osnove. Trening je postopen, brez pritiska, z veliko praktičnega dela in jasnimi razlagami.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 315,
+                        "variant": "body",
+                        "content": "Temelji: položaj na kolesu, ravnotežje, tekoče zaviranje in osnovna vodljivost\nSkupine do 8 udeležencev z enim trenerjem\n4h dnevno + kratek snack odmor; minimalna starost 6 let\nObvezna osnovna zaščita: čelada, ščitniki za kolena in rokavice\nV slabem vremenu del programa poteka v notranjih prostorih (setup, osnove vzdrževanja, nasveti)\nJeziki: slovenščina, nemščina, angleščina",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 316,
+                        "label": "Odpri Basic School",
+                        "href": "https://flatoutdays.com/activities/bike-school/basic-school",
+                        "variant": "secondary",
+                        "margin": "8px 0 0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 320,
+                  "gap": "md",
+                  "align": "start",
+                  "padding": "16px 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 321,
+                        "variant": "label",
+                        "content": "Napredni nivo",
+                        "color": "primary"
+                      },
+                      {
+                        "__component": "blocks.heading",
+                        "id": 322,
+                        "level": 3,
+                        "variant": "section",
+                        "content": "Advanced School"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 323,
+                        "variant": "body",
+                        "content": "Za riderje z osnovnim znanjem, ki želijo napredovati na rdečih/črnih trailih, tehničnih odsekih in pri srednjih table skokih.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 324,
+                        "variant": "body",
+                        "content": "Napredna tehnika: drža na strmem terenu, natančno zaviranje, cornering in izbira linije\nGradnja kontrole in samozavesti na tehničnih odsekih ter flow elementih\nSkupine do 8 udeležencev z certificiranim trenerjem\n4h dnevno + kratek snack odmor; možno tudi po dnevih (tor-pet)\nČe so pogoji nevarni, se del programa prestavi v notranjost (napredni setup, vzdrževanje, video analiza)\nJeziki: slovenščina, nemščina, angleščina",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 325,
+                        "label": "Odpri Advanced School",
+                        "href": "https://flatoutdays.com/activities/bike-school/advanced-school",
+                        "variant": "secondary",
+                        "margin": "8px 0 0"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
     },
     {
       "__component": "blocks.gallery",
-      "id": 22,
+      "id": 400,
       "heading": "Foto utrinki kolesarske šole",
       "subheading": "Nekaj trenutkov s treningov in festivalskega dogajanja.",
       "defaultImageAlt": "Kolesarska šola",
@@ -83,73 +322,115 @@
       "lightboxAltPrefix": "Galerija",
       "images": [
         {
-          "id": 11,
+          "id": 401,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
           "alt": "Kolesarska šola 1"
         },
         {
-          "id": 12,
+          "id": 402,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
           "alt": "Kolesarska šola 2"
         },
         {
-          "id": 13,
+          "id": 403,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480191/IMG_2611_wxpwqs.heic",
           "alt": "Kolesarska šola 3"
         },
         {
-          "id": 14,
+          "id": 404,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480188/1000026613_nfxcr7.jpg",
           "alt": "Kolesarska šola 4"
         },
         {
-          "id": 15,
+          "id": 405,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480185/IMG_2608_cbh0u1.heic",
           "alt": "Kolesarska šola 5"
         },
         {
-          "id": 16,
+          "id": 406,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480178/1000006042_tivdyq.jpg",
           "alt": "Kolesarska šola 6"
         },
         {
-          "id": 17,
+          "id": 407,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480168/1000005467_ovxiqg.jpg",
           "alt": "Kolesarska šola 7"
         },
         {
-          "id": 18,
+          "id": 408,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480140/3f37be51-c7c2-4123-8d2f-b253cf5ce505_xcwuc8.jpg",
           "alt": "Kolesarska šola 8"
         },
         {
-          "id": 19,
+          "id": 409,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480137/89f512ad-2519-480d-aa4b-0521808219bf_v4zabz.jpg",
           "alt": "Kolesarska šola 9"
         },
         {
-          "id": 20,
+          "id": 410,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480135/1000004389_mpu6mu.jpg",
           "alt": "Kolesarska šola 10"
         },
         {
-          "id": 21,
+          "id": 411,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480134/0f080a97-cd70-4e54-9868-a6904106ad3d_tlipod.jpg",
           "alt": "Kolesarska šola 11"
         }
       ]
     },
     {
-      "__component": "blocks.cta-banner",
-      "id": 24,
-      "heading": "Prijave za Basic in Advanced School",
-      "subheading": "Za razpored, pakete in karte preveri uradno stran Flat Out Days.",
-      "cta": {
-        "id": 23,
-        "label": "Odpri Flat Out Days",
-        "href": "https://flatoutdays.com/activities/bike-school/basic-school"
-      },
-      "background": "primary"
+      "__component": "blocks.section",
+      "id": 500,
+      "surface": "primary",
+      "padding": "lg",
+      "minHeight": "420px",
+      "justify": "center",
+      "align": "center",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 501,
+            "gap": "md",
+            "align": "center",
+            "maxWidth": "480px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 502,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Prijave za Basic in Advanced School",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 503,
+                  "variant": "lead",
+                  "content": "Za razpored, pakete in karte preveri uradno stran Flat Out Days.",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.button",
+                  "id": 504,
+                  "label": "Odpri Flat Out Days",
+                  "href": "https://flatoutdays.com/activities/bike-school/basic-school",
+                  "variant": "secondary",
+                  "backgroundColor": "foreground",
+                  "color": "primary",
+                  "border": "none",
+                  "margin": "12px 0 0",
+                  "padding": "18px 40px"
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   ],
   "lang": "sl"

@@ -1,5 +1,5 @@
 {
-  "slug": "/brands",
+  "slug": "/de/brands",
   "template": "default",
   "seo": {
     "id": 1,
@@ -9,34 +9,90 @@
   },
   "blocks": [
     {
-      "__component": "blocks.hero",
-      "id": 4,
-      "headline": "Partner und Marken",
-      "subheadline": "Wir arbeiten mit Marken und Organisationen aus der Bike-Szene zusammen — von Trail und MTB bis zur breiteren Community.",
+      "__component": "blocks.section",
+      "id": 100,
       "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405173/1000004333_bged3h.jpg",
-      "backgroundFit": "contain",
-      "overlay": 0.5,
-      "cta": {
-        "id": 2,
-        "label": "Zum Shop",
-        "href": "/de/shop"
-      },
-      "secondaryCta": {
-        "id": 3,
-        "label": "Service",
-        "href": "/de/service"
+      "overlay": 0.4,
+      "padding": "lg",
+      "minHeight": "75vh",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 101,
+            "gap": "lg",
+            "align": "center",
+            "maxWidth": "720px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 102,
+                  "level": 1,
+                  "variant": "display",
+                  "content": "Partner und Marken",
+                  "textAlign": "center",
+                  "color": "foreground",
+                  "fontSize": "56px",
+                  "fontWeight": "800"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 103,
+                  "variant": "lead",
+                  "content": "Wir arbeiten mit Marken und Organisationen aus der Bike-Szene zusammen — von Trail und MTB bis zur breiteren Community.",
+                  "color": "foreground",
+                  "textAlign": "center",
+                  "fontSize": "22px",
+                  "maxWidth": "560px"
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 104,
+                  "justify": "center",
+                  "wrap": true,
+                  "gap": "md",
+                  "margin": "16px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.button",
+                        "id": 105,
+                        "label": "Zum Shop",
+                        "href": "/de/shop",
+                        "padding": "18px 40px"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 106,
+                        "label": "Service",
+                        "href": "/de/service",
+                        "variant": "secondary",
+                        "color": "foreground",
+                        "border": "2px solid var(--color-foreground)",
+                        "backgroundColor": "transparent",
+                        "padding": "18px 40px"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     {
       "__component": "blocks.partners-gallery",
-      "id": 12,
+      "id": 200,
       "eyebrowBadge": "Unsere Partner",
       "defaultPartnerLinkLabel": "Website besuchen",
       "heading": "Partner, mit denen wir zusammenarbeiten",
       "subheading": "Komponenten- und Reifenmarken, Festivals, Trailbau, lokale Vereine und Race-Teams — verlässliche Partner im Radsport.",
       "partners": [
         {
-          "id": 5,
+          "id": 201,
           "name": "Reverse Components",
           "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404891/images_1_gd8ohz.png",
           "about": "Deutsche Marke für MTB- und E-Bike-Komponenten aus Freudenstadt (Schwarzwald), seit 2004. Motto „von Bikern für Biker“: Lenker, Laufräder, Sättel, Pedale und mehr, geprüft u. a. im EFBE-Labor. In über 25 Ländern vertreten.",
@@ -44,7 +100,7 @@
           "linkLabel": "Reverse Components besuchen"
         },
         {
-          "id": 6,
+          "id": 202,
           "name": "Flat Out Days",
           "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_wbppdf.jpg",
           "about": "Größtes slowenisches Mountainbike-Festival — heute mehrtägiges Event im Bikepark Kope mit Freeride Fest Series, Whip-Off, Dual Slalom, Workshops und Musik. 2017 als kleiner Whip-Off in Ljubljana gestartet; heute Fokus auf Community und Fortschritt im Sport.",
@@ -52,7 +108,7 @@
           "linkLabel": "Flat Out Days — Tickets und Programm"
         },
         {
-          "id": 7,
+          "id": 203,
           "name": "Goodyear Bike",
           "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/goodyear-logo-01_zlhnbl.jpg",
           "about": "Offizielle Fahrradlinie von Goodyear (goodyearbike.com): Hochleistungsreifen für Straße, Gravel, Trekking/Urban und MTB — z. B. Eagle, Vector, Connector, Newton und Escape. Auf der Website auch Druckrechner und Tubeless-Anleitungen.",
@@ -60,7 +116,7 @@
           "linkLabel": "Goodyear Bike — Reifen"
         },
         {
-          "id": 8,
+          "id": 204,
           "name": "BATT Crew",
           "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404890/images_1_lbvhfo.jpg",
           "about": "Team aus Domžale für Planung und Bau sicherer, nachhaltiger MTB-Trails und Bikeparks (u. a. Agi Bike Park und umfangreiche Erneuerung Bikepark Kope). Dokumentation, Beschilderung, Rettungskonzepte und Foto/Video. 2017 Start von Flat Out Days.",
@@ -68,7 +124,7 @@
           "linkLabel": "BATT Crew — Referenzen und Kontakt"
         },
         {
-          "id": 9,
+          "id": 205,
           "name": "Loose Riders",
           "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404892/images_2_xviu4o.jpg",
           "about": "Globale Marke und Community (LRGA): technische Kleidung, Protektoren, Zubehör und Bike-Parts. Aus der Trail-Community (2012), heute lokale „Chapters“ weltweit — von Chiang Mai bis Europa.",
@@ -76,13 +132,13 @@
           "linkLabel": "Loose Riders — Shop"
         },
         {
-          "id": 10,
+          "id": 206,
           "name": "Apače Mlinarji",
           "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/1718357843307_LOGO_S%CC%8CKTD_MLINARJI_APAC%CC%8CE.png_fvumlz.png",
           "about": "ŠKTD (Sport-, Kultur- und Tourismusverein) Apače Mlinarji organisiert Mountainbike-Rennen am heimischen Gelände — u. a. Etappen des Pomurski MTB-Pokal und spezielle Nachtrennen. Starke Unterstützung für Kinderklassen und die lokale Szene."
         },
         {
-          "id": 11,
+          "id": 207,
           "name": "427 Savage Squad",
           "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_3_fg2dgh.jpg",
           "about": "Mariborer Race-Team in Downhill und Enduro (Verein 427 Pohorje) mit Jure Logar. Akademie mit begrenzten Plätzen; bekannte Fahrerinnen und Fahrer u. a. Maša Komel und Miha Jerkič. Europaweite Abstimmung mit DH-Cups.",
@@ -92,16 +148,58 @@
       ]
     },
     {
-      "__component": "blocks.cta-banner",
-      "id": 14,
-      "heading": "Suchen Sie ein Rad oder Service?",
-      "subheading": "Besuchen Sie uns oder rufen Sie an: 070 815 379.",
-      "cta": {
-        "id": 13,
-        "label": "Kontakt",
-        "href": "/de/contact"
-      },
-      "background": "primary"
+      "__component": "blocks.section",
+      "id": 300,
+      "surface": "primary",
+      "padding": "lg",
+      "minHeight": "420px",
+      "justify": "center",
+      "align": "center",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 301,
+            "gap": "md",
+            "align": "center",
+            "maxWidth": "480px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 302,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Suchen Sie ein Rad oder Service?",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 303,
+                  "variant": "lead",
+                  "content": "Besuchen Sie uns oder rufen Sie an: 070 815 379.",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.button",
+                  "id": 304,
+                  "label": "Kontakt",
+                  "href": "/de/contact",
+                  "variant": "secondary",
+                  "backgroundColor": "foreground",
+                  "color": "primary",
+                  "border": "none",
+                  "margin": "12px 0 0",
+                  "padding": "18px 40px"
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   ],
   "navigation": {

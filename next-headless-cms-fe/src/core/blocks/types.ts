@@ -19,9 +19,21 @@ export interface BlockRenderContext {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any -- registry accepts heterogeneous block props
 type BlockComponent = ComponentType<any>;
 
+export interface SlotPolicy {
+  allow: string[];
+  maxItems?: number;
+}
+
+export interface CompositionPolicy {
+  level: 1 | 2 | 3;
+  maxDepth: number;
+  slots: Record<string, SlotPolicy>;
+}
+
 export interface BlockDefinition {
   component: BlockComponent;
   schema?: ZodSchema;
+  policy?: CompositionPolicy;
   dataContract?: DataContractFn;
   acceptSearchParams?: string[];
 }

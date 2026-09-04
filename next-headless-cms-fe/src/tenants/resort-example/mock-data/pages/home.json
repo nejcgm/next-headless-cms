@@ -26,32 +26,6 @@
       }
     },
     {
-      "__component": "blocks.stats-bar",
-      "id": 4,
-      "stats": [
-        {
-          "value": "5",
-          "label": "Room Types",
-          "id": 5
-        },
-        {
-          "value": "4.8★",
-          "label": "Guest Rating",
-          "id": 6
-        },
-        {
-          "value": "Kope",
-          "label": "Location",
-          "id": 7
-        },
-        {
-          "value": "Full Service",
-          "label": "Spa & Wellness",
-          "id": 8
-        }
-      ]
-    },
-    {
       "__component": "blocks.hotel-info",
       "id": 9
     },
@@ -118,18 +92,6 @@
           "aspect": "square"
         }
       ]
-    },
-    {
-      "__component": "blocks.cta-banner",
-      "id": 19,
-      "heading": "Ready to book your stay?",
-      "subheading": "Special rates available for direct bookings. Free cancellation up to 48 hours before arrival.",
-      "cta": {
-        "label": "Book Direct",
-        "href": "/booking",
-        "id": 20
-      },
-      "background": "primary"
     }
   ],
   "lang": "en"

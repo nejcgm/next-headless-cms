@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_blocks_sections",
+  "info": {
+    "displayName": "Section",
+    "icon": "layout",
+    "description": "Layout band with optional background; nesting via slots JSON"
+  },
+  "options": {},
+  "attributes": {
+    "padding": { "type": "enumeration", "enum": ["sm", "md", "lg"] },
+    "backgroundImage": { "type": "string" },
+    "backgroundFit": { "type": "enumeration", "enum": ["cover", "contain"], "default": "cover" },
+    "overlay": { "type": "decimal", "min": 0, "max": 1 },
+    "anchorId": { "type": "string" },
+    "surface": { "type": "string", "default": "default" },
+    "justify": { "type": "enumeration", "enum": ["start", "center", "end"] },
+    "align": { "type": "enumeration", "enum": ["start", "center", "end"] },
+    "width": { "type": "string" },
+    "height": { "type": "string" },
+    "minHeight": { "type": "string" },
+    "maxWidth": { "type": "string" },
+    "margin": { "type": "string" },
+    "backgroundColor": { "type": "string" },
+    "color": { "type": "string" },
+    "border": { "type": "string" },
+    "borderRadius": { "type": "string" },
+    "overflow": { "type": "enumeration", "enum": ["visible", "hidden", "auto"] },
+    "slots": { "type": "json" }
+  }
+}

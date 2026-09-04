@@ -1,79 +1,5 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface BlocksAboutPerson extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_about_persons';
-  info: {
-    description: 'Owner / team member bio with photo and optional CTA';
-    displayName: 'About \u2014 Person';
-    icon: 'user';
-    name: 'AboutPerson';
-  };
-  attributes: {
-    bio: Schema.Attribute.Text & Schema.Attribute.Required;
-    cta: Schema.Attribute.Component<'shared.cta-link', false>;
-    image: Schema.Attribute.String;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    role: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface BlocksAboutStory extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_about_stories';
-  info: {
-    description: 'Brand narrative with kicker, headline, pull quote, body paragraphs, and optional image';
-    displayName: 'About \u2014 Story';
-    icon: 'book';
-    name: 'AboutStory';
-  };
-  attributes: {
-    body: Schema.Attribute.Text & Schema.Attribute.Required;
-    headline: Schema.Attribute.String & Schema.Attribute.Required;
-    image: Schema.Attribute.String;
-    imagePosition: Schema.Attribute.Enumeration<['left', 'right']> &
-      Schema.Attribute.DefaultTo<'right'>;
-    kicker: Schema.Attribute.String;
-    quote: Schema.Attribute.String;
-  };
-}
-
-export interface BlocksAboutValueItem extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_about_value_items';
-  info: {
-    description: 'A single brand value card: icon name, title, description';
-    displayName: 'About \u2014 Value Item';
-    icon: 'award';
-    name: 'AboutValueItem';
-  };
-  attributes: {
-    description: Schema.Attribute.String & Schema.Attribute.Required;
-    icon: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface BlocksAboutValues extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_about_values';
-  info: {
-    description: 'Brand values grid with eyebrow badge, heading, and value cards';
-    displayName: 'About \u2014 Values';
-    icon: 'star';
-    name: 'AboutValues';
-  };
-  attributes: {
-    eyebrowBadge: Schema.Attribute.String & Schema.Attribute.Required;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    items: Schema.Attribute.Component<'blocks.about-value-item', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    subheading: Schema.Attribute.String;
-  };
-}
-
 export interface BlocksBikeDetail extends Struct.ComponentSchema {
   collectionName: 'components_blocks_bike_details';
   info: {
@@ -116,63 +42,29 @@ export interface BlocksBikeDetailLabels extends Struct.ComponentSchema {
   };
 }
 
-export interface BlocksBikeSchoolIntro extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_bike_school_intros';
+export interface BlocksButton extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_buttons';
   info: {
-    description: 'Bike school intro section with date range, location, and CTAs';
-    displayName: 'Bike School \u2014 Intro';
-    icon: 'bicycle';
-    name: 'BikeSchoolIntro';
+    description: 'Button / link leaf';
+    displayName: 'Button';
+    icon: 'cursor';
   };
   attributes: {
-    cta: Schema.Attribute.Component<'shared.cta-link', false> &
-      Schema.Attribute.Required;
-    dateRange: Schema.Attribute.String & Schema.Attribute.Required;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    kicker: Schema.Attribute.String;
-    location: Schema.Attribute.String & Schema.Attribute.Required;
-    secondaryCta: Schema.Attribute.Component<'shared.cta-link', false>;
-    subheading: Schema.Attribute.String;
-  };
-}
-
-export interface BlocksBikeSchoolProgram extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_bike_school_programs';
-  info: {
-    description: 'Bike school program tiers / schedule with heading and level items';
-    displayName: 'Bike School \u2014 Program';
-    icon: 'clipboard-list';
-    name: 'BikeSchoolProgram';
-  };
-  attributes: {
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    items: Schema.Attribute.Component<'blocks.bike-school-program-item', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    subheading: Schema.Attribute.String;
-  };
-}
-
-export interface BlocksBikeSchoolProgramItem extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_bike_school_program_items';
-  info: {
-    description: 'A single program tier/level with title, level badge, description, and bullet highlights';
-    displayName: 'Bike School \u2014 Program Item';
-    icon: 'list';
-    name: 'BikeSchoolProgramItem';
-  };
-  attributes: {
-    bullets: Schema.Attribute.Text & Schema.Attribute.Required;
-    ctaHref: Schema.Attribute.String;
-    ctaLabel: Schema.Attribute.String;
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-    level: Schema.Attribute.String & Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
+    backgroundColor: Schema.Attribute.String;
+    border: Schema.Attribute.String;
+    borderRadius: Schema.Attribute.String;
+    color: Schema.Attribute.String;
+    height: Schema.Attribute.String;
+    href: Schema.Attribute.String & Schema.Attribute.Required;
+    label: Schema.Attribute.String & Schema.Attribute.Required;
+    margin: Schema.Attribute.String;
+    maxWidth: Schema.Attribute.String;
+    minHeight: Schema.Attribute.String;
+    overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
+    padding: Schema.Attribute.String;
+    variant: Schema.Attribute.Enumeration<['primary', 'secondary']> &
+      Schema.Attribute.DefaultTo<'primary'>;
+    width: Schema.Attribute.String;
   };
 }
 
@@ -235,24 +127,6 @@ export interface BlocksContactLabels extends Struct.ComponentSchema {
   };
 }
 
-export interface BlocksCtaBanner extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_cta_banners';
-  info: {
-    description: 'Full-width call-to-action strip with heading, optional subheading, and a single CTA';
-    displayName: 'CTA Banner';
-    icon: 'megaphone';
-    name: 'CtaBanner';
-  };
-  attributes: {
-    background: Schema.Attribute.Enumeration<['primary', 'muted', 'dark']> &
-      Schema.Attribute.DefaultTo<'primary'>;
-    cta: Schema.Attribute.Component<'shared.cta-link', false> &
-      Schema.Attribute.Required;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    subheading: Schema.Attribute.String;
-  };
-}
-
 export interface BlocksFaqItem extends Struct.ComponentSchema {
   collectionName: 'components_blocks_faq_items';
   info: {
@@ -264,6 +138,37 @@ export interface BlocksFaqItem extends Struct.ComponentSchema {
   attributes: {
     answer: Schema.Attribute.Text & Schema.Attribute.Required;
     question: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface BlocksFlex extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_flexes';
+  info: {
+    description: 'Flex layout';
+    displayName: 'Flex';
+    icon: 'arrows';
+  };
+  attributes: {
+    align: Schema.Attribute.Enumeration<['start', 'center', 'end', 'stretch']>;
+    backgroundColor: Schema.Attribute.String;
+    border: Schema.Attribute.String;
+    borderRadius: Schema.Attribute.String;
+    color: Schema.Attribute.String;
+    direction: Schema.Attribute.Enumeration<['row', 'column']> &
+      Schema.Attribute.DefaultTo<'row'>;
+    gap: Schema.Attribute.Enumeration<['sm', 'md', 'lg']>;
+    height: Schema.Attribute.String;
+    justify: Schema.Attribute.Enumeration<
+      ['start', 'center', 'end', 'between']
+    >;
+    margin: Schema.Attribute.String;
+    maxWidth: Schema.Attribute.String;
+    minHeight: Schema.Attribute.String;
+    overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
+    padding: Schema.Attribute.String;
+    slots: Schema.Attribute.JSON;
+    width: Schema.Attribute.String;
+    wrap: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
 
@@ -294,112 +199,91 @@ export interface BlocksGallery extends Struct.ComponentSchema {
   };
 }
 
-export interface BlocksGuidedTourExperience extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_guided_tour_experiences';
+export interface BlocksGrid extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_grids';
   info: {
-    description: 'Guided tours section with heading and experience cards';
-    displayName: 'Guided Tour \u2014 Experience';
-    icon: 'map';
-    name: 'GuidedTourExperience';
-  };
-  attributes: {
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    items: Schema.Attribute.Component<'blocks.guided-tour-item', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    subheading: Schema.Attribute.String;
-  };
-}
-
-export interface BlocksGuidedTourItem extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_guided_tour_items';
-  info: {
-    description: 'A single tour experience card with icon, title, and description';
-    displayName: 'Guided Tour \u2014 Item';
-    icon: 'route';
-    name: 'GuidedTourItem';
-  };
-  attributes: {
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-    icon: Schema.Attribute.Enumeration<['route', 'coach', 'group', 'safety']> &
-      Schema.Attribute.Required;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface BlocksHero extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_heroes';
-  info: {
-    description: 'Full-viewport hero with headline, optional subheadline, background image, and CTA buttons';
-    displayName: 'Hero';
-    icon: 'landscape';
-    name: 'Hero';
-  };
-  attributes: {
-    backgroundFit: Schema.Attribute.Enumeration<['cover', 'contain']> &
-      Schema.Attribute.DefaultTo<'cover'>;
-    backgroundImage: Schema.Attribute.String & Schema.Attribute.Required;
-    cta: Schema.Attribute.Component<'shared.cta-link', false> &
-      Schema.Attribute.Required;
-    headline: Schema.Attribute.String & Schema.Attribute.Required;
-    overlay: Schema.Attribute.Decimal & Schema.Attribute.DefaultTo<0.3>;
-    secondaryCta: Schema.Attribute.Component<'shared.cta-link', false>;
-    subheadline: Schema.Attribute.String;
-  };
-}
-
-export interface BlocksImageGallery extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_image_galleries';
-  info: {
-    description: 'Responsive image grid with optional lightbox';
-    displayName: 'Image Gallery';
+    description: 'CSS grid layout';
+    displayName: 'Grid';
     icon: 'grid';
-    name: 'ImageGallery';
   };
   attributes: {
-    columns: Schema.Attribute.Integer &
+    backgroundColor: Schema.Attribute.String;
+    border: Schema.Attribute.String;
+    borderRadius: Schema.Attribute.String;
+    color: Schema.Attribute.String;
+    columns: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<2>;
+    gap: Schema.Attribute.Enumeration<['sm', 'md', 'lg']>;
+    height: Schema.Attribute.String;
+    margin: Schema.Attribute.String;
+    maxWidth: Schema.Attribute.String;
+    minHeight: Schema.Attribute.String;
+    overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
+    padding: Schema.Attribute.String;
+    slots: Schema.Attribute.JSON;
+    width: Schema.Attribute.String;
+  };
+}
+
+export interface BlocksHeading extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_headings';
+  info: {
+    description: 'Semantic heading leaf (level + visual variant)';
+    displayName: 'Heading';
+    icon: 'heading';
+  };
+  attributes: {
+    backgroundColor: Schema.Attribute.String;
+    border: Schema.Attribute.String;
+    borderRadius: Schema.Attribute.String;
+    color: Schema.Attribute.String;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    fontSize: Schema.Attribute.String;
+    fontWeight: Schema.Attribute.String;
+    height: Schema.Attribute.String;
+    level: Schema.Attribute.Integer &
       Schema.Attribute.SetMinMax<
         {
-          max: 4;
-          min: 2;
+          max: 6;
+          min: 1;
         },
         number
       > &
-      Schema.Attribute.DefaultTo<4>;
-    heading: Schema.Attribute.String;
-    images: Schema.Attribute.Component<'shared.image-item', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    lightbox: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+      Schema.Attribute.DefaultTo<2>;
+    margin: Schema.Attribute.String;
+    maxWidth: Schema.Attribute.String;
+    minHeight: Schema.Attribute.String;
+    overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
+    padding: Schema.Attribute.String;
+    textAlign: Schema.Attribute.Enumeration<['left', 'center', 'right']>;
+    variant: Schema.Attribute.Enumeration<['display', 'title', 'section']> &
+      Schema.Attribute.DefaultTo<'title'>;
+    width: Schema.Attribute.String;
   };
 }
 
-export interface BlocksImageText extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_image_texts';
+export interface BlocksImage extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_images';
   info: {
-    description: 'Two-column section with an image and text copy side by side';
-    displayName: 'Image + Text';
-    icon: 'layout';
-    name: 'ImageText';
+    description: 'Image leaf';
+    displayName: 'Image';
+    icon: 'picture';
   };
   attributes: {
-    body: Schema.Attribute.Text & Schema.Attribute.Required;
-    cta: Schema.Attribute.Component<'shared.cta-link', false>;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    image: Schema.Attribute.Component<'shared.image-item', false> &
-      Schema.Attribute.Required;
-    layout: Schema.Attribute.Enumeration<['image-left', 'image-right']> &
-      Schema.Attribute.DefaultTo<'image-left'>;
+    alt: Schema.Attribute.String;
+    backgroundColor: Schema.Attribute.String;
+    border: Schema.Attribute.String;
+    borderRadius: Schema.Attribute.String;
+    color: Schema.Attribute.String;
+    fit: Schema.Attribute.Enumeration<['cover', 'contain']> &
+      Schema.Attribute.DefaultTo<'cover'>;
+    height: Schema.Attribute.String;
+    margin: Schema.Attribute.String;
+    maxWidth: Schema.Attribute.String;
+    minHeight: Schema.Attribute.String;
+    overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
+    padding: Schema.Attribute.String;
+    src: Schema.Attribute.String & Schema.Attribute.Required;
+    width: Schema.Attribute.String;
   };
 }
 
@@ -445,23 +329,6 @@ export interface BlocksPartnersGallery extends Struct.ComponentSchema {
   };
 }
 
-export interface BlocksProcessStep extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_process_steps';
-  info: {
-    description: 'A single how-it-works step with optional icon, duration, and bullet details';
-    displayName: 'Process Step';
-    icon: 'check-circle';
-    name: 'ProcessStep';
-  };
-  attributes: {
-    description: Schema.Attribute.Text;
-    details: Schema.Attribute.Text;
-    duration: Schema.Attribute.String;
-    icon: Schema.Attribute.String;
-    title: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 export interface BlocksProductList extends Struct.ComponentSchema {
   collectionName: 'components_blocks_product_lists';
   info: {
@@ -482,50 +349,41 @@ export interface BlocksProductList extends Struct.ComponentSchema {
   };
 }
 
-export interface BlocksRichText extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_rich_texts';
+export interface BlocksSection extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_sections';
   info: {
-    description: 'Free-form HTML / rich text content block';
-    displayName: 'Rich Text';
-    icon: 'file-alt';
-    name: 'RichText';
+    description: 'Layout band with optional background; nesting via slots JSON';
+    displayName: 'Section';
+    icon: 'layout';
   };
   attributes: {
-    content: Schema.Attribute.RichText & Schema.Attribute.Required;
-  };
-}
-
-export interface BlocksSectionHeader extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_section_headers';
-  info: {
-    description: 'Standalone heading + optional subheading, centered or left-aligned';
-    displayName: 'Section Header';
-    icon: 'heading';
-    name: 'SectionHeader';
-  };
-  attributes: {
-    centered: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    subheading: Schema.Attribute.String;
-  };
-}
-
-export interface BlocksServiceContact extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_service_contacts';
-  info: {
-    description: 'Service page contact strip with heading, phone, email, and optional CTA text';
-    displayName: 'Service \u2014 Contact CTA';
-    icon: 'envelope';
-    name: 'ServiceContact';
-  };
-  attributes: {
-    ctaText: Schema.Attribute.String;
-    email: Schema.Attribute.String & Schema.Attribute.Required;
-    emailHref: Schema.Attribute.String;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    phone: Schema.Attribute.String & Schema.Attribute.Required;
-    phoneHref: Schema.Attribute.String;
-    text: Schema.Attribute.String;
+    align: Schema.Attribute.Enumeration<['start', 'center', 'end']>;
+    anchorId: Schema.Attribute.String;
+    backgroundColor: Schema.Attribute.String;
+    backgroundFit: Schema.Attribute.Enumeration<['cover', 'contain']> &
+      Schema.Attribute.DefaultTo<'cover'>;
+    backgroundImage: Schema.Attribute.String;
+    border: Schema.Attribute.String;
+    borderRadius: Schema.Attribute.String;
+    color: Schema.Attribute.String;
+    height: Schema.Attribute.String;
+    justify: Schema.Attribute.Enumeration<['start', 'center', 'end']>;
+    margin: Schema.Attribute.String;
+    maxWidth: Schema.Attribute.String;
+    minHeight: Schema.Attribute.String;
+    overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
+    overlay: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 1;
+          min: 0;
+        },
+        number
+      >;
+    padding: Schema.Attribute.Enumeration<['sm', 'md', 'lg']>;
+    slots: Schema.Attribute.JSON;
+    surface: Schema.Attribute.String & Schema.Attribute.DefaultTo<'default'>;
+    width: Schema.Attribute.String;
   };
 }
 
@@ -599,45 +457,58 @@ export interface BlocksServicePricing extends Struct.ComponentSchema {
   };
 }
 
-export interface BlocksServiceProcess extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_service_processes';
+export interface BlocksStack extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_stacks';
   info: {
-    description: 'How-it-works / process steps section with numbered step cards';
-    displayName: 'Service \u2014 Process';
-    icon: 'tasks';
-    name: 'ServiceProcess';
+    description: 'Vertical stack layout';
+    displayName: 'Stack';
+    icon: 'layer';
   };
   attributes: {
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    steps: Schema.Attribute.Component<'blocks.process-step', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    subheading: Schema.Attribute.String;
+    align: Schema.Attribute.Enumeration<['start', 'center', 'end', 'stretch']>;
+    backgroundColor: Schema.Attribute.String;
+    border: Schema.Attribute.String;
+    borderRadius: Schema.Attribute.String;
+    color: Schema.Attribute.String;
+    gap: Schema.Attribute.Enumeration<['sm', 'md', 'lg']>;
+    height: Schema.Attribute.String;
+    margin: Schema.Attribute.String;
+    maxWidth: Schema.Attribute.String;
+    minHeight: Schema.Attribute.String;
+    overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
+    padding: Schema.Attribute.String;
+    slots: Schema.Attribute.JSON;
+    width: Schema.Attribute.String;
   };
 }
 
-export interface BlocksStatsBar extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_stats_bars';
+export interface BlocksText extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_texts';
   info: {
-    description: 'Social-proof strip with a row of stat value + label pairs';
-    displayName: 'Stats Bar';
-    icon: 'chart-bar';
-    name: 'StatsBar';
+    description: 'Body / lead / caption / label leaf';
+    displayName: 'Text';
+    icon: 'bold';
   };
   attributes: {
-    stats: Schema.Attribute.Component<'shared.stat-item', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
+    backgroundColor: Schema.Attribute.String;
+    border: Schema.Attribute.String;
+    borderRadius: Schema.Attribute.String;
+    color: Schema.Attribute.String;
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    fontSize: Schema.Attribute.String;
+    fontWeight: Schema.Attribute.String;
+    height: Schema.Attribute.String;
+    margin: Schema.Attribute.String;
+    maxWidth: Schema.Attribute.String;
+    minHeight: Schema.Attribute.String;
+    overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
+    padding: Schema.Attribute.String;
+    textAlign: Schema.Attribute.Enumeration<['left', 'center', 'right']>;
+    variant: Schema.Attribute.Enumeration<
+      ['body', 'lead', 'caption', 'label']
+    > &
+      Schema.Attribute.DefaultTo<'body'>;
+    width: Schema.Attribute.String;
   };
 }
 
@@ -752,38 +623,27 @@ export interface SharedStatItem extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'blocks.about-person': BlocksAboutPerson;
-      'blocks.about-story': BlocksAboutStory;
-      'blocks.about-value-item': BlocksAboutValueItem;
-      'blocks.about-values': BlocksAboutValues;
       'blocks.bike-detail': BlocksBikeDetail;
       'blocks.bike-detail-labels': BlocksBikeDetailLabels;
-      'blocks.bike-school-intro': BlocksBikeSchoolIntro;
-      'blocks.bike-school-program': BlocksBikeSchoolProgram;
-      'blocks.bike-school-program-item': BlocksBikeSchoolProgramItem;
+      'blocks.button': BlocksButton;
       'blocks.contact': BlocksContact;
       'blocks.contact-address': BlocksContactAddress;
       'blocks.contact-labels': BlocksContactLabels;
-      'blocks.cta-banner': BlocksCtaBanner;
       'blocks.faq-item': BlocksFaqItem;
+      'blocks.flex': BlocksFlex;
       'blocks.gallery': BlocksGallery;
-      'blocks.guided-tour-experience': BlocksGuidedTourExperience;
-      'blocks.guided-tour-item': BlocksGuidedTourItem;
-      'blocks.hero': BlocksHero;
-      'blocks.image-gallery': BlocksImageGallery;
-      'blocks.image-text': BlocksImageText;
+      'blocks.grid': BlocksGrid;
+      'blocks.heading': BlocksHeading;
+      'blocks.image': BlocksImage;
       'blocks.partner-item': BlocksPartnerItem;
       'blocks.partners-gallery': BlocksPartnersGallery;
-      'blocks.process-step': BlocksProcessStep;
       'blocks.product-list': BlocksProductList;
-      'blocks.rich-text': BlocksRichText;
-      'blocks.section-header': BlocksSectionHeader;
-      'blocks.service-contact': BlocksServiceContact;
+      'blocks.section': BlocksSection;
       'blocks.service-faq': BlocksServiceFaq;
       'blocks.service-package': BlocksServicePackage;
       'blocks.service-pricing': BlocksServicePricing;
-      'blocks.service-process': BlocksServiceProcess;
-      'blocks.stats-bar': BlocksStatsBar;
+      'blocks.stack': BlocksStack;
+      'blocks.text': BlocksText;
       'shared.cta-link': SharedCtaLink;
       'shared.footer-copy': SharedFooterCopy;
       'shared.image-item': SharedImageItem;

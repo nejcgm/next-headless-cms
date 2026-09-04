@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { Suspense, type ReactNode } from "react";
 import type { BlockInstance } from "@core/types/page";
 import { logger } from "@shared/lib/logger";
 import { resolveBlock } from "./registry";
@@ -37,6 +37,85 @@ function isBlockVisible(block: BlockInstance, locale: string): boolean {
   return true;
 }
 
+async function renderBlockNode(
+  block: BlockInstance,
+  index: number,
+  ctx: {
+    tenant: string;
+    locale: string;
+    slug?: string;
+    searchParams: BlockRendererProps["searchParams"];
+  }
+): Promise<ReactNode> {
+  const key = blockReactKey(block, index);
+  const definition = resolveBlock(ctx.tenant, block.type);
+
+  if (!definition) {
+    if (process.env.NODE_ENV === "development") {
+      return <UnknownBlock key={key} type={block.type} />;
+    }
+    return null;
+  }
+
+  if (!isBlockVisible(block, ctx.locale)) return null;
+
+  const allowlist = definition.acceptSearchParams;
+  const searchParams = ctx.searchParams ?? {};
+  const propsWithRequest =
+    allowlist && allowlist.length > 0
+      ? {
+          ...block.props,
+          ...pickSearchParams(searchParams, allowlist),
+        }
+      : block.props;
+
+  let extraData: Record<string, unknown> = {};
+  if (definition.dataContract) {
+    try {
+      extraData = await definition.dataContract(propsWithRequest, {
+        tenant: ctx.tenant,
+        locale: ctx.locale,
+        slug: ctx.slug,
+        searchParams,
+      });
+    } catch (error) {
+      logger.error(`Data contract failed for block ${block.type}`, {
+        error: error instanceof Error ? error.message : String(error),
+      });
+    }
+  }
+
+  const mergedProps = { ...propsWithRequest, ...extraData };
+  validateBlockProps({
+    type: block.type,
+    schema: definition.schema,
+    props: mergedProps,
+  });
+
+  const slotEntries = block.slots ? Object.entries(block.slots) : [];
+  const renderedSlots: Record<string, ReactNode> = {};
+
+  for (const [slotName, children] of slotEntries) {
+    const nodes = await Promise.all(
+      children.map((child, childIndex) =>
+        renderBlockNode(child, childIndex, ctx)
+      )
+    );
+    renderedSlots[slotName] = <>{nodes}</>;
+  }
+
+  const Component = definition.component;
+  const defaultChildren = renderedSlots.default;
+
+  return (
+    <Suspense key={key} fallback={<BlockSkeleton />}>
+      <Component {...mergedProps} blockId={block.id} slotContents={renderedSlots}>
+        {defaultChildren}
+      </Component>
+    </Suspense>
+  );
+}
+
 export async function BlockRenderer({
   blocks,
   tenant,
@@ -44,60 +123,9 @@ export async function BlockRenderer({
   slug,
   searchParams = {},
 }: BlockRendererProps) {
+  const ctx = { tenant, locale, slug, searchParams };
   const renderedBlocks = await Promise.all(
-    blocks.map(async (block, index) => {
-      const key = blockReactKey(block, index);
-      const definition = resolveBlock(tenant, block.type);
-
-      if (!definition) {
-        if (process.env.NODE_ENV === "development") {
-          return <UnknownBlock key={key} type={block.type} />;
-        }
-        return null;
-      }
-
-      if (!isBlockVisible(block, locale)) return null;
-
-      const allowlist = definition.acceptSearchParams;
-      const propsWithRequest =
-        allowlist && allowlist.length > 0
-          ? {
-              ...block.props,
-              ...pickSearchParams(searchParams, allowlist),
-            }
-          : block.props;
-
-      let extraData: Record<string, unknown> = {};
-      if (definition.dataContract) {
-        try {
-          extraData = await definition.dataContract(propsWithRequest, {
-            tenant,
-            locale,
-            slug,
-            searchParams,
-          });
-        } catch (error) {
-          logger.error(`Data contract failed for block ${block.type}`, {
-            error: error instanceof Error ? error.message : String(error),
-          });
-        }
-      }
-
-      const mergedProps = { ...propsWithRequest, ...extraData };
-      validateBlockProps({
-        type: block.type,
-        schema: definition.schema,
-        props: mergedProps,
-      });
-
-      const Component = definition.component;
-
-      return (
-        <Suspense key={key} fallback={<BlockSkeleton />}>
-          <Component {...mergedProps} blockId={block.id} />
-        </Suspense>
-      );
-    })
+    blocks.map((block, index) => renderBlockNode(block, index, ctx))
   );
 
   return <>{renderedBlocks}</>;

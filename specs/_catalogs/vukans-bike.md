@@ -7,20 +7,23 @@
 
 > **Maintenance**: Keep this file in sync when blocks, templates, mock pages, navigation, or integrations change (`.specify/memory/project-context.md` (sync map)).
 
-Bike shop in Apače: service, sales, bike school, guided tours. Locales: `sl` (default), `de`, `en`. **`dataAdapter: "strapi"`** — live product tenant and the **reference pattern** for new plug-and-play tenants. Mock JSON is seed/reference only. (`resort-example` is only a build-isolation fixture — do not copy it.)
+Bike shop in Apače: service, sales, bike school, guided tours. Locales: `sl` (default), `de`, `en`. **Product** tenant and the **reference pattern** for new plug-and-play tenants. (`resort-example` is only a build-isolation fixture — do not copy it.)
+
+**Data adapter:** config currently `dataAdapter: "mock"` for redesign / feature verification. Production intent remains **Strapi**; mock JSON under `mock-data/` is the authored SoT while verifying L1/L2 + Keep pages (sl/en/de).
 
 ## Render pipeline
 
 ```
-StrapiAdapter.getPage → page.tsx
+MockAdapter.getPage (verify) / StrapiAdapter.getPage (production intent)
+  → page.tsx
   → resolveTemplate(page.template) → tenant template (header/footer)
-  → BlockRenderer → block registry (tenant + shared)
-  → dataContract (if registered) → StrapiAdapter.getCollection / getEntry
+  → BlockRenderer → block registry (tenant Keep + shared L1)
+  → dataContract (if registered) → adapter.getCollection / getEntry
 ```
 
 - **Config**: `src/tenants/vukans-bike/config.ts` — theme, domains, contact, `dataAdapter`.
-- **Registration**: `src/tenants/vukans-bike/blocks/index.ts` — all tenant block types + data contracts.
-- **Seed/reference pages**: `src/tenants/vukans-bike/mock-data/pages/*.json` — mirrors Strapi API response shape (has `__component`, numeric `id`, flat fields, `lang`). Not loaded at runtime (`dataAdapter: "strapi"`).
+- **Registration**: `src/tenants/vukans-bike/blocks/index.ts` — Keep L3 + data contracts.
+- **Pages**: `src/tenants/vukans-bike/mock-data/pages/*.json` — canonical Strapi DZ shape (`__component`, numeric `id`, flat fields, `lang`). All pages authored as L1/L2 + Keep; localized `en--` / `de--` mirrors.
 - **Seed collections**: `src/tenants/vukans-bike/mock-data/collections/products.json` — currently **1** product (`merida`) with `slug`, `specs`, `images`, etc. (plus `en--` / `de--` locale files).
 - **Navigation**: `mock-data/navigation.json`, `en--navigation.json`, `de--navigation.json`
 
@@ -42,57 +45,49 @@ StrapiAdapter.getPage → page.tsx
 
 Domain `layout.tsx` only applies theme + analytics — no header/footer.
 
-## Tenant blocks
+## Tenant Keep L3
 
-Every registered content block has a Zod `schema` in `blocks/{name}/schema.ts` wired at registration (`blocks/index.ts`). Schemas validate authored CMS props in development only; `dataContract`-injected fields (e.g. `products`, `bike`) are omitted from the schema.
+Every registered content block has a Zod `schema` in `blocks/{name}/schema.ts` wired at registration (`blocks/index.ts`). Schemas validate authored CMS props in development only; `dataContract`-injected fields (e.g. `products`, `bike`) are omitted from the schema. Keep nodes use leaf policy (`maxDepth: 1`, empty slots) and may nest under layout primitives via `registerTenantLayoutNestAllow` in this tenant’s `blocks/index.ts` (shared policies stay L1-only).
 
 | Block type | Component | Data | Used on / purpose |
 |------------|-----------|------|-------------------|
-| `hero` | `blocks/hero/hero.tsx` | Props only | Top of most pages — headline, subheadline, CTAs, optional image |
-| `contact` | `blocks/contact/contact.tsx` | Props + `labels` | `/contact` — hours, map, phone, email |
-| `about-story` | `blocks/about-story/about-story.tsx` | Props | `/about` — narrative copy |
-| `about-person` | `blocks/about-person/about-person.tsx` | Props | `/about` — owner bio + photo |
-| `about-values` | `blocks/about-values/about-values.tsx` | Props | `/about` — value cards grid |
-| `bike-detail` | `blocks/bike-detail/bike-detail.tsx` | `labels` props from CMS + **dataContract** → `load-bike.ts` → `getEntry("products", bikeSlug)` | `/bikes/{slug}` pages — single product layout, breadcrumbs; bike slug extracted from page URL last segment |
-| `bike-school-intro` | `blocks/bike-school-intro/` | Props | `/bike-school` — intro section |
-| `bike-school-program` | `blocks/bike-school-program/` | Props | `/bike-school` — program tiers / schedule |
-| `gallery` | `blocks/gallery/gallery.tsx` | Props (`images[]`) | Bike school, guided tours — photo grid |
-| `guided-tour-experience` | `blocks/guided-tour-experience/` | Props | `/guided-tours` — tour types, highlights |
-| `partners-gallery` | `blocks/partners-gallery/` | Props | `/brands` — brand logos + links |
-| `product-list` | `blocks/product-list/product-list.tsx` | **dataContract** → `load-products.ts` → `getCollection("products")` | Home (featured), `/shop` — bike cards; `limit` optional |
-| `service-pricing` | `blocks/service-pricing/` | Props (`tiers[]`) | `/service` — price tables |
-| `service-process` | `blocks/service-process/` | Props (`steps[]`) | `/service`, `/guided-tours` — how-it-works steps |
-| `service-faq` | `blocks/service-faq/` | Props (`items[]`) | `/service` — FAQ accordion |
-| `service-contact` | `blocks/service-contact/` | Props | `/service` — CTA to book service |
+| `contact` | `blocks/contact/contact.tsx` | Props + `labels` | `/contact` |
+| `bike-detail` | `blocks/bike-detail/bike-detail.tsx` | `labels` props + **dataContract** → `load-bike.ts` → `getEntry("products", bikeSlug)` | `/bikes/{slug}` |
+| `gallery` | `blocks/gallery/gallery.tsx` | Props (`images[]`) | `/bike-school`, `/guided-tours` |
+| `partners-gallery` | `blocks/partners-gallery/` | Props | `/brands` |
+| `product-list` | `blocks/product-list/product-list.tsx` | **dataContract** → `load-products.ts` → `getCollection("products")` | Home, `/shop` |
+| `service-pricing` | `blocks/service-pricing/` | Props (`packages[]`) | `/service` |
+| `service-faq` | `blocks/service-faq/` | Props (`items[]`) | `/service` |
 
-## Shared blocks (registered globally)
+**Deleted proprietary blocks** (no longer registered): `hero`, `about-person`, `about-story`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`. Marketing sections are L1/L2 compositions instead.
 
-Used in vukans-bike mock pages — defined in `src/shared/components/blocks/{block}/` (`{block}.tsx` + `schema.ts`, wired in `index.ts`):
+## Shared L1 (registered globally)
 
-| Block type | Typical use on this tenant |
-|------------|----------------------------|
-| `stats-bar` | Home — social proof numbers |
-| `image-text` | Home — service promo section |
-| `cta-banner` | Home, about, shop, brands, bike-school, guided-tours — bottom CTA strip |
-| `section-header` | (unused in current mock pages) |
-| `rich-text` | (unused) |
-| `image-gallery` | (unused) |
+Defined in `src/shared/components/blocks/{block}/` — bike is SoT for these types:
+
+| Block type | Notes |
+|------------|--------|
+| `section`, `stack`, `flex`, `grid`, `heading`, `text`, `image`, `button` | Level 1 composition primitives |
+
+**Deleted shared opaques**: `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`.
+
+Visual composition editor is out of scope; trees are authored in mock/seed/Strapi JSON (`slots`).
 
 ## Page → blocks (reference)
 
+Root DZ order; nested L1 trees summarized. Localized `en--` / `de--` mirrors match.
+
 | Page slug | Blocks (order) |
 |-----------|----------------|
-| `/` (home) | hero → stats-bar → image-text → product-list → cta-banner |
-| `/service` | hero → service-pricing → service-process → service-faq → service-contact |
-| `/shop` | hero → product-list → cta-banner |
-| `/about` | hero → about-story → about-person → about-values → cta-banner |
-| `/contact` | hero → contact |
-| `/brands` | hero → partners-gallery → cta-banner |
-| `/bike-school` | hero → bike-school-intro → bike-school-program → gallery → cta-banner |
-| `/guided-tours` | hero → guided-tour-experience → gallery → service-process → cta-banner |
-| `/bikes/{slug}` | bike-detail only |
-
-Localized copies: `en--*.json`, `de--*.json` mirror slugs with locale prefix in URL.
+| `/` (home) | L1 section bands (brand hero, editorial, service, framed catalog, school/tours, contact CTA) → **`product-list`** where featured |
+| `/service` | `section` (hero L1) → `section` + **`service-pricing`** → `section` (process grid L1) → **`service-faq`** → `section` (CTA L1) |
+| `/shop` | `section` (hero L1) → `section` (intro L1) → **`product-list`** → `section` (CTA L1) |
+| `/about` | `section` (hero L1) → `section` (story grid L1) → `section` (person grid L1) → `section` (values grid L1) → `section` (CTA L1) |
+| `/contact` | `section` (hero L1) → **`contact`** |
+| `/brands` | `section` (hero L1) → **`partners-gallery`** → `section` (CTA L1) |
+| `/bike-school` | `section` (hero L1) → `section` (intro L1) → `section` (program grid L1) → **`gallery`** → `section` (CTA L1) |
+| `/guided-tours` | `section` (hero L1) → `section` (experience grid L1) → **`gallery`** → `section` (process grid L1) → `section` (CTA L1) |
+| `/bikes/{slug}` | **`bike-detail`** only |
 
 ## Data contracts
 
@@ -117,6 +112,7 @@ Keep adapter calls inside the loader files — never inline them in `blocks/inde
 
 ## Strapi notes
 
+- Page DZ components: shared L1 + Keep L3 listed above only.
 - Page and navigation fields use `lang` (not `locale`) — Strapi i18n plugin reserves `locale` as a query param.
 - Page `template` field → `resolveTemplate` (same strings: `default`, `bare`).
 - Navigation → collection type in Strapi; maps to `NavigationData` (`header`, `footer`, `footerCopy`).

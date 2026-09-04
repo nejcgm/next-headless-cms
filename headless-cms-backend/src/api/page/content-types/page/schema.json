@@ -29,35 +29,32 @@
     },
     "template": {
       "type": "enumeration",
-      "enum": ["default", "detail", "bare"],
+      "enum": [
+        "default",
+        "detail",
+        "bare"
+      ],
       "default": "default",
       "required": true
     },
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.hero",
-        "blocks.cta-banner",
-        "blocks.stats-bar",
-        "blocks.image-text",
-        "blocks.section-header",
-        "blocks.rich-text",
-        "blocks.image-gallery",
-        "blocks.about-person",
-        "blocks.about-story",
-        "blocks.about-values",
-        "blocks.bike-school-intro",
-        "blocks.bike-school-program",
+        "blocks.section",
+        "blocks.stack",
+        "blocks.flex",
+        "blocks.grid",
+        "blocks.heading",
+        "blocks.text",
+        "blocks.image",
+        "blocks.button",
+        "blocks.product-list",
+        "blocks.bike-detail",
         "blocks.contact",
         "blocks.gallery",
-        "blocks.guided-tour-experience",
         "blocks.partners-gallery",
-        "blocks.product-list",
-        "blocks.service-contact",
-        "blocks.service-faq",
         "blocks.service-pricing",
-        "blocks.service-process",
-        "blocks.bike-detail"
+        "blocks.service-faq"
       ],
       "required": false
     },

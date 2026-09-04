@@ -1,5 +1,6 @@
 import type { BlockInstance, PageData, PageSeo } from "@core/types/page";
 import type { FooterCopy, NavigationData, NavItem } from "@core/types/navigation";
+import { toValidatedBlockInstance } from "./compose-validate";
 import { normalizeLogicalSlug } from "./strapi-query";
 import type { PatternCandidate } from "./types";
 
@@ -14,42 +15,6 @@ export function unwrapStrapiDocument(raw: unknown): Record<string, unknown> | nu
 
 export function isPlainObject(value: unknown): value is Record<string, unknown> {
   return value != null && typeof value === "object" && !Array.isArray(value);
-}
-
-function stripComponentMeta(obj: Record<string, unknown>): Record<string, unknown> {
-  const isDynamicZoneItem = typeof obj.__component === "string";
-  const result: Record<string, unknown> = {};
-  for (const [key, val] of Object.entries(obj)) {
-    if (key === "__component") continue;
-    if (key === "id" && isDynamicZoneItem) continue;
-    if (Array.isArray(val)) {
-      result[key] = val.map((item) =>
-        isPlainObject(item) ? stripComponentMeta(item) : item
-      );
-    } else if (isPlainObject(val)) {
-      result[key] = stripComponentMeta(val);
-    } else {
-      result[key] = val;
-    }
-  }
-  return result;
-}
-
-function toDynamicZoneBlock(raw: unknown, index: number): BlockInstance | null {
-  if (!isPlainObject(raw)) return null;
-  const { __component, id, ...rest } = raw as Record<string, unknown>;
-  if (typeof __component !== "string") return null;
-
-  const type = __component.includes(".") ? __component.split(".").pop()! : __component;
-
-  return {
-    id:
-      typeof id === "number" || typeof id === "string"
-        ? String(id)
-        : `${type}-${index}`,
-    type,
-    props: stripComponentMeta(rest),
-  };
 }
 
 function pickSeo(raw: unknown): PageSeo {
@@ -67,7 +32,11 @@ function pickSeo(raw: unknown): PageSeo {
   };
 }
 
-export function toPageData(raw: unknown, requestLocale: string): PageData | null {
+export function toPageData(
+  raw: unknown,
+  requestLocale: string,
+  tenantId: string
+): PageData | null {
   const doc = unwrapStrapiDocument(raw);
   if (!doc) return null;
 
@@ -77,7 +46,7 @@ export function toPageData(raw: unknown, requestLocale: string): PageData | null
 
   const blocks: BlockInstance[] = Array.isArray(doc.blocks)
     ? doc.blocks.flatMap((item, index) => {
-        const block = toDynamicZoneBlock(item, index);
+        const block = toValidatedBlockInstance(item, index, tenantId);
         return block ? [block] : [];
       })
     : [];

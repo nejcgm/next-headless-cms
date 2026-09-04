@@ -51,9 +51,11 @@ function getMockDataTsconfigPaths(tenantId) {
   };
 }
 
-/** @param {string} tenantId @returns {string | null} */
+/** @param {string} tenantId @returns {string} absolute path to mock-data or stub */
 function getMockDataWebpackAlias(tenantId) {
-  if (!usesMockData(tenantId)) return null;
+  if (!usesMockData(tenantId)) {
+    return path.join(repoRoot, mockDataStubRel);
+  }
   return path.join(repoRoot, "src", "tenants", tenantId, "mock-data");
 }
 

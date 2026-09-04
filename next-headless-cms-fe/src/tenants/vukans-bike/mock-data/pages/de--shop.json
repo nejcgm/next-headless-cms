@@ -1,5 +1,5 @@
 {
-  "slug": "/shop",
+  "slug": "/de/shop",
   "template": "default",
   "seo": {
     "id": 1,
@@ -9,42 +9,188 @@
   },
   "blocks": [
     {
-      "__component": "blocks.hero",
-      "id": 4,
-      "headline": "Shop",
-      "subheadline": "Alle Fahrräder zum Verkauf — von Trail-MTB und E-MTB bis Rennrad. Für Details und Besichtigung kontaktieren Sie uns.",
+      "__component": "blocks.section",
+      "id": 100,
       "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402435/IMG_0028_gzpale.jpg",
-      "overlay": 0.5,
-      "cta": {
-        "id": 2,
-        "label": "Kontakt",
-        "href": "/de/contact"
-      },
-      "secondaryCta": {
-        "id": 3,
-        "label": "Service",
-        "href": "/de/service"
+      "overlay": 0.38,
+      "padding": "lg",
+      "minHeight": "80vh",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 101,
+            "gap": "lg",
+            "align": "center",
+            "maxWidth": "720px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 102,
+                  "level": 1,
+                  "variant": "display",
+                  "content": "Shop",
+                  "textAlign": "center",
+                  "color": "foreground",
+                  "fontSize": "64px",
+                  "fontWeight": "800"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 103,
+                  "variant": "lead",
+                  "content": "Alle Fahrräder zum Verkauf — von Trail-MTB und E-MTB bis Rennrad. Für Details und Besichtigung kontaktieren Sie uns.",
+                  "color": "foreground",
+                  "textAlign": "center",
+                  "fontSize": "22px",
+                  "maxWidth": "560px"
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 104,
+                  "justify": "center",
+                  "wrap": true,
+                  "gap": "md",
+                  "margin": "16px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.button",
+                        "id": 105,
+                        "label": "Kontakt",
+                        "href": "/de/contact",
+                        "padding": "18px 40px"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 106,
+                        "label": "Service",
+                        "href": "/de/service",
+                        "variant": "secondary",
+                        "color": "foreground",
+                        "border": "2px solid var(--color-foreground)",
+                        "backgroundColor": "transparent",
+                        "padding": "18px 40px"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "__component": "blocks.section",
+      "id": 200,
+      "padding": "lg",
+      "surface": "muted",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 201,
+            "gap": "sm",
+            "align": "center",
+            "margin": "0 0 8px",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 202,
+                  "variant": "label",
+                  "content": "Verkauf",
+                  "color": "primary",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.heading",
+                  "id": 203,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Fahrräder zum Verkauf",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 204,
+                  "variant": "body",
+                  "content": "Gesamtes Sortiment — für Details und Besichtigung kontaktieren Sie uns.",
+                  "textAlign": "center",
+                  "color": "secondary",
+                  "maxWidth": "480px",
+                  "margin": "0 auto"
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     {
       "__component": "blocks.product-list",
-      "id": 5,
-      "heading": "Fahrräder zum Verkauf",
-      "subheading": "Gesamtes Sortiment",
+      "id": 300,
+      "heading": "",
+      "subheading": "",
       "outOfStockLabel": "Nicht vorrätig",
       "layout": "grid"
     },
     {
-      "__component": "blocks.cta-banner",
-      "id": 7,
-      "heading": "Fragen zu einem Rad?",
-      "subheading": "Rufen Sie 070 815 379 an oder schreiben Sie uns — wir beraten gern.",
-      "cta": {
-        "id": 6,
-        "label": "Kontakt",
-        "href": "/de/contact"
-      },
-      "background": "muted"
+      "__component": "blocks.section",
+      "id": 400,
+      "surface": "primary",
+      "padding": "lg",
+      "minHeight": "420px",
+      "justify": "center",
+      "align": "center",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 401,
+            "gap": "md",
+            "align": "center",
+            "maxWidth": "480px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 402,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Fragen zu einem Rad?",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 403,
+                  "variant": "lead",
+                  "content": "Rufen Sie 070 815 379 an oder schreiben Sie uns — wir beraten gern.",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.button",
+                  "id": 404,
+                  "label": "Kontakt",
+                  "href": "/de/contact",
+                  "variant": "secondary",
+                  "backgroundColor": "foreground",
+                  "color": "primary",
+                  "border": "none",
+                  "margin": "12px 0 0",
+                  "padding": "18px 40px"
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   ],
   "lang": "de"

@@ -16,31 +16,34 @@ Every tenant block lives in `src/tenants/{tenant}/blocks/{block-name}/` with:
 
 Register it in `src/tenants/{tenant}/blocks/index.ts` and wire `schema:` on the registration.
 
-**Registry keys — always quote.** In `registerSharedBlocks` / `registerTenantBlocks`, every block type key MUST be a quoted string (`"hero"`, `"grid"`, `"cta-banner"`), even when the name is a valid JS identifier. Do not mix bare keys (`grid:`) with quoted ones (`"cta-banner":`).
+**Registry keys — always quote.** In `registerSharedBlocks` / `registerTenantBlocks`, every block type key MUST be a quoted string (`"product-list"`, `"grid"`, `"bike-detail"`), even when the name is a valid JS identifier. Do not mix bare keys (`grid:`) with quoted ones (`"product-list":`).
 
 ```typescript
-"hero": { component: Hero, schema: heroSchema },
-"grid": { component: GridBlock, schema: gridSchema },
-"cta-banner": { component: CtaBanner, schema: ctaBannerSchema },
+"product-list": { component: ProductList, schema: productListSchema, policy: keepLeafPolicy },
+"section": { component: Section, schema: sectionSchema, policy: sectionPolicy },
 ```
 
-Shared blocks use the same folder shape under `src/shared/components/blocks/{block-name}/` (`{block-name}.tsx` + `types.ts` + `schema.ts`) and register in `shared/components/blocks/index.ts`.
+Shared blocks use the same folder shape under `src/shared/components/blocks/{block-name}/` (`{block-name}.tsx` + `types.ts` + `schema.ts`) and register in `shared/components/blocks/index.ts`. Nesting primitives also export a **`policy`** (`CompositionPolicy`) and pass it on registration.
 
 Header/footer chrome under `blocks/header` and `blocks/footer` also keep a `types.ts` (header defines props; footer may re-export shared `FooterProps`).
 
 After registering or changing a block, update `.specify/memory/knowledge/block-system.md` and the tenant catalog (`specs/_catalogs/{id}.md`) (see `.specify/memory/project-context.md` (sync map)).
 
-## Schema validation (required, dev-only)
+## Schema + composition policy (registry SoT)
 
-Every registered content block MUST declare a `schema` (Zod) in its registration. Header/footer chrome are not content blocks and are out of scope.
+Every registered content block MUST declare a `schema` (Zod) in its registration. Nesting-capable types also declare **`policy`**: `{ level, maxDepth, slots: { [name]: { allow: string[] } } }`. Leaves use `maxDepth: 1` and empty `slots`. The registry (`component` + `schema` + `policy`) is the single source of truth.
 
-The renderer validates the **merged props** (`block.props` + `dataContract` output + allowlisted search params) against the schema in **development only** and logs a `logger.warn` with the failing paths on mismatch. It never blocks rendering and is a **no-op in production** (zero cost). Use it to catch CMS/mock data drift early.
+**Adapter-primary tree validation** (`compose-validate.ts` via `toPageData(..., tenantId)`): known type → Zod authored props → known slot names → allowlisted children → per-node `maxDepth` (subtree height; parent limits do not accumulate onto children). Soft-fail: drop illegal nodes + `logger.warn` in development. CMS `slots` JSON is untrusted until this pipeline passes.
+
+**Layout nest allowlists** (`shared/components/blocks/composition-allow.ts`): shared policies allow **L1 only**. Tenants that need L3 compounds under layout bands call `registerTenantLayoutNestAllow(tenantId, types)` from the tenant `blocks/index.ts`; `resolveBlockPolicy` merges those extras at validation time so `shared/` never names proprietary types.
+
+**Renderer**: recursive render of `BlockInstance.slots` (default slot → `children`). Does **not** re-run composition allowlist/depth checks. Still runs optional **dev-only** Zod on **merged** props (authored + dataContract) for drift.
 
 ```typescript
-"hero": { component: Hero, schema: heroSchema },
+"section": { component: Section, schema: sectionSchema, policy: sectionPolicy },
 ```
 
-Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blockId`, allowlisted request params, `dataContract` payloads) are stripped, so they won't cause false failures. Validate **authored CMS props** only; omit injected entities/collections (see `room-list` / `product-list`). Reference: `blocks/hero/schema.ts` (tenant) or `shared/components/blocks/cta-banner/schema.ts` (shared).
+Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blockId`, allowlisted request params, `dataContract` payloads) are stripped, so they won't cause false failures. Validate **authored CMS props** only; omit injected entities/collections (see `room-list` / `product-list`). Reference: `shared/components/blocks/section/schema.ts` (shared primitive) or a Keep L3 tenant schema.
 
 ## Shared vs tenant block
 
@@ -48,17 +51,26 @@ Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blo
 |-----------|------|
 | `src/shared/components/blocks/` | Same UI on **any** tenant; no tenant branding logic; register in `shared/components/blocks/index.ts` |
 | `src/tenants/{tenant}/blocks/` | Tenant-specific layout, copy patterns, or data wiring; register in tenant `blocks/index.ts` |
-| `src/shared/components/primitives/` | Nested leaf UI (`image`, …). Register in shared blocks for resolution, but **do not** add to the page DZ — only embed inside composition shells (e.g. `grid.items`) |
 
-Examples today:
+**Levels**
 
-- **Shared**: `cta-banner`, `stats-bar`, `image-text`, `section-header`, `image-gallery`, `rich-text`, `grid` (composition shell)
-- **Nested primitives**: `image` (inside `grid` only)
-- **Tenant**: `room-list`, `bike-detail`, `service-pricing`, tenant `hero` variants
+1. **Primitives (L1)** — shared only: `section`, `stack`, `flex`, `grid`, `heading`, `text`, `image`, `button`
+2. **Compositions (L2)** — authored/saved subtrees of L1 (same renderer; no separate types)
+3. **Compounds (L3)** — encapsulated domain nodes (bike Keep: `product-list`, `bike-detail`, `contact`, `gallery`, `partners-gallery`, `service-pricing`, `service-faq`); composable in the tree, not CMS-decomposed
 
-### Nested composition (resort playground)
+**Deleted shared opaques** (no longer registered): `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`. Prefer L1/L2 for marketing layouts. **Bike is SoT for shared L1 types.**
 
-FE-only for now (no Strapi schemas). `grid` + nested `image` are registered in shared blocks; exercise via `resort-example` mock home (`grid` with `items: BlockInstance[]`). `NestedBlockList` resolves children one level deep. Cap nesting — do not recurse grids inside grids yet.
+**Box styles (L1)** — shared bag via `boxStyleSchema` / `toBoxStyle`: `width`, `height`, `minHeight`, `maxWidth`, `padding`, `margin`, `backgroundColor`, `color`, `border`, `borderRadius`, `overflow`, `fontSize`, `fontWeight`, `textAlign`. Prefer **px**; theme tokens or `#hex` via `resolveColor`. `border` is CSS shorthand. Box typography fields are intentional **CMS overrides**; prefer `heading`/`text` variants for defaults. Layout alignment is **not** in the box bag — use component props.
+
+**`section`** — structural band. `justify` / `align` are **content alignment** (`start`\|`center`\|`end`) and turn the section into a column flex container when set. Also: enum `padding`, `surface` / `backgroundColor`, optional hero `backgroundImage` / `overlay` / `anchorId`.
+
+**`heading`** — semantic leaf: `content`, `level` (1–6 → `h1`…`h6`), `variant` (`display`\|`title`\|`section`) for visual size (independent of level).
+
+**`text`** — body leaf: `content`, `variant` (`body`\|`lead`\|`caption`\|`label`). Stats = `stack` of two `text` nodes with box overrides as needed.
+
+**`grid`** — `columns` is either a number (legacy responsive defaults) or `{ mobile, tablet?, desktop? }` (1–4). Prefer the object form.
+
+Page **dynamic zone stays flat at the root**. Nesting is stored in a **`slots` JSON** field on layout primitives (see content-model / composition-tree contract). Visual drag-and-drop editor is **out of scope** — author via mock/seed/Strapi JSON.
 
 Do not copy a shared block into a tenant folder unless the design or behavior truly diverges. Extend props or wrap the shared component instead.
 

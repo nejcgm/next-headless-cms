@@ -124,17 +124,6 @@
           "id": 18
         }
       ]
-    },
-    {
-      "__component": "blocks.cta-banner",
-      "id": 19,
-      "headline": "Ready to Experience Kope?",
-      "subheadline": "Book your mountain getaway today",
-      "cta": {
-        "label": "Check Availability",
-        "href": "/rooms",
-        "id": 20
-      }
     }
   ],
   "lang": "en"

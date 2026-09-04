@@ -9,42 +9,188 @@
   },
   "blocks": [
     {
-      "__component": "blocks.hero",
-      "id": 4,
-      "headline": "Shop",
-      "subheadline": "All bikes for sale — from trail MTB and e-MTB to road bikes. Contact us for details or a viewing.",
+      "__component": "blocks.section",
+      "id": 100,
       "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402435/IMG_0028_gzpale.jpg",
-      "overlay": 0.5,
-      "cta": {
-        "id": 2,
-        "label": "Contact",
-        "href": "/en/contact"
-      },
-      "secondaryCta": {
-        "id": 3,
-        "label": "Service",
-        "href": "/en/service"
+      "overlay": 0.38,
+      "padding": "lg",
+      "minHeight": "80vh",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 101,
+            "gap": "lg",
+            "align": "center",
+            "maxWidth": "720px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 102,
+                  "level": 1,
+                  "variant": "display",
+                  "content": "Shop",
+                  "textAlign": "center",
+                  "color": "foreground",
+                  "fontSize": "64px",
+                  "fontWeight": "800"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 103,
+                  "variant": "lead",
+                  "content": "All bikes for sale — from trail MTB and e-MTB to road bikes.",
+                  "color": "foreground",
+                  "textAlign": "center",
+                  "fontSize": "22px",
+                  "maxWidth": "560px"
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 104,
+                  "justify": "center",
+                  "wrap": true,
+                  "gap": "md",
+                  "margin": "16px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.button",
+                        "id": 105,
+                        "label": "Contact",
+                        "href": "/en/contact",
+                        "padding": "18px 40px"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 106,
+                        "label": "Service",
+                        "href": "/en/service",
+                        "variant": "secondary",
+                        "color": "foreground",
+                        "border": "2px solid var(--color-foreground)",
+                        "backgroundColor": "transparent",
+                        "padding": "18px 40px"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "__component": "blocks.section",
+      "id": 200,
+      "padding": "lg",
+      "surface": "muted",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 201,
+            "gap": "sm",
+            "align": "center",
+            "margin": "0 0 8px",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 202,
+                  "variant": "label",
+                  "content": "For sale",
+                  "color": "primary",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.heading",
+                  "id": 203,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Bikes for sale",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 204,
+                  "variant": "body",
+                  "content": "Full range — contact us for details or a viewing.",
+                  "textAlign": "center",
+                  "color": "secondary",
+                  "maxWidth": "480px",
+                  "margin": "0 auto"
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     {
       "__component": "blocks.product-list",
-      "id": 5,
-      "heading": "Bikes for sale",
-      "subheading": "Full range",
+      "id": 300,
+      "heading": "",
+      "subheading": "",
       "outOfStockLabel": "Out of stock",
       "layout": "grid"
     },
     {
-      "__component": "blocks.cta-banner",
-      "id": 7,
-      "heading": "Questions about a bike?",
-      "subheading": "Call 070 815 379 or email us — we are happy to help.",
-      "cta": {
-        "id": 6,
-        "label": "Contact",
-        "href": "/en/contact"
-      },
-      "background": "muted"
+      "__component": "blocks.section",
+      "id": 400,
+      "surface": "primary",
+      "padding": "lg",
+      "minHeight": "420px",
+      "justify": "center",
+      "align": "center",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 401,
+            "gap": "md",
+            "align": "center",
+            "maxWidth": "480px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 402,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Questions about a bike?",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 403,
+                  "variant": "lead",
+                  "content": "Call 070 815 379 or email us — we are happy to help.",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.button",
+                  "id": 404,
+                  "label": "Contact",
+                  "href": "/en/contact",
+                  "variant": "secondary",
+                  "backgroundColor": "foreground",
+                  "color": "primary",
+                  "border": "none",
+                  "margin": "12px 0 0",
+                  "padding": "18px 40px"
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   ],
   "lang": "en"

@@ -4,7 +4,7 @@
   "seo": {
     "id": 1,
     "title": "Vukan's Bike — Bikes and service",
-    "description": "Service and sales for all bike types in Slovenia: urban, road, gravel, e-bike, and mountain. Years of MTB and trail experience. Contact: 070 815 379.",
+    "description": "Service and sales for all bike types in Slovenia. Contact: 070 815 379.",
     "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405173/1000004333_bged3h.jpg",
     "jsonLd": {
       "@context": "https://schema.org",
@@ -35,87 +35,440 @@
   },
   "blocks": [
     {
-      "__component": "blocks.hero",
-      "id": 4,
-      "headline": "Vukan's Bike Shop",
-      "subheadline": "Urban, road, gravel, mountain, and e-bikes — repairs and service by appointment. Bike school and workshops.",
+      "__component": "blocks.section",
+      "id": 100,
       "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402438/IMG_0035_fsvhgt.jpg",
-      "overlay": 0.5,
-      "cta": {
-        "id": 2,
-        "label": "Bikes for sale",
-        "href": "#kolesa"
-      },
-      "secondaryCta": {
-        "id": 3,
-        "label": "Service",
-        "href": "/en/service"
+      "overlay": 0.32,
+      "padding": "lg",
+      "minHeight": "100vh",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 101,
+            "gap": "lg",
+            "align": "center",
+            "maxWidth": "900px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.heading",
+                  "id": 102,
+                  "level": 1,
+                  "variant": "display",
+                  "content": "Vukan's Bike",
+                  "textAlign": "center",
+                  "color": "foreground",
+                  "fontSize": "72px",
+                  "fontWeight": "800"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 103,
+                  "variant": "lead",
+                  "content": "Apače.",
+                  "color": "foreground",
+                  "textAlign": "center",
+                  "fontSize": "28px"
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 104,
+                  "justify": "center",
+                  "wrap": true,
+                  "gap": "md",
+                  "margin": "16px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.button",
+                        "id": 105,
+                        "label": "Bikes",
+                        "href": "#kolesa",
+                        "padding": "18px 40px"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 106,
+                        "label": "Service",
+                        "href": "/en/service",
+                        "variant": "secondary",
+                        "color": "foreground",
+                        "border": "2px solid var(--color-foreground)",
+                        "backgroundColor": "transparent",
+                        "padding": "18px 40px"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     {
-      "__component": "blocks.stats-bar",
-      "id": 9,
-      "stats": [
-        {
-          "id": 5,
-          "value": "5+",
-          "label": "Years experience"
-        },
-        {
-          "id": 6,
-          "value": "200+",
-          "label": "Bikes serviced"
-        },
-        {
-          "id": 7,
-          "value": "Expert",
-          "label": "Mechanic"
-        },
-        {
-          "id": 8,
-          "value": "Guided tours",
-          "label": "Licensed guide"
-        }
-      ]
+      "__component": "blocks.section",
+      "id": 200,
+      "surface": "muted",
+      "padding": "lg",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 201,
+            "gap": "md",
+            "align": "center",
+            "maxWidth": "640px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 202,
+                  "variant": "label",
+                  "content": "Workshop",
+                  "color": "primary",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.heading",
+                  "id": 203,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Hands first. Trail second.",
+                  "textAlign": "center",
+                  "maxWidth": "520px"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 204,
+                  "variant": "body",
+                  "content": "A small shop for every kind of bike — urban, road, gravel, e-bike, and mountain. One mechanic who learns your bike by name.",
+                  "textAlign": "center",
+                  "color": "secondary",
+                  "maxWidth": "480px",
+                  "margin": "0 auto"
+                }
+              ]
+            }
+          }
+        ]
+      }
     },
     {
-      "__component": "blocks.image-text",
-      "id": 12,
-      "layout": "image-left",
-      "image": {
-        "id": 10,
-        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
-        "alt": "Bike service"
-      },
-      "heading": "Service and repairs",
-      "body": "We service all kinds of bikes. One expert, personal attention — from quick fixes to full overhauls. We have the most miles on mountain and trail bikes, and we treat urban, road, and gravel bikes with the same care. Call 070 815 379 or email to book.",
-      "cta": {
-        "id": 11,
-        "label": "Service",
-        "href": "/en/service"
+      "__component": "blocks.section",
+      "id": 300,
+      "padding": "lg",
+      "surface": "background",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.grid",
+            "id": 301,
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 2
+            },
+            "gap": "lg",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.image",
+                  "id": 302,
+                  "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
+                  "alt": "Vukan's Bike service workshop",
+                  "minHeight": "520px",
+                  "borderRadius": "0px",
+                  "overflow": "hidden"
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 303,
+                  "gap": "md",
+                  "align": "start",
+                  "padding": "48px 8px",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 304,
+                        "variant": "label",
+                        "content": "Service",
+                        "color": "primary"
+                      },
+                      {
+                        "__component": "blocks.heading",
+                        "id": 305,
+                        "level": 2,
+                        "variant": "title",
+                        "content": "Precise. Unhurried."
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 306,
+                        "variant": "body",
+                        "content": "From brakes and shifting to a full checkup. Most of our miles are on MTB and trail — city bikes get the same care.",
+                        "color": "secondary",
+                        "maxWidth": "400px"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 307,
+                        "variant": "caption",
+                        "content": "070 815 379",
+                        "color": "foreground",
+                        "fontSize": "20px",
+                        "fontWeight": "600",
+                        "margin": "8px 0 0"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 308,
+                        "label": "Book a slot",
+                        "href": "/en/service",
+                        "variant": "secondary",
+                        "margin": "8px 0 0"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "__component": "blocks.section",
+      "id": 400,
+      "padding": "lg",
+      "surface": "muted",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 401,
+            "gap": "sm",
+            "align": "center",
+            "margin": "0 0 32px",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 402,
+                  "variant": "label",
+                  "content": "For sale",
+                  "color": "primary",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.heading",
+                  "id": 403,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Bikes ready to ride",
+                  "textAlign": "center"
+                }
+              ]
+            }
+          }
+        ]
       }
     },
     {
       "__component": "blocks.product-list",
       "id": 13,
-      "heading": "Bikes for sale",
-      "subheading": "Our selection",
+      "heading": "",
+      "subheading": "",
       "outOfStockLabel": "Out of stock",
       "limit": 3,
       "layout": "grid",
       "anchorId": "kolesa"
     },
     {
-      "__component": "blocks.cta-banner",
-      "id": 15,
-      "heading": "Ready for your next ride?",
-      "subheading": "Visit us for a free test ride — by appointment.",
-      "cta": {
-        "id": 14,
-        "label": "Contact",
-        "href": "/en/contact"
-      },
-      "background": "primary"
+      "__component": "blocks.section",
+      "id": 500,
+      "padding": "lg",
+      "surface": "background",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.grid",
+            "id": 501,
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 2
+            },
+            "gap": "lg",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 502,
+                  "gap": "md",
+                  "align": "start",
+                  "padding": "16px 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.image",
+                        "id": 503,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
+                        "alt": "Bike school",
+                        "minHeight": "280px",
+                        "borderRadius": "0px",
+                        "overflow": "hidden",
+                        "margin": "0 0 8px"
+                      },
+                      {
+                        "__component": "blocks.heading",
+                        "id": 504,
+                        "level": 3,
+                        "variant": "section",
+                        "content": "Bike school"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 505,
+                        "variant": "body",
+                        "content": "Technique, balance, and confidence — small groups, a clear plan.",
+                        "color": "secondary",
+                        "maxWidth": "360px"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 506,
+                        "label": "See the program",
+                        "href": "/en/bike-school",
+                        "variant": "secondary"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 507,
+                  "gap": "md",
+                  "align": "start",
+                  "padding": "16px 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.image",
+                        "id": 508,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402435/IMG_0028_gzpale.jpg",
+                        "alt": "Guided tours",
+                        "minHeight": "280px",
+                        "borderRadius": "0px",
+                        "overflow": "hidden",
+                        "margin": "0 0 8px"
+                      },
+                      {
+                        "__component": "blocks.heading",
+                        "id": 509,
+                        "level": 3,
+                        "variant": "section",
+                        "content": "Guided tours"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 510,
+                        "variant": "body",
+                        "content": "Licensed guide, pace for the group — from local paths to harder stages.",
+                        "color": "secondary",
+                        "maxWidth": "360px"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 511,
+                        "label": "Book a tour",
+                        "href": "/en/guided-tours",
+                        "variant": "secondary"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "__component": "blocks.section",
+      "id": 600,
+      "surface": "primary",
+      "padding": "lg",
+      "minHeight": "480px",
+      "justify": "center",
+      "align": "center",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 601,
+            "gap": "md",
+            "align": "center",
+            "maxWidth": "480px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 602,
+                  "variant": "label",
+                  "content": "Visit us",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.heading",
+                  "id": 603,
+                  "level": 2,
+                  "variant": "title",
+                  "content": "Apače 66a",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 604,
+                  "variant": "lead",
+                  "content": "070 815 379",
+                  "color": "foreground",
+                  "textAlign": "center",
+                  "fontSize": "32px",
+                  "fontWeight": "600"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 605,
+                  "variant": "caption",
+                  "content": "Test rides by appointment",
+                  "color": "foreground",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.button",
+                  "id": 606,
+                  "label": "Write to us",
+                  "href": "/en/contact",
+                  "variant": "secondary",
+                  "backgroundColor": "foreground",
+                  "color": "primary",
+                  "border": "none",
+                  "margin": "12px 0 0",
+                  "padding": "18px 40px"
+                }
+              ]
+            }
+          }
+        ]
+      }
     }
   ],
   "navigation": {

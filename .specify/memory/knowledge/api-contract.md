@@ -156,14 +156,20 @@ Always pass `locale` for localized collections. Used by `bike-detail` → `load-
 
 ## `strapi-document.ts` transform
 
+`toPageData(raw, requestLocale, tenantId)` — **tenantId required** for registry-aware composition validation.
+
 | Input (Strapi) | Output (frontend) |
 |----------------|-------------------|
 | `__component: "blocks.hero"` → strips to `type: "hero"` | `BlockInstance.type` |
 | Numeric/string `id` → `String(id)`; if missing → `` `${type}-${index}` `` (stable zone order) | `BlockInstance.id` |
-| All other fields → `props` | `BlockInstance.props` |
-| `__component` + `id` stripped recursively from nested components | Nested `props` match frontend interface |
+| Authored fields except `slots` → `props` (Zod-validated when schema registered) | `BlockInstance.props` |
+| `slots` JSON → recursive validate → `BlockInstance.slots` | Nested trees |
+| Unknown / illegal / over-depth nodes | Dropped (+ dev warn); not rendered |
+| `__component` + nested component meta stripped in props | Nested `props` match frontend interface |
 | `header[]` (nav-item components) → `NavItem[]` via `toNavItem` | `NavigationData.header` |
 | `footerCopy` (footer-copy component) → `FooterCopy` | `NavigationData.footerCopy` |
+
+Also: `compose-validate.ts` (`toValidatedBlockInstance`).
 
 ---
 

@@ -8,13 +8,6 @@
   },
   "blocks": [
     {
-      "__component": "blocks.section-header",
-      "id": 1,
-      "heading": "Our Rooms & Suites",
-      "subheading": "47 unique spaces, each designed for your perfect alpine retreat",
-      "centered": true
-    },
-    {
       "__component": "blocks.room-list",
       "id": 2,
       "limit": 12,

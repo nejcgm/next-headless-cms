@@ -1,0 +1,69 @@
+{
+  "collectionName": "components_blocks_stacks",
+  "info": {
+    "displayName": "Stack",
+    "icon": "layer",
+    "description": "Vertical stack layout"
+  },
+  "options": {},
+  "attributes": {
+    "gap": {
+      "type": "enumeration",
+      "enum": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "align": {
+      "type": "enumeration",
+      "enum": [
+        "start",
+        "center",
+        "end",
+        "stretch"
+      ]
+    },
+    "width": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    },
+    "minHeight": {
+      "type": "string"
+    },
+    "maxWidth": {
+      "type": "string"
+    },
+    "padding": {
+      "type": "string"
+    },
+    "margin": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "border": {
+      "type": "string"
+    },
+    "slots": {
+      "type": "json"
+    },
+    "borderRadius": {
+      "type": "string"
+    },
+    "overflow": {
+      "type": "enumeration",
+      "enum": [
+        "visible",
+        "hidden",
+        "auto"
+      ]
+    }
+  }
+}
