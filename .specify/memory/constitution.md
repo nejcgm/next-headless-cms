@@ -26,7 +26,7 @@ Agent guidance for this monorepo lives in Spec Kit only:
 | Tenant catalogs | `specs/_catalogs/{tenant-id}.md` |
 | Feature work | `specs/{nnn-feature}/` |
 
-When behavior changes, update the matching Spec Kit artifact **in the same change set** (see sync map in `project-context.md`). Do not maintain parallel Cursor `.mdc` rule trees that **restate** domain guidance. A single always-on bootstrap rule that **only points** at Spec Kit paths is allowed (discovery bridge).
+When behavior changes, update the matching Spec Kit artifact **in the same change set** (see sync map in `project-context.md`). Do not maintain parallel agent files that **restate** domain guidance. Thin always-on discovery bridges that **only point** at Spec Kit paths are allowed (Cursor `.cursor/rules/speckit-agent-bootstrap.mdc`, Claude Code `CLAUDE.md`).
 
 ### Agent bootstrap (NON-NEGOTIABLE)
 
@@ -115,5 +115,6 @@ This constitution defines non-negotiable architectural and process constraints. 
 - **1.3.3** — No comments inside `interface` / `type` bodies; contracts live in Spec Kit. Lint/`@ts-*` suppressions remain allowed with a reason.
 - **1.3.4** — Agent bootstrap: constitution → project-context → knowledge → catalogs (wired into Spec Kit skills + thin Cursor bootstrap rule).
 - **1.3.5** — Principle V: no drive-by edits to unrelated shared primitives/utilities while adding or redesigning something else; page look via props or the new primitive only.
+- **1.3.6** — Claude Code Spec Kit integration (`.claude/skills/speckit-*`) plus thin `CLAUDE.md` bootstrap; Cursor remains the default integration.
 
-**Version**: 1.3.5 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-09-04
+**Version**: 1.3.6 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-09-04

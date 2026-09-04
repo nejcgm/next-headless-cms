@@ -31,7 +31,9 @@ headless-cms/
 │   └── {nnn-feature}/
 ├── next-headless-cms-fe/        # Next.js 15 — pnpm
 ├── headless-cms-backend/        # Strapi v5 — npm
-├── .cursor/skills/speckit-*     # Spec Kit command skills
+├── .cursor/skills/speckit-*     # Spec Kit skills (Cursor)
+├── .claude/skills/speckit-*     # Spec Kit skills (Claude Code)
+├── CLAUDE.md                    # thin Claude bootstrap → Spec Kit
 └── .github/workflows/
 ```
 

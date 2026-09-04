@@ -2,7 +2,7 @@
 
 Multi-tenant headless CMS: a **Next.js** frontend (one tenant per build) and a **Strapi v5** backend. Each frontend build includes exactly one tenant, selected with `TENANT_ID`.
 
-**AI agents:** start at [`.specify/memory/project-context.md`](.specify/memory/project-context.md).
+**AI agents:** start at [`.specify/memory/project-context.md`](.specify/memory/project-context.md). Cursor and Claude Code both have Spec Kit skills (`/speckit-specify`, `/speckit-plan`, `/speckit-tasks`, `/speckit-implement`, …).
 
 ## Repository layout
 
