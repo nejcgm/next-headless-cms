@@ -7,8 +7,6 @@ import { ProductList } from "./product-list/product-list";
 import { productListSchema } from "./product-list/schema";
 import { ServicePricing } from "./service-pricing/service-pricing";
 import { servicePricingSchema } from "./service-pricing/schema";
-import { ServiceFaq } from "./service-faq/service-faq";
-import { serviceFaqSchema } from "./service-faq/schema";
 import { PartnersGallery } from "./partners-gallery/partners-gallery";
 import { partnersGallerySchema } from "./partners-gallery/schema";
 import { BikeDetail } from "./bike-detail/bike-detail";
@@ -29,7 +27,6 @@ registerTenantLayoutNestAllow("vukans-bike", [
   "gallery",
   "partners-gallery",
   "service-pricing",
-  "service-faq",
 ]);
 
 registerTenantBlocks("vukans-bike", {
@@ -72,12 +69,6 @@ registerTenantBlocks("vukans-bike", {
   "service-pricing": {
     component: ServicePricing,
     schema: servicePricingSchema,
-    policy: keepLeafPolicy,
-  },
-
-  "service-faq": {
-    component: ServiceFaq,
-    schema: serviceFaqSchema,
     policy: keepLeafPolicy,
   },
 });

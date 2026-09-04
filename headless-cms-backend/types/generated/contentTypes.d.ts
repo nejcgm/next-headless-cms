@@ -489,12 +489,12 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'blocks.icon',
         'blocks.button',
         'blocks.link',
+        'blocks.accordion',
         'blocks.product-list',
         'blocks.bike-detail',
         'blocks.gallery',
         'blocks.partners-gallery',
         'blocks.service-pricing',
-        'blocks.service-faq',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

@@ -86,7 +86,7 @@ Footer text labels. Fields: `tagline`, `linksHeading`, `contactHeading`, `contac
 
 Each component maps to one `BlockInstance.type`. After Strapi strips `__component` and `id` meta, the remaining fields become `BlockInstance.props` — no further mapping needed.
 
-Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Keep components below. Deleted from DZ and disk: shared opaques (`cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`), `heading` (use `text` + `fontSize`/`bold`), bike proprietary marketing blocks (`hero`, `about-*`, `bike-school-*`, `guided-tour-experience`, `service-process`, `service-contact`), and `contact` (+ `contact-address` / `contact-labels`) now expressed as L1 + `iframe`.
+Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Keep + shared `accordion` components below. Deleted from DZ and disk: shared opaques (`cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`), `heading` (use `text` + `fontSize`/`bold`), `service-faq` (use L1 + `accordion`), bike proprietary marketing blocks (`hero`, `about-*`, `bike-school-*`, `guided-tour-experience`, `service-process`, `service-contact`), and `contact` (+ `contact-address` / `contact-labels`) now expressed as L1 + `iframe`.
 
 ### Shared L1 (available to all tenants)
 
@@ -103,10 +103,11 @@ Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Kee
 | `blocks.icon` | `icon` | Leaf: `name` (`map-pin`/`phone`/`mail`), `label?`, `size?` (`sm`/`md`/`lg`), slim box styles |
 | `blocks.button` | `button` | Leaf: `label`, `href`, `variant?` (`primary`/`secondary`), slim box styles |
 | `blocks.link` | `link` | Leaf: `label`, `href`, `variant?` (`accent`/`muted`), `showArrow?`, slim box styles |
+| `blocks.accordion` | `accordion` | Shared L3 leaf: `title`, `content`, `defaultOpen?`, panel styles only (`padding`, `margin`, `backgroundColor`, `border`, `borderRadius`) |
 
 **Box styles** (shared L1): `width`, `height`, `minHeight`, `maxWidth`, `padding` (not on `section`), `margin`, `backgroundColor`, `color`, `border`, `borderTop`, `borderRadius`, `overflow`, `fontSize`, `fontWeight`, `textAlign`.
 
-**Composition nesting**: Page DZ roots stay flat. Nesting uses `slots` JSON shaped like `{ "default": [ { "__component": "blocks.text", "id": 1, ... }, ... ] }`. Frontend `toPageData(raw, locale, tenantId)` recursively validates via registry policies into `BlockInstance.slots`. Shared layout policies allow **L1 only** (`composition-allow.ts`); bike Keep L3 is added via `registerTenantLayoutNestAllow`.
+**Composition nesting**: Page DZ roots stay flat. Nesting uses `slots` JSON shaped like `{ "default": [ { "__component": "blocks.text", "id": 1, ... }, ... ] }`. Frontend `toPageData(raw, locale, tenantId)` recursively validates via registry policies into `BlockInstance.slots`. Shared layout policies allow L1 + shared `accordion`; bike Keep L3 is added via `registerTenantLayoutNestAllow`.
 
 ### Vukan's Bike Keep L3
 
@@ -116,8 +117,6 @@ Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Kee
 | `blocks.partners-gallery` | `partners-gallery` | `eyebrowBadge`, `defaultPartnerLinkLabel`, `heading`, `subheading?`, `partners` (repeatable `blocks.partner-item`) |
 | `blocks.partner-item` | — (sub-component) | `name`, `icon` (image URL), `about`, `url?`, `linkLabel?` |
 | `blocks.product-list` | `product-list` | `heading?`, `subheading?`, `outOfStockLabel`, `limit?`, `category?`, `layout` (grid/list), `anchorId?` — products loaded at runtime via `dataContract` |
-| `blocks.service-faq` | `service-faq` | `heading`, `subheading?`, `items` (repeatable `blocks.faq-item`), `contactCtaText?`, `contactCtaLabel?`, `contactCtaHref?` |
-| `blocks.faq-item` | — (sub-component) | `question`, `answer` (text) |
 | `blocks.service-pricing` | `service-pricing` | `heading`, `subheading?`, `packages` (repeatable `blocks.service-package`), `note?`, `contactCta?`, `contactHref?` |
 | `blocks.service-package` | — (sub-component) | `name`, `description`, `label?`, `price` (decimal), `priceDisplay?`, `priceNote?`, `features` (**text** — split on `\n`), `turnaround?` |
 | `blocks.bike-detail` | `bike-detail` | `labels` (`blocks.bike-detail-labels`) — bike data loaded at runtime via `dataContract` |

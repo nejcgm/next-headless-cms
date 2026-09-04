@@ -46,7 +46,6 @@ export function ImageLightbox({
       className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
       onClick={onClose}
     >
-      {/* Close button */}
       <button
         onClick={onClose}
         className="absolute top-4 right-4 z-10 p-2 text-white/80 hover:text-white transition-colors"
@@ -57,12 +56,10 @@ export function ImageLightbox({
         </svg>
       </button>
 
-      {/* Image counter */}
       <div className="absolute top-4 left-1/2 -translate-x-1/2 text-white/80 text-sm">
         {currentIndex + 1} / {images.length}
-    </div>
+      </div>
 
-      {/* Navigation arrows — z-10 so they sit above the image container and receive clicks */}
       {images.length > 1 && (
         <>
           <button
@@ -94,7 +91,6 @@ export function ImageLightbox({
         </>
       )}
 
-      {/* Main image */}
       <div
         className="relative w-full h-full flex items-center justify-center p-16"
         onClick={(e) => e.stopPropagation()}
@@ -110,7 +106,6 @@ export function ImageLightbox({
         />
       </div>
 
-      {/* Thumbnail strip — z-10 so it sits above the image container */}
       {images.length > 1 && (
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 flex gap-2 px-4 py-2 bg-black/50 rounded-lg overflow-x-auto max-w-[90vw]">
           {images.map((img, idx) => (

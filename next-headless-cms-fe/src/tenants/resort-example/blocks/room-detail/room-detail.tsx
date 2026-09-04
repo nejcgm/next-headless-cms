@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ImageLightbox } from "@shared/components/ui/image-lightbox";
+import { ImageLightbox } from "@shared/components/ui/image-lightbox/image-lightbox";
 import type { RoomDetailProps } from "./types";
 
 export function RoomDetail({

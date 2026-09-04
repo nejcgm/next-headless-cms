@@ -385,40 +385,141 @@
       }
     },
     {
-      "__component": "blocks.service-faq",
+      "__component": "blocks.section",
       "id": 400,
-      "heading": "Häufige Fragen",
-      "subheading": "Antworten rund um den Service",
-      "items": [
-        {
-          "id": 401,
-          "question": "Wie buche ich einen Service?",
-          "answer": "Rufen Sie 070 815 379 an oder schreiben Sie eine E-Mail. Beschreiben Sie das Problem oder den gewünschten Service, dann vereinbaren wir die Abgabe des Rads. Es gibt keine festen Öffnungszeiten — Termine immer nach Absprache."
-        },
-        {
-          "id": 402,
-          "question": "Welche Fahrräder warten Sie?",
-          "answer": "Alle: Urban, Rennrad, Gravel, Mountainbike und E-Bikes (mechanischer Teil). Die meiste Erfahrung haben wir bei MTB und Trail, behandeln aber alle Typen mit derselben Sorgfalt."
-        },
-        {
-          "id": 403,
-          "question": "Wie schnell ist das Rad fertig?",
-          "answer": "Das hängt vom Umfang und der aktuellen Auslastung ab. Bei Abgabe nennen wir einen ungefähren Termin. Kleine dringende Reparaturen sind oft schneller möglich."
-        },
-        {
-          "id": 404,
-          "question": "Brauche ich eine Anzahlung?",
-          "answer": "Nein. Zahlung bei Abholung. Bei teureren Ersatzteilen informieren wir Sie vorher."
-        },
-        {
-          "id": 405,
-          "question": "Warten Sie auch E-Bikes?",
-          "answer": "Den mechanischen Teil ja. Für Akkus und Motoren empfehlen wir den Hersteller-Service, außer bei einfachen Angelegenheiten."
-        }
-      ],
-      "contactCtaText": "Noch eine Frage?",
-      "contactCtaLabel": "Anrufen oder schreiben",
-      "contactCtaHref": "#kontakt"
+      "padding": "lg",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 401,
+            "gap": "lg",
+            "maxWidth": "768px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 402,
+                  "gap": "sm",
+                  "align": "center",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 403,
+                        "content": "Häufige Fragen",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "36px",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 404,
+                        "variant": "lead",
+                        "content": "Antworten rund um den Service",
+                        "color": "secondary",
+                        "textAlign": "center"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 409,
+                  "gap": "sm",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 401,
+                        "title": "Wie buche ich einen Service?",
+                        "content": "Rufen Sie 070 815 379 an oder schreiben Sie eine E-Mail. Beschreiben Sie das Problem oder den gewünschten Service, dann vereinbaren wir die Abgabe des Rads. Es gibt keine festen Öffnungszeiten — Termine immer nach Absprache.",
+                        "defaultOpen": true,
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      },
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 402,
+                        "title": "Welche Fahrräder warten Sie?",
+                        "content": "Alle: Urban, Rennrad, Gravel, Mountainbike und E-Bikes (mechanischer Teil). Die meiste Erfahrung haben wir bei MTB und Trail, behandeln aber alle Typen mit derselben Sorgfalt.",
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      },
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 403,
+                        "title": "Wie schnell ist das Rad fertig?",
+                        "content": "Das hängt vom Umfang und der aktuellen Auslastung ab. Bei Abgabe nennen wir einen ungefähren Termin. Kleine dringende Reparaturen sind oft schneller möglich.",
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      },
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 404,
+                        "title": "Brauche ich eine Anzahlung?",
+                        "content": "Nein. Zahlung bei Abholung. Bei teureren Ersatzteilen informieren wir Sie vorher.",
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      },
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 405,
+                        "title": "Warten Sie auch E-Bikes?",
+                        "content": "Den mechanischen Teil ja. Für Akkus und Motoren empfehlen wir den Hersteller-Service, außer bei einfachen Angelegenheiten.",
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 420,
+                  "gap": "sm",
+                  "align": "center",
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "var(--radius)",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 421,
+                        "variant": "body",
+                        "content": "Haben Sie eine Frage?",
+                        "color": "secondary",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 422,
+                        "label": "Anrufen oder schreiben",
+                        "href": "#kontakt",
+                        "variant": "accent",
+                        "showArrow": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
     },
     {
       "__component": "blocks.section",

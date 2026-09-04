@@ -20,6 +20,8 @@ import { ButtonBlock } from "./primitives/actions/button/button";
 import { buttonPolicy, buttonSchema } from "./primitives/actions/button/schema";
 import { LinkBlock } from "./primitives/actions/link/link";
 import { linkPolicy, linkSchema } from "./primitives/actions/link/schema";
+import { Accordion } from "./ui/accordion/accordion";
+import { accordionPolicy, accordionSchema } from "./ui/accordion/schema";
 
 registerSharedBlocks({
   section: { component: Section, schema: sectionSchema, policy: sectionPolicy },
@@ -32,4 +34,9 @@ registerSharedBlocks({
   icon: { component: IconBlock, schema: iconSchema, policy: iconPolicy },
   button: { component: ButtonBlock, schema: buttonSchema, policy: buttonPolicy },
   link: { component: LinkBlock, schema: linkSchema, policy: linkPolicy },
+  accordion: {
+    component: Accordion,
+    schema: accordionSchema,
+    policy: accordionPolicy,
+  },
 });

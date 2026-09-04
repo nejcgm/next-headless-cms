@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_blocks_accordions",
+  "info": {
+    "displayName": "Accordion",
+    "icon": "bulletList",
+    "description": "Single expandable panel (title + content)"
+  },
+  "options": {},
+  "attributes": {
+    "title": { "type": "string", "required": true },
+    "content": { "type": "text", "required": true },
+    "defaultOpen": { "type": "boolean", "default": false },
+    "padding": { "type": "string" },
+    "margin": { "type": "string" },
+    "backgroundColor": { "type": "string" },
+    "border": { "type": "string" },
+    "borderRadius": { "type": "string" }
+  }
+}

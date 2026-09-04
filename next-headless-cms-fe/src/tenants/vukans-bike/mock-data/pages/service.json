@@ -385,40 +385,141 @@
       }
     },
     {
-      "__component": "blocks.service-faq",
+      "__component": "blocks.section",
       "id": 400,
-      "heading": "Pogosta vprašanja",
-      "subheading": "Odgovori na vprašanja o servisu",
-      "items": [
-        {
-          "id": 401,
-          "question": "Kako naročim servis?",
-          "answer": "Pokličite na 070 815 379 ali pošljite e-pošto. Opisite težavo ali željeni servis in dogovorimo se za predajo kolesa. Fiksne delovne ure nimamo — termin se vedno dogovorimo po dogovoru."
-        },
-        {
-          "id": 402,
-          "question": "Katera kolesa servisirate?",
-          "answer": "Servisiramo vsa kolesa: mestna, cestna, gravel, gorska in e-kolesa (mehanski del). Najgloblja izkušnja je pri gorskih kolesih in MTB, vendar enako natančno obravnavamo tudi ostale tipe."
-        },
-        {
-          "id": 403,
-          "question": "Kako hitro bo kolo pripravljeno?",
-          "answer": "Odvisno od obsega dela in trenutne obremenjenosti. Ko predate kolo, vam približno povemo rok. Za nujna manjša popravila se pogosto da urediti hitreje."
-        },
-        {
-          "id": 404,
-          "question": "Ali je potrebna predplačila?",
-          "answer": "Ne. Plačilo je ob prevzemu kolesa. Če so potrebni dražji rezervni deli, vas vnaprej obvestimo."
-        },
-        {
-          "id": 405,
-          "question": "Ali servisirate tudi e-kolesa?",
-          "answer": "Mehanski del kolesa da. Za baterije in motorje e-koles priporočamo uradni servis proizvajalca, razen če gre za preproste zadeve."
-        }
-      ],
-      "contactCtaText": "Imate vprašanje?",
-      "contactCtaLabel": "Pokličite ali napišite",
-      "contactCtaHref": "#kontakt"
+      "padding": "lg",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 401,
+            "gap": "lg",
+            "maxWidth": "768px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 402,
+                  "gap": "sm",
+                  "align": "center",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 403,
+                        "content": "Pogosta vprašanja",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "36px",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 404,
+                        "variant": "lead",
+                        "content": "Odgovori na vprašanja o servisu",
+                        "color": "secondary",
+                        "textAlign": "center"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 409,
+                  "gap": "sm",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 401,
+                        "title": "Kako naročim servis?",
+                        "content": "Pokličite na 070 815 379 ali pošljite e-pošto. Opisite težavo ali željeni servis in dogovorimo se za predajo kolesa. Fiksne delovne ure nimamo — termin se vedno dogovorimo po dogovoru.",
+                        "defaultOpen": true,
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      },
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 402,
+                        "title": "Katera kolesa servisirate?",
+                        "content": "Servisiramo vsa kolesa: mestna, cestna, gravel, gorska in e-kolesa (mehanski del). Najgloblja izkušnja je pri gorskih kolesih in MTB, vendar enako natančno obravnavamo tudi ostale tipe.",
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      },
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 403,
+                        "title": "Kako hitro bo kolo pripravljeno?",
+                        "content": "Odvisno od obsega dela in trenutne obremenjenosti. Ko predate kolo, vam približno povemo rok. Za nujna manjša popravila se pogosto da urediti hitreje.",
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      },
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 404,
+                        "title": "Ali je potrebna predplačila?",
+                        "content": "Ne. Plačilo je ob prevzemu kolesa. Če so potrebni dražji rezervni deli, vas vnaprej obvestimo.",
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      },
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 405,
+                        "title": "Ali servisirate tudi e-kolesa?",
+                        "content": "Mehanski del kolesa da. Za baterije in motorje e-koles priporočamo uradni servis proizvajalca, razen če gre za preproste zadeve.",
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 420,
+                  "gap": "sm",
+                  "align": "center",
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "var(--radius)",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 421,
+                        "variant": "body",
+                        "content": "Imate vprašanje?",
+                        "color": "secondary",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 422,
+                        "label": "Pokličite ali napišite",
+                        "href": "#kontakt",
+                        "variant": "accent",
+                        "showArrow": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
     },
     {
       "__component": "blocks.section",

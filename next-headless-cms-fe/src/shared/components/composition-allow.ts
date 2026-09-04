@@ -8,6 +8,7 @@ export const LAYOUT_NEST_ALLOW = [
   "icon",
   "button",
   "link",
+  "accordion",
 ] as const;
 
 export const STACK_NEST_ALLOW = [
@@ -19,6 +20,7 @@ export const STACK_NEST_ALLOW = [
   "icon",
   "button",
   "link",
+  "accordion",
 ] as const;
 
 export const GRID_NEST_ALLOW = [
@@ -30,4 +32,5 @@ export const GRID_NEST_ALLOW = [
   "icon",
   "button",
   "link",
+  "accordion",
 ] as const;

@@ -37,7 +37,7 @@ Every registered content block MUST declare a `schema` (Zod) in its registration
 
 **Adapter-primary tree validation** (`compose-validate.ts` via `toPageData(..., tenantId)`): known type → Zod authored props → known slot names → allowlisted children → per-node `maxDepth` (subtree height; parent limits do not accumulate onto children). Soft-fail: drop illegal nodes + `logger.warn` in development. CMS `slots` JSON is untrusted until this pipeline passes.
 
-**Layout nest allowlists** (`shared/components/composition-allow.ts`): shared policies allow **L1 only**. Tenants that need L3 compounds under layout bands call `registerTenantLayoutNestAllow(tenantId, types)` from the tenant `blocks/index.ts`; `resolveBlockPolicy` merges those extras at validation time so `shared/` never names proprietary types.
+**Layout nest allowlists** (`shared/components/composition-allow.ts`): shared policies allow **L1 + shared L3 `accordion`**. Tenants that need proprietary Keep compounds under layout bands call `registerTenantLayoutNestAllow(tenantId, types)` from the tenant `blocks/index.ts`; `resolveBlockPolicy` merges those extras at validation time so `shared/` never names proprietary types.
 
 **Renderer**: recursive render of `BlockInstance.slots` (default slot → `children`). Does **not** re-run composition allowlist/depth checks. Still runs optional **dev-only** Zod on **merged** props (authored + dataContract) for drift.
 
@@ -52,13 +52,15 @@ Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blo
 | Put it in | When |
 |-----------|------|
 | `src/shared/components/primitives/` | Shared L1 primitives (layout / content / actions); register in `shared/components/index.ts` |
+| `src/shared/components/ui/{name}/` | Shared interactive UI widgets (`accordion`, `image-lightbox`) — one folder per component (`{name}.tsx` + `types.ts`; registry schema when CMS-authored). **Tenant-agnostic chrome**: structure + theme tokens only; do not bake product-specific look (primary pills, filled FAQ cards, brand motifs). Page/tenant trees supply composition and box-style overrides. |
+| `src/shared/components/navigation/{name}/` | Shared navigation chrome helpers (e.g. `navigation-progress-bar`) — one folder per component |
 | `src/tenants/{tenant}/blocks/` | Tenant-specific layout, copy patterns, or data wiring; register in tenant `blocks/index.ts` |
 
 **Levels**
 
 1. **Primitives (L1)** — shared only: `section`, `stack`, `flex`, `grid`, `text`, `image`, `iframe`, `icon`, `button`, `link`
 2. **Compositions (L2)** — authored/saved subtrees of L1 (same renderer; no separate types)
-3. **Compounds (L3)** — encapsulated domain nodes (bike Keep: `product-list`, `bike-detail`, `gallery`, `partners-gallery`, `service-pricing`, `service-faq`); composable in the tree, not CMS-decomposed
+3. **Compounds (L3)** — interactive / domain leaves: shared `accordion` (single panel); bike Keep: `product-list`, `bike-detail`, `gallery`, `partners-gallery`, `service-pricing`
 
 **Deleted shared opaques** (no longer registered): `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`. Prefer L1/L2 for marketing layouts. **Bike is SoT for shared L1 types.**
 
@@ -153,7 +155,7 @@ Rules:
 - ALWAYS pass the full nav data through `localizeNavItems` before passing to Header / Footer.
 - For a page with NO header and NO footer, set `"template": "bare"` in the page data — never add a boolean flag.
 - Never put header/footer in `layout.tsx` — the domain layout only wraps `ThemeProvider` + `TenantAnalytics`.
-- Do **not** add `app/[domain]/[[...slug]]/loading.tsx` — it unmounts templates and flashes chrome. Use `NavigationProgressBar` in tenant headers for in-app loading feedback.
+- Do **not** add `app/[domain]/[[...slug]]/loading.tsx` — it unmounts templates and flashes chrome. Use `NavigationProgressBar` from `@shared/components/navigation/navigation-progress-bar/navigation-progress-bar` in tenant headers for in-app loading feedback.
 - After adding or changing a template, update the tenant catalog.
 
 ## Links and navigation

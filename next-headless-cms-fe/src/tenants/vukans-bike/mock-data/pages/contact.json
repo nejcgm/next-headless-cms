@@ -41,7 +41,7 @@
                   "__component": "blocks.text",
                   "id": 103,
                   "variant": "lead",
-                  "content": "Obiščite nas v Apačah ali nas pokličite. Delovnik po dogovoru.",
+                  "content": "Obiščite nas v Apačah ali nas pokličite.",
                   "textAlign": "center",
                   "color": "secondary",
                   "maxWidth": "440px"
@@ -242,7 +242,7 @@
                         "__component": "blocks.text",
                         "id": 250,
                         "variant": "caption",
-                        "content": "Delovnik po dogovoru. Za servis in ogled nas najprej pokličite ali pišite.",
+                        "content": "Za servis in ogled nas najprej pokličite ali pišite.",
                         "color": "secondary",
                         "margin": "8px 0 0",
                         "padding": "20px 0 0",

@@ -1,5 +1,19 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface BlocksAccordion extends Struct.ComponentSchema {
+  collectionName: 'components_blocks_accordions';
+  info: {
+    description: 'Single expandable panel (title + content)';
+    displayName: 'Accordion';
+    icon: 'bulletList';
+  };
+  attributes: {
+    content: Schema.Attribute.Text & Schema.Attribute.Required;
+    defaultOpen: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface BlocksBikeDetail extends Struct.ComponentSchema {
   collectionName: 'components_blocks_bike_details';
   info: {
@@ -65,20 +79,6 @@ export interface BlocksButton extends Struct.ComponentSchema {
     variant: Schema.Attribute.Enumeration<['primary', 'secondary']> &
       Schema.Attribute.DefaultTo<'primary'>;
     width: Schema.Attribute.String;
-  };
-}
-
-export interface BlocksFaqItem extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_faq_items';
-  info: {
-    description: 'A single FAQ question and answer pair';
-    displayName: 'FAQ Item';
-    icon: 'question-circle';
-    name: 'FaqItem';
-  };
-  attributes: {
-    answer: Schema.Attribute.Text & Schema.Attribute.Required;
-    question: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -376,31 +376,6 @@ export interface BlocksSection extends Struct.ComponentSchema {
   };
 }
 
-export interface BlocksServiceFaq extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_service_faqs';
-  info: {
-    description: 'FAQ accordion with heading and optional contact CTA at the bottom';
-    displayName: 'Service \u2014 FAQ';
-    icon: 'comments';
-    name: 'ServiceFaq';
-  };
-  attributes: {
-    contactCtaHref: Schema.Attribute.String;
-    contactCtaLabel: Schema.Attribute.String;
-    contactCtaText: Schema.Attribute.String;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    items: Schema.Attribute.Component<'blocks.faq-item', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    subheading: Schema.Attribute.String;
-  };
-}
-
 export interface BlocksServicePackage extends Struct.ComponentSchema {
   collectionName: 'components_blocks_service_packages';
   info: {
@@ -614,10 +589,10 @@ export interface SharedStatItem extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'blocks.accordion': BlocksAccordion;
       'blocks.bike-detail': BlocksBikeDetail;
       'blocks.bike-detail-labels': BlocksBikeDetailLabels;
       'blocks.button': BlocksButton;
-      'blocks.faq-item': BlocksFaqItem;
       'blocks.flex': BlocksFlex;
       'blocks.gallery': BlocksGallery;
       'blocks.grid': BlocksGrid;
@@ -629,7 +604,6 @@ declare module '@strapi/strapi' {
       'blocks.partners-gallery': BlocksPartnersGallery;
       'blocks.product-list': BlocksProductList;
       'blocks.section': BlocksSection;
-      'blocks.service-faq': BlocksServiceFaq;
       'blocks.service-package': BlocksServicePackage;
       'blocks.service-pricing': BlocksServicePricing;
       'blocks.stack': BlocksStack;

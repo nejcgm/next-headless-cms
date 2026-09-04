@@ -385,40 +385,141 @@
       }
     },
     {
-      "__component": "blocks.service-faq",
+      "__component": "blocks.section",
       "id": 400,
-      "heading": "Frequently asked questions",
-      "subheading": "Answers about our service",
-      "items": [
-        {
-          "id": 401,
-          "question": "How do I book a service?",
-          "answer": "Call 070 815 379 or send an email. Describe the issue or the service you want, and we arrange bike drop-off. There are no fixed opening hours — appointments are always by agreement."
-        },
-        {
-          "id": 402,
-          "question": "Which bikes do you service?",
-          "answer": "All of them: urban, road, gravel, mountain, and e-bikes (mechanical side). We have the most experience with MTB and trail, but we treat every type with the same care."
-        },
-        {
-          "id": 403,
-          "question": "How soon will the bike be ready?",
-          "answer": "It depends on the scope and how busy we are. At drop-off we give an approximate date. Small urgent repairs are often quicker."
-        },
-        {
-          "id": 404,
-          "question": "Do I need a deposit?",
-          "answer": "No. Payment on pickup. For more expensive parts we confirm with you first."
-        },
-        {
-          "id": 405,
-          "question": "Do you service e-bikes?",
-          "answer": "Yes for the mechanical side. For batteries and motors we usually recommend the manufacturer service, except for straightforward jobs."
-        }
-      ],
-      "contactCtaText": "Another question?",
-      "contactCtaLabel": "Call or write",
-      "contactCtaHref": "#kontakt"
+      "padding": "lg",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 401,
+            "gap": "lg",
+            "maxWidth": "768px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 402,
+                  "gap": "sm",
+                  "align": "center",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 403,
+                        "content": "Frequently asked questions",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "36px",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 404,
+                        "variant": "lead",
+                        "content": "Answers about our service",
+                        "color": "secondary",
+                        "textAlign": "center"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 409,
+                  "gap": "sm",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 401,
+                        "title": "How do I book a service?",
+                        "content": "Call 070 815 379 or send an email. Describe the issue or the service you want, and we arrange bike drop-off. There are no fixed opening hours — appointments are always by agreement.",
+                        "defaultOpen": true,
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      },
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 402,
+                        "title": "Which bikes do you service?",
+                        "content": "All of them: urban, road, gravel, mountain, and e-bikes (mechanical side). We have the most experience with MTB and trail, but we treat every type with the same care.",
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      },
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 403,
+                        "title": "How soon will the bike be ready?",
+                        "content": "It depends on the scope and how busy we are. At drop-off we give an approximate date. Small urgent repairs are often quicker.",
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      },
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 404,
+                        "title": "Do I need a deposit?",
+                        "content": "No. Payment on pickup. For more expensive parts we confirm with you first.",
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      },
+                      {
+                        "__component": "blocks.accordion",
+                        "id": 405,
+                        "title": "Do you service e-bikes?",
+                        "content": "Yes for the mechanical side. For batteries and motors we usually recommend the manufacturer service, except for straightforward jobs.",
+                        "backgroundColor": "muted",
+                        "border": "1px solid var(--color-border)",
+                        "borderRadius": "var(--radius)",
+                        "padding": "4px 8px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 420,
+                  "gap": "sm",
+                  "align": "center",
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "var(--radius)",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 421,
+                        "variant": "body",
+                        "content": "Have a question?",
+                        "color": "secondary",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 422,
+                        "label": "Call or write",
+                        "href": "#kontakt",
+                        "variant": "accent",
+                        "showArrow": true
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
     },
     {
       "__component": "blocks.section",

@@ -12,7 +12,7 @@ import {
 } from "@core/i18n/locale-path";
 import { cn } from "@shared/utils/cn";
 import { isNavItemActive, normalizeTenantPathname } from "@shared/utils/nav-active";
-import { NavigationProgressBar } from "@shared/components/navigation-progress-bar";
+import { NavigationProgressBar } from "@shared/components/navigation/navigation-progress-bar/navigation-progress-bar";
 import { isExternalHref } from "@shared/utils/url";
 import type { HeaderProps } from "./types";
 

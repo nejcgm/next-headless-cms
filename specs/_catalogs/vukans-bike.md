@@ -56,17 +56,17 @@ Every registered content block has a Zod `schema` in `blocks/{name}/schema.ts` w
 | `partners-gallery` | `blocks/partners-gallery/` | Props | `/brands` |
 | `product-list` | `blocks/product-list/product-list.tsx` | **dataContract** → `load-products.ts` → `getCollection("products")` | Home, `/shop` |
 | `service-pricing` | `blocks/service-pricing/` | Props (`packages[]`) | `/service` |
-| `service-faq` | `blocks/service-faq/` | Props (`items[]`) | `/service` |
 
-**Deleted proprietary blocks** (no longer registered): `contact`, `hero`, `about-person`, `about-story`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`. Marketing sections (including contact map) are L1/L2 compositions instead.
+**Deleted proprietary blocks** (no longer registered): `service-faq`, `contact`, `hero`, `about-person`, `about-story`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`. FAQ is L1 framing + shared **`accordion`**.
 
-## Shared L1 (registered globally)
+## Shared L1 / shared L3 (registered globally)
 
-Defined in `src/shared/components/primitives/{layout|content|actions}/{block}/` — bike is SoT for these types:
+Defined in `src/shared/components/primitives/...` and `src/shared/components/ui/accordion/` — bike is SoT for these types:
 
 | Block type | Notes |
 |------------|--------|
 | `section`, `stack`, `flex`, `grid`, `text`, `image`, `iframe`, `icon`, `button`, `link` | Level 1 composition primitives (`text` carries titles via `fontSize` + `bold`) |
+| `accordion` | Shared L3 — one expandable panel (`title` + `content`); compose several in a `stack` for FAQ lists |
 
 **Deleted shared opaques**: `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`.
 
@@ -79,7 +79,7 @@ Root DZ order; nested L1 trees summarized. Localized `en--` / `de--` mirrors mat
 | Page slug | Blocks (order) |
 |-----------|----------------|
 | `/` (home) | L1 section bands (brand hero, editorial, service, framed catalog, school/tours, contact CTA) → **`product-list`** where featured |
-| `/service` | `section` (hero L1) → `section` + **`service-pricing`** → `section` (process grid L1) → **`service-faq`** → `section` (CTA L1) |
+| `/service` | `section` (hero L1) → `section` + **`service-pricing`** → `section` (process grid L1) → `section` + **`accordion`** + CTA L1 → `section` (contact CTA L1) |
 | `/shop` | `section` (hero L1) → `section` (intro L1) → **`product-list`** → `section` (CTA L1) |
 | `/about` | `section` (hero L1) → `section` (story grid L1) → `section` (person grid L1) → `section` (values grid L1) → `section` (CTA L1) |
 | `/contact` | `section` (hero L1) → `section` + `grid` (icon+link contact rows + `iframe` map) |
