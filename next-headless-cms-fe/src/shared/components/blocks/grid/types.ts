@@ -1,4 +1,4 @@
-import type { BoxStyleProps } from "@shared/utils/box-style";
+import type { BoxStyle } from "@shared/utils/box-style";
 
 export type GridColumns =
   | 1
@@ -11,7 +11,7 @@ export type GridColumns =
       desktop?: 1 | 2 | 3 | 4;
     };
 
-export type GridProps = BoxStyleProps & {
+export type GridProps = BoxStyle & {
   columns?: GridColumns;
   gap?: "sm" | "md" | "lg";
   blockId?: string;

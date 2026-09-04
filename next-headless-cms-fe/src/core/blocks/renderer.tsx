@@ -5,6 +5,7 @@ import { resolveBlock } from "./registry";
 import { pickSearchParams } from "./search-params";
 import type {
   BlockRendererProps,
+  RenderBlockNodeArgs,
   UnknownBlockProps,
   ValidateBlockPropsArgs,
 } from "./types";
@@ -37,16 +38,11 @@ function isBlockVisible(block: BlockInstance, locale: string): boolean {
   return true;
 }
 
-async function renderBlockNode(
-  block: BlockInstance,
-  index: number,
-  ctx: {
-    tenant: string;
-    locale: string;
-    slug?: string;
-    searchParams: BlockRendererProps["searchParams"];
-  }
-): Promise<ReactNode> {
+async function renderBlockNode({
+  block,
+  index,
+  ctx,
+}: RenderBlockNodeArgs): Promise<ReactNode> {
   const key = blockReactKey(block, index);
   const definition = resolveBlock(ctx.tenant, block.type);
 
@@ -98,7 +94,7 @@ async function renderBlockNode(
   for (const [slotName, children] of slotEntries) {
     const nodes = await Promise.all(
       children.map((child, childIndex) =>
-        renderBlockNode(child, childIndex, ctx)
+        renderBlockNode({ block: child, index: childIndex, ctx })
       )
     );
     renderedSlots[slotName] = <>{nodes}</>;
@@ -125,7 +121,7 @@ export async function BlockRenderer({
 }: BlockRendererProps) {
   const ctx = { tenant, locale, slug, searchParams };
   const renderedBlocks = await Promise.all(
-    blocks.map((block, index) => renderBlockNode(block, index, ctx))
+    blocks.map((block, index) => renderBlockNode({ block, index, ctx }))
   );
 
   return <>{renderedBlocks}</>;

@@ -61,7 +61,9 @@ export class StrapiAdapter implements CmsAdapter {
         bypassCache,
       });
 
-      const direct = exact ? toPageData(exact, locale, tenant) : null;
+      const direct = exact
+        ? toPageData({ raw: exact, requestLocale: locale, tenantId: tenant })
+        : null;
       if (direct) return direct;
 
       return await this.matchPatternPage({
@@ -133,7 +135,9 @@ export class StrapiAdapter implements CmsAdapter {
       bypassCache,
     });
 
-    return full ? toPageData(full, locale, tenant) : null;
+    return full
+      ? toPageData({ raw: full, requestLocale: locale, tenantId: tenant })
+      : null;
   }
 
   async getNavigation(

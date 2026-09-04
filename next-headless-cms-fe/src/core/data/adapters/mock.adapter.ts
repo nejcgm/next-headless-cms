@@ -80,7 +80,11 @@ export class MockAdapter implements CmsAdapter {
       return null;
     }
 
-    const page = toPageData(raw, locale, tenantConfig.id);
+    const page = toPageData({
+      raw,
+      requestLocale: locale,
+      tenantId: tenantConfig.id,
+    });
     if (!page) return null;
     if (locale !== page.locale) {
       return { ...page, locale };

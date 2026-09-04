@@ -1,6 +1,6 @@
-import type { BoxStyleProps } from "@shared/utils/box-style";
+import type { BoxStyle } from "@shared/utils/box-style";
 
-export type SectionProps = Omit<BoxStyleProps, "padding"> & {
+export type SectionProps = Omit<BoxStyle, "padding"> & {
   padding?: "sm" | "md" | "lg";
   backgroundImage?: string;
   backgroundFit?: "cover" | "contain";

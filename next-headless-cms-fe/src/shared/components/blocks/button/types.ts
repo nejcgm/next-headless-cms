@@ -1,6 +1,6 @@
-import type { BoxStyleProps } from "@shared/utils/box-style";
+import type { BoxStyle } from "@shared/utils/box-style";
 
-export type ButtonBlockProps = BoxStyleProps & {
+export type ButtonBlockProps = BoxStyle & {
   label: string;
   href: string;
   variant?: "primary" | "secondary";

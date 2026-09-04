@@ -1,6 +1,6 @@
-import type { BoxStyleProps } from "@shared/utils/box-style";
+import type { BoxStyle } from "@shared/utils/box-style";
 
-export type FlexProps = BoxStyleProps & {
+export type FlexProps = BoxStyle & {
   direction?: "row" | "column";
   gap?: "sm" | "md" | "lg";
   align?: "start" | "center" | "end" | "stretch";

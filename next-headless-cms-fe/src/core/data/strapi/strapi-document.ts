@@ -32,11 +32,15 @@ function pickSeo(raw: unknown): PageSeo {
   };
 }
 
-export function toPageData(
-  raw: unknown,
-  requestLocale: string,
-  tenantId: string
-): PageData | null {
+export function toPageData({
+  raw,
+  requestLocale,
+  tenantId,
+}: {
+  raw: unknown;
+  requestLocale: string;
+  tenantId: string;
+}): PageData | null {
   const doc = unwrapStrapiDocument(raw);
   if (!doc) return null;
 
@@ -46,7 +50,11 @@ export function toPageData(
 
   const blocks: BlockInstance[] = Array.isArray(doc.blocks)
     ? doc.blocks.flatMap((item, index) => {
-        const block = toValidatedBlockInstance(item, index, tenantId);
+        const block = toValidatedBlockInstance({
+          raw: item,
+          index,
+          tenantId,
+        });
         return block ? [block] : [];
       })
     : [];

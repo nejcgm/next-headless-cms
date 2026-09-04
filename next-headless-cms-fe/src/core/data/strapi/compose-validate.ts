@@ -51,11 +51,15 @@ function stripProps(obj: Record<string, unknown>): Record<string, unknown> {
   return result;
 }
 
-export function toValidatedBlockInstance(
-  raw: unknown,
-  index: number,
-  tenantId: string
-): BlockInstance | null {
+export function toValidatedBlockInstance({
+  raw,
+  index,
+  tenantId,
+}: {
+  raw: unknown;
+  index: number;
+  tenantId: string;
+}): BlockInstance | null {
   if (!isPlainObject(raw)) return null;
 
   const { __component, id, slots: rawSlots, ...rest } = raw;
@@ -128,7 +132,11 @@ export function toValidatedBlockInstance(
         break;
       }
 
-      const child = toValidatedBlockInstance(slotRaw[i], i, tenantId);
+      const child = toValidatedBlockInstance({
+        raw: slotRaw[i],
+        index: i,
+        tenantId,
+      });
       if (!child) continue;
 
       if (!slotPolicy.allow.includes(child.type)) {

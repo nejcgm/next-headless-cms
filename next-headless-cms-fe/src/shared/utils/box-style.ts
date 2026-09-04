@@ -19,9 +19,9 @@ export const boxStyleSchema = z.object({
   textAlign: z.enum(["left", "center", "right"]).optional(),
 });
 
-export type BoxStyleProps = z.infer<typeof boxStyleSchema>;
+export type BoxStyle = z.infer<typeof boxStyleSchema>;
 
-export function toBoxStyle(props: BoxStyleProps): CSSProperties {
+export function toBoxStyle(props: BoxStyle): CSSProperties {
   const style: CSSProperties = {};
   if (props.width) style.width = props.width;
   if (props.height) style.height = props.height;

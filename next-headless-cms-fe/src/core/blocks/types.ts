@@ -53,6 +53,17 @@ export interface BlockRendererProps {
   searchParams?: NormalizedSearchParams;
 }
 
+export interface RenderBlockNodeArgs {
+  block: BlockInstance;
+  index: number;
+  ctx: {
+    tenant: string;
+    locale: string;
+    slug?: string;
+    searchParams: BlockRendererProps["searchParams"];
+  };
+}
+
 export interface ValidateBlockPropsArgs {
   type: string;
   schema: ZodSchema | undefined;
