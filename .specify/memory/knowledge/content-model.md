@@ -86,7 +86,7 @@ Footer text labels. Fields: `tagline`, `linksHeading`, `contactHeading`, `contac
 
 Each component maps to one `BlockInstance.type`. After Strapi strips `__component` and `id` meta, the remaining fields become `BlockInstance.props` — no further mapping needed.
 
-Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Keep + shared `accordion` components below. Deleted from DZ and disk: shared opaques (`cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`), `heading` (use `text` + `fontSize`/`bold`), `service-faq` (use L1 + `accordion`), bike proprietary marketing blocks (`hero`, `about-*`, `bike-school-*`, `guided-tour-experience`, `service-process`, `service-contact`), and `contact` (+ `contact-address` / `contact-labels`) now expressed as L1 + `iframe`.
+Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Keep + shared `accordion` components below. Deleted from DZ and disk: shared opaques (`cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`), `heading` (use `text` + `fontSize`/`bold`), `service-faq` (use L1 + `accordion`), `partners-gallery` / `partner-item` (use L1 `grid` of stacks), `service-pricing` / `service-package` (use L1 stacks of `text` / `link`), bike proprietary marketing blocks (`hero`, `about-*`, `bike-school-*`, `guided-tour-experience`, `service-process`, `service-contact`), and `contact` (+ `contact-address` / `contact-labels`) now expressed as L1 + `iframe`.
 
 ### Shared L1 (available to all tenants)
 
@@ -114,11 +114,7 @@ Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Kee
 | Component | `type` | Key fields |
 |-----------|--------|-----------|
 | `blocks.gallery` | `gallery` | `heading`, `subheading?`, `images` (repeatable shared.image-item), `defaultImageAlt`, `showLessLabel`, `showMorePrefix`, `showMoreSuffix`, `lightboxAltPrefix` |
-| `blocks.partners-gallery` | `partners-gallery` | `eyebrowBadge`, `defaultPartnerLinkLabel`, `heading`, `subheading?`, `partners` (repeatable `blocks.partner-item`) |
-| `blocks.partner-item` | — (sub-component) | `name`, `icon` (image URL), `about`, `url?`, `linkLabel?` |
 | `blocks.product-list` | `product-list` | `heading?`, `subheading?`, `outOfStockLabel`, `limit?`, `category?`, `layout` (grid/list), `anchorId?` — products loaded at runtime via `dataContract` |
-| `blocks.service-pricing` | `service-pricing` | `heading`, `subheading?`, `packages` (repeatable `blocks.service-package`), `note?`, `contactCta?`, `contactHref?` |
-| `blocks.service-package` | — (sub-component) | `name`, `description`, `label?`, `price` (decimal), `priceDisplay?`, `priceNote?`, `features` (**text** — split on `\n`), `turnaround?` |
 | `blocks.bike-detail` | `bike-detail` | `labels` (`blocks.bike-detail-labels`) — bike data loaded at runtime via `dataContract` |
 | `blocks.bike-detail-labels` | — (sub-component) | 16 UI label strings (notFoundTitle, breadcrumbHome, outOfStock, …) |
 

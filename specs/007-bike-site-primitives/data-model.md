@@ -39,8 +39,6 @@ Composition runtime entities (`BlockInstance`, `CompositionPolicy`, `slots`, max
 | `product-list` | leaf (+ dataContract) | Home, shop |
 | `bike-detail` | leaf (+ dataContract) | `/bikes/{slug}` |
 | `gallery` | leaf | Bike school, guided tours |
-| `partners-gallery` | leaf | Brands |
-| `service-pricing` | leaf | Service |
 
 Shared interactive L3: `accordion` (single expandable panel; stack several for lists).
 
@@ -51,7 +49,7 @@ Header, footer templates — unchanged.
 ### Superseded types (delete after zero bike references)
 
 **Shared**: `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`, `heading`  
-**Bike proprietary**: `contact`, `service-faq`, `hero`, `about-story`, `about-person`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`
+**Bike proprietary**: `contact`, `service-faq`, `partners-gallery`, `service-pricing`, `hero`, `about-story`, `about-person`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`
 
 ### Composition allowlist (update)
 
@@ -60,8 +58,7 @@ Shared layout policies allow **L1 only**. Bike Keep L3 is registered via tenant 
 ```text
 shared nestAllow = [stack, flex, grid, text, image, iframe, icon, button, link, accordion]
 tenant nestAllow extras = [
-  product-list, bike-detail, gallery,
-  partners-gallery, service-pricing
+  product-list, bike-detail, gallery
 ]
 ```
 
@@ -78,8 +75,7 @@ blocks.section, blocks.stack, blocks.flex, blocks.grid,
 blocks.text, blocks.image, blocks.iframe, blocks.icon, blocks.button, blocks.link,
 blocks.accordion,
 blocks.product-list, blocks.bike-detail,
-blocks.gallery, blocks.partners-gallery,
-blocks.service-pricing
+blocks.gallery
 ```
 
 Plus any **resort-only Strapi components** only if still required by live Strapi for other tenants — today resort is mock-only, so **do not** retain bike-replaced shared opaques solely for the fixture. Resort FE may still register tenant `hero` for mock JSON.

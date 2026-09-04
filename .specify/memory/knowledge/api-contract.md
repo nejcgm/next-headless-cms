@@ -98,26 +98,38 @@ Always pass `locale` for localized collections. Used by `bike-detail` → `load-
     "seo": { "title": "...", "description": "...", "noIndex": false },
     "blocks": [
       {
-        "__component": "blocks.hero",
+        "__component": "blocks.section",
         "id": 10,
-        "headline": "Servis koles",
-        "backgroundImage": "/img/service-hero.jpg",
-        "overlay": 0.4,
-        "cta": { "__component": "shared.cta-link", "id": 11, "label": "Naroči servis", "href": "/contact" }
-      },
-      {
-        "__component": "blocks.service-pricing",
-        "id": 12,
-        "heading": "Cenik",
-        "packages": [
-          {
-            "__component": "blocks.service-package",
-            "id": 13,
-            "name": "Osnovni servis",
-            "price": 39,
-            "features": "Pregled in nastavitev\nMazanje verige\nKontrola tlaka"
-          }
-        ]
+        "padding": "lg",
+        "anchorId": "cenik",
+        "slots": {
+          "default": [
+            {
+              "__component": "blocks.stack",
+              "id": 11,
+              "gap": "md",
+              "slots": {
+                "default": [
+                  {
+                    "__component": "blocks.text",
+                    "id": 12,
+                    "content": "Cenik servisa",
+                    "bold": true,
+                    "fontSize": "36px"
+                  },
+                  {
+                    "__component": "blocks.text",
+                    "id": 13,
+                    "content": "€39",
+                    "bold": true,
+                    "color": "primary",
+                    "fontSize": "28px"
+                  }
+                ]
+              }
+            }
+          ]
+        }
       }
     ]
   }]

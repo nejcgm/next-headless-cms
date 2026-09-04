@@ -83,68 +83,420 @@
       }
     },
     {
-      "__component": "blocks.partners-gallery",
+      "__component": "blocks.section",
       "id": 200,
-      "eyebrowBadge": "Naši partnerji",
-      "defaultPartnerLinkLabel": "Obiščite spletno stran",
-      "heading": "Partnerji, s katerimi sodelujemo",
-      "subheading": "Znamke komponent in pnevmatik, festivali, gradnja stez, lokalna društva in tekmovalne ekipe — zanesljivi partnerji v kolesarstvu.",
-      "partners": [
-        {
-          "id": 201,
-          "name": "Reverse Components",
-          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404891/images_1_gd8ohz.png",
-          "about": "Nemška znamka MTB in e-kolesarskih komponent iz Freudenstadta (Črni gozd), od leta 2004. Znan po motu »od kolesarjev za kolesarje«: krmila, obročniki, sedeži, pedala in več, testirano tudi z laboratorijem EFBE. Prisoten v več kot 25 državah.",
-          "url": "https://www.reverse-components.com/en",
-          "linkLabel": "Obiščite Reverse Components"
-        },
-        {
-          "id": 202,
-          "name": "Flat Out Days",
-          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_wbppdf.jpg",
-          "about": "Največji slovenski festival gorskega kolesarjenja — danes večdnevni dogodek v Bike parku Kope z Freeride Fest Series, whip-offi, dual slalomom, delavnicami in glasbo. Začel je leta 2017 kot majhen whip-off v Ljubljani; danes poudarek na skupnosti in napredku v športu.",
-          "url": "https://flatoutdays.com",
-          "linkLabel": "Flat Out Days — vstopnice in program"
-        },
-        {
-          "id": 203,
-          "name": "Goodyear Bike",
-          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/goodyear-logo-01_zlhnbl.jpg",
-          "about": "Uradna kolesarska linija Goodyear (goodyearbike.com): visokozmogljive pnevmatike za cesto, gravel, treking/urban in MTB — npr. Eagle, Vector, Connector, Newton in Escape. Na strani tudi kalkulator tlaka in vodila za tubeless.",
-          "url": "https://www.goodyearbike.com/",
-          "linkLabel": "Goodyear Bike — pnevmatike"
-        },
-        {
-          "id": 204,
-          "name": "BATT Crew",
-          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404890/images_1_lbvhfo.jpg",
-          "about": "Domžalska ekipa za načrtovanje in gradnjo varnih, trajnostnih MTB stez in bike parkov (med drugim Agi Bike Park in obsežna prenova Bike parka Kope). Nudijo še dokumentacijo, označevanje, načrte reševanja in foto/video. Leta 2017 so zagnali Flat Out Days.",
-          "url": "https://battcrew.com/en/",
-          "linkLabel": "BATT Crew — reference in kontakt"
-        },
-        {
-          "id": 205,
-          "name": "Loose Riders",
-          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404892/images_2_xviu4o.jpg",
-          "about": "Globalna znamka in mreža skupnosti (LRGA): tehnična oblačila, zaščita, dodatki in deli za kolo. Nastali iz trail skupnosti (2012), danes lokalni »chapterji« po svetu in sproščena filozofija — od Chiang Maija do Evrope.",
-          "url": "https://www.loose-riders.com/en/",
-          "linkLabel": "Loose Riders — trgovina"
-        },
-        {
-          "id": 206,
-          "name": "Apače mlinarji",
-          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/1718357843307_LOGO_S%CC%8CKTD_MLINARJI_APAC%CC%8CE.png_fvumlz.png",
-          "about": "ŠKTD (športno, kulturno in turistično društvo) Apače Mlinarji organizira dirke gorskega kolesarjenja na domačem poligonu — med drugim etape Pomurskega pokala MTB in posebne nočne dirke. Močna podpora otroškim kategorijam in lokalni kolesarski sceni."
-        },
-        {
-          "id": 207,
-          "name": "427 Savage Squad",
-          "icon": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_3_fg2dgh.jpg",
-          "about": "Mariborska tekmovalna ekipa v spustu in enduru (kolesarsko društvo 427 Pohorje) z Juretom Logarjem. Deluje kot akademija z omejenim številom članov; med znanimi tekmovalci Maša Komel in Miha Jerkič. Svetovna združljivost z evropskimi pokali v spustu.",
-          "url": "https://www.instagram.com/427savagesquad/",
-          "linkLabel": "Sledi na Instagramu"
-        }
-      ]
+      "padding": "lg",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 202,
+            "gap": "sm",
+            "align": "center",
+            "maxWidth": "640px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 203,
+                  "variant": "label",
+                  "content": "Naši partnerji",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 204,
+                  "content": "Partnerji, s katerimi sodelujemo",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 205,
+                  "variant": "lead",
+                  "content": "Znamke komponent in pnevmatik, festivali, gradnja stez, lokalna društva in tekmovalne ekipe — zanesljivi partnerji v kolesarstvu.",
+                  "color": "secondary",
+                  "textAlign": "center"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.grid",
+            "id": 209,
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 3
+            },
+            "gap": "md",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 210,
+                  "gap": "md",
+                  "align": "center",
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "16px",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.image",
+                        "id": 211,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404891/images_1_gd8ohz.png",
+                        "alt": "Reverse Components",
+                        "fit": "contain",
+                        "minHeight": "160px",
+                        "backgroundColor": "muted",
+                        "borderRadius": "var(--radius)",
+                        "padding": "16px"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 212,
+                        "content": "Reverse Components",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "20px",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 213,
+                        "variant": "body",
+                        "content": "Nemška znamka MTB in e-kolesarskih komponent iz Freudenstadta (Črni gozd), od leta 2004. Znan po motu »od kolesarjev za kolesarje«: krmila, obročniki, sedeži, pedala in več, testirano tudi z laboratorijem EFBE. Prisoten v več kot 25 državah.",
+                        "color": "secondary",
+                        "textAlign": "center",
+                        "fontSize": "15px"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 214,
+                        "label": "Obiščite Reverse Components",
+                        "href": "https://www.reverse-components.com/en",
+                        "variant": "accent",
+                        "showArrow": true,
+                        "margin": "8px auto 0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 220,
+                  "gap": "md",
+                  "align": "center",
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "16px",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.image",
+                        "id": 221,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_wbppdf.jpg",
+                        "alt": "Flat Out Days",
+                        "fit": "contain",
+                        "minHeight": "160px",
+                        "backgroundColor": "muted",
+                        "borderRadius": "var(--radius)",
+                        "padding": "16px"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 222,
+                        "content": "Flat Out Days",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "20px",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 223,
+                        "variant": "body",
+                        "content": "Največji slovenski festival gorskega kolesarjenja — danes večdnevni dogodek v Bike parku Kope z Freeride Fest Series, whip-offi, dual slalomom, delavnicami in glasbo. Začel je leta 2017 kot majhen whip-off v Ljubljani; danes poudarek na skupnosti in napredku v športu.",
+                        "color": "secondary",
+                        "textAlign": "center",
+                        "fontSize": "15px"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 224,
+                        "label": "Flat Out Days — vstopnice in program",
+                        "href": "https://flatoutdays.com",
+                        "variant": "accent",
+                        "showArrow": true,
+                        "margin": "8px auto 0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 230,
+                  "gap": "md",
+                  "align": "center",
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "16px",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.image",
+                        "id": 231,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/goodyear-logo-01_zlhnbl.jpg",
+                        "alt": "Goodyear Bike",
+                        "fit": "contain",
+                        "minHeight": "160px",
+                        "backgroundColor": "muted",
+                        "borderRadius": "var(--radius)",
+                        "padding": "16px"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 232,
+                        "content": "Goodyear Bike",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "20px",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 233,
+                        "variant": "body",
+                        "content": "Uradna kolesarska linija Goodyear (goodyearbike.com): visokozmogljive pnevmatike za cesto, gravel, treking/urban in MTB — npr. Eagle, Vector, Connector, Newton in Escape. Na strani tudi kalkulator tlaka in vodila za tubeless.",
+                        "color": "secondary",
+                        "textAlign": "center",
+                        "fontSize": "15px"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 234,
+                        "label": "Goodyear Bike — pnevmatike",
+                        "href": "https://www.goodyearbike.com/",
+                        "variant": "accent",
+                        "showArrow": true,
+                        "margin": "8px auto 0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 240,
+                  "gap": "md",
+                  "align": "center",
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "16px",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.image",
+                        "id": 241,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404890/images_1_lbvhfo.jpg",
+                        "alt": "BATT Crew",
+                        "fit": "contain",
+                        "minHeight": "160px",
+                        "backgroundColor": "muted",
+                        "borderRadius": "var(--radius)",
+                        "padding": "16px"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 242,
+                        "content": "BATT Crew",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "20px",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 243,
+                        "variant": "body",
+                        "content": "Domžalska ekipa za načrtovanje in gradnjo varnih, trajnostnih MTB stez in bike parkov (med drugim Agi Bike Park in obsežna prenova Bike parka Kope). Nudijo še dokumentacijo, označevanje, načrte reševanja in foto/video. Leta 2017 so zagnali Flat Out Days.",
+                        "color": "secondary",
+                        "textAlign": "center",
+                        "fontSize": "15px"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 244,
+                        "label": "BATT Crew — reference in kontakt",
+                        "href": "https://battcrew.com/en/",
+                        "variant": "accent",
+                        "showArrow": true,
+                        "margin": "8px auto 0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 250,
+                  "gap": "md",
+                  "align": "center",
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "16px",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.image",
+                        "id": 251,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404892/images_2_xviu4o.jpg",
+                        "alt": "Loose Riders",
+                        "fit": "contain",
+                        "minHeight": "160px",
+                        "backgroundColor": "muted",
+                        "borderRadius": "var(--radius)",
+                        "padding": "16px"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 252,
+                        "content": "Loose Riders",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "20px",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 253,
+                        "variant": "body",
+                        "content": "Globalna znamka in mreža skupnosti (LRGA): tehnična oblačila, zaščita, dodatki in deli za kolo. Nastali iz trail skupnosti (2012), danes lokalni »chapterji« po svetu in sproščena filozofija — od Chiang Maija do Evrope.",
+                        "color": "secondary",
+                        "textAlign": "center",
+                        "fontSize": "15px"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 254,
+                        "label": "Loose Riders — trgovina",
+                        "href": "https://www.loose-riders.com/en/",
+                        "variant": "accent",
+                        "showArrow": true,
+                        "margin": "8px auto 0"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 260,
+                  "gap": "md",
+                  "align": "center",
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "16px",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.image",
+                        "id": 261,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/1718357843307_LOGO_S%CC%8CKTD_MLINARJI_APAC%CC%8CE.png_fvumlz.png",
+                        "alt": "Apače mlinarji",
+                        "fit": "contain",
+                        "minHeight": "160px",
+                        "backgroundColor": "muted",
+                        "borderRadius": "var(--radius)",
+                        "padding": "16px"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 262,
+                        "content": "Apače mlinarji",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "20px",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 263,
+                        "variant": "body",
+                        "content": "ŠKTD (športno, kulturno in turistično društvo) Apače Mlinarji organizira dirke gorskega kolesarjenja na domačem poligonu — med drugim etape Pomurskega pokala MTB in posebne nočne dirke. Močna podpora otroškim kategorijam in lokalni kolesarski sceni.",
+                        "color": "secondary",
+                        "textAlign": "center",
+                        "fontSize": "15px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 270,
+                  "gap": "md",
+                  "align": "center",
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "16px",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.image",
+                        "id": 271,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_3_fg2dgh.jpg",
+                        "alt": "427 Savage Squad",
+                        "fit": "contain",
+                        "minHeight": "160px",
+                        "backgroundColor": "muted",
+                        "borderRadius": "var(--radius)",
+                        "padding": "16px"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 272,
+                        "content": "427 Savage Squad",
+                        "bold": true,
+                        "color": "foreground",
+                        "fontSize": "20px",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 273,
+                        "variant": "body",
+                        "content": "Mariborska tekmovalna ekipa v spustu in enduru (kolesarsko društvo 427 Pohorje) z Juretom Logarjem. Deluje kot akademija z omejenim številom članov; med znanimi tekmovalci Maša Komel in Miha Jerkič. Svetovna združljivost z evropskimi pokali v spustu.",
+                        "color": "secondary",
+                        "textAlign": "center",
+                        "fontSize": "15px"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 274,
+                        "label": "Sledi na Instagramu",
+                        "href": "https://www.instagram.com/427savagesquad/",
+                        "variant": "accent",
+                        "showArrow": true,
+                        "margin": "8px auto 0"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "maxWidth": "1100px",
+            "margin": "48px auto 0"
+          }
+        ]
+      }
     },
     {
       "__component": "blocks.section",

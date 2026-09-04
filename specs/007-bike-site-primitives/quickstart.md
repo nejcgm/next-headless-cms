@@ -47,7 +47,7 @@ rg 'blocks\.(cta-banner|stats-bar|image-text|section-header|rich-text|image-gall
 
 **Expect**: Zero matches.
 
-Confirm Keep types still present where needed (`product-list`, `gallery`, `partners-gallery`, `service-pricing`, `service-faq`, `bike-detail`). Contact page is L1 + `iframe`.
+Confirm Keep types still present where needed (`product-list`, `gallery`, `bike-detail`). Shared `accordion` on FAQ. Contact / brands / service pricing are L1 (+ `iframe` on contact).
 
 ### 3. Dev render (all public pages)
 

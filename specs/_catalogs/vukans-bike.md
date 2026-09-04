@@ -53,11 +53,9 @@ Every registered content block has a Zod `schema` in `blocks/{name}/schema.ts` w
 |------------|-----------|------|-------------------|
 | `bike-detail` | `blocks/bike-detail/bike-detail.tsx` | `labels` props + **dataContract** → `load-bike.ts` → `getEntry("products", bikeSlug)` | `/bikes/{slug}` |
 | `gallery` | `blocks/gallery/gallery.tsx` | Props (`images[]`) | `/bike-school`, `/guided-tours` |
-| `partners-gallery` | `blocks/partners-gallery/` | Props | `/brands` |
 | `product-list` | `blocks/product-list/product-list.tsx` | **dataContract** → `load-products.ts` → `getCollection("products")` | Home, `/shop` |
-| `service-pricing` | `blocks/service-pricing/` | Props (`packages[]`) | `/service` |
 
-**Deleted proprietary blocks** (no longer registered): `service-faq`, `contact`, `hero`, `about-person`, `about-story`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`. FAQ is L1 framing + shared **`accordion`**.
+**Deleted proprietary blocks** (no longer registered): `service-pricing`, `partners-gallery`, `service-faq`, `contact`, `hero`, `about-person`, `about-story`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`. Service pricing is L1 stacks of `text`/`link`; brands partners are L1 `grid` of stacks; FAQ is L1 + shared **`accordion`**.
 
 ## Shared L1 / shared L3 (registered globally)
 
@@ -79,11 +77,11 @@ Root DZ order; nested L1 trees summarized. Localized `en--` / `de--` mirrors mat
 | Page slug | Blocks (order) |
 |-----------|----------------|
 | `/` (home) | L1 section bands (brand hero, editorial, service, framed catalog, school/tours, contact CTA) → **`product-list`** where featured |
-| `/service` | `section` (hero L1) → `section` + **`service-pricing`** → `section` (process grid L1) → `section` + **`accordion`** + CTA L1 → `section` (contact CTA L1) |
+| `/service` | `section` (hero L1) → `section` (pricing stacks L1) → `section` (process grid L1) → `section` + **`accordion`** + CTA L1 → `section` (contact CTA L1) |
 | `/shop` | `section` (hero L1) → `section` (intro L1) → **`product-list`** → `section` (CTA L1) |
 | `/about` | `section` (hero L1) → `section` (story grid L1) → `section` (person grid L1) → `section` (values grid L1) → `section` (CTA L1) |
 | `/contact` | `section` (hero L1) → `section` + `grid` (icon+link contact rows + `iframe` map) |
-| `/brands` | `section` (hero L1) → **`partners-gallery`** → `section` (CTA L1) |
+| `/brands` | `section` (hero L1) → `section` + `grid` of partner stacks (image/text/link) → `section` (CTA L1) |
 | `/bike-school` | `section` (hero L1) → `section` (intro L1) → `section` (program grid L1) → **`gallery`** → `section` (CTA L1) |
 | `/guided-tours` | `section` (hero L1) → `section` (experience grid L1) → **`gallery`** → `section` (process grid L1) → `section` (CTA L1) |
 | `/bikes/{slug}` | **`bike-detail`** only |

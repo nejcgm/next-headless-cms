@@ -5,10 +5,6 @@ import {
 import { loadProductsForProductListBlock } from "./product-list/load-products";
 import { ProductList } from "./product-list/product-list";
 import { productListSchema } from "./product-list/schema";
-import { ServicePricing } from "./service-pricing/service-pricing";
-import { servicePricingSchema } from "./service-pricing/schema";
-import { PartnersGallery } from "./partners-gallery/partners-gallery";
-import { partnersGallerySchema } from "./partners-gallery/schema";
 import { BikeDetail } from "./bike-detail/bike-detail";
 import { bikeDetailSchema } from "./bike-detail/schema";
 import { loadBikeForBikeDetailBlock } from "./bike-detail/load-bike";
@@ -25,8 +21,6 @@ registerTenantLayoutNestAllow("vukans-bike", [
   "product-list",
   "bike-detail",
   "gallery",
-  "partners-gallery",
-  "service-pricing",
 ]);
 
 registerTenantBlocks("vukans-bike", {
@@ -48,12 +42,6 @@ registerTenantBlocks("vukans-bike", {
     policy: keepLeafPolicy,
   },
 
-  "partners-gallery": {
-    component: PartnersGallery,
-    schema: partnersGallerySchema,
-    policy: keepLeafPolicy,
-  },
-
   "product-list": {
     component: ProductList,
     schema: productListSchema,
@@ -64,11 +52,5 @@ registerTenantBlocks("vukans-bike", {
         locale: ctx.locale,
         props,
       }),
-  },
-
-  "service-pricing": {
-    component: ServicePricing,
-    schema: servicePricingSchema,
-    policy: keepLeafPolicy,
   },
 });

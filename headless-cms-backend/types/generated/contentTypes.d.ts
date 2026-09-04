@@ -493,8 +493,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'blocks.product-list',
         'blocks.bike-detail',
         'blocks.gallery',
-        'blocks.partners-gallery',
-        'blocks.service-pricing',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

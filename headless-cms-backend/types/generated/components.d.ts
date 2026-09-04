@@ -8,8 +8,13 @@ export interface BlocksAccordion extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
+    backgroundColor: Schema.Attribute.String;
+    border: Schema.Attribute.String;
+    borderRadius: Schema.Attribute.String;
     content: Schema.Attribute.Text & Schema.Attribute.Required;
     defaultOpen: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    margin: Schema.Attribute.String;
+    padding: Schema.Attribute.String;
     title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
@@ -276,48 +281,6 @@ export interface BlocksLink extends Struct.ComponentSchema {
   };
 }
 
-export interface BlocksPartnerItem extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_partner_items';
-  info: {
-    description: 'A single brand/partner entry with logo, description, and optional URL';
-    displayName: 'Partners Gallery \u2014 Partner';
-    icon: 'handshake';
-    name: 'PartnerItem';
-  };
-  attributes: {
-    about: Schema.Attribute.Text & Schema.Attribute.Required;
-    icon: Schema.Attribute.String & Schema.Attribute.Required;
-    linkLabel: Schema.Attribute.String;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    url: Schema.Attribute.String;
-  };
-}
-
-export interface BlocksPartnersGallery extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_partners_galleries';
-  info: {
-    description: 'Brand / partner logos grid with eyebrow badge, heading, and partner cards';
-    displayName: 'Partners Gallery';
-    icon: 'briefcase';
-    name: 'PartnersGallery';
-  };
-  attributes: {
-    defaultPartnerLinkLabel: Schema.Attribute.String &
-      Schema.Attribute.Required;
-    eyebrowBadge: Schema.Attribute.String & Schema.Attribute.Required;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    partners: Schema.Attribute.Component<'blocks.partner-item', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    subheading: Schema.Attribute.String;
-  };
-}
-
 export interface BlocksProductList extends Struct.ComponentSchema {
   collectionName: 'components_blocks_product_lists';
   info: {
@@ -373,51 +336,6 @@ export interface BlocksSection extends Struct.ComponentSchema {
     slots: Schema.Attribute.JSON;
     surface: Schema.Attribute.String & Schema.Attribute.DefaultTo<'default'>;
     width: Schema.Attribute.String;
-  };
-}
-
-export interface BlocksServicePackage extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_service_packages';
-  info: {
-    description: 'A single service pricing tier with features list';
-    displayName: 'Service \u2014 Package';
-    icon: 'tag';
-    name: 'ServicePackage';
-  };
-  attributes: {
-    description: Schema.Attribute.Text & Schema.Attribute.Required;
-    features: Schema.Attribute.Text & Schema.Attribute.Required;
-    label: Schema.Attribute.String;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    price: Schema.Attribute.Decimal & Schema.Attribute.Required;
-    priceDisplay: Schema.Attribute.String;
-    priceNote: Schema.Attribute.String;
-    turnaround: Schema.Attribute.String;
-  };
-}
-
-export interface BlocksServicePricing extends Struct.ComponentSchema {
-  collectionName: 'components_blocks_service_pricings';
-  info: {
-    description: 'Service pricing table with package tiers and optional bottom note / CTA';
-    displayName: 'Service \u2014 Pricing';
-    icon: 'euro-sign';
-    name: 'ServicePricing';
-  };
-  attributes: {
-    contactCta: Schema.Attribute.String;
-    contactHref: Schema.Attribute.String;
-    heading: Schema.Attribute.String & Schema.Attribute.Required;
-    note: Schema.Attribute.String;
-    packages: Schema.Attribute.Component<'blocks.service-package', true> &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          min: 1;
-        },
-        number
-      >;
-    subheading: Schema.Attribute.String;
   };
 }
 
@@ -600,12 +518,8 @@ declare module '@strapi/strapi' {
       'blocks.iframe': BlocksIframe;
       'blocks.image': BlocksImage;
       'blocks.link': BlocksLink;
-      'blocks.partner-item': BlocksPartnerItem;
-      'blocks.partners-gallery': BlocksPartnersGallery;
       'blocks.product-list': BlocksProductList;
       'blocks.section': BlocksSection;
-      'blocks.service-package': BlocksServicePackage;
-      'blocks.service-pricing': BlocksServicePricing;
       'blocks.stack': BlocksStack;
       'blocks.text': BlocksText;
       'shared.cta-link': SharedCtaLink;

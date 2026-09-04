@@ -90,86 +90,1236 @@
       "slots": {
         "default": [
           {
-            "__component": "blocks.service-pricing",
+            "__component": "blocks.stack",
             "id": 200,
-            "heading": "Servicepreise",
-            "subheading": "Preise nach Vereinbarung; für einen festen Termin kontaktieren Sie uns per E-Mail oder unter 070 815 379.",
-            "packages": [
-              {
-                "id": 201,
-                "name": "Basis-Service",
-                "description": "Inspektion und grundlegende Wartung der mechanischen Baugruppen.",
-                "price": 39,
-                "features": "Funktionsprüfung und Feineinstellung von Schaltung und Bremsen\nReifendruck prüfen und bei Bedarf anpassen\nKettenverschleiß messen\nGrundzentrierung der Laufräder\nKette schmieren (Öl oder flüssiges Wachs)\nSchmierung wichtiger beweglicher Punkte\nSpielausgleich am Steuersatz\nVerbrauch von Reinigern und Schmiermitteln im Preis enthalten"
-              },
-              {
-                "id": 202,
-                "name": "Basis-Service E-Bike",
-                "label": "E-Bike",
-                "description": "Wie Basis-Service, plus Diagnose und Software-Updates für Antriebe von Bosch, Shimano und Giant.",
-                "price": 55,
-                "features": "Funktionsprüfung und Feineinstellung von Schaltung und Bremsen\nReifendruck prüfen und bei Bedarf anpassen\nKettenverschleiß messen\nGrundzentrierung der Laufräder\nKette schmieren (Öl oder flüssiges Wachs)\nSchmierung wichtiger beweglicher Punkte\nSpielausgleich am Steuersatz\nVerbrauch von Reinigern und Schmiermitteln im Preis enthalten\nDiagnose, Software-Update und Ausdruck eines Berichts (Bosch, Shimano, Giant)"
-              },
-              {
-                "id": 203,
-                "name": "Regelmäßiger Service",
-                "description": "Umfassendere mechanische Inspektion von Antrieb, Bremsen und Lagern.",
-                "price": 70,
-                "features": "Antrieb prüfen und Schaltung präzise einstellen\nBremssystem, Beläge/Backen prüfen und bei Verschleiß tauschen\nReifendruck prüfen und bei Bedarf anpassen\nKettenverschleiß messen\nGrundzentrierung der Laufräder\nKette schmieren (Öl oder flüssiges Wachs)\nSchmierung wichtiger beweglicher Punkte\nSteuersatz und Tretlager prüfen, schmieren oder bei Bedarf tauschen\nZüge und Hüllen prüfen und bei Bedarf ersetzen\nNaben prüfen und bei Bedarf nachschmieren\nVerbrauch von Reinigern und Schmiermitteln im Preis enthalten"
-              },
-              {
-                "id": 204,
-                "name": "Regelmäßiger Service E-Bike",
-                "label": "E-Bike",
-                "description": "Wie regelmäßiger Service, plus Diagnose und Software-Updates für Antriebe von Bosch, Shimano und Giant.",
-                "price": 80,
-                "features": "Antrieb prüfen und Schaltung präzise einstellen\nBremssystem, Beläge/Backen prüfen und bei Verschleiß tauschen\nReifendruck prüfen und bei Bedarf anpassen\nKettenverschleiß messen und Kette bei Bedarf wechseln\nGrundzentrierung der Laufräder\nKette schmieren (Öl oder flüssiges Wachs)\nSchmierung wichtiger beweglicher Punkte\nSteuersatz prüfen, schmieren oder bei Bedarf tauschen\nZüge und Hüllen prüfen und bei Bedarf ersetzen\nNaben prüfen und bei Bedarf nachschmieren\nVerbrauch von Reinigern und Schmiermitteln im Preis enthalten\nDiagnose, Software-Update und Ausdruck eines Berichts (Bosch, Shimano, Giant)"
-              },
-              {
-                "id": 205,
-                "name": "Generalüberholung MTB mit Federgabel",
-                "label": "MTB",
-                "description": "Regelmäßiger Service mit Entlüften der hydraulischen Scheibenbremsen und Schnellreinigung.",
-                "price": 110,
-                "features": "Leistungsumfang des regelmäßigen Service\nEntlüften der vorderen und hinteren hydraulischen Scheibenbremse\nGrundlegende Schnellreinigung des Rads"
-              },
-              {
-                "id": 206,
-                "name": "Generalüberholung E-MTB mit Federgabel",
-                "label": "E-MTB",
-                "description": "Regelmäßiger E-Bike-Service mit Entlüften der hydraulischen Bremsen und Schnellreinigung.",
-                "price": 120,
-                "features": "Leistungsumfang des regelmäßigen E-Bike-Service\nEntlüften der vorderen und hinteren hydraulischen Scheibenbremse\nGrundlegende Schnellreinigung des Rads"
-              },
-              {
-                "id": 207,
-                "name": "Generalüberholung Fully MTB",
-                "label": "MTB Fully",
-                "description": "Regelmäßiger Service mit Bremsen, Reinigung und Lager-Service am Hinterbau (Lager nicht im Preis).",
-                "price": 150,
-                "features": "Leistungsumfang des regelmäßigen Service\nEntlüften der vorderen und hinteren hydraulischen Scheibenbremse\nGrundlegende Schnellreinigung des Rads\nHinterbau-Lager reinigen, prüfen und bei Bedarf tauschen (Lager separat berechnet)"
-              },
-              {
-                "id": 208,
-                "name": "Generalüberholung Fully E-MTB",
-                "label": "E-MTB Fully",
-                "description": "Regelmäßiger E-Bike-Service mit Bremsen, Reinigung und Lager-Service am Hinterbau (Lager nicht im Preis).",
-                "price": 170,
-                "features": "Leistungsumfang des regelmäßigen E-Bike-Service\nEntlüften der vorderen und hinteren hydraulischen Scheibenbremse\nGrundlegende Schnellreinigung des Rads\nHinterbau-Lager reinigen, prüfen und bei Bedarf tauschen (Lager separat berechnet)"
-              },
-              {
-                "id": 209,
-                "name": "Montage und Einstellung (Online-Kauf)",
-                "description": "Außerhalb der Kernzeiten: Aufbau, Einstellungen und Entsorgung der Verpackung.",
-                "price": 0,
-                "priceDisplay": "Nach Stunden",
-                "priceNote": "Abrechnung nach geleisteten Stunden",
-                "features": "Radmontage\nAnpassung aller wichtigen Komponenten (Vorbau, Reifen, Züge usw.)\nKomplettpaket der Grundeinstellungen\nMontage von Zubehör\nOrdnungsgemäße Entsorgung der Verpackung (Karton, Kunststoff usw.)\nGrundeinstellung der Federung (Sag und Rebound)"
-              }
-            ],
-            "note": "Ersatzteile (z. B. Hinterbau-Lager, Bremsbeläge) und zusätzliche Reparaturen werden separat berechnet. Vor Arbeiten stimmen wir uns immer ab.",
-            "contactCta": "Für einen Service-Termin kontaktieren Sie uns per E-Mail oder Telefon",
-            "contactHref": "#kontakt"
+            "gap": "sm",
+            "maxWidth": "768px",
+            "margin": "0 auto 40px",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 201,
+                  "content": "Servicepreise",
+                  "bold": true,
+                  "color": "foreground",
+                  "fontSize": "36px"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 202,
+                  "variant": "body",
+                  "content": "Preise nach Vereinbarung; für einen festen Termin kontaktieren Sie uns per E-Mail oder unter 070 815 379.",
+                  "color": "secondary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.stack",
+            "id": 1900,
+            "gap": "md",
+            "maxWidth": "768px",
+            "margin": "0 auto",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.flex",
+                  "id": 214,
+                  "direction": "row",
+                  "gap": "md",
+                  "align": "start",
+                  "justify": "between",
+                  "wrap": true,
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "var(--radius)",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.stack",
+                        "id": 215,
+                        "gap": "sm",
+                        "width": "140px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 203,
+                              "content": "€39",
+                              "bold": true,
+                              "color": "primary",
+                              "fontSize": "28px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.stack",
+                        "id": 216,
+                        "gap": "sm",
+                        "maxWidth": "420px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 204,
+                              "content": "Basis-Service",
+                              "bold": true,
+                              "color": "foreground",
+                              "fontSize": "18px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 205,
+                              "variant": "body",
+                              "content": "Inspektion und grundlegende Wartung der mechanischen Baugruppen.",
+                              "color": "secondary",
+                              "fontSize": "14px",
+                              "margin": "0 0 8px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 206,
+                              "variant": "caption",
+                              "content": "• Funktionsprüfung und Feineinstellung von Schaltung und Bremsen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 207,
+                              "variant": "caption",
+                              "content": "• Reifendruck prüfen und bei Bedarf anpassen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 208,
+                              "variant": "caption",
+                              "content": "• Kettenverschleiß messen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 209,
+                              "variant": "caption",
+                              "content": "• Grundzentrierung der Laufräder",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 210,
+                              "variant": "caption",
+                              "content": "• Kette schmieren (Öl oder flüssiges Wachs)",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 211,
+                              "variant": "caption",
+                              "content": "• Schmierung wichtiger beweglicher Punkte",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 212,
+                              "variant": "caption",
+                              "content": "• Spielausgleich am Steuersatz",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 213,
+                              "variant": "caption",
+                              "content": "• Verbrauch von Reinigern und Schmiermitteln im Preis enthalten",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 217,
+                        "label": "Kontakt →",
+                        "href": "#kontakt",
+                        "variant": "secondary",
+                        "padding": "10px 16px",
+                        "fontSize": "14px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 231,
+                  "direction": "row",
+                  "gap": "md",
+                  "align": "start",
+                  "justify": "between",
+                  "wrap": true,
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "var(--radius)",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.stack",
+                        "id": 232,
+                        "gap": "sm",
+                        "width": "140px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 218,
+                              "content": "€55",
+                              "bold": true,
+                              "color": "primary",
+                              "fontSize": "28px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.stack",
+                        "id": 233,
+                        "gap": "sm",
+                        "maxWidth": "420px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 219,
+                              "variant": "label",
+                              "content": "E-Bike",
+                              "color": "primary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 220,
+                              "content": "Basis-Service E-Bike",
+                              "bold": true,
+                              "color": "foreground",
+                              "fontSize": "18px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 221,
+                              "variant": "body",
+                              "content": "Wie Basis-Service, plus Diagnose und Software-Updates für Antriebe von Bosch, Shimano und Giant.",
+                              "color": "secondary",
+                              "fontSize": "14px",
+                              "margin": "0 0 8px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 222,
+                              "variant": "caption",
+                              "content": "• Funktionsprüfung und Feineinstellung von Schaltung und Bremsen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 223,
+                              "variant": "caption",
+                              "content": "• Reifendruck prüfen und bei Bedarf anpassen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 224,
+                              "variant": "caption",
+                              "content": "• Kettenverschleiß messen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 225,
+                              "variant": "caption",
+                              "content": "• Grundzentrierung der Laufräder",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 226,
+                              "variant": "caption",
+                              "content": "• Kette schmieren (Öl oder flüssiges Wachs)",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 227,
+                              "variant": "caption",
+                              "content": "• Schmierung wichtiger beweglicher Punkte",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 228,
+                              "variant": "caption",
+                              "content": "• Spielausgleich am Steuersatz",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 229,
+                              "variant": "caption",
+                              "content": "• Verbrauch von Reinigern und Schmiermitteln im Preis enthalten",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 230,
+                              "variant": "caption",
+                              "content": "• Diagnose, Software-Update und Ausdruck eines Berichts (Bosch, Shimano, Giant)",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 234,
+                        "label": "Kontakt →",
+                        "href": "#kontakt",
+                        "variant": "secondary",
+                        "padding": "10px 16px",
+                        "fontSize": "14px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 249,
+                  "direction": "row",
+                  "gap": "md",
+                  "align": "start",
+                  "justify": "between",
+                  "wrap": true,
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "var(--radius)",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.stack",
+                        "id": 250,
+                        "gap": "sm",
+                        "width": "140px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 235,
+                              "content": "€70",
+                              "bold": true,
+                              "color": "primary",
+                              "fontSize": "28px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.stack",
+                        "id": 251,
+                        "gap": "sm",
+                        "maxWidth": "420px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 236,
+                              "content": "Regelmäßiger Service",
+                              "bold": true,
+                              "color": "foreground",
+                              "fontSize": "18px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 237,
+                              "variant": "body",
+                              "content": "Umfassendere mechanische Inspektion von Antrieb, Bremsen und Lagern.",
+                              "color": "secondary",
+                              "fontSize": "14px",
+                              "margin": "0 0 8px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 238,
+                              "variant": "caption",
+                              "content": "• Antrieb prüfen und Schaltung präzise einstellen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 239,
+                              "variant": "caption",
+                              "content": "• Bremssystem, Beläge/Backen prüfen und bei Verschleiß tauschen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 240,
+                              "variant": "caption",
+                              "content": "• Reifendruck prüfen und bei Bedarf anpassen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 241,
+                              "variant": "caption",
+                              "content": "• Kettenverschleiß messen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 242,
+                              "variant": "caption",
+                              "content": "• Grundzentrierung der Laufräder",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 243,
+                              "variant": "caption",
+                              "content": "• Kette schmieren (Öl oder flüssiges Wachs)",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 244,
+                              "variant": "caption",
+                              "content": "• Schmierung wichtiger beweglicher Punkte",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 245,
+                              "variant": "caption",
+                              "content": "• Steuersatz und Tretlager prüfen, schmieren oder bei Bedarf tauschen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 246,
+                              "variant": "caption",
+                              "content": "• Züge und Hüllen prüfen und bei Bedarf ersetzen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 247,
+                              "variant": "caption",
+                              "content": "• Naben prüfen und bei Bedarf nachschmieren",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 248,
+                              "variant": "caption",
+                              "content": "• Verbrauch von Reinigern und Schmiermitteln im Preis enthalten",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 252,
+                        "label": "Kontakt →",
+                        "href": "#kontakt",
+                        "variant": "secondary",
+                        "padding": "10px 16px",
+                        "fontSize": "14px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 269,
+                  "direction": "row",
+                  "gap": "md",
+                  "align": "start",
+                  "justify": "between",
+                  "wrap": true,
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "var(--radius)",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.stack",
+                        "id": 270,
+                        "gap": "sm",
+                        "width": "140px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 253,
+                              "content": "€80",
+                              "bold": true,
+                              "color": "primary",
+                              "fontSize": "28px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.stack",
+                        "id": 271,
+                        "gap": "sm",
+                        "maxWidth": "420px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 254,
+                              "variant": "label",
+                              "content": "E-Bike",
+                              "color": "primary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 255,
+                              "content": "Regelmäßiger Service E-Bike",
+                              "bold": true,
+                              "color": "foreground",
+                              "fontSize": "18px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 256,
+                              "variant": "body",
+                              "content": "Wie regelmäßiger Service, plus Diagnose und Software-Updates für Antriebe von Bosch, Shimano und Giant.",
+                              "color": "secondary",
+                              "fontSize": "14px",
+                              "margin": "0 0 8px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 257,
+                              "variant": "caption",
+                              "content": "• Antrieb prüfen und Schaltung präzise einstellen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 258,
+                              "variant": "caption",
+                              "content": "• Bremssystem, Beläge/Backen prüfen und bei Verschleiß tauschen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 259,
+                              "variant": "caption",
+                              "content": "• Reifendruck prüfen und bei Bedarf anpassen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 260,
+                              "variant": "caption",
+                              "content": "• Kettenverschleiß messen und Kette bei Bedarf wechseln",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 261,
+                              "variant": "caption",
+                              "content": "• Grundzentrierung der Laufräder",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 262,
+                              "variant": "caption",
+                              "content": "• Kette schmieren (Öl oder flüssiges Wachs)",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 263,
+                              "variant": "caption",
+                              "content": "• Schmierung wichtiger beweglicher Punkte",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 264,
+                              "variant": "caption",
+                              "content": "• Steuersatz prüfen, schmieren oder bei Bedarf tauschen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 265,
+                              "variant": "caption",
+                              "content": "• Züge und Hüllen prüfen und bei Bedarf ersetzen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 266,
+                              "variant": "caption",
+                              "content": "• Naben prüfen und bei Bedarf nachschmieren",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 267,
+                              "variant": "caption",
+                              "content": "• Verbrauch von Reinigern und Schmiermitteln im Preis enthalten",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 268,
+                              "variant": "caption",
+                              "content": "• Diagnose, Software-Update und Ausdruck eines Berichts (Bosch, Shimano, Giant)",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 272,
+                        "label": "Kontakt →",
+                        "href": "#kontakt",
+                        "variant": "secondary",
+                        "padding": "10px 16px",
+                        "fontSize": "14px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 280,
+                  "direction": "row",
+                  "gap": "md",
+                  "align": "start",
+                  "justify": "between",
+                  "wrap": true,
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "var(--radius)",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.stack",
+                        "id": 281,
+                        "gap": "sm",
+                        "width": "140px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 273,
+                              "content": "€110",
+                              "bold": true,
+                              "color": "primary",
+                              "fontSize": "28px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.stack",
+                        "id": 282,
+                        "gap": "sm",
+                        "maxWidth": "420px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 274,
+                              "variant": "label",
+                              "content": "MTB",
+                              "color": "primary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 275,
+                              "content": "Generalüberholung MTB mit Federgabel",
+                              "bold": true,
+                              "color": "foreground",
+                              "fontSize": "18px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 276,
+                              "variant": "body",
+                              "content": "Regelmäßiger Service mit Entlüften der hydraulischen Scheibenbremsen und Schnellreinigung.",
+                              "color": "secondary",
+                              "fontSize": "14px",
+                              "margin": "0 0 8px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 277,
+                              "variant": "caption",
+                              "content": "• Leistungsumfang des regelmäßigen Service",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 278,
+                              "variant": "caption",
+                              "content": "• Entlüften der vorderen und hinteren hydraulischen Scheibenbremse",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 279,
+                              "variant": "caption",
+                              "content": "• Grundlegende Schnellreinigung des Rads",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 283,
+                        "label": "Kontakt →",
+                        "href": "#kontakt",
+                        "variant": "secondary",
+                        "padding": "10px 16px",
+                        "fontSize": "14px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 291,
+                  "direction": "row",
+                  "gap": "md",
+                  "align": "start",
+                  "justify": "between",
+                  "wrap": true,
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "var(--radius)",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.stack",
+                        "id": 292,
+                        "gap": "sm",
+                        "width": "140px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 284,
+                              "content": "€120",
+                              "bold": true,
+                              "color": "primary",
+                              "fontSize": "28px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.stack",
+                        "id": 293,
+                        "gap": "sm",
+                        "maxWidth": "420px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 285,
+                              "variant": "label",
+                              "content": "E-MTB",
+                              "color": "primary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 286,
+                              "content": "Generalüberholung E-MTB mit Federgabel",
+                              "bold": true,
+                              "color": "foreground",
+                              "fontSize": "18px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 287,
+                              "variant": "body",
+                              "content": "Regelmäßiger E-Bike-Service mit Entlüften der hydraulischen Bremsen und Schnellreinigung.",
+                              "color": "secondary",
+                              "fontSize": "14px",
+                              "margin": "0 0 8px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 288,
+                              "variant": "caption",
+                              "content": "• Leistungsumfang des regelmäßigen E-Bike-Service",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 289,
+                              "variant": "caption",
+                              "content": "• Entlüften der vorderen und hinteren hydraulischen Scheibenbremse",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 290,
+                              "variant": "caption",
+                              "content": "• Grundlegende Schnellreinigung des Rads",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 294,
+                        "label": "Kontakt →",
+                        "href": "#kontakt",
+                        "variant": "secondary",
+                        "padding": "10px 16px",
+                        "fontSize": "14px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 303,
+                  "direction": "row",
+                  "gap": "md",
+                  "align": "start",
+                  "justify": "between",
+                  "wrap": true,
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "var(--radius)",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.stack",
+                        "id": 304,
+                        "gap": "sm",
+                        "width": "140px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 295,
+                              "content": "€150",
+                              "bold": true,
+                              "color": "primary",
+                              "fontSize": "28px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.stack",
+                        "id": 305,
+                        "gap": "sm",
+                        "maxWidth": "420px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 296,
+                              "variant": "label",
+                              "content": "MTB Fully",
+                              "color": "primary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 297,
+                              "content": "Generalüberholung Fully MTB",
+                              "bold": true,
+                              "color": "foreground",
+                              "fontSize": "18px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 298,
+                              "variant": "body",
+                              "content": "Regelmäßiger Service mit Bremsen, Reinigung und Lager-Service am Hinterbau (Lager nicht im Preis).",
+                              "color": "secondary",
+                              "fontSize": "14px",
+                              "margin": "0 0 8px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 299,
+                              "variant": "caption",
+                              "content": "• Leistungsumfang des regelmäßigen Service",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 300,
+                              "variant": "caption",
+                              "content": "• Entlüften der vorderen und hinteren hydraulischen Scheibenbremse",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 301,
+                              "variant": "caption",
+                              "content": "• Grundlegende Schnellreinigung des Rads",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 302,
+                              "variant": "caption",
+                              "content": "• Hinterbau-Lager reinigen, prüfen und bei Bedarf tauschen (Lager separat berechnet)",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 306,
+                        "label": "Kontakt →",
+                        "href": "#kontakt",
+                        "variant": "secondary",
+                        "padding": "10px 16px",
+                        "fontSize": "14px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 315,
+                  "direction": "row",
+                  "gap": "md",
+                  "align": "start",
+                  "justify": "between",
+                  "wrap": true,
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "var(--radius)",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.stack",
+                        "id": 316,
+                        "gap": "sm",
+                        "width": "140px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 307,
+                              "content": "€170",
+                              "bold": true,
+                              "color": "primary",
+                              "fontSize": "28px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.stack",
+                        "id": 317,
+                        "gap": "sm",
+                        "maxWidth": "420px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 308,
+                              "variant": "label",
+                              "content": "E-MTB Fully",
+                              "color": "primary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 309,
+                              "content": "Generalüberholung Fully E-MTB",
+                              "bold": true,
+                              "color": "foreground",
+                              "fontSize": "18px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 310,
+                              "variant": "body",
+                              "content": "Regelmäßiger E-Bike-Service mit Bremsen, Reinigung und Lager-Service am Hinterbau (Lager nicht im Preis).",
+                              "color": "secondary",
+                              "fontSize": "14px",
+                              "margin": "0 0 8px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 311,
+                              "variant": "caption",
+                              "content": "• Leistungsumfang des regelmäßigen E-Bike-Service",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 312,
+                              "variant": "caption",
+                              "content": "• Entlüften der vorderen und hinteren hydraulischen Scheibenbremse",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 313,
+                              "variant": "caption",
+                              "content": "• Grundlegende Schnellreinigung des Rads",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 314,
+                              "variant": "caption",
+                              "content": "• Hinterbau-Lager reinigen, prüfen und bei Bedarf tauschen (Lager separat berechnet)",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 318,
+                        "label": "Kontakt →",
+                        "href": "#kontakt",
+                        "variant": "secondary",
+                        "padding": "10px 16px",
+                        "fontSize": "14px"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 329,
+                  "direction": "row",
+                  "gap": "md",
+                  "align": "start",
+                  "justify": "between",
+                  "wrap": true,
+                  "padding": "24px",
+                  "backgroundColor": "muted",
+                  "border": "1px solid var(--color-border)",
+                  "borderRadius": "var(--radius)",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.stack",
+                        "id": 330,
+                        "gap": "sm",
+                        "width": "140px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 319,
+                              "content": "Nach Stunden",
+                              "bold": true,
+                              "color": "primary",
+                              "fontSize": "28px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 320,
+                              "variant": "caption",
+                              "content": "Abrechnung nach geleisteten Stunden",
+                              "color": "secondary"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.stack",
+                        "id": 331,
+                        "gap": "sm",
+                        "maxWidth": "420px",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 321,
+                              "content": "Montage und Einstellung (Online-Kauf)",
+                              "bold": true,
+                              "color": "foreground",
+                              "fontSize": "18px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 322,
+                              "variant": "body",
+                              "content": "Außerhalb der Kernzeiten: Aufbau, Einstellungen und Entsorgung der Verpackung.",
+                              "color": "secondary",
+                              "fontSize": "14px",
+                              "margin": "0 0 8px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 323,
+                              "variant": "caption",
+                              "content": "• Radmontage",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 324,
+                              "variant": "caption",
+                              "content": "• Anpassung aller wichtigen Komponenten (Vorbau, Reifen, Züge usw.)",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 325,
+                              "variant": "caption",
+                              "content": "• Komplettpaket der Grundeinstellungen",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 326,
+                              "variant": "caption",
+                              "content": "• Montage von Zubehör",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 327,
+                              "variant": "caption",
+                              "content": "• Ordnungsgemäße Entsorgung der Verpackung (Karton, Kunststoff usw.)",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 328,
+                              "variant": "caption",
+                              "content": "• Grundeinstellung der Federung (Sag und Rebound)",
+                              "color": "foreground",
+                              "fontSize": "14px"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 332,
+                        "label": "Kontakt →",
+                        "href": "#kontakt",
+                        "variant": "secondary",
+                        "padding": "10px 16px",
+                        "fontSize": "14px"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.text",
+            "id": 333,
+            "variant": "caption",
+            "content": "Ersatzteile (z. B. Hinterbau-Lager, Bremsbeläge) und zusätzliche Reparaturen werden separat berechnet. Vor Arbeiten stimmen wir uns immer ab.",
+            "color": "secondary",
+            "maxWidth": "768px",
+            "margin": "24px auto 0"
+          },
+          {
+            "__component": "blocks.stack",
+            "id": 334,
+            "align": "center",
+            "margin": "32px auto 0",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.link",
+                  "id": 335,
+                  "label": "Für einen Service-Termin kontaktieren Sie uns per E-Mail oder Telefon",
+                  "href": "#kontakt",
+                  "variant": "accent",
+                  "showArrow": true
+                }
+              ]
+            }
           }
         ]
       }

@@ -53,9 +53,7 @@
         "blocks.accordion",
         "blocks.product-list",
         "blocks.bike-detail",
-        "blocks.gallery",
-        "blocks.partners-gallery",
-        "blocks.service-pricing"
+        "blocks.gallery"
       ],
       "required": false
     },

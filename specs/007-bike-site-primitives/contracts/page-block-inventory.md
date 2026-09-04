@@ -27,8 +27,6 @@ Define which block types may appear on Vukan's Bike pages after this feature, wh
 | `blocks.product-list` | L3 Keep |
 | `blocks.bike-detail` | L3 Keep |
 | `blocks.gallery` | L3 Keep |
-| `blocks.partners-gallery` | L3 Keep |
-| `blocks.service-pricing` | L3 Keep |
 
 No other `__component` values may remain in `next-headless-cms-fe/src/tenants/vukans-bike/mock-data/pages/**`.
 
@@ -60,6 +58,9 @@ These MUST have **0** hits in bike mock pages, bike `blocks/index.ts`, and Strap
 | `blocks.contact` | Bike proprietary (replaced by L1 + `iframe`) |
 | `blocks.heading` | Shared (replaced by `text` + `fontSize` / `bold`) |
 | `blocks.service-faq` | Bike proprietary (replaced by L1 + shared `accordion`) |
+| `blocks.partners-gallery` | Bike proprietary (replaced by L1 `grid` of stacks) |
+| `blocks.service-pricing` | Bike proprietary (replaced by L1 pricing stacks) |
+| `blocks.service-package` | Bike proprietary (sub-component of service-pricing) |
 
 ## Resort fixture contract
 

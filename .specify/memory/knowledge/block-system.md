@@ -60,7 +60,7 @@ Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blo
 
 1. **Primitives (L1)** — shared only: `section`, `stack`, `flex`, `grid`, `text`, `image`, `iframe`, `icon`, `button`, `link`
 2. **Compositions (L2)** — authored/saved subtrees of L1 (same renderer; no separate types)
-3. **Compounds (L3)** — interactive / domain leaves: shared `accordion` (single panel); bike Keep: `product-list`, `bike-detail`, `gallery`, `partners-gallery`, `service-pricing`
+3. **Compounds (L3)** — interactive / domain leaves: shared `accordion` (single panel); bike Keep: `product-list`, `bike-detail`, `gallery`
 
 **Deleted shared opaques** (no longer registered): `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`. Prefer L1/L2 for marketing layouts. **Bike is SoT for shared L1 types.**
 
