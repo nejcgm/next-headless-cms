@@ -3,78 +3,48 @@
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "Partners and brands — Vukan's Bike",
-    "description": "Partners and teams: Reverse Components, Flat Out Days, Goodyear Bike, BATT Crew, Loose Riders, ŠKTD Apače Mlinarji, 427 Savage Squad, and more.",
-    "ogImage": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1200&h=630&fit=crop"
+    "title": "Partners — Vukan's Bike",
+    "description": "Brands, festivals and clubs Vukan's Bike works with: Reverse Components, Flat Out Days, Goodyear Bike, BATT Crew, Loose Riders, ŠKTD Apače Mlinarji and 427 Savage Squad.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1775405173/1000004333_bged3h.jpg"
   },
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405173/1000004333_bged3h.jpg",
-      "overlay": 0.4,
+      "id": 54,
       "padding": "lg",
-      "minHeight": "75vh",
+      "surface": "muted",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
-            "gap": "lg",
-            "align": "center",
-            "maxWidth": "720px",
-            "margin": "0 auto",
+            "id": 53,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
-                  "content": "Partners and brands",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "56px",
-                  "fontWeight": "800",
-                  "textAlign": "center"
+                  "id": 50,
+                  "variant": "label",
+                  "content": "Partners",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
-                  "variant": "lead",
-                  "content": "We work with brands and organisations from the bike scene — from trail and MTB to the wider community.",
-                  "color": "foreground",
-                  "textAlign": "center",
-                  "fontSize": "22px",
-                  "maxWidth": "560px"
+                  "id": 51,
+                  "variant": "body",
+                  "content": "Who we work with",
+                  "bold": true,
+                  "fontSize": "clamp(2.25rem, 5vw, 3.25rem)",
+                  "color": "foreground"
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 104,
-                  "justify": "center",
-                  "wrap": true,
-                  "gap": "md",
-                  "margin": "16px 0 0",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.button",
-                        "id": 105,
-                        "label": "Shop",
-                        "href": "/en/shop",
-                        "padding": "18px 40px"
-                      },
-                      {
-                        "__component": "blocks.button",
-                        "id": 106,
-                        "label": "Service",
-                        "href": "/en/service",
-                        "variant": "secondary",
-                        "color": "foreground",
-                        "border": "2px solid var(--color-foreground)",
-                        "backgroundColor": "transparent",
-                        "padding": "18px 40px"
-                      }
-                    ]
-                  }
+                  "__component": "blocks.text",
+                  "id": 52,
+                  "variant": "lead",
+                  "content": "Component and tyre brands, festivals, trail builders, the local club and a race team.",
+                  "color": "secondary"
                 }
               ]
             }
@@ -84,467 +54,375 @@
     },
     {
       "__component": "blocks.section",
-      "id": 200,
+      "id": 56,
       "padding": "lg",
+      "surface": "background",
       "slots": {
         "default": [
           {
-            "__component": "blocks.stack",
-            "id": 202,
-            "gap": "sm",
-            "align": "center",
-            "maxWidth": "640px",
-            "margin": "0 auto",
-            "slots": {
-              "default": [
-                {
-                  "__component": "blocks.text",
-                  "id": 203,
-                  "variant": "label",
-                  "content": "Our partners",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 204,
-                  "content": "Partners we work with",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 205,
-                  "variant": "lead",
-                  "content": "Component and tyre brands, festivals, trail building, local clubs and race teams — reliable partners in cycling.",
-                  "color": "secondary",
-                  "textAlign": "center"
-                }
-              ]
-            }
-          },
-          {
             "__component": "blocks.grid",
-            "id": 209,
+            "id": 55,
             "columns": {
               "mobile": 1,
               "tablet": 2,
-              "desktop": 3
+              "desktop": 4
             },
-            "gap": "md",
+            "gap": "lg",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 210,
+                  "id": 14,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 211,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404891/images_1_gd8ohz.png",
+                        "id": 10,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/images_1_gd8ohz.png",
                         "alt": "Reverse Components",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 212,
+                        "id": 11,
+                        "variant": "body",
                         "content": "Reverse Components",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 213,
+                        "id": 12,
                         "variant": "body",
-                        "content": "German brand for MTB and e-bike components from Freudenstadt (Black Forest), since 2004. Motto “by bikers for bikers”: handlebars, wheels, saddles, pedals and more, tested e.g. at the EFBE lab. Represented in over 25 countries.",
+                        "content": "German MTB components from the Black Forest — handlebars, rims, saddles and pedals, made to the motto “by bikers for bikers”.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 214,
-                        "label": "Visit Reverse Components",
+                        "id": 13,
+                        "label": "Visit the website",
                         "href": "https://www.reverse-components.com/en",
-                        "variant": "accent",
                         "showArrow": true,
-                        "margin": "8px auto 0"
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 220,
+                  "id": 19,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 221,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_wbppdf.jpg",
+                        "id": 15,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/images_wbppdf.jpg",
                         "alt": "Flat Out Days",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 222,
+                        "id": 16,
+                        "variant": "body",
                         "content": "Flat Out Days",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 223,
+                        "id": 17,
                         "variant": "body",
-                        "content": "Slovenia’s largest mountain bike festival — now a multi-day event at Bikepark Kope with Freeride Fest Series, whip-off, dual slalom, workshops and music. Started in 2017 as a small whip-off in Ljubljana; today focused on community and progress in the sport.",
+                        "content": "The largest Slovenian mountain biking festival, a multi-day event at Bike park Kope.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 224,
-                        "label": "Flat Out Days — tickets and programme",
+                        "id": 18,
+                        "label": "Programme and tickets",
                         "href": "https://flatoutdays.com",
-                        "variant": "accent",
                         "showArrow": true,
-                        "margin": "8px auto 0"
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 230,
+                  "id": 24,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 231,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/goodyear-logo-01_zlhnbl.jpg",
+                        "id": 20,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/goodyear-logo-01_zlhnbl.jpg",
                         "alt": "Goodyear Bike",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 232,
+                        "id": 21,
+                        "variant": "body",
                         "content": "Goodyear Bike",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 233,
+                        "id": 22,
                         "variant": "body",
-                        "content": "Official bicycle line from Goodyear (goodyearbike.com): high-performance tyres for road, gravel, trekking/urban and MTB — e.g. Eagle, Vector, Connector, Newton and Escape. The site also has a pressure calculator and tubeless guides.",
+                        "content": "Tyres for road, gravel, trekking and MTB — with tubeless guides and a pressure calculator.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 234,
-                        "label": "Goodyear Bike — tyres",
+                        "id": 23,
+                        "label": "Visit the website",
                         "href": "https://www.goodyearbike.com/",
-                        "variant": "accent",
                         "showArrow": true,
-                        "margin": "8px auto 0"
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 240,
+                  "id": 29,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 241,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404890/images_1_lbvhfo.jpg",
+                        "id": 25,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/images_1_lbvhfo.jpg",
                         "alt": "BATT Crew",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 242,
+                        "id": 26,
+                        "variant": "body",
                         "content": "BATT Crew",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 243,
+                        "id": 27,
                         "variant": "body",
-                        "content": "Team from Domžale planning and building safe, sustainable MTB trails and bike parks (including Agi Bike Park and major renewal work at Bikepark Kope). Documentation, signage, rescue concepts and photo/video. Co-founded Flat Out Days in 2017.",
+                        "content": "Planning and building sustainable MTB trails and bike parks; among them the rebuild of Bike park Kope.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 244,
-                        "label": "BATT Crew — references and contact",
+                        "id": 28,
+                        "label": "References and contact",
                         "href": "https://battcrew.com/en/",
-                        "variant": "accent",
                         "showArrow": true,
-                        "margin": "8px auto 0"
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 250,
+                  "id": 34,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 251,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404892/images_2_xviu4o.jpg",
+                        "id": 30,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/images_2_xviu4o.jpg",
                         "alt": "Loose Riders",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 252,
+                        "id": 31,
+                        "variant": "body",
                         "content": "Loose Riders",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 253,
+                        "id": 32,
                         "variant": "body",
-                        "content": "Global brand and community (LRGA): technical apparel, protection, accessories and bike parts. Born from the trail community (2012), now local “chapters” worldwide — from Chiang Mai to Europe.",
+                        "content": "Technical clothing, protection and accessories, grown out of the global trail community.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 254,
-                        "label": "Loose Riders — shop",
+                        "id": 33,
+                        "label": "Visit the shop",
                         "href": "https://www.loose-riders.com/en/",
-                        "variant": "accent",
                         "showArrow": true,
-                        "margin": "8px auto 0"
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 260,
+                  "id": 39,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 261,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/1718357843307_LOGO_S%CC%8CKTD_MLINARJI_APAC%CC%8CE.png_fvumlz.png",
-                        "alt": "Apače Mlinarji",
+                        "id": 35,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/1718357843307_LOGO_S%CC%8CKTD_MLINARJI_APAC%CC%8CE.png_fvumlz.png",
+                        "alt": "ŠKTD Apače Mlinarji",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 262,
-                        "content": "Apače Mlinarji",
+                        "id": 36,
+                        "variant": "body",
+                        "content": "ŠKTD Apače Mlinarji",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 263,
+                        "id": 37,
                         "variant": "body",
-                        "content": "ŠKTD (sports, culture and tourism association) Apače Mlinarji organises mountain bike races on home terrain — including stages of the Pomurski MTB Cup and special night races. Strong support for youth categories and the local scene.",
+                        "content": "The local club that looks after the Apače pumptrack and runs the Pomurski pokal MTB races.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 38,
+                        "label": "See what's on",
+                        "href": "https://www.facebook.com/apacemlinarji",
+                        "showArrow": true,
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 270,
+                  "id": 44,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 271,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_3_fg2dgh.jpg",
+                        "id": 40,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/images_3_fg2dgh.jpg",
                         "alt": "427 Savage Squad",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 272,
+                        "id": 41,
+                        "variant": "body",
                         "content": "427 Savage Squad",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 273,
+                        "id": 42,
                         "variant": "body",
-                        "content": "Maribor race team in downhill and enduro (club 427 Pohorje) with Jure Logar. Academy with limited spots; known riders include Maša Komel and Miha Jerkič. Coordinated across Europe with DH cups.",
+                        "content": "A Maribor race team in downhill and enduro that also runs as an academy for young riders.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 274,
+                        "id": 43,
                         "label": "Follow on Instagram",
                         "href": "https://www.instagram.com/427savagesquad/",
-                        "variant": "accent",
                         "showArrow": true,
-                        "margin": "8px auto 0"
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
-                }
-              ]
-            },
-            "maxWidth": "1100px",
-            "margin": "48px auto 0"
-          }
-        ]
-      }
-    },
-    {
-      "__component": "blocks.section",
-      "id": 300,
-      "surface": "primary",
-      "padding": "lg",
-      "minHeight": "420px",
-      "justify": "center",
-      "align": "center",
-      "slots": {
-        "default": [
-          {
-            "__component": "blocks.stack",
-            "id": 301,
-            "gap": "md",
-            "align": "center",
-            "maxWidth": "480px",
-            "margin": "0 auto",
-            "slots": {
-              "default": [
-                {
-                  "__component": "blocks.text",
-                  "id": 302,
-                  "content": "Looking for a bike or service?",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
                 },
                 {
-                  "__component": "blocks.text",
-                  "id": 303,
-                  "variant": "lead",
-                  "content": "Visit us or call: 070 815 379.",
-                  "color": "foreground",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.button",
-                  "id": 304,
-                  "label": "Contact",
-                  "href": "/en/contact",
-                  "variant": "secondary",
-                  "backgroundColor": "foreground",
-                  "color": "primary",
-                  "border": "none",
-                  "margin": "12px 0 0",
-                  "padding": "18px 40px"
+                  "__component": "blocks.stack",
+                  "id": 49,
+                  "gap": "md",
+                  "align": "stretch",
+                  "border": "1px solid var(--color-border)",
+                  "padding": "24px",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.icon",
+                        "id": 45,
+                        "name": "mail",
+                        "label": "Contact",
+                        "size": "lg",
+                        "margin": "0 auto"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 46,
+                        "variant": "body",
+                        "content": "Let's work together",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 47,
+                        "variant": "body",
+                        "content": "Organising a race, building a trail or looking for service support at an event? Get in touch.",
+                        "color": "secondary",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 48,
+                        "label": "Send us a message",
+                        "href": "/en/contact",
+                        "showArrow": true,
+                        "margin": "auto 0 0 0"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -553,39 +431,5 @@
       }
     }
   ],
-  "navigation": {
-    "header": [
-      {
-        "label": "Home",
-        "href": "/en"
-      },
-      {
-        "label": "Brands",
-        "href": "/en/brands"
-      },
-      {
-        "label": "Service",
-        "href": "/en/service"
-      },
-      {
-        "label": "Contact",
-        "href": "/en/contact"
-      }
-    ],
-    "footer": [
-      {
-        "label": "About",
-        "href": "/en/about"
-      },
-      {
-        "label": "Privacy",
-        "href": "/en/privacy"
-      },
-      {
-        "label": "Terms",
-        "href": "/en/terms"
-      }
-    ]
-  },
   "lang": "en"
 }

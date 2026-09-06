@@ -4,1366 +4,742 @@
   "seo": {
     "id": 1,
     "title": "Servis koles — Vukan's Bike",
-    "description": "Servis in popravila vseh vrst koles. En strokovnjak, osebni pristop. Kontakt: 070 815 379 ali po e-pošti.",
-    "ogImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=630&fit=crop"
+    "description": "Cenik servisa koles v Apačah: osnovni servis 39 €, redni 70 €, generalni MTB od 110 €. Mestna, cestna, gravel, gorska in e-kolesa. 070 815 379.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1775406591/IMG_3164_c1xp3f.heic"
   },
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402138/IMG_4568_xculvx.heic",
-      "overlay": 0.4,
+      "id": 17,
       "padding": "lg",
-      "minHeight": "85vh",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
-            "gap": "lg",
+            "id": 16,
+            "gap": "md",
             "align": "center",
-            "maxWidth": "720px",
-            "margin": "0 auto",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
-                  "content": "Servis koles",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "64px",
-                  "fontWeight": "800",
+                  "id": 10,
+                  "variant": "label",
+                  "content": "Servis",
+                  "color": "background",
                   "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
+                  "id": 11,
+                  "variant": "body",
+                  "content": "Servis koles vseh vrst",
+                  "bold": true,
+                  "fontSize": "clamp(2.25rem, 5vw, 3.25rem)",
+                  "color": "background",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 12,
                   "variant": "lead",
-                  "content": "Popravila, servis in vzdrževanje za mestna, cestna, gravel, gorska in e-kolesa. En strokovnjak, ki pozna vaše kolo.",
-                  "color": "foreground",
+                  "content": "Popravila, servis in vzdrževanje za mestna, cestna, gravel, gorska in e-kolesa. Delo opravi en serviser, ki kolo pozna od začetka do konca.",
+                  "color": "background",
                   "textAlign": "center",
-                  "fontSize": "22px",
-                  "maxWidth": "560px"
+                  "maxWidth": "56ch",
+                  "margin": "0 auto"
                 },
                 {
                   "__component": "blocks.flex",
-                  "id": 104,
-                  "justify": "center",
-                  "wrap": true,
+                  "id": 15,
                   "gap": "md",
-                  "margin": "16px 0 0",
+                  "wrap": true,
+                  "margin": "8px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.button",
-                        "id": 105,
-                        "label": "Kontakt",
-                        "href": "#kontakt",
-                        "padding": "18px 40px"
+                        "id": 13,
+                        "label": "Pokličite 070 815 379",
+                        "href": "tel:+38670815379"
                       },
                       {
                         "__component": "blocks.button",
-                        "id": 106,
-                        "label": "Cenik",
+                        "id": 14,
+                        "label": "Poglejte cenik",
                         "href": "#cenik",
-                        "variant": "secondary",
-                        "color": "foreground",
-                        "border": "2px solid var(--color-foreground)",
-                        "backgroundColor": "transparent",
-                        "padding": "18px 40px"
+                        "variant": "secondary"
                       }
                     ]
-                  }
+                  },
+                  "justify": "center"
                 }
               ]
             }
           }
         ]
-      }
+      },
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775406591/IMG_3164_c1xp3f.heic",
+      "overlay": 0.5,
+      "minHeight": "clamp(480px, 72vh, 720px)"
     },
     {
       "__component": "blocks.section",
-      "id": 190,
-      "anchorId": "cenik",
+      "id": 83,
       "padding": "lg",
+      "surface": "background",
+      "anchorId": "cenik",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 200,
-            "gap": "sm",
-            "maxWidth": "768px",
-            "margin": "0 auto 40px",
+            "id": 21,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
+            "margin": "0 0 40px",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 201,
-                  "content": "Cenik servisa",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px"
+                  "id": 18,
+                  "variant": "label",
+                  "content": "Cenik",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 202,
+                  "id": 19,
                   "variant": "body",
-                  "content": "Cene veljajo po dogovoru; za natančen termin nas kontaktirajte po e-pošti ali na 070 815 379.",
+                  "content": "Cena je znana vnaprej",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 20,
+                  "variant": "lead",
+                  "content": "Poraba čistil in maziv je vključena v ceno. Rezervni deli se obračunajo posebej, ceno povemo pred vgradnjo.",
                   "color": "secondary"
                 }
               ]
             }
           },
           {
-            "__component": "blocks.stack",
-            "id": 1900,
-            "gap": "md",
-            "maxWidth": "768px",
-            "margin": "0 auto",
+            "__component": "blocks.flex",
+            "id": 27,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.flex",
-                  "id": 214,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.stack",
+                  "id": 25,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 215,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 203,
-                              "content": "€39",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 22,
+                        "variant": "body",
+                        "content": "Osnovni servis",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 216,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 204,
-                              "content": "Osnovni servis",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 205,
-                              "variant": "body",
-                              "content": "Pregled in osnovno vzdrževanje mehanskih sklopov.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 206,
-                              "variant": "caption",
-                              "content": "• Pregled delovanja in fina nastavitev prestav ter zavor",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 207,
-                              "variant": "caption",
-                              "content": "• Kontrola in po potrebi popravek tlaka v pnevmatikah",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 208,
-                              "variant": "caption",
-                              "content": "• Meritev obrabe verige",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 209,
-                              "variant": "caption",
-                              "content": "• Osnovno ravnanje (centriranje) obročnikov",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 210,
-                              "variant": "caption",
-                              "content": "• Nanos maziva na verigo (olje ali tekoči vosek)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 211,
-                              "variant": "caption",
-                              "content": "• Mazanje ključnih gibljivih točk",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 212,
-                              "variant": "caption",
-                              "content": "• Nastavitev zračnosti krmilnega ležaja",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 213,
-                              "variant": "caption",
-                              "content": "• Poraba čistil in maziv je vključena v ceno",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 23,
+                        "variant": "body",
+                        "content": "Pregled in osnovno vzdrževanje mehanskih sklopov.",
+                        "color": "secondary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 217,
-                        "label": "Kontakt →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 24,
+                        "variant": "caption",
+                        "content": "Nastavitev prestav in zavor · Tlak v pnevmatikah · Meritev obrabe verige · Centriranje obročnikov · Mazanje verige in gibljivih točk · Nastavitev krmilnega ležaja · Čistila in maziva vključena",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 231,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 26,
+                  "variant": "body",
+                  "content": "39 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 34,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 32,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 232,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 218,
-                              "content": "€55",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 28,
+                        "variant": "label",
+                        "content": "E-kolo",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 233,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 219,
-                              "variant": "label",
-                              "content": "E-kolo",
-                              "color": "primary"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 220,
-                              "content": "Osnovni servis e-kolo",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 221,
-                              "variant": "body",
-                              "content": "Kot osnovni servis, z diagnostiko in programsko podporo za pogone Bosch, Shimano in Giant.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 222,
-                              "variant": "caption",
-                              "content": "• Pregled delovanja in fina nastavitev prestav ter zavor",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 223,
-                              "variant": "caption",
-                              "content": "• Kontrola in po potrebi popravek tlaka v pnevmatikah",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 224,
-                              "variant": "caption",
-                              "content": "• Meritev obrabe verige",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 225,
-                              "variant": "caption",
-                              "content": "• Osnovno ravnanje (centriranje) obročnikov",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 226,
-                              "variant": "caption",
-                              "content": "• Nanos maziva na verigo (olje ali tekoči vosek)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 227,
-                              "variant": "caption",
-                              "content": "• Mazanje ključnih gibljivih točk",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 228,
-                              "variant": "caption",
-                              "content": "• Nastavitev zračnosti krmilnega ležaja",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 229,
-                              "variant": "caption",
-                              "content": "• Poraba čistil in maziv je vključena v ceno",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 230,
-                              "variant": "caption",
-                              "content": "• Diagnostika, posodobitev programske opreme in izpis poročila (Bosch, Shimano, Giant)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 29,
+                        "variant": "body",
+                        "content": "Osnovni servis e-kolesa",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 234,
-                        "label": "Kontakt →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 30,
+                        "variant": "body",
+                        "content": "Kot osnovni servis, z diagnostiko in programsko podporo za pogone Bosch, Shimano in Giant.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 31,
+                        "variant": "caption",
+                        "content": "Vse iz osnovnega servisa · Diagnostika in posodobitev programske opreme · Izpis poročila (Bosch, Shimano, Giant)",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 249,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 33,
+                  "variant": "body",
+                  "content": "55 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 40,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 38,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 250,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 235,
-                              "content": "€70",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 35,
+                        "variant": "body",
+                        "content": "Redni servis",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 251,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 236,
-                              "content": "Redni servis",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 237,
-                              "variant": "body",
-                              "content": "Širši mehanski pregled z zavorami, pogonom in ležaji.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 238,
-                              "variant": "caption",
-                              "content": "• Pregled pogona in natančna nastavitev prestav",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 239,
-                              "variant": "caption",
-                              "content": "• Pregled zavornega sistema, ploščic/oblog ter menjava ob obrabi",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 240,
-                              "variant": "caption",
-                              "content": "• Kontrola in po potrebi popravek tlaka v pnevmatikah",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 241,
-                              "variant": "caption",
-                              "content": "• Meritev obrabe verige",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 242,
-                              "variant": "caption",
-                              "content": "• Osnovno ravnanje (centriranje) obročnikov",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 243,
-                              "variant": "caption",
-                              "content": "• Nanos maziva na verigo (olje ali tekoči vosek)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 244,
-                              "variant": "caption",
-                              "content": "• Mazanje ključnih gibljivih točk",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 245,
-                              "variant": "caption",
-                              "content": "• Pregled krmilnega in gonilnega ležaja z mazanjem ali menjavo po potrebi",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 246,
-                              "variant": "caption",
-                              "content": "• Pregled pletenic in bovdnov ter zamenjava, če je potrebno",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 247,
-                              "variant": "caption",
-                              "content": "• Pregled pest in dodatno mazanje po potrebi",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 248,
-                              "variant": "caption",
-                              "content": "• Poraba čistil in maziv je vključena v ceno",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 36,
+                        "variant": "body",
+                        "content": "Širši mehanski pregled z zavorami, pogonom in ležaji.",
+                        "color": "secondary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 252,
-                        "label": "Kontakt →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 37,
+                        "variant": "caption",
+                        "content": "Pogon in natančna nastavitev prestav · Zavorni sistem z menjavo ploščic ob obrabi · Meritev obrabe verige · Centriranje obročnikov · Krmilni in gonilni ležaj · Pletenice in bovdni · Pesta · Čistila in maziva vključena",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 269,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 39,
+                  "variant": "body",
+                  "content": "70 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 47,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 45,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 270,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 253,
-                              "content": "€80",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 41,
+                        "variant": "label",
+                        "content": "E-kolo",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 271,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 254,
-                              "variant": "label",
-                              "content": "E-kolo",
-                              "color": "primary"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 255,
-                              "content": "Redni servis e-kolesa",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 256,
-                              "variant": "body",
-                              "content": "Kot redni servis, z diagnostiko in programsko podporo za pogone Bosch, Shimano in Giant.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 257,
-                              "variant": "caption",
-                              "content": "• Pregled pogona in natančna nastavitev prestav",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 258,
-                              "variant": "caption",
-                              "content": "• Pregled zavornega sistema, ploščic/oblog ter menjava ob obrabi",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 259,
-                              "variant": "caption",
-                              "content": "• Kontrola in po potrebi popravek tlaka v pnevmatikah",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 260,
-                              "variant": "caption",
-                              "content": "• Meritev obrabe verige in menjava po potrebi",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 261,
-                              "variant": "caption",
-                              "content": "• Osnovno ravnanje (centriranje) obročnikov",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 262,
-                              "variant": "caption",
-                              "content": "• Nanos maziva na verigo (olje ali tekoči vosek)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 263,
-                              "variant": "caption",
-                              "content": "• Mazanje ključnih gibljivih točk",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 264,
-                              "variant": "caption",
-                              "content": "• Pregled krmilnega ležaja z mazanjem ali menjavo po potrebi",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 265,
-                              "variant": "caption",
-                              "content": "• Pregled pletenic in bovdnov ter zamenjava, če je potrebno",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 266,
-                              "variant": "caption",
-                              "content": "• Pregled pest in dodatno mazanje po potrebi",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 267,
-                              "variant": "caption",
-                              "content": "• Poraba čistil in maziv je vključena v ceno",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 268,
-                              "variant": "caption",
-                              "content": "• Diagnostika, posodobitev programske opreme in izpis poročila (Bosch, Shimano, Giant)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 42,
+                        "variant": "body",
+                        "content": "Redni servis e-kolesa",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 272,
-                        "label": "Kontakt →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 43,
+                        "variant": "body",
+                        "content": "Kot redni servis, z diagnostiko in programsko podporo za pogone Bosch, Shimano in Giant.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 44,
+                        "variant": "caption",
+                        "content": "Vse iz rednega servisa · Diagnostika in posodobitev programske opreme · Izpis poročila (Bosch, Shimano, Giant)",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 280,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 46,
+                  "variant": "body",
+                  "content": "80 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 54,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 52,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 281,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 273,
-                              "content": "€110",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 48,
+                        "variant": "label",
+                        "content": "MTB",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 282,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 274,
-                              "variant": "label",
-                              "content": "MTB",
-                              "color": "primary"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 275,
-                              "content": "Generalni servis gorskega kolesa s prednjim vzmetenjem",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 276,
-                              "variant": "body",
-                              "content": "Redni servis z zračenjem hidravličnih zavor in hitrim pranjem.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 277,
-                              "variant": "caption",
-                              "content": "• Vsebina rednega servisa",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 278,
-                              "variant": "caption",
-                              "content": "• Odzračevanje prednje in zadnje hidravlične zavore",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 279,
-                              "variant": "caption",
-                              "content": "• Osnovno hitro čiščenje kolesa",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 49,
+                        "variant": "body",
+                        "content": "Generalni servis gorskega kolesa",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 283,
-                        "label": "Kontakt →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 50,
+                        "variant": "body",
+                        "content": "Redni servis s prednjim vzmetenjem, odzračevanjem hidravličnih zavor in čiščenjem.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 51,
+                        "variant": "caption",
+                        "content": "Vsebina rednega servisa · Odzračevanje prednje in zadnje hidravlične zavore · Osnovno hitro čiščenje kolesa",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 291,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 53,
+                  "variant": "body",
+                  "content": "110 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 61,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 59,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 292,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 284,
-                              "content": "€120",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 55,
+                        "variant": "label",
+                        "content": "E-MTB",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 293,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 285,
-                              "variant": "label",
-                              "content": "E-MTB",
-                              "color": "primary"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 286,
-                              "content": "Generalni servis gorskega e-kolesa s prednjim vzmetenjem",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 287,
-                              "variant": "body",
-                              "content": "Redni servis e-kolesa z zračenjem hidravličnih zavor in hitrim pranjem.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 288,
-                              "variant": "caption",
-                              "content": "• Vsebina rednega servisa za e-kolesa",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 289,
-                              "variant": "caption",
-                              "content": "• Odzračevanje prednje in zadnje hidravlične zavore",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 290,
-                              "variant": "caption",
-                              "content": "• Osnovno hitro čiščenje kolesa",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 56,
+                        "variant": "body",
+                        "content": "Generalni servis gorskega e-kolesa",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 294,
-                        "label": "Kontakt →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 57,
+                        "variant": "body",
+                        "content": "Redni servis e-kolesa s prednjim vzmetenjem, odzračevanjem zavor in čiščenjem.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 58,
+                        "variant": "caption",
+                        "content": "Vsebina rednega servisa za e-kolesa · Odzračevanje prednje in zadnje hidravlične zavore · Osnovno hitro čiščenje kolesa",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 303,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 60,
+                  "variant": "body",
+                  "content": "120 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 68,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 66,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 304,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 295,
-                              "content": "€150",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 62,
+                        "variant": "label",
+                        "content": "MTB, polno vzmetenje",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 305,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 296,
-                              "variant": "label",
-                              "content": "MTB polno vzmetenje",
-                              "color": "primary"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 297,
-                              "content": "Generalni servis polnovzmetenega gorskega kolesa",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 298,
-                              "variant": "body",
-                              "content": "Redni servis z zavorami, pranjem in servisom ležajev nihajke (ležaji niso v ceni).",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 299,
-                              "variant": "caption",
-                              "content": "• Vsebina rednega servisa",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 300,
-                              "variant": "caption",
-                              "content": "• Odzračevanje prednje in zadnje hidravlične zavore",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 301,
-                              "variant": "caption",
-                              "content": "• Osnovno hitro čiščenje kolesa",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 302,
-                              "variant": "caption",
-                              "content": "• Čiščenje, pregled in po potrebi menjava ležajev nihajke (ležaji se obračunajo posebej)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 63,
+                        "variant": "body",
+                        "content": "Generalni servis polnovzmetenega kolesa",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 306,
-                        "label": "Kontakt →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 64,
+                        "variant": "body",
+                        "content": "Redni servis z zavorami, pranjem in servisom ležajev nihajke.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 65,
+                        "variant": "caption",
+                        "content": "Vsebina rednega servisa · Odzračevanje zavor · Osnovno hitro čiščenje · Čiščenje in pregled ležajev nihajke (ležaji se obračunajo posebej)",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 315,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 67,
+                  "variant": "body",
+                  "content": "150 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 75,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 73,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 316,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 307,
-                              "content": "€170",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 69,
+                        "variant": "label",
+                        "content": "E-MTB, polno vzmetenje",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 317,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 308,
-                              "variant": "label",
-                              "content": "E-MTB polno vzmetenje",
-                              "color": "primary"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 309,
-                              "content": "Generalni servis polnovzmetenega gorskega e-kolesa",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 310,
-                              "variant": "body",
-                              "content": "Redni servis e-kolesa z zavorami, pranjem in servisom ležajev nihajke (ležaji niso v ceni).",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 311,
-                              "variant": "caption",
-                              "content": "• Vsebina rednega servisa za e-kolesa",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 312,
-                              "variant": "caption",
-                              "content": "• Odzračevanje prednje in zadnje hidravlične zavore",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 313,
-                              "variant": "caption",
-                              "content": "• Osnovno hitro čiščenje kolesa",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 314,
-                              "variant": "caption",
-                              "content": "• Čiščenje, pregled in po potrebi menjava ležajev nihajke (ležaji se obračunajo posebej)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 70,
+                        "variant": "body",
+                        "content": "Generalni servis polnovzmetenega e-kolesa",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 318,
-                        "label": "Kontakt →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 71,
+                        "variant": "body",
+                        "content": "Redni servis e-kolesa z zavorami, pranjem in servisom ležajev nihajke.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 72,
+                        "variant": "caption",
+                        "content": "Vsebina rednega servisa za e-kolesa · Odzračevanje zavor · Osnovno hitro čiščenje · Čiščenje in pregled ležajev nihajke (ležaji se obračunajo posebej)",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 329,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 74,
+                  "variant": "body",
+                  "content": "170 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 81,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 79,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 330,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 319,
-                              "content": "Po urah",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 320,
-                              "variant": "caption",
-                              "content": "Obračun po opravljenih urah",
-                              "color": "secondary"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 76,
+                        "variant": "body",
+                        "content": "Sestava kolesa iz spletnega nakupa",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 331,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 321,
-                              "content": "Sestava in nastavitev kolesa iz spletnega nakupa",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 322,
-                              "variant": "body",
-                              "content": "Po delovnih urah: sestava, nastavitve in odvoz embalaže.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 323,
-                              "variant": "caption",
-                              "content": "• Montaža kolesa",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 324,
-                              "variant": "caption",
-                              "content": "• Prilagoditev vseh ključnih komponent (krmilna cev, pnevmatike, pletenice ipd.)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 325,
-                              "variant": "caption",
-                              "content": "• Celoten paket osnovnih nastavitev",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 326,
-                              "variant": "caption",
-                              "content": "• Montaža dodatne opreme",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 327,
-                              "variant": "caption",
-                              "content": "• Urejeno odstranjevanje embalaže (karton, plastika ipd.)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 328,
-                              "variant": "caption",
-                              "content": "• Osnovna nastavitev vzmetenja (sag in hitrost raztega)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 77,
+                        "variant": "body",
+                        "content": "Sestava, nastavitve in odvoz embalaže — obračun po opravljenih delovnih urah.",
+                        "color": "secondary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 332,
-                        "label": "Kontakt →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 78,
+                        "variant": "caption",
+                        "content": "Montaža kolesa · Prilagoditev ključnih komponent · Celoten paket osnovnih nastavitev · Montaža dodatne opreme · Odvoz embalaže",
+                        "color": "secondary"
                       }
                     ]
                   }
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 80,
+                  "variant": "body",
+                  "content": "Po urah",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
                 }
               ]
             }
           },
           {
             "__component": "blocks.text",
-            "id": 333,
+            "id": 82,
             "variant": "caption",
-            "content": "Rezervni deli (npr. ležaji nihajke, zavorne obloge) in dodatna popravila se obračunajo posebej. Pred delom se vedno dogovorimo.",
+            "content": "Cene veljajo za standardni obseg dela. Če se med servisom pokaže kaj več, vas pokličemo, preden nadaljujemo.",
             "color": "secondary",
-            "maxWidth": "768px",
-            "margin": "24px auto 0"
-          },
-          {
-            "__component": "blocks.stack",
-            "id": 334,
-            "align": "center",
-            "margin": "32px auto 0",
-            "slots": {
-              "default": [
-                {
-                  "__component": "blocks.link",
-                  "id": 335,
-                  "label": "Za servis nas kontaktirajte po e-pošti ali telefonu",
-                  "href": "#kontakt",
-                  "variant": "accent",
-                  "showArrow": true
-                }
-              ]
-            }
+            "margin": "28px 0 0",
+            "maxWidth": "68ch"
           }
         ]
       }
     },
     {
       "__component": "blocks.section",
-      "id": 300,
+      "id": 104,
       "padding": "lg",
       "surface": "muted",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 301,
-            "gap": "sm",
-            "align": "center",
+            "id": 86,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "margin": "0 0 40px",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 302,
-                  "content": "Kako poteka servis",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "id": 84,
+                  "variant": "label",
+                  "content": "Kako poteka",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 303,
+                  "id": 85,
                   "variant": "body",
-                  "content": "Preprosto: napišite ali pokličite, dogovorimo se.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "480px",
-                  "margin": "0 auto"
+                  "content": "Od klica do prevzema",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
                 }
               ]
             }
           },
           {
             "__component": "blocks.grid",
-            "id": 310,
+            "id": 103,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -1374,38 +750,34 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 311,
+                  "id": 90,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 312,
+                        "id": 87,
                         "variant": "label",
                         "content": "01",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 313,
-                        "content": "Kontakt",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 314,
+                        "id": 88,
                         "variant": "body",
-                        "content": "Pošljite e-pošto ali pokličite na 070 815 379. Opisite, kaj je s kolesom, in dogovorimo se za predajo.",
-                        "color": "secondary"
+                        "content": "Pokličite ali pišite",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 315,
-                        "variant": "caption",
-                        "content": "E-pošta ali telefon · Dogovor o terminu predaje",
+                        "id": 89,
+                        "variant": "body",
+                        "content": "Opišite, kaj je s kolesom. Dogovorimo se za termin predaje — fiksnega urnika nimamo.",
                         "color": "secondary"
                       }
                     ]
@@ -1413,38 +785,34 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 316,
+                  "id": 94,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 317,
+                        "id": 91,
                         "variant": "label",
                         "content": "02",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 318,
+                        "id": 92,
+                        "variant": "body",
                         "content": "Predaja kolesa",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 319,
+                        "id": 93,
                         "variant": "body",
-                        "content": "Prinesete kolo v servis. Na kratko pregledamo in vam povemo, kaj bo treba narediti in po kakšni ceni.",
-                        "color": "secondary"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 320,
-                        "variant": "caption",
-                        "content": "Kratek pregled · Ponudba in dogovor",
+                        "content": "Kolo na kratko pregledamo in vam povemo, kaj bo treba narediti in po kakšni ceni.",
                         "color": "secondary"
                       }
                     ]
@@ -1452,38 +820,34 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 321,
+                  "id": 98,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 322,
+                        "id": 95,
                         "variant": "label",
                         "content": "03",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 323,
+                        "id": 96,
+                        "variant": "body",
                         "content": "Servis",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 324,
+                        "id": 97,
                         "variant": "body",
-                        "content": "Servis opravi en strokovnjak. Ko je kolo pripravljeno, vas obvestimo.",
-                        "color": "secondary"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 325,
-                        "variant": "caption",
-                        "content": "Osebni pristop · Obvestilo po končanem delu",
+                        "content": "Delo opravi en serviser. Ko je kolo pripravljeno, vas pokličemo.",
                         "color": "secondary"
                       }
                     ]
@@ -1491,38 +855,34 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 326,
+                  "id": 102,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 327,
+                        "id": 99,
                         "variant": "label",
                         "content": "04",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 328,
+                        "id": 100,
+                        "variant": "body",
                         "content": "Prevzem",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 329,
+                        "id": 101,
                         "variant": "body",
-                        "content": "Prevzamete kolo, preverite, da je vse v redu. Plačilo ob prevzemu.",
-                        "color": "secondary"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 330,
-                        "variant": "caption",
-                        "content": "Plačilo ob prevzemu · Po potrebi kratka testna vožnja",
+                        "content": "Skupaj preverimo, da je vse v redu. Plačilo ob prevzemu, po potrebi kratka testna vožnja.",
                         "color": "secondary"
                       }
                     ]
@@ -1536,134 +896,75 @@
     },
     {
       "__component": "blocks.section",
-      "id": 400,
+      "id": 114,
       "padding": "lg",
+      "surface": "background",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 401,
-            "gap": "lg",
-            "maxWidth": "768px",
-            "margin": "0 auto",
+            "id": 107,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
+            "margin": "0 0 32px",
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.stack",
-                  "id": 402,
-                  "gap": "sm",
-                  "align": "center",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.text",
-                        "id": 403,
-                        "content": "Pogosta vprašanja",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "36px",
-                        "textAlign": "center"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 404,
-                        "variant": "lead",
-                        "content": "Odgovori na vprašanja o servisu",
-                        "color": "secondary",
-                        "textAlign": "center"
-                      }
-                    ]
-                  }
+                  "__component": "blocks.text",
+                  "id": 105,
+                  "variant": "label",
+                  "content": "Pogosta vprašanja",
+                  "color": "text-primary"
                 },
                 {
-                  "__component": "blocks.stack",
-                  "id": 409,
-                  "gap": "sm",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.accordion",
-                        "id": 401,
-                        "title": "Kako naročim servis?",
-                        "content": "Pokličite na 070 815 379 ali pošljite e-pošto. Opisite težavo ali željeni servis in dogovorimo se za predajo kolesa. Fiksne delovne ure nimamo — termin se vedno dogovorimo po dogovoru.",
-                        "defaultOpen": true,
-                        "backgroundColor": "muted",
-                        "border": "1px solid var(--color-border)",
-                        "borderRadius": "var(--radius)",
-                        "padding": "4px 8px"
-                      },
-                      {
-                        "__component": "blocks.accordion",
-                        "id": 402,
-                        "title": "Katera kolesa servisirate?",
-                        "content": "Servisiramo vsa kolesa: mestna, cestna, gravel, gorska in e-kolesa (mehanski del). Najgloblja izkušnja je pri gorskih kolesih in MTB, vendar enako natančno obravnavamo tudi ostale tipe.",
-                        "backgroundColor": "muted",
-                        "border": "1px solid var(--color-border)",
-                        "borderRadius": "var(--radius)",
-                        "padding": "4px 8px"
-                      },
-                      {
-                        "__component": "blocks.accordion",
-                        "id": 403,
-                        "title": "Kako hitro bo kolo pripravljeno?",
-                        "content": "Odvisno od obsega dela in trenutne obremenjenosti. Ko predate kolo, vam približno povemo rok. Za nujna manjša popravila se pogosto da urediti hitreje.",
-                        "backgroundColor": "muted",
-                        "border": "1px solid var(--color-border)",
-                        "borderRadius": "var(--radius)",
-                        "padding": "4px 8px"
-                      },
-                      {
-                        "__component": "blocks.accordion",
-                        "id": 404,
-                        "title": "Ali je potrebna predplačila?",
-                        "content": "Ne. Plačilo je ob prevzemu kolesa. Če so potrebni dražji rezervni deli, vas vnaprej obvestimo.",
-                        "backgroundColor": "muted",
-                        "border": "1px solid var(--color-border)",
-                        "borderRadius": "var(--radius)",
-                        "padding": "4px 8px"
-                      },
-                      {
-                        "__component": "blocks.accordion",
-                        "id": 405,
-                        "title": "Ali servisirate tudi e-kolesa?",
-                        "content": "Mehanski del kolesa da. Za baterije in motorje e-koles priporočamo uradni servis proizvajalca, razen če gre za preproste zadeve.",
-                        "backgroundColor": "muted",
-                        "border": "1px solid var(--color-border)",
-                        "borderRadius": "var(--radius)",
-                        "padding": "4px 8px"
-                      }
-                    ]
-                  }
+                  "__component": "blocks.text",
+                  "id": 106,
+                  "variant": "body",
+                  "content": "Kar največkrat vprašate",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.stack",
+            "id": 113,
+            "gap": "sm",
+            "maxWidth": "80ch",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.accordion",
+                  "id": 108,
+                  "title": "Kako naročim servis?",
+                  "content": "Pokličite na 070 815 379 ali pošljite e-pošto. Opišite težavo ali želeni servis in dogovorimo se za predajo kolesa. Fiksnih delovnih ur nimamo — termin se vedno dogovorimo."
                 },
                 {
-                  "__component": "blocks.stack",
-                  "id": 420,
-                  "gap": "sm",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.text",
-                        "id": 421,
-                        "variant": "body",
-                        "content": "Imate vprašanje?",
-                        "color": "secondary",
-                        "textAlign": "center"
-                      },
-                      {
-                        "__component": "blocks.link",
-                        "id": 422,
-                        "label": "Pokličite ali napišite",
-                        "href": "#kontakt",
-                        "variant": "accent",
-                        "showArrow": true
-                      }
-                    ]
-                  }
+                  "__component": "blocks.accordion",
+                  "id": 109,
+                  "title": "Katera kolesa servisirate?",
+                  "content": "Vsa: mestna, cestna, gravel, gorska in e-kolesa. Največ izkušenj imamo z gorskimi kolesi, enako natančno pa obravnavamo tudi vse ostale tipe."
+                },
+                {
+                  "__component": "blocks.accordion",
+                  "id": 110,
+                  "title": "Kako hitro bo kolo pripravljeno?",
+                  "content": "Odvisno od obsega dela in trenutne zasedenosti. Ob predaji vam povemo približen rok. Manjša nujna popravila pogosto uredimo hitreje."
+                },
+                {
+                  "__component": "blocks.accordion",
+                  "id": 111,
+                  "title": "Ali je potrebno predplačilo?",
+                  "content": "Ne. Plačilo je ob prevzemu kolesa. Če so potrebni dražji rezervni deli, vas o ceni obvestimo vnaprej."
+                },
+                {
+                  "__component": "blocks.accordion",
+                  "id": 112,
+                  "title": "Ali servisirate tudi e-kolesa?",
+                  "content": "Mehanski del in diagnostiko pogona da. Za baterije in motorje priporočamo uradni servis proizvajalca, razen pri preprostejših zadevah."
                 }
               ]
             }
@@ -1673,70 +974,72 @@
     },
     {
       "__component": "blocks.section",
-      "id": 500,
-      "surface": "primary",
-      "padding": "lg",
-      "minHeight": "420px",
-      "justify": "center",
-      "align": "center",
+      "id": 122,
+      "padding": "sm",
+      "surface": "muted",
       "anchorId": "kontakt",
       "slots": {
         "default": [
           {
-            "__component": "blocks.stack",
-            "id": 501,
-            "gap": "md",
+            "__component": "blocks.flex",
+            "id": 121,
+            "justify": "between",
             "align": "center",
-            "maxWidth": "480px",
-            "margin": "0 auto",
+            "gap": "md",
+            "wrap": true,
+            "padding": "28px 0 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.text",
-                  "id": 502,
-                  "content": "Kontakt za servis",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "__component": "blocks.stack",
+                  "id": 117,
+                  "gap": "sm",
+                  "align": "start",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 115,
+                        "variant": "body",
+                        "content": "Za termin pokličite ali pišite.",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 116,
+                        "variant": "caption",
+                        "content": "Apače 66a, 9253 Apače · delamo po dogovoru",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
                 },
                 {
-                  "__component": "blocks.text",
-                  "id": 503,
-                  "variant": "lead",
-                  "content": "Za naročilo servisa ali vprašanja nas kontaktirajte po e-pošti ali telefonu. Delamo po dogovoru, brez fiksnega urnika.",
-                  "color": "foreground",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 504,
-                  "variant": "lead",
-                  "content": "070 815 379",
-                  "color": "foreground",
-                  "textAlign": "center",
-                  "fontSize": "28px",
-                  "fontWeight": "600"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 505,
-                  "variant": "caption",
-                  "content": "vukansbike@gmail.com",
-                  "color": "foreground",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.button",
-                  "id": 506,
-                  "label": "Pošlji e-pošto",
-                  "href": "mailto:vukansbike@gmail.com",
-                  "variant": "secondary",
-                  "backgroundColor": "foreground",
-                  "color": "primary",
-                  "border": "none",
-                  "margin": "12px 0 0",
-                  "padding": "18px 40px"
+                  "__component": "blocks.flex",
+                  "id": 120,
+                  "gap": "lg",
+                  "wrap": true,
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.link",
+                        "id": 118,
+                        "label": "070 815 379",
+                        "href": "tel:+38670815379"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 119,
+                        "label": "vukansbike@gmail.com",
+                        "href": "mailto:vukansbike@gmail.com",
+                        "variant": "muted"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -1745,35 +1048,5 @@
       }
     }
   ],
-  "navigation": {
-    "header": [
-      {
-        "label": "Domov",
-        "href": "/"
-      },
-      {
-        "label": "Servis",
-        "href": "/service"
-      },
-      {
-        "label": "Kontakt",
-        "href": "/contact"
-      }
-    ],
-    "footer": [
-      {
-        "label": "O nas",
-        "href": "/about"
-      },
-      {
-        "label": "Zasebnost",
-        "href": "/privacy"
-      },
-      {
-        "label": "Pogoji",
-        "href": "/terms"
-      }
-    ]
-  },
   "lang": "sl"
 }

@@ -1,80 +1,50 @@
 {
-  "slug": "/de/about",
+  "slug": "/about",
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "Über uns — Vukan's Bike Shop",
-    "description": "Die Geschichte von Vukan's Bike in Apače: Service und Fahrradhandel aller Art, persönliche Betreuung und langjährige Erfahrung mit Mountainbikes und MTB.",
-    "ogImage": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=1200&h=630&fit=crop"
+    "title": "Über uns — Vukan's Bike",
+    "description": "Fahrradwerkstatt in Apače, geführt von Gregor Vukan: Service für alle Fahrradarten, Verkauf, Fahrradschule und geführte Touren.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1775401858/1000024272_almr2a.jpg"
   },
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
-      "overlay": 0.38,
+      "id": 14,
       "padding": "lg",
-      "minHeight": "80vh",
+      "surface": "muted",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
-            "gap": "lg",
-            "align": "center",
-            "maxWidth": "720px",
-            "margin": "0 auto",
+            "id": 13,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
+                  "id": 10,
+                  "variant": "label",
                   "content": "Über uns",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "64px",
-                  "fontWeight": "800",
-                  "textAlign": "center"
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
-                  "variant": "lead",
-                  "content": "Fahrräder aller Art in Apače — ein Mensch, ein Ansatz.",
-                  "color": "foreground",
-                  "textAlign": "center",
-                  "fontSize": "22px",
-                  "maxWidth": "480px"
+                  "id": 11,
+                  "variant": "body",
+                  "content": "Ein-Mann-Werkstatt in Apače",
+                  "bold": true,
+                  "fontSize": "clamp(2.25rem, 5vw, 3.25rem)",
+                  "color": "foreground"
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 104,
-                  "justify": "center",
-                  "wrap": true,
-                  "gap": "md",
-                  "margin": "16px 0 0",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.button",
-                        "id": 105,
-                        "label": "Service",
-                        "href": "/de/service",
-                        "padding": "18px 40px"
-                      },
-                      {
-                        "__component": "blocks.button",
-                        "id": 106,
-                        "label": "Kontakt",
-                        "href": "/de/contact",
-                        "variant": "secondary",
-                        "color": "foreground",
-                        "border": "2px solid var(--color-foreground)",
-                        "backgroundColor": "transparent",
-                        "padding": "18px 40px"
-                      }
-                    ]
-                  }
+                  "__component": "blocks.text",
+                  "id": 12,
+                  "variant": "lead",
+                  "content": "Service, Verkauf, Fahrradschule und geführte Touren — alles an einer Adresse.",
+                  "color": "secondary"
                 }
               ]
             }
@@ -84,14 +54,14 @@
     },
     {
       "__component": "blocks.section",
-      "id": 200,
+      "id": 23,
       "padding": "lg",
       "surface": "background",
       "slots": {
         "default": [
           {
             "__component": "blocks.grid",
-            "id": 201,
+            "id": 22,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -102,55 +72,58 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 202,
+                  "id": 20,
                   "gap": "md",
                   "align": "start",
-                  "padding": "16px 0",
+                  "maxWidth": "60ch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 203,
+                        "id": 15,
                         "variant": "label",
                         "content": "Unsere Geschichte",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 204,
-                        "content": "Von der Leidenschaft zu Service und Laden",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "36px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 205,
-                        "variant": "lead",
-                        "content": "Ein Fahrrad ist nicht nur Transport — es ist Freiheit. Wir möchten, dass jeder seine Abenteuer mitnimmt.",
-                        "color": "foreground",
-                        "fontWeight": "600",
-                        "maxWidth": "420px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 206,
+                        "id": 16,
                         "variant": "body",
-                        "content": "Vukan's Bike Shop entstand aus der Liebe zum Rad und dem Wunsch, in der Region einen Ort für qualitativ hochwertigen Service, ehrliche Beratung oder ein neues Rad zu schaffen — egal, ob Sie in der Stadt, auf der Straße oder auf Trails unterwegs sind.\n\nWir arbeiten in Apače. Wir warten und beraten alle Fahrradarten; unsere besondere Leidenschaft und die längste Erfahrung liegen weiterhin bei Mountainbikes und MTB — vom Basis-Service bis zu kompletten Reparaturen und Maßaufbauten. Keine anonyme Werkstatt — ein Experte, der Ihr Rad und Ihre Bedürfnisse kennt.\n\nWir glauben an persönlichen Kontakt, faire Preise und Arbeit, auf die Sie sich verlassen können. Wenn Sie einen Partner für Ihre nächsten Touren suchen, sind Sie hier richtig.",
-                        "color": "secondary",
-                        "maxWidth": "440px"
+                        "content": "Von der Leidenschaft zur Werkstatt",
+                        "bold": true,
+                        "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 17,
+                        "variant": "body",
+                        "content": "Vukan's Bike entstand aus einem einfachen Wunsch: dass es in der Region einen Ort gibt, an dem Sie guten Service, ehrliche Beratung und ein Rad bekommen, das vor der Abholung wirklich fertig ist.",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 18,
+                        "variant": "body",
+                        "content": "Wir arbeiten in Apače und warten alle Fahrradarten — City-, Renn-, Gravel-, E- und Mountainbikes. Die längste Erfahrung haben wir bei Mountainbikes: vom Basis-Service bis zu anspruchsvolleren Reparaturen und Aufbauten nach Maß.",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 19,
+                        "variant": "body",
+                        "content": "Keine anonyme Werkstatt. Dieselbe Person prüft, repariert und übergibt Ihr Rad — und sagt Ihnen auch, was gemacht wurde und warum.",
+                        "color": "foreground"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.image",
-                  "id": 207,
+                  "id": 21,
                   "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776428488/9c4caa91-a86a-43e4-a8f7-39a45f2620d3_pezutz.jpg",
-                  "alt": "Vukan's Bike Shop — Werkstatt",
-                  "minHeight": "520px",
-                  "borderRadius": "0px",
-                  "overflow": "hidden"
+                  "alt": "Werkstatt von Vukan's Bike in Apače",
+                  "height": "clamp(320px, 44vw, 560px)"
                 }
               ]
             }
@@ -160,14 +133,14 @@
     },
     {
       "__component": "blocks.section",
-      "id": 300,
+      "id": 34,
       "padding": "lg",
       "surface": "muted",
       "slots": {
         "default": [
           {
             "__component": "blocks.grid",
-            "id": 301,
+            "id": 33,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -178,51 +151,72 @@
               "default": [
                 {
                   "__component": "blocks.image",
-                  "id": 302,
+                  "id": 24,
                   "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775401858/1000024272_almr2a.jpg",
-                  "alt": "Gregor Vukan",
-                  "minHeight": "480px",
-                  "borderRadius": "0px",
-                  "overflow": "hidden"
+                  "alt": "Gregor Vukan in der Werkstatt",
+                  "height": "clamp(320px, 44vw, 560px)"
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 303,
+                  "id": 32,
                   "gap": "md",
                   "align": "start",
-                  "padding": "48px 8px",
+                  "maxWidth": "60ch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 304,
+                        "id": 25,
                         "variant": "label",
-                        "content": "Inhaber und Experte",
-                        "color": "primary"
+                        "content": "Inhaber und Mechaniker",
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 305,
+                        "id": 26,
+                        "variant": "body",
                         "content": "Gregor Vukan",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "36px"
+                        "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 306,
+                        "id": 27,
                         "variant": "body",
-                        "content": "Seit vielen Jahren beschäftige ich mich mit Fahrrädern; besonders begeistern mich Mountainbikes und anspruchsvolleres Gelände. Bei Vukan's Bike Shop kümmere ich mich um Service, Verkauf und Beratung für alle Radtypen — alles an einem Ort, persönlich. Ich helfe Ihnen gern, das richtige Rad zu wählen oder es für die nächste Saison fit zu machen. Rufen Sie an oder kommen Sie nach Apače.",
-                        "color": "secondary",
-                        "maxWidth": "420px"
+                        "content": "Ich beschäftige mich seit vielen Jahren mit Fahrrädern; am meisten reizen mich Mountainbike und anspruchsvolleres Gelände. In der Werkstatt kümmere ich mich um Service, Verkauf und Beratung — für alle Fahrradarten.",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 307,
-                        "label": "Kontakt",
-                        "href": "/de/contact",
-                        "variant": "secondary",
-                        "margin": "8px 0 0"
+                        "__component": "blocks.text",
+                        "id": 28,
+                        "variant": "body",
+                        "content": "Wenn Sie nicht wissen, welchen Service Sie brauchen, beschreiben Sie mir, wie und wie viel Sie fahren. Daraus lässt sich fast immer sagen, was jetzt sinnvoll ist und was warten kann.",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 31,
+                        "gap": "lg",
+                        "wrap": true,
+                        "margin": "8px 0 0",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.link",
+                              "id": 29,
+                              "label": "070 815 379",
+                              "href": "tel:+38670815379"
+                            },
+                            {
+                              "__component": "blocks.link",
+                              "id": 30,
+                              "label": "vukansbike@gmail.com",
+                              "href": "mailto:vukansbike@gmail.com",
+                              "variant": "muted"
+                            }
+                          ]
+                        }
                       }
                     ]
                   }
@@ -235,52 +229,42 @@
     },
     {
       "__component": "blocks.section",
-      "id": 400,
+      "id": 51,
       "padding": "lg",
       "surface": "background",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 401,
-            "gap": "sm",
-            "align": "center",
+            "id": 37,
             "margin": "0 0 40px",
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 402,
+                  "id": 35,
                   "variant": "label",
-                  "content": "Unsere Werte",
-                  "color": "primary",
-                  "textAlign": "center"
+                  "content": "Wie wir arbeiten",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 403,
-                  "content": "Warum wir",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 404,
+                  "id": 36,
                   "variant": "body",
-                  "content": "Unsere Werte sind einfach: Qualität, Ehrlichkeit und Ihr Vertrauen.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "480px",
-                  "margin": "0 auto"
+                  "content": "Vier Dinge, auf die Sie zählen können",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
                 }
               ]
             }
           },
           {
             "__component": "blocks.grid",
-            "id": 410,
+            "id": 50,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -291,24 +275,27 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 411,
+                  "id": 40,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 412,
-                        "content": "Alle Fahrradarten",
+                        "id": 38,
+                        "variant": "body",
+                        "content": "Ein Rad, ein Mechaniker",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 413,
+                        "id": 39,
                         "variant": "body",
-                        "content": "Stadt, Rennrad, Gravel, E-Bike und MTB — wir kennen Antrieb, Bremsen und Geometrie. Bei Mountainbikes und Trail haben wir besonders viel Erfahrung.",
+                        "content": "Das Rad, das Sie bringen, geht durch die Hände derselben Person — von der Kontrolle bis zur Abholung. Nichts wandert in der Werkstatt von Tisch zu Tisch.",
                         "color": "secondary"
                       }
                     ]
@@ -316,24 +303,27 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 414,
+                  "id": 43,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 415,
-                        "content": "Persönlicher Ansatz",
+                        "id": 41,
+                        "variant": "body",
+                        "content": "Preis, den wir vorab nennen",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 416,
+                        "id": 42,
                         "variant": "body",
-                        "content": "Ein Experte, ein Ansprechpartner. Keine anonyme Werkstatt; wir arbeiten nach Vereinbarung und passen die Zeit an.",
+                        "content": "Die Preisliste ist öffentlich, Reinigungs- und Schmiermittel sind inbegriffen. Zeigt sich während der Arbeit mehr, rufen wir Sie an, bevor wir weitermachen.",
                         "color": "secondary"
                       }
                     ]
@@ -341,24 +331,27 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 417,
+                  "id": 46,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 418,
-                        "content": "Fairer Preis",
+                        "id": 44,
+                        "variant": "body",
+                        "content": "Zu Hause auf Bergwegen",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 419,
+                        "id": 45,
                         "variant": "body",
-                        "content": "Transparente Preise und klare Angebote. Keine versteckten Kosten — Sie wissen vorher, was es kostet.",
+                        "content": "Die meisten Kilometer haben wir auf MTB und Trail. Daraus sind auch die Fahrradschule und die geführten Touren gewachsen.",
                         "color": "secondary"
                       }
                     ]
@@ -366,82 +359,31 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 420,
+                  "id": 49,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 421,
-                        "content": "Lokal in Apače",
+                        "id": 47,
+                        "variant": "body",
+                        "content": "Teil der Szene in Apače",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 422,
+                        "id": 48,
                         "variant": "body",
-                        "content": "Laden und Service in Ihrer Nähe. Partner und Events in der Region — Teil der Community.",
+                        "content": "Wir arbeiten mit dem örtlichen Verein ŠKTD Apače Mlinarji und dem Festival Flat Out Days auf Kope zusammen.",
                         "color": "secondary"
                       }
                     ]
                   }
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
-    {
-      "__component": "blocks.section",
-      "id": 500,
-      "surface": "primary",
-      "padding": "lg",
-      "minHeight": "420px",
-      "justify": "center",
-      "align": "center",
-      "slots": {
-        "default": [
-          {
-            "__component": "blocks.stack",
-            "id": 501,
-            "gap": "md",
-            "align": "center",
-            "maxWidth": "480px",
-            "margin": "0 auto",
-            "slots": {
-              "default": [
-                {
-                  "__component": "blocks.text",
-                  "id": 502,
-                  "content": "Bereit für Service oder ein neues Rad?",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 503,
-                  "variant": "lead",
-                  "content": "Besuchen Sie uns in Apače oder rufen Sie uns an unter 070 815 379.",
-                  "color": "foreground",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.button",
-                  "id": 504,
-                  "label": "Kontakt",
-                  "href": "/de/contact",
-                  "variant": "secondary",
-                  "backgroundColor": "foreground",
-                  "color": "primary",
-                  "border": "none",
-                  "margin": "12px 0 0",
-                  "padding": "18px 40px"
                 }
               ]
             }

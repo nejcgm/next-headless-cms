@@ -3,163 +3,53 @@
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "Bike school — Flat Out Days | Vukan's Bike",
-    "description": "Bike school at Flat Out Days (13–19 July): Basic School for beginners and Advanced School for experienced riders. Tickets and registration on the festival website.",
-    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg"
+    "title": "Bike school — Vukan's Bike",
+    "description": "Bike school at Flat Out Days (13–19 July): Basic School for the first steps and Advanced School for progress on more demanding trails. Groups of up to 8 participants.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1775480323/1000005460_wnwxdc.jpg"
   },
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
-      "overlay": 0.4,
+      "id": 14,
       "padding": "lg",
-      "minHeight": "85vh",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
+      "overlay": 0.5,
+      "minHeight": "clamp(480px, 72vh, 720px)",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
+            "id": 13,
             "gap": "lg",
             "align": "center",
-            "maxWidth": "720px",
-            "margin": "0 auto",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
+                  "id": 10,
+                  "variant": "body",
                   "content": "Bike school",
                   "bold": true,
-                  "color": "foreground",
-                  "fontSize": "64px",
-                  "fontWeight": "800",
+                  "fontSize": "clamp(2.5rem, 6vw, 4rem)",
+                  "color": "background",
                   "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
+                  "id": 11,
                   "variant": "lead",
-                  "content": "Two groups at Flat Out Days: Basic School for your first steps and Advanced School for progress on more demanding trails.",
-                  "color": "foreground",
+                  "content": "Two groups at the Flat Out Days festival: Basic for the first steps, Advanced for progress on more demanding trails.",
+                  "color": "background",
                   "textAlign": "center",
-                  "fontSize": "22px",
-                  "maxWidth": "560px"
-                },
-                {
-                  "__component": "blocks.flex",
-                  "id": 104,
-                  "justify": "center",
-                  "wrap": true,
-                  "gap": "md",
-                  "margin": "16px 0 0",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.button",
-                        "id": 105,
-                        "label": "Flat Out Days tickets",
-                        "href": "https://flatoutdays.com/activities/bike-school/basic-school",
-                        "padding": "18px 40px"
-                      },
-                      {
-                        "__component": "blocks.button",
-                        "id": 106,
-                        "label": "Basic School",
-                        "href": "https://flatoutdays.com/activities/bike-school/basic-school",
-                        "variant": "secondary",
-                        "color": "foreground",
-                        "border": "2px solid var(--color-foreground)",
-                        "backgroundColor": "transparent",
-                        "padding": "18px 40px"
-                      }
-                    ]
-                  }
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
-    {
-      "__component": "blocks.section",
-      "id": 200,
-      "surface": "muted",
-      "padding": "lg",
-      "slots": {
-        "default": [
-          {
-            "__component": "blocks.stack",
-            "id": 201,
-            "gap": "md",
-            "align": "center",
-            "maxWidth": "640px",
-            "margin": "0 auto",
-            "slots": {
-              "default": [
-                {
-                  "__component": "blocks.text",
-                  "id": 202,
-                  "variant": "label",
-                  "content": "Flat Out Days 2026",
-                  "color": "primary",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 203,
-                  "content": "Two schools: Basic and Advanced",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 204,
-                  "variant": "body",
-                  "content": "The programme is split into beginner and advanced levels. Both groups work in small teams (up to 8 participants) with one coach — focus on safe technique, confidence, and progress off-road.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "560px",
+                  "maxWidth": "52ch",
                   "margin": "0 auto"
                 },
                 {
-                  "__component": "blocks.text",
-                  "id": 205,
-                  "variant": "caption",
-                  "content": "13–19 July · Flat Out Days festival",
-                  "textAlign": "center",
-                  "color": "foreground",
-                  "fontWeight": "600",
+                  "__component": "blocks.button",
+                  "id": 12,
+                  "label": "See the programme",
+                  "href": "#program",
                   "margin": "8px 0 0"
-                },
-                {
-                  "__component": "blocks.flex",
-                  "id": 206,
-                  "justify": "center",
-                  "wrap": true,
-                  "gap": "md",
-                  "margin": "16px 0 0",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.button",
-                        "id": 207,
-                        "label": "Basic School details",
-                        "href": "https://flatoutdays.com/activities/bike-school/basic-school",
-                        "variant": "secondary"
-                      },
-                      {
-                        "__component": "blocks.button",
-                        "id": 208,
-                        "label": "Advanced School details",
-                        "href": "https://flatoutdays.com/activities/bike-school/advanced-school",
-                        "variant": "secondary"
-                      }
-                    ]
-                  }
                 }
               ]
             }
@@ -169,44 +59,101 @@
     },
     {
       "__component": "blocks.section",
-      "id": 300,
+      "id": 21,
       "padding": "lg",
       "surface": "background",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 301,
-            "gap": "sm",
-            "align": "center",
-            "margin": "0 0 40px",
+            "id": 20,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 302,
-                  "content": "Programme by level",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "id": 15,
+                  "variant": "label",
+                  "content": "Flat Out Days 2026",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 303,
+                  "id": 16,
                   "variant": "body",
-                  "content": "Choose the group that matches your skills and goals; both programmes run Tuesday to Friday (or single days), 4 hours per day with a short break.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "560px",
-                  "margin": "0 auto"
+                  "content": "A school that works in small groups",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 17,
+                  "variant": "body",
+                  "content": "Both groups work in teams of up to eight participants with one coach. The focus is on safe technique, confidence and real progress on the terrain — not on the number of kilometres covered.",
+                  "color": "foreground"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 18,
+                  "variant": "body",
+                  "content": "The programme runs from Tuesday to Friday, four hours a day with a short break; single days are also possible.",
+                  "color": "foreground"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 19,
+                  "variant": "caption",
+                  "content": "13–19 July · Bike park Kope · minimum age 6 · basic protective gear required",
+                  "color": "secondary"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "__component": "blocks.section",
+      "id": 38,
+      "padding": "lg",
+      "surface": "muted",
+      "anchorId": "program",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 24,
+            "margin": "0 0 40px",
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 22,
+                  "variant": "label",
+                  "content": "Programme",
+                  "color": "text-primary"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 23,
+                  "variant": "body",
+                  "content": "Choose your level",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
                 }
               ]
             }
           },
           {
             "__component": "blocks.grid",
-            "id": 310,
+            "id": 37,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -217,96 +164,98 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 311,
-                  "gap": "md",
+                  "id": 30,
+                  "gap": "sm",
                   "align": "start",
-                  "padding": "16px 0",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "24px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 312,
+                        "id": 25,
                         "variant": "label",
-                        "content": "Beginner",
-                        "color": "primary"
+                        "content": "Beginner level",
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 313,
+                        "id": 26,
+                        "variant": "body",
                         "content": "Basic School",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 314,
+                        "id": 27,
                         "variant": "body",
-                        "content": "For anyone starting mountain biking or wanting more solid fundamentals. Training is step by step, low pressure, with plenty of practice and clear explanations.",
+                        "content": "For anyone starting out in mountain biking or wanting firmer basics. Training is step by step, with no pressure and plenty of practice.",
                         "color": "secondary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 315,
-                        "variant": "body",
-                        "content": "Basics: position, balance, smooth braking, and basic steering\nGroups up to 8 participants with one coach\n4 h daily + short snack break; minimum age 6\nRequired protection: helmet, knee pads, and gloves\nIn bad weather part of the programme moves indoors (setup, basic maintenance, tips)\nLanguages: Slovenian, German, English",
+                        "id": 28,
+                        "variant": "caption",
+                        "content": "Position on the bike · Balance · Smooth braking · Basic steering · Groups of up to 8 participants",
                         "color": "secondary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 316,
-                        "label": "Open Basic School",
+                        "__component": "blocks.link",
+                        "id": 29,
+                        "label": "Basic School at Flat Out Days",
                         "href": "https://flatoutdays.com/activities/bike-school/basic-school",
-                        "variant": "secondary",
-                        "margin": "8px 0 0"
+                        "showArrow": true
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 320,
-                  "gap": "md",
+                  "id": 36,
+                  "gap": "sm",
                   "align": "start",
-                  "padding": "16px 0",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "24px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 321,
+                        "id": 31,
                         "variant": "label",
-                        "content": "Advanced",
-                        "color": "primary"
+                        "content": "Advanced level",
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 322,
+                        "id": 32,
+                        "variant": "body",
                         "content": "Advanced School",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 323,
+                        "id": 33,
                         "variant": "body",
-                        "content": "For riders with basics who want to progress on red/black trails, technical sections, and medium table jumps.",
+                        "content": "For riders with the basics who want to progress on red and black trails, technical sections and medium jumps.",
                         "color": "secondary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 324,
-                        "variant": "body",
-                        "content": "Advanced technique: steep terrain position, precise braking, corner line and line choice\nControl and confidence on technical sections and flow features\nGroups up to 8 participants with a certified coach\n4 h daily + short break; single days possible (Tue–Fri)\nIn unsafe conditions part moves indoors (advanced setup, maintenance, video analysis)\nLanguages: Slovenian, German, English",
+                        "id": 34,
+                        "variant": "caption",
+                        "content": "Position on steep terrain · Precise braking · Cornering and line choice · Control on flow features",
                         "color": "secondary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 325,
-                        "label": "Open Advanced School",
+                        "__component": "blocks.link",
+                        "id": 35,
+                        "label": "Advanced School at Flat Out Days",
                         "href": "https://flatoutdays.com/activities/bike-school/advanced-school",
-                        "variant": "secondary",
-                        "margin": "8px 0 0"
+                        "showArrow": true
                       }
                     ]
                   }
@@ -319,119 +268,103 @@
     },
     {
       "__component": "blocks.gallery",
-      "id": 400,
-      "heading": "Bike school gallery",
-      "subheading": "Moments from training and the festival.",
-      "defaultImageAlt": "Bike school",
+      "id": 39,
+      "heading": "From training",
+      "defaultImageAlt": "A moment from the bike school",
       "showLessLabel": "Show less",
-      "showMorePrefix": "Show more (",
-      "showMoreSuffix": ")",
-      "lightboxAltPrefix": "Gallery",
+      "showMorePrefix": "Show ",
+      "showMoreSuffix": " more photos",
+      "lightboxAltPrefix": "Bike school — photo ",
       "images": [
         {
-          "id": 401,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
-          "alt": "Bike school 1"
-        },
-        {
-          "id": 402,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
-          "alt": "Bike school 2"
-        },
-        {
-          "id": 403,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480191/IMG_2611_wxpwqs.heic",
-          "alt": "Bike school 3"
-        },
-        {
-          "id": 404,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480188/1000026613_nfxcr7.jpg",
-          "alt": "Bike school 4"
-        },
-        {
-          "id": 405,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480185/IMG_2608_cbh0u1.heic",
-          "alt": "Bike school 5"
+          "alt": "Bike school training"
         },
         {
-          "id": 406,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480178/1000006042_tivdyq.jpg",
-          "alt": "Bike school 6"
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480191/IMG_2611_wxpwqs.heic",
+          "alt": "Technique drills on the course"
         },
         {
-          "id": 407,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480168/1000005467_ovxiqg.jpg",
-          "alt": "Bike school 7"
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480188/1000026613_nfxcr7.jpg",
+          "alt": "School participants on the trail"
         },
         {
-          "id": 408,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480140/3f37be51-c7c2-4123-8d2f-b253cf5ce505_xcwuc8.jpg",
-          "alt": "Bike school 8"
+          "alt": "The group before the ride"
         },
         {
-          "id": 409,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480137/89f512ad-2519-480d-aa4b-0521808219bf_v4zabz.jpg",
-          "alt": "Bike school 9"
-        },
-        {
-          "id": 410,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480135/1000004389_mpu6mu.jpg",
-          "alt": "Bike school 10"
-        },
-        {
-          "id": 411,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480134/0f080a97-cd70-4e54-9868-a6904106ad3d_tlipod.jpg",
-          "alt": "Bike school 11"
+          "alt": "Riding through a technical section"
         }
       ]
     },
     {
       "__component": "blocks.section",
-      "id": 500,
-      "surface": "primary",
+      "id": 47,
       "padding": "lg",
-      "minHeight": "420px",
-      "justify": "center",
-      "align": "center",
+      "surface": "foreground",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 501,
+            "id": 46,
             "gap": "md",
-            "align": "center",
-            "maxWidth": "480px",
-            "margin": "0 auto",
+            "align": "start",
+            "maxWidth": "68ch",
+            "padding": "clamp(16px, 4vw, 40px) 0",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 502,
-                  "content": "Sign up: Basic and Advanced School",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "id": 40,
+                  "variant": "label",
+                  "content": "Registration",
+                  "color": "background"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 503,
-                  "variant": "lead",
-                  "content": "Schedule, packages, and tickets are on the official Flat Out Days website.",
-                  "color": "foreground",
-                  "textAlign": "center"
+                  "id": 41,
+                  "variant": "body",
+                  "content": "Buy tickets at Flat Out Days",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "background"
                 },
                 {
-                  "__component": "blocks.button",
-                  "id": 504,
-                  "label": "Open Flat Out Days",
-                  "href": "https://flatoutdays.com/activities/bike-school/basic-school",
-                  "variant": "secondary",
-                  "backgroundColor": "foreground",
-                  "color": "primary",
-                  "border": "none",
-                  "margin": "12px 0 0",
-                  "padding": "18px 40px"
+                  "__component": "blocks.text",
+                  "id": 42,
+                  "variant": "lead",
+                  "content": "The schedule, packages and tickets are handled by the festival. If you are not sure which level is right for you, call us first — advice with no obligation.",
+                  "color": "background"
+                },
+                {
+                  "__component": "blocks.flex",
+                  "id": 45,
+                  "gap": "md",
+                  "wrap": true,
+                  "margin": "8px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.button",
+                        "id": 43,
+                        "label": "Open Flat Out Days",
+                        "href": "https://flatoutdays.com/activities/bike-school/basic-school",
+                        "backgroundColor": "background",
+                        "color": "primary",
+                        "border": "none"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 44,
+                        "label": "Call 070 815 379",
+                        "href": "tel:+38670815379",
+                        "variant": "secondary",
+                        "color": "background",
+                        "border": "2px solid var(--color-background)"
+                      }
+                    ]
+                  }
                 }
               ]
             }

@@ -22,10 +22,18 @@ MockAdapter.getPage (verify) / StrapiAdapter.getPage (production intent)
 ```
 
 - **Config**: `src/tenants/vukans-bike/config.ts` — theme, domains, contact, `dataAdapter`.
+  Theme is a **light editorial palette** (`specs/008-bike-site-redesign`): `primary #B4121B` (brand red),
+  `secondary #4B5563` (one step darker than the un-themeable `--color-muted-foreground` `#6B7280`, on the same
+  neutral ramp — same family, but AA-legible on the tinted bands), `accent #EFE9DF` (sand surface), `background #FFFFFF`, `foreground #1C1917`
+  (text **and** the inverse band surface), `muted #F5F5F4`, `border #E7E5E4`, `textPrimary #8A1015`
+  (eyebrows, prices); `borderRadius: "0rem"`. Every token has exactly one role — a token with no role is a
+  defect. `logoUrl` is intentionally **absent** so the header renders its wordmark; the previous value was a
+  photograph. `fonts.*` are an honest system stack but remain **inert** — nothing applies `font-body`, so the
+  site renders in the browser default sans until that is wired (see the feature's shared recommendations).
 - **Registration**: `src/tenants/vukans-bike/blocks/index.ts` — Keep L3 + data contracts.
 - **Pages**: `src/tenants/vukans-bike/mock-data/pages/*.json` — canonical Strapi DZ shape (`__component`, numeric `id`, flat fields, `lang`). All pages authored as L1/L2 + Keep; localized `en--` / `de--` mirrors.
-- **Seed collections**: `src/tenants/vukans-bike/mock-data/collections/products.json` — currently **1** product (`merida`) with `slug`, `specs`, `images`, etc. (plus `en--` / `de--` locale files).
-- **Navigation**: `mock-data/navigation.json`, `en--navigation.json`, `de--navigation.json`
+- **Seed collections**: `src/tenants/vukans-bike/mock-data/collections/products.json` — currently **1** product (`merida`) with `slug`, `specs`, `images`, etc. (plus `en--` / `de--` locale files). Home and `/shop` restate this bike's name, price and headline specs as authored copy, so both must be updated together with this file.
+- **Navigation**: `mock-data/navigation.json`, `en--navigation.json`, `de--navigation.json` — **7** header items (Servis, Vodene ture, Kolesarska šola, Trgovina, O nas, Partnerji, Kontakt; the logo is Home) and **8** footer items (adds Domov, in the original Servis/Trgovina/Vodene ture/Kolesarska šola/O nas/Partnerji/Kontakt order — footer order intentionally does not mirror the header's). Identical ids, order and count across locales. Page files must not carry their own `navigation` key.
 
 ## Templates (`src/tenants/vukans-bike/templates/`)
 
@@ -52,8 +60,15 @@ Every registered content block has a Zod `schema` in `blocks/{name}/schema.ts` w
 | Block type | Component | Data | Used on / purpose |
 |------------|-----------|------|-------------------|
 | `bike-detail` | `blocks/bike-detail/bike-detail.tsx` | `labels` props + **dataContract** → `load-bike.ts` → `getEntry("products", bikeSlug)` | `/bikes/{slug}` |
-| `gallery` | `blocks/gallery/gallery.tsx` | Props (`images[]`) | `/bike-school`, `/guided-tours` |
-| `product-list` | `blocks/product-list/product-list.tsx` | **dataContract** → `load-products.ts` → `getCollection("products")` | Home, `/shop` |
+| `gallery` | `blocks/gallery/gallery.tsx` | Props (`images[]`) | `/bike-school`, `/guided-tours` — 5 images each (the component tiles 5 perfectly and stays under its hardcoded 10-item reveal) |
+| `product-list` | `blocks/product-list/product-list.tsx` | **dataContract** → `load-products.ts` → `getCollection("products")` | **Registered but currently unreferenced** — see below |
+
+**`product-list` is intentionally unused** (`specs/008-bike-site-redesign`, research R6). With a single-product
+catalog it renders one card stranded in a hardcoded 4-column grid and prints a category eyebrow that the site
+cannot let visitors browse. Home and `/shop` present that bike as an L1-authored flagship band instead. The
+block stays registered for the Strapi phase; before it is used again it needs the fixes listed in that
+feature's `contracts/shared-recommendations.md` (count-aware grid, optional category badge, drop its
+self-imposed `<section>` chrome, `next/link` instead of `<a href>`, remove the no-op `category` prop).
 
 **Deleted proprietary blocks** (no longer registered): `service-pricing`, `partners-gallery`, `service-faq`, `contact`, `hero`, `about-person`, `about-story`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`. Service pricing is L1 stacks of `text`/`link`; brands partners are L1 `grid` of stacks; FAQ is L1 + shared **`accordion`**.
 
@@ -74,17 +89,22 @@ Visual composition editor is out of scope; trees are authored in mock/seed/Strap
 
 Root DZ order; nested L1 trees summarized. Localized `en--` / `de--` mirrors match.
 
-| Page slug | Blocks (order) |
-|-----------|----------------|
-| `/` (home) | L1 section bands (brand hero, editorial, service, framed catalog, school/tours, contact CTA) → **`product-list`** where featured |
-| `/service` | `section` (hero L1) → `section` (pricing stacks L1) → `section` (process grid L1) → `section` + **`accordion`** + CTA L1 → `section` (contact CTA L1) |
-| `/shop` | `section` (hero L1) → `section` (intro L1) → **`product-list`** → `section` (CTA L1) |
-| `/about` | `section` (hero L1) → `section` (story grid L1) → `section` (person grid L1) → `section` (values grid L1) → `section` (CTA L1) |
-| `/contact` | `section` (hero L1) → `section` + `grid` (icon+link contact rows + `iframe` map) |
-| `/brands` | `section` (hero L1) → `section` + `grid` of partner stacks (image/text/link) → `section` (CTA L1) |
-| `/bike-school` | `section` (hero L1) → `section` (intro L1) → `section` (program grid L1) → **`gallery`** → `section` (CTA L1) |
-| `/guided-tours` | `section` (hero L1) → `section` (experience grid L1) → **`gallery`** → `section` (process grid L1) → `section` (CTA L1) |
-| `/bikes/{slug}` | **`bike-detail`** only |
+Band surfaces follow `specs/008-bike-site-redesign/contracts/page-blueprints.md`: adjacent bands never share
+a surface, and the site budget is photo heroes on Home / Service / Bike school / Guided tours, inverse
+(`surface: "foreground"`) closings on Home and Bike school, and sand (`accent`) closings on Shop and Guided
+tours — so no two pages end the same way.
+
+| Page slug | Bands (order → surface) |
+|-----------|-------------------------|
+| `/` (home) | photo hero → positioning (`background`) → service 3-up (`muted`) → **flagship bike** (`background`) → school & tours (`accent`) → closing (`foreground`) |
+| `/service` | photo hero → 9-tier price list (`background`, `#cenik`) → 4-step process (`muted`) → FAQ **`accordion`** ×5 (`background`) → quiet closing (`muted`, `#kontakt`) |
+| `/shop` | header (`background`) → **flagship bike** with 6 spec rows (`muted`) → online-build cross-link (`background`) → closing (`accent`) |
+| `/about` | header (`muted`) → story grid (`background`) → owner grid (`muted`) → 4-up "how we work" (`background`), no closing CTA band |
+| `/contact` | header (`muted`) → `grid` (icon/link contact rows + `iframe` map) (`background`) |
+| `/brands` | header (`muted`) → `grid` of **8** partner cards — 7 partners + a "Sodelujmo" CTA tile (`background`), no closing band |
+| `/bike-school` | photo hero → intro (`background`) → program 2-up (`muted`, `#program`) → **`gallery`** → closing with external + first-party actions (`foreground`) |
+| `/guided-tours` | photo hero → "what you get" 4-up (`background`) → **`gallery`** (`muted`) → process 4-up (`background`, `#potek`) → closing (`accent`) |
+| `/bikes/{slug}` | **`bike-detail`** only (labels; bike data comes from the `products` collection) |
 
 ## Data contracts
 

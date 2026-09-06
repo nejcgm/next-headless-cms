@@ -3,14 +3,14 @@
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "Vukan's Bike — Fahrräder und Service",
-    "description": "Service und Verkauf aller Fahrradarten in Slowenien. Kontakt: 070 815 379.",
-    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405173/1000004333_bged3h.jpg",
+    "title": "Vukan's Bike — Fahrradservice und Verkauf in Apače",
+    "description": "Fahrradwerkstatt in Apače: Service für City-, Renn-, Gravel-, E- und Mountainbikes. Fahrradschule und geführte Touren. Rufen Sie 070 815 379 an.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1775405173/1000004333_bged3h.jpg",
     "jsonLd": {
       "@context": "https://schema.org",
       "@type": "BicycleStore",
       "name": "Vukan's Bike",
-      "description": "Service und Verkauf aller Fahrradarten in Apače: Urban, Rennrad, Gravel, E-Bike und Mountainbike, Fahrradschule und geführte Touren.",
+      "description": "Service und Verkauf aller Fahrradarten in Apače: City-, Renn-, Gravel-, E- und Mountainbikes, Fahrradschule und geführte Touren.",
       "url": "https://vukansbike.com/",
       "image": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405173/1000004333_bged3h.jpg",
       "telephone": "+38670815379",
@@ -36,137 +36,285 @@
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402438/IMG_0035_fsvhgt.jpg",
-      "overlay": 0.32,
+      "id": 10,
       "padding": "lg",
-      "minHeight": "100vh",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402438/IMG_0035_fsvhgt.jpg",
+      "overlay": 0.5,
+      "minHeight": "clamp(520px, 82vh, 820px)",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
+            "id": 11,
             "gap": "lg",
             "align": "center",
-            "maxWidth": "900px",
-            "margin": "0 auto",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
+                  "id": 12,
+                  "variant": "body",
                   "content": "Vukan's Bike",
                   "bold": true,
-                  "color": "foreground",
-                  "fontSize": "72px",
-                  "fontWeight": "800",
+                  "fontSize": "clamp(2.5rem, 6vw, 4rem)",
+                  "color": "background",
                   "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
+                  "id": 13,
                   "variant": "lead",
-                  "content": "Apače.",
-                  "color": "foreground",
+                  "content": "Fahrradwerkstatt in Apače. Service und Verkauf — vom Stadtrad bis zum Mountainbike.",
+                  "color": "background",
                   "textAlign": "center",
-                  "fontSize": "28px"
+                  "maxWidth": "48ch",
+                  "margin": "0 auto"
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 104,
-                  "justify": "center",
-                  "wrap": true,
-                  "gap": "md",
-                  "margin": "16px 0 0",
+                  "__component": "blocks.button",
+                  "id": 14,
+                  "label": "Rufen Sie 070 815 379 an",
+                  "href": "tel:+38670815379",
+                  "margin": "8px 0 0"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "__component": "blocks.section",
+      "id": 20,
+      "padding": "lg",
+      "surface": "background",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 21,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 22,
+                  "variant": "label",
+                  "content": "Werkstatt",
+                  "color": "text-primary"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 23,
+                  "variant": "body",
+                  "content": "Erst in die Hände. Dann auf den Trail.",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 24,
+                  "variant": "body",
+                  "content": "Kleine Werkstatt in Apače, in der jedes Rad durch die Hände desselben Mechanikers geht — Stadtrad, Rennrad, Gravel, E-Bike oder Mountainbike. Die meisten Kilometer haben wir auf Bergwegen, dieselbe Sorgfalt bekommt aber auch das Rad, mit dem Sie zur Arbeit fahren.",
+                  "color": "foreground"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "__component": "blocks.section",
+      "id": 30,
+      "padding": "lg",
+      "surface": "muted",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 31,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
+            "margin": "0 0 40px",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 32,
+                  "variant": "label",
+                  "content": "Service",
+                  "color": "text-primary"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 33,
+                  "variant": "body",
+                  "content": "Preise ohne Überraschungen",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 34,
+                  "variant": "lead",
+                  "content": "Der Preis steht vorab fest, Reinigungs- und Schmiermittel sind inbegriffen.",
+                  "color": "secondary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.grid",
+            "id": 35,
+            "columns": {
+              "mobile": 1,
+              "tablet": 3,
+              "desktop": 3
+            },
+            "gap": "lg",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 36,
+                  "gap": "sm",
+                  "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.button",
-                        "id": 105,
-                        "label": "Fahrräder",
-                        "href": "#kolesa",
-                        "padding": "18px 40px"
+                        "__component": "blocks.text",
+                        "id": 37,
+                        "variant": "body",
+                        "content": "39 €",
+                        "bold": true,
+                        "fontSize": "clamp(1.5rem, 2.5vw, 2rem)",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 106,
-                        "label": "Service",
-                        "href": "/de/service",
-                        "variant": "secondary",
-                        "color": "foreground",
-                        "border": "2px solid var(--color-foreground)",
-                        "backgroundColor": "transparent",
-                        "padding": "18px 40px"
+                        "__component": "blocks.text",
+                        "id": 38,
+                        "variant": "body",
+                        "content": "Basis-Service",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 39,
+                        "variant": "body",
+                        "content": "Kontrolle und Einstellung von Gängen und Bremsen, Messung des Kettenverschleißes, Schmierung.",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 40,
+                  "gap": "sm",
+                  "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 41,
+                        "variant": "body",
+                        "content": "70 €",
+                        "bold": true,
+                        "fontSize": "clamp(1.5rem, 2.5vw, 2rem)",
+                        "color": "text-primary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 42,
+                        "variant": "body",
+                        "content": "Komplett-Service",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 43,
+                        "variant": "body",
+                        "content": "Erweiterte mechanische Kontrolle mit Bremsen, Antrieb, Lagern und Bowdenzügen.",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 44,
+                  "gap": "sm",
+                  "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 45,
+                        "variant": "body",
+                        "content": "110 €",
+                        "bold": true,
+                        "fontSize": "clamp(1.5rem, 2.5vw, 2rem)",
+                        "color": "text-primary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 46,
+                        "variant": "body",
+                        "content": "Großer MTB-Service",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 47,
+                        "variant": "body",
+                        "content": "Komplett-Service mit Entlüften der Hydraulikbremsen und Reinigung des Rades.",
+                        "color": "secondary"
                       }
                     ]
                   }
                 }
               ]
             }
-          }
-        ]
-      }
-    },
-    {
-      "__component": "blocks.section",
-      "id": 200,
-      "surface": "muted",
-      "padding": "lg",
-      "slots": {
-        "default": [
+          },
           {
-            "__component": "blocks.stack",
-            "id": 201,
-            "gap": "md",
-            "align": "center",
-            "maxWidth": "640px",
-            "margin": "0 auto",
-            "slots": {
-              "default": [
-                {
-                  "__component": "blocks.text",
-                  "id": 202,
-                  "variant": "label",
-                  "content": "Werkstatt",
-                  "color": "primary",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 203,
-                  "content": "Zuerst in die Hände. Dann auf den Trail.",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center",
-                  "maxWidth": "520px"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 204,
-                  "variant": "body",
-                  "content": "Kleine Werkstatt für jedes Rad — Urban, Rennrad, Gravel, E-Bike und Mountainbike. Ein Mechaniker, der Ihr Rad beim Namen kennt.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "480px",
-                  "margin": "0 auto"
-                }
-              ]
-            }
+            "__component": "blocks.link",
+            "id": 48,
+            "label": "Gesamte Service-Preisliste",
+            "href": "/de/service",
+            "showArrow": true,
+            "margin": "36px 0 0"
           }
         ]
       }
     },
     {
       "__component": "blocks.section",
-      "id": 300,
+      "id": 50,
       "padding": "lg",
       "surface": "background",
       "slots": {
         "default": [
           {
             "__component": "blocks.grid",
-            "id": 301,
+            "id": 51,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -177,61 +325,141 @@
               "default": [
                 {
                   "__component": "blocks.image",
-                  "id": 302,
-                  "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
-                  "alt": "Vukan's Bike Service-Werkstatt",
-                  "minHeight": "520px",
-                  "borderRadius": "0px",
-                  "overflow": "hidden"
+                  "id": 52,
+                  "src": "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic",
+                  "alt": "Merida Road Ride 903-27",
+                  "height": "clamp(320px, 45vw, 560px)"
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 303,
+                  "id": 53,
                   "gap": "md",
                   "align": "start",
-                  "padding": "48px 8px",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 304,
+                        "id": 54,
                         "variant": "label",
-                        "content": "Service",
-                        "color": "primary"
+                        "content": "Im Verkauf",
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 305,
-                        "content": "Präzise. Ohne Eile.",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "36px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 306,
+                        "id": 55,
                         "variant": "body",
-                        "content": "Von Bremsen und Schaltung bis zur Komplettkontrolle. Die meisten Kilometer: MTB und Trail — Stadträder bekommen dieselbe Sorgfalt.",
-                        "color": "secondary",
-                        "maxWidth": "400px"
+                        "content": "Merida Road Ride 903-27",
+                        "bold": true,
+                        "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 307,
-                        "variant": "caption",
-                        "content": "070 815 379",
-                        "color": "foreground",
-                        "fontSize": "20px",
-                        "fontWeight": "600",
+                        "id": 56,
+                        "variant": "body",
+                        "content": "Rennrad mit Aluminiumrahmen und Gabel mit Carbon-Brücke. Antrieb Shimano Tiagra 3×9 — für Anstiege und flaches Terrain.",
+                        "color": "secondary",
+                        "maxWidth": "44ch"
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 57,
+                        "justify": "between",
+                        "align": "start",
+                        "gap": "md",
+                        "padding": "12px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 58,
+                              "variant": "caption",
+                              "content": "Rahmen",
+                              "color": "secondary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 59,
+                              "variant": "caption",
+                              "content": "Aluminium Road Lite Ride (TFS)",
+                              "color": "foreground"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 60,
+                        "justify": "between",
+                        "align": "start",
+                        "gap": "md",
+                        "padding": "12px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 61,
+                              "variant": "caption",
+                              "content": "Schaltung",
+                              "color": "secondary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 62,
+                              "variant": "caption",
+                              "content": "Shimano Tiagra 3×9 (27 Gänge)",
+                              "color": "foreground"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 63,
+                        "justify": "between",
+                        "align": "start",
+                        "gap": "md",
+                        "padding": "12px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 64,
+                              "variant": "caption",
+                              "content": "Gewicht",
+                              "color": "secondary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 65,
+                              "variant": "caption",
+                              "content": "ca. 9,2–9,5 kg",
+                              "color": "foreground"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 66,
+                        "variant": "body",
+                        "content": "350 €",
+                        "bold": true,
+                        "fontSize": "clamp(1.5rem, 2.5vw, 2rem)",
+                        "color": "text-primary",
                         "margin": "8px 0 0"
                       },
                       {
                         "__component": "blocks.button",
-                        "id": 308,
-                        "label": "Termin buchen",
-                        "href": "/de/service",
-                        "variant": "secondary",
-                        "margin": "8px 0 0"
+                        "id": 67,
+                        "label": "Details zum Rad",
+                        "href": "/de/bikes/merida"
                       }
                     ]
                   }
@@ -244,62 +472,42 @@
     },
     {
       "__component": "blocks.section",
-      "id": 400,
+      "id": 70,
       "padding": "lg",
-      "surface": "muted",
+      "surface": "accent",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 401,
-            "gap": "sm",
-            "align": "center",
-            "margin": "0 0 32px",
+            "id": 71,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
+            "margin": "0 0 40px",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 402,
+                  "id": 72,
                   "variant": "label",
-                  "content": "Verkauf",
-                  "color": "primary",
-                  "textAlign": "center"
+                  "content": "Schule und Touren",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 403,
-                  "content": "Räder, bereit zur Fahrt",
+                  "id": 73,
+                  "variant": "body",
+                  "content": "Wir fahren auch zusammen",
                   "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
                 }
               ]
             }
-          }
-        ]
-      }
-    },
-    {
-      "__component": "blocks.product-list",
-      "id": 13,
-      "heading": "",
-      "subheading": "",
-      "outOfStockLabel": "Nicht vorrätig",
-      "limit": 3,
-      "layout": "grid",
-      "anchorId": "kolesa"
-    },
-    {
-      "__component": "blocks.section",
-      "id": 500,
-      "padding": "lg",
-      "surface": "background",
-      "slots": {
-        "default": [
+          },
           {
             "__component": "blocks.grid",
-            "id": 501,
+            "id": 74,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -310,88 +518,80 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 502,
+                  "id": 75,
                   "gap": "md",
                   "align": "start",
-                  "padding": "16px 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 503,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
-                        "alt": "Fahrradschule",
-                        "minHeight": "280px",
-                        "borderRadius": "0px",
-                        "overflow": "hidden",
-                        "margin": "0 0 8px"
+                        "id": 76,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
+                        "alt": "Fahrradschule auf dem Übungsplatz",
+                        "height": "clamp(220px, 26vw, 320px)"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 504,
+                        "id": 77,
+                        "variant": "body",
                         "content": "Fahrradschule",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 505,
+                        "id": 78,
                         "variant": "body",
-                        "content": "Technik, Balance und Selbstvertrauen — kleine Gruppen, klarer Plan.",
-                        "color": "secondary",
-                        "maxWidth": "360px"
+                        "content": "Technik, Balance und Selbstvertrauen — in kleinen Gruppen, mit klarem Plan.",
+                        "color": "secondary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 506,
-                        "label": "Zum Programm",
+                        "__component": "blocks.link",
+                        "id": 79,
+                        "label": "Programm der Schule",
                         "href": "/de/bike-school",
-                        "variant": "secondary"
+                        "showArrow": true
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 507,
+                  "id": 80,
                   "gap": "md",
                   "align": "start",
-                  "padding": "16px 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 508,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402435/IMG_0028_gzpale.jpg",
-                        "alt": "Geführte Touren",
-                        "minHeight": "280px",
-                        "borderRadius": "0px",
-                        "overflow": "hidden",
-                        "margin": "0 0 8px"
+                        "id": 81,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
+                        "alt": "Geführte Radtour",
+                        "height": "clamp(220px, 26vw, 320px)"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 509,
+                        "id": 82,
+                        "variant": "body",
                         "content": "Geführte Touren",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 510,
+                        "id": 83,
                         "variant": "body",
                         "content": "Lizenzierter Guide, Tempo nach Gruppe — von lokalen Wegen bis zu anspruchsvollen Etappen.",
-                        "color": "secondary",
-                        "maxWidth": "360px"
+                        "color": "secondary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 511,
-                        "label": "Tour buchen",
+                        "__component": "blocks.link",
+                        "id": 84,
+                        "label": "Wohin es geht",
                         "href": "/de/guided-tours",
-                        "variant": "secondary"
+                        "showArrow": true
                       }
                     ]
                   }
@@ -404,69 +604,71 @@
     },
     {
       "__component": "blocks.section",
-      "id": 600,
-      "surface": "primary",
+      "id": 90,
       "padding": "lg",
-      "minHeight": "480px",
-      "justify": "center",
-      "align": "center",
+      "surface": "foreground",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 601,
+            "id": 91,
             "gap": "md",
-            "align": "center",
-            "maxWidth": "480px",
-            "margin": "0 auto",
+            "align": "start",
+            "maxWidth": "68ch",
+            "padding": "clamp(16px, 4vw, 40px) 0",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 602,
+                  "id": 92,
                   "variant": "label",
                   "content": "Besuchen Sie uns",
-                  "color": "foreground",
-                  "textAlign": "center"
+                  "color": "background"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 603,
-                  "content": "Apače 66a",
+                  "id": 93,
+                  "variant": "body",
+                  "content": "Apače 66a, 9253 Apače",
                   "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "background"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 604,
+                  "id": 94,
                   "variant": "lead",
-                  "content": "070 815 379",
-                  "color": "foreground",
-                  "textAlign": "center",
-                  "fontSize": "32px",
-                  "fontWeight": "600"
+                  "content": "Bringen Sie Ihr Rad ohne Anmeldung vorbei oder vereinbaren Sie vorher einen Termin — so wissen Sie, wann es fertig ist.",
+                  "color": "background"
                 },
                 {
-                  "__component": "blocks.text",
-                  "id": 605,
-                  "variant": "caption",
-                  "content": "Probefahrten nach Vereinbarung",
-                  "color": "foreground",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.button",
-                  "id": 606,
-                  "label": "Schreiben Sie uns",
-                  "href": "/de/contact",
-                  "variant": "secondary",
-                  "backgroundColor": "foreground",
-                  "color": "primary",
-                  "border": "none",
-                  "margin": "12px 0 0",
-                  "padding": "18px 40px"
+                  "__component": "blocks.flex",
+                  "id": 95,
+                  "gap": "md",
+                  "wrap": true,
+                  "margin": "8px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.button",
+                        "id": 96,
+                        "label": "Rufen Sie 070 815 379 an",
+                        "href": "tel:+38670815379",
+                        "backgroundColor": "background",
+                        "color": "primary",
+                        "border": "none"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 97,
+                        "label": "Schreiben Sie uns",
+                        "href": "/de/contact",
+                        "variant": "secondary",
+                        "color": "background",
+                        "border": "2px solid var(--color-background)"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -475,47 +677,5 @@
       }
     }
   ],
-  "navigation": {
-    "header": [
-      {
-        "label": "Start",
-        "href": "/de"
-      },
-      {
-        "label": "Partner",
-        "href": "/de/brands"
-      },
-      {
-        "label": "Service",
-        "href": "/de/service"
-      },
-      {
-        "label": "Über uns",
-        "href": "/de/about"
-      },
-      {
-        "label": "Kontakt",
-        "href": "/de/contact"
-      }
-    ],
-    "footer": [
-      {
-        "label": "Partner",
-        "href": "/de/brands"
-      },
-      {
-        "label": "Service",
-        "href": "/de/service"
-      },
-      {
-        "label": "Über uns",
-        "href": "/de/about"
-      },
-      {
-        "label": "Kontakt",
-        "href": "/de/contact"
-      }
-    ]
-  },
   "lang": "de"
 }

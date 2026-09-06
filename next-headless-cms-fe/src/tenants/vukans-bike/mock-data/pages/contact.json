@@ -3,48 +3,48 @@
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "Kontakt — Vukan's Bike Shop",
-    "description": "Naslov: Apače 66a, 9253 Apače. Telefon 070 815 379, e-pošta vukansbike@gmail.com. Odprite v Google Maps.",
-    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775406591/IMG_3164_c1xp3f.heic"
+    "title": "Kontakt — Vukan's Bike",
+    "description": "Vukan's Bike, Apače 66a, 9253 Apače. Telefon 070 815 379, e-pošta vukansbike@gmail.com. Delamo po dogovoru.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1775406591/IMG_3164_c1xp3f.heic"
   },
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "surface": "muted",
+      "id": 14,
       "padding": "lg",
-      "minHeight": "280px",
-      "justify": "center",
-      "align": "center",
+      "surface": "muted",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
+            "id": 13,
             "gap": "md",
-            "align": "center",
-            "maxWidth": "560px",
-            "margin": "0 auto",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
+                  "id": 10,
+                  "variant": "label",
                   "content": "Kontakt",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "56px",
-                  "fontWeight": "800",
-                  "textAlign": "center"
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
+                  "id": 11,
+                  "variant": "body",
+                  "content": "Kje nas najdete",
+                  "bold": true,
+                  "fontSize": "clamp(2.25rem, 5vw, 3.25rem)",
+                  "color": "foreground"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 12,
                   "variant": "lead",
-                  "content": "Obiščite nas v Apačah ali nas pokličite.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "440px"
+                  "content": "Delavnica je v Apačah, delamo po dogovoru — pokličite ali pišite in dogovorimo se za termin.",
+                  "color": "secondary"
                 }
               ]
             }
@@ -54,101 +54,74 @@
     },
     {
       "__component": "blocks.section",
-      "id": 200,
+      "id": 37,
       "padding": "lg",
+      "surface": "background",
       "slots": {
         "default": [
           {
-            "__component": "blocks.stack",
-            "id": 202,
-            "gap": "sm",
-            "align": "center",
-            "maxWidth": "640px",
-            "margin": "0 auto 48px",
-            "slots": {
-              "default": [
-                {
-                  "__component": "blocks.text",
-                  "id": 203,
-                  "content": "Kje smo",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 204,
-                  "variant": "lead",
-                  "content": "Vukan's Bike Shop — servis in trgovina koles vseh vrst v Apačah.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "640px"
-                }
-              ]
-            }
-          },
-          {
             "__component": "blocks.grid",
-            "id": 210,
+            "id": 36,
             "columns": {
               "mobile": 1,
+              "tablet": 1,
               "desktop": 2
             },
             "gap": "lg",
-            "maxWidth": "1100px",
-            "margin": "0 auto",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 220,
-                  "gap": "lg",
+                  "id": 32,
+                  "gap": "md",
+                  "align": "start",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.flex",
-                        "id": 221,
+                        "id": 20,
                         "gap": "md",
                         "align": "start",
+                        "padding": "20px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
                         "slots": {
                           "default": [
                             {
                               "__component": "blocks.icon",
-                              "id": 222,
+                              "id": 15,
                               "name": "map-pin",
-                              "label": "Naslov",
-                              "size": "lg"
+                              "label": "Naslov"
                             },
                             {
                               "__component": "blocks.stack",
-                              "id": 223,
+                              "id": 19,
                               "gap": "sm",
+                              "align": "start",
                               "slots": {
                                 "default": [
                                   {
                                     "__component": "blocks.text",
-                                    "id": 224,
+                                    "id": 16,
+                                    "variant": "body",
                                     "content": "Naslov",
                                     "bold": true,
-                                    "color": "foreground",
-                                    "fontSize": "24px"
+                                    "fontSize": "1.25rem",
+                                    "color": "foreground"
                                   },
                                   {
                                     "__component": "blocks.text",
-                                    "id": 225,
+                                    "id": 17,
                                     "variant": "body",
                                     "content": "Apače 66a, 9253 Apače, Slovenija",
                                     "color": "secondary"
                                   },
                                   {
                                     "__component": "blocks.link",
-                                    "id": 226,
-                                    "label": "Odpri v Google Maps",
+                                    "id": 18,
+                                    "label": "Odprite v Google Zemljevidih",
                                     "href": "https://www.google.com/maps/place/Vukans+bike/@46.696131,15.9088762,19.13z/data=!4m6!3m5!1s0x476f1311eca9b685:0x1751e62b3f51766c!8m2!3d46.6961521!4d15.9091873!16s%2Fg%2F11xdx3n8xg?entry=ttu",
-                                    "variant": "accent",
-                                    "showArrow": true,
-                                    "margin": "4px 0 0"
+                                    "showArrow": true
                                   }
                                 ]
                               }
@@ -158,38 +131,41 @@
                       },
                       {
                         "__component": "blocks.flex",
-                        "id": 230,
+                        "id": 25,
                         "gap": "md",
                         "align": "start",
+                        "padding": "20px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
                         "slots": {
                           "default": [
                             {
                               "__component": "blocks.icon",
-                              "id": 231,
+                              "id": 21,
                               "name": "phone",
-                              "label": "Telefon",
-                              "size": "lg"
+                              "label": "Telefon"
                             },
                             {
                               "__component": "blocks.stack",
-                              "id": 232,
+                              "id": 24,
                               "gap": "sm",
+                              "align": "start",
                               "slots": {
                                 "default": [
                                   {
                                     "__component": "blocks.text",
-                                    "id": 233,
+                                    "id": 22,
+                                    "variant": "body",
                                     "content": "Telefon",
                                     "bold": true,
-                                    "color": "foreground",
-                                    "fontSize": "24px"
+                                    "fontSize": "1.25rem",
+                                    "color": "foreground"
                                   },
                                   {
                                     "__component": "blocks.link",
-                                    "id": 234,
+                                    "id": 23,
                                     "label": "070 815 379",
-                                    "href": "tel:+38670815379",
-                                    "variant": "muted"
+                                    "href": "tel:+38670815379"
                                   }
                                 ]
                               }
@@ -199,38 +175,41 @@
                       },
                       {
                         "__component": "blocks.flex",
-                        "id": 240,
+                        "id": 30,
                         "gap": "md",
                         "align": "start",
+                        "padding": "20px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
                         "slots": {
                           "default": [
                             {
                               "__component": "blocks.icon",
-                              "id": 241,
+                              "id": 26,
                               "name": "mail",
-                              "label": "E-pošta",
-                              "size": "lg"
+                              "label": "E-pošta"
                             },
                             {
                               "__component": "blocks.stack",
-                              "id": 242,
+                              "id": 29,
                               "gap": "sm",
+                              "align": "start",
                               "slots": {
                                 "default": [
                                   {
                                     "__component": "blocks.text",
-                                    "id": 243,
+                                    "id": 27,
+                                    "variant": "body",
                                     "content": "E-pošta",
                                     "bold": true,
-                                    "color": "foreground",
-                                    "fontSize": "24px"
+                                    "fontSize": "1.25rem",
+                                    "color": "foreground"
                                   },
                                   {
                                     "__component": "blocks.link",
-                                    "id": 244,
+                                    "id": 28,
                                     "label": "vukansbike@gmail.com",
-                                    "href": "mailto:vukansbike@gmail.com",
-                                    "variant": "muted"
+                                    "href": "mailto:vukansbike@gmail.com"
                                   }
                                 ]
                               }
@@ -240,41 +219,35 @@
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 250,
+                        "id": 31,
                         "variant": "caption",
-                        "content": "Za servis in ogled nas najprej pokličite ali pišite.",
+                        "content": "Za servis in ogled kolesa se najprej dogovorimo po telefonu ali e-pošti.",
                         "color": "secondary",
-                        "margin": "8px 0 0",
-                        "padding": "20px 0 0",
-                        "borderTop": "1px solid var(--color-border)"
+                        "margin": "8px 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 260,
-                  "gap": "sm",
-                  "align": "center",
+                  "id": 35,
+                  "gap": "md",
+                  "align": "start",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.iframe",
-                        "id": 261,
+                        "id": 33,
                         "src": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2784.074!2d15.9091873!3d46.6961521!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x476f1311eca9b685%3A0x1751e62b3f51766c!2sVukan%27s%20Bike!5e0!3m2!1ssl!2ssi!4v1735689600000!5m2!1ssl!2ssi",
-                        "title": "Lokacija na zemljevidu — Google Maps",
-                        "aspect": "map",
-                        "minHeight": "320px",
-                        "borderRadius": "16px"
+                        "title": "Lokacija Vukan's Bike na zemljevidu"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 262,
-                        "label": "Odpri v Google Maps (cel zaslon)",
+                        "id": 34,
+                        "label": "Odprite zemljevid v novem oknu",
                         "href": "https://www.google.com/maps/place/Vukans+bike/@46.696131,15.9088762,19.13z/data=!4m6!3m5!1s0x476f1311eca9b685:0x1751e62b3f51766c!8m2!3d46.6961521!4d15.9091873!16s%2Fg%2F11xdx3n8xg?entry=ttu",
-                        "variant": "accent",
-                        "showArrow": true,
-                        "margin": "8px 0 0"
+                        "variant": "muted",
+                        "showArrow": true
                       }
                     ]
                   }

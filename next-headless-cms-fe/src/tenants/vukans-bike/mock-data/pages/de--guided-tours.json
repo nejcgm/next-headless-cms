@@ -1,80 +1,55 @@
 {
-  "slug": "/de/guided-tours",
+  "slug": "/guided-tours",
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "Geführte Touren — Vukan's Bike Shop",
-    "description": "Wir organisieren nach Vereinbarung geführte Touren für kleine Gruppen. Strecken passen wir an Niveau, Tempo und Ziele der Gruppe an.",
-    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg"
+    "title": "Geführte Touren — Vukan's Bike",
+    "description": "Geführte Radtouren nach Vereinbarung für kleinere Gruppen. Route, Tempo und Schwierigkeit passen wir der Gruppe an. Rufen Sie 070 815 379 an.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1776622215/1000025520_kspaqn.jpg"
   },
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
-      "overlay": 0.4,
+      "id": 14,
       "padding": "lg",
-      "minHeight": "85vh",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
+      "overlay": 0.5,
+      "minHeight": "clamp(480px, 72vh, 720px)",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
+            "id": 13,
             "gap": "lg",
             "align": "center",
-            "maxWidth": "720px",
-            "margin": "0 auto",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
+                  "id": 10,
+                  "variant": "body",
                   "content": "Geführte Touren",
                   "bold": true,
-                  "color": "foreground",
-                  "fontSize": "64px",
-                  "fontWeight": "800",
+                  "fontSize": "clamp(2.5rem, 6vw, 4rem)",
+                  "color": "background",
                   "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
+                  "id": 11,
                   "variant": "lead",
-                  "content": "Touren organisieren wir nach Vereinbarung. Tempo, Länge und Schwierigkeit passen wir der Gruppe an.",
-                  "color": "foreground",
+                  "content": "Touren planen wir nach Vereinbarung. Tempo, Länge und Schwierigkeit passen wir der Gruppe an.",
+                  "color": "background",
                   "textAlign": "center",
-                  "fontSize": "22px",
-                  "maxWidth": "520px"
+                  "maxWidth": "48ch",
+                  "margin": "0 auto"
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 104,
-                  "justify": "center",
-                  "wrap": true,
-                  "gap": "md",
-                  "margin": "16px 0 0",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.button",
-                        "id": 105,
-                        "label": "Termin anfragen",
-                        "href": "/de/contact",
-                        "padding": "18px 40px"
-                      },
-                      {
-                        "__component": "blocks.button",
-                        "id": 106,
-                        "label": "Ablauf",
-                        "href": "#potek",
-                        "variant": "secondary",
-                        "color": "foreground",
-                        "border": "2px solid var(--color-foreground)",
-                        "backgroundColor": "transparent",
-                        "padding": "18px 40px"
-                      }
-                    ]
-                  }
+                  "__component": "blocks.button",
+                  "id": 12,
+                  "label": "Schreiben Sie uns",
+                  "href": "/de/contact",
+                  "margin": "8px 0 0"
                 }
               ]
             }
@@ -84,44 +59,42 @@
     },
     {
       "__component": "blocks.section",
-      "id": 200,
+      "id": 31,
       "padding": "lg",
       "surface": "muted",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 201,
-            "gap": "sm",
-            "align": "center",
+            "id": 17,
             "margin": "0 0 40px",
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 202,
-                  "content": "Das erwartet Sie",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "id": 15,
+                  "variant": "label",
+                  "content": "Was Sie bekommen",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 203,
+                  "id": 16,
                   "variant": "body",
-                  "content": "Jede Tour wird auf die Gruppe zugeschnitten — mit klarem Plan und sicherem Tempo.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "520px",
-                  "margin": "0 auto"
+                  "content": "Eine Tour, zugeschnitten auf Ihre Gruppe",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
                 }
               ]
             }
           },
           {
             "__component": "blocks.grid",
-            "id": 210,
+            "id": 30,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -132,24 +105,27 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 211,
+                  "id": 20,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 212,
+                        "id": 18,
+                        "variant": "body",
                         "content": "Route nach Maß",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 213,
+                        "id": 19,
                         "variant": "body",
-                        "content": "Vor der Tour stimmen wir Gelände, Länge und Höhenmeter mit Ihren Wünschen und Ihrer Fitness ab.",
+                        "content": "Vor der Tour stimmen wir Gelände, Länge und Höhenmeter auf die Fitness der Gruppe ab.",
                         "color": "secondary"
                       }
                     ]
@@ -157,24 +133,27 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 214,
+                  "id": 23,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 215,
-                        "content": "Führung vor Ort",
+                        "id": 21,
+                        "variant": "body",
+                        "content": "Führung im Gelände",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 216,
+                        "id": 22,
                         "variant": "body",
-                        "content": "Wir leiten Tempo und Linienwahl, damit die Fahrt flüssig, sicher und für alle angenehm ist.",
+                        "content": "Tempo und Linien steuern wir unterwegs, damit die Fahrt flüssig und für alle sicher ist.",
                         "color": "secondary"
                       }
                     ]
@@ -182,24 +161,27 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 217,
+                  "id": 26,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 218,
+                        "id": 24,
+                        "variant": "body",
                         "content": "Kleine Gruppen",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 219,
+                        "id": 25,
                         "variant": "body",
-                        "content": "Am besten arbeiten wir in kleinen Gruppen, damit wir die Erfahrung auf jeden abstimmen können.",
+                        "content": "In einer kleinen Gruppe lässt sich auf jeden Teilnehmer eingehen — auch bei unterschiedlichen Niveaus.",
                         "color": "secondary"
                       }
                     ]
@@ -207,24 +189,27 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 220,
+                  "id": 29,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 221,
-                        "content": "Sicherheit und Transparenz",
+                        "id": 27,
+                        "variant": "body",
+                        "content": "Klare Absprache",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 222,
+                        "id": 28,
                         "variant": "body",
-                        "content": "Vor dem Start gibt es klare Anweisungen; während der Tour sorgen wir für gutes Tempo und Organisation.",
+                        "content": "Vor dem Start wissen Sie, wohin es geht, wie lange es dauert und wo die Pausen sind.",
                         "color": "secondary"
                       }
                     ]
@@ -238,98 +223,75 @@
     },
     {
       "__component": "blocks.gallery",
-      "id": 300,
-      "heading": "Galerie geführte Touren",
-      "subheading": "Aktuell nutzen wir bestehende Fotos; bald ergänzen wir Eindrücke von den Touren.",
-      "defaultImageAlt": "Galerie geführte Touren",
+      "id": 32,
+      "heading": "Von den Touren",
+      "defaultImageAlt": "Impression von einer geführten Tour",
       "showLessLabel": "Weniger anzeigen",
-      "showMorePrefix": "Mehr anzeigen (",
-      "showMoreSuffix": ")",
-      "lightboxAltPrefix": "Galerie",
+      "showMorePrefix": "Weitere ",
+      "showMoreSuffix": " Fotos anzeigen",
+      "lightboxAltPrefix": "Geführte Tour — Foto ",
       "images": [
         {
-          "id": 301,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
-          "alt": "Geführte Tour 1"
-        },
-        {
-          "id": 302,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
-          "alt": "Geführte Tour 2"
-        },
-        {
-          "id": 303,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
-          "alt": "Geführte Tour 3"
+          "alt": "Gruppe auf einer geführten Tour"
         },
         {
-          "id": 304,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
-          "alt": "Geführte Tour 4"
-        },
-        {
-          "id": 305,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
-          "alt": "Geführte Tour 5"
-        },
-        {
-          "id": 306,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480191/IMG_2611_wxpwqs.heic",
-          "alt": "Geführte Tour 6"
-        },
-        {
-          "id": 307,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480188/1000026613_nfxcr7.jpg",
-          "alt": "Geführte Tour 7"
-        },
-        {
-          "id": 308,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480178/1000006042_tivdyq.jpg",
-          "alt": "Geführte Tour 8"
+          "alt": "Anstieg auf Schotterweg"
+        },
+        {
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480168/1000005467_ovxiqg.jpg",
+          "alt": "Pause an einem Aussichtspunkt"
+        },
+        {
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480135/1000004389_mpu6mu.jpg",
+          "alt": "Abfahrt auf einem Waldweg"
+        },
+        {
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480134/0f080a97-cd70-4e54-9868-a6904106ad3d_tlipod.jpg",
+          "alt": "Fahrt auf dem Trail"
         }
       ]
     },
     {
       "__component": "blocks.section",
-      "id": 400,
+      "id": 53,
       "padding": "lg",
-      "surface": "background",
+      "surface": "muted",
       "anchorId": "potek",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 401,
-            "gap": "sm",
-            "align": "center",
+            "id": 35,
             "margin": "0 0 40px",
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 402,
-                  "content": "So organisieren wir die Tour",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "id": 33,
+                  "variant": "label",
+                  "content": "So läuft es ab",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 403,
+                  "id": 34,
                   "variant": "body",
-                  "content": "Einfach und schnell — alles nach Vereinbarung.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "480px",
-                  "margin": "0 auto"
+                  "content": "Von der Anfrage bis zur Tour",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
                 }
               ]
             }
           },
           {
             "__component": "blocks.grid",
-            "id": 410,
+            "id": 52,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -340,38 +302,34 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 411,
+                  "id": 39,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 412,
+                        "id": 36,
                         "variant": "label",
                         "content": "01",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 413,
+                        "id": 37,
+                        "variant": "body",
                         "content": "Anfrage",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 414,
+                        "id": 38,
                         "variant": "body",
-                        "content": "Sie nennen Wunschdatum, Gruppengröße und ungefähre Vorstellung der Tour.",
-                        "color": "secondary"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 415,
-                        "variant": "caption",
-                        "content": "Telefon oder E-Mail · Terminvorschläge",
+                        "content": "Teilen Sie uns Wunschtermin, Gruppengröße und eine grobe Vorstellung von der Tour mit.",
                         "color": "secondary"
                       }
                     ]
@@ -379,38 +337,34 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 416,
+                  "id": 43,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 417,
+                        "id": 40,
                         "variant": "label",
                         "content": "02",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 418,
-                        "content": "Route abstimmen",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 419,
+                        "id": 41,
                         "variant": "body",
-                        "content": "Gemeinsam legen wir Niveau, Länge und Gelände fest (leichte Wege oder technisch anspruchsvoller).",
-                        "color": "secondary"
+                        "content": "Absprache zur Route",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 420,
-                        "variant": "caption",
-                        "content": "Anpassung an die Gruppe · Dauer und Tempo",
+                        "id": 42,
+                        "variant": "body",
+                        "content": "Gemeinsam legen wir Niveau, Länge und Gelände fest — von leichteren Wegen bis zu technischen Passagen.",
                         "color": "secondary"
                       }
                     ]
@@ -418,38 +372,34 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 421,
+                  "id": 47,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 422,
+                        "id": 44,
                         "variant": "label",
                         "content": "03",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 423,
-                        "content": "Führung vor Ort",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 424,
+                        "id": 45,
                         "variant": "body",
-                        "content": "Am Tourtag sorgen wir für klare Führung, Sicherheitshinweise und ein gutes Fahrgefühl.",
-                        "color": "secondary"
+                        "content": "Führung",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 425,
-                        "variant": "caption",
-                        "content": "Sicherheit vor dem Start · Pausen nach Absprache",
+                        "id": 46,
+                        "variant": "body",
+                        "content": "Am Tourtag sorgen wir für Sicherheitshinweise, klare Führung und einen guten Rhythmus.",
                         "color": "secondary"
                       }
                     ]
@@ -457,38 +407,34 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 426,
+                  "id": 51,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 427,
+                        "id": 48,
                         "variant": "label",
                         "content": "04",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 428,
+                        "id": 49,
+                        "variant": "body",
                         "content": "Abschluss",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 429,
+                        "id": 50,
                         "variant": "body",
-                        "content": "Nach der Tour ein kurzes Feedback; auf Wunsch schlagen wir die nächste Strecke vor.",
-                        "color": "secondary"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 430,
-                        "variant": "caption",
-                        "content": "Kurzes Resümee · Vorschlag für den nächsten Termin",
+                        "content": "Pause, bei Bedarf ein Check des Rades und die Absprache fürs nächste Mal.",
                         "color": "secondary"
                       }
                     ]
@@ -502,51 +448,58 @@
     },
     {
       "__component": "blocks.section",
-      "id": 500,
-      "surface": "primary",
+      "id": 60,
       "padding": "lg",
-      "minHeight": "420px",
-      "justify": "center",
-      "align": "center",
+      "surface": "accent",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 501,
+            "id": 59,
             "gap": "md",
-            "align": "center",
-            "maxWidth": "480px",
-            "margin": "0 auto",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 502,
-                  "content": "Vereinbaren Sie Ihre geführte Tour",
+                  "id": 54,
+                  "variant": "body",
+                  "content": "Stellen Sie die Gruppe zusammen, den Rest übernehmen wir",
                   "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "fontSize": "clamp(1.5rem, 2.8vw, 2rem)",
+                  "color": "foreground"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 503,
-                  "variant": "lead",
-                  "content": "Touren organisieren wir nach Vereinbarung und je nach freien Terminen.",
-                  "color": "foreground",
-                  "textAlign": "center"
+                  "id": 55,
+                  "variant": "body",
+                  "content": "Sagen Sie uns, wie viele Sie sind und welches Gelände Sie reizt — wir schlagen Route und Termin vor.",
+                  "color": "foreground"
                 },
                 {
-                  "__component": "blocks.button",
-                  "id": 504,
-                  "label": "Kontakt",
-                  "href": "/de/contact",
-                  "variant": "secondary",
-                  "backgroundColor": "foreground",
-                  "color": "primary",
-                  "border": "none",
-                  "margin": "12px 0 0",
-                  "padding": "18px 40px"
+                  "__component": "blocks.flex",
+                  "id": 58,
+                  "gap": "lg",
+                  "wrap": true,
+                  "margin": "4px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.link",
+                        "id": 56,
+                        "label": "070 815 379",
+                        "href": "tel:+38670815379"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 57,
+                        "label": "vukansbike@gmail.com",
+                        "href": "mailto:vukansbike@gmail.com",
+                        "variant": "muted"
+                      }
+                    ]
+                  }
                 }
               ]
             }

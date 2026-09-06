@@ -3,9 +3,9 @@
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "Merida Road Ride 903-27 — Vukan's Bike Shop",
-    "description": "Merida Road Ride 903-27: road bike with aluminium frame and Shimano Tiagra 3×9. Contact: 070 815 379.",
-    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic"
+    "title": "Merida Road Ride 903-27 — Vukan's Bike",
+    "description": "Merida Road Ride 903-27: a road bike with an aluminium frame and a Shimano Tiagra 3×9 drivetrain. Viewings and test rides by arrangement — 070 815 379.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic"
   },
   "blocks": [
     {
@@ -13,60 +13,22 @@
       "id": 3,
       "labels": {
         "id": 2,
-        "notFoundTitle": "Bike not found",
-        "notFoundBody": "The bike you are looking for is not available.",
-        "notFoundCtaLabel": "Back to home",
-        "notFoundCtaHref": "/en",
+        "notFoundTitle": "This bike is no longer available",
+        "notFoundBody": "This bike is not available. Take a look at what is currently for sale.",
+        "notFoundCtaLabel": "To the shop",
+        "notFoundCtaHref": "/en/shop",
         "breadcrumbHome": "Home",
         "breadcrumbHomeHref": "/en",
-        "breadcrumbBikes": "Bikes for sale",
-        "breadcrumbBikesHref": "/en#kolesa",
+        "breadcrumbBikes": "Shop",
+        "breadcrumbBikesHref": "/en/shop",
         "outOfStock": "Out of stock",
         "descriptionHeading": "Description",
         "specsHeading": "Specifications",
-        "contactTeaser": "Contact us to view, test ride, or buy.",
+        "contactTeaser": "Call to arrange a viewing or a test ride.",
         "contactPhoneLabel": "070 815 379",
         "contactPhoneHref": "tel:+38670815379",
-        "contactCtaLabel": "Contact",
+        "contactCtaLabel": "Send us a message",
         "contactCtaHref": "/en/contact"
-      },
-      "bike": {
-        "id": "prod-3",
-        "name": "Merida Road Ride 903-27",
-        "slug": "merida",
-        "description": "The Merida Road Ride 903-27 is a road bike with an aluminium Road Lite Ride frame and an aluminium fork with a carbon bridge. Shimano Tiagra 3×9 drivetrain (27 speeds) with triple chainset 50-39-30 and 11-25 cassette — suited to hilly stages and flat terrain. Shimano WH-R500 wheels and Vittoria Rubino 23 mm tyres. Ergonomic X-Mission Comp handlebar, often with additional brake levers on the flat section. A reliable choice for training, leisure, and long road rides.",
-        "shortDescription": "Road bike, Shimano Tiagra 3×9, aluminium + carbon fork",
-        "price": 350,
-        "image": "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic",
-        "images": [
-          "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic",
-          "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4485_tll175.heic",
-          "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402582/IMG_4488_gtri5z.heic"
-        ],
-        "category": "Road bikes",
-        "inStock": true,
-        "tags": [
-          "Road bike",
-          "Merida",
-          "Road Ride",
-          "903-27",
-          "Shimano Tiagra",
-          "27 speed"
-        ],
-        "specs": {
-          "Model": "Merida Road Ride 903-27",
-          "Frame": "Aluminium Road Lite Ride (TFS)",
-          "Fork": "Aluminium with carbon bridge",
-          "Drivetrain": "Shimano Tiagra 3×9 (27 speeds)",
-          "Chainset": "Shimano Tiagra 50-39-30",
-          "Rear cassette": "Shimano CS-HG50-9, 11-25",
-          "Brakes": "Shimano Tiagra",
-          "Wheels": "Shimano WH-R500",
-          "Tyres": "Vittoria Rubino 23 mm",
-          "Bar / finishing kit": "X-Mission Comp CEN Road 31.8 mm",
-          "Saddle / post": "X-Mission Line / Speed CEN 31.6 mm",
-          "Weight (approx.)": "Approx. 9.2–9.5 kg (depending on frame size)"
-        }
       }
     }
   ],

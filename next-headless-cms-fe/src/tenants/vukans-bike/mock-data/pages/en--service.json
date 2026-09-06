@@ -4,1366 +4,742 @@
   "seo": {
     "id": 1,
     "title": "Bike service — Vukan's Bike",
-    "description": "Service and repairs for all kinds of bikes. One expert, personal approach. Contact: 070 815 379 or email.",
-    "ogImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&h=630&fit=crop"
+    "description": "Bike service price list in Apače: basic service 39 €, full 70 €, complete MTB from 110 €. City, road, gravel, mountain and e-bikes. 070 815 379.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1775406591/IMG_3164_c1xp3f.heic"
   },
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402138/IMG_4568_xculvx.heic",
-      "overlay": 0.4,
+      "id": 17,
       "padding": "lg",
-      "minHeight": "85vh",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
-            "gap": "lg",
+            "id": 16,
+            "gap": "md",
             "align": "center",
-            "maxWidth": "720px",
-            "margin": "0 auto",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
-                  "content": "Bike service",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "64px",
-                  "fontWeight": "800",
+                  "id": 10,
+                  "variant": "label",
+                  "content": "Service",
+                  "color": "background",
                   "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
+                  "id": 11,
+                  "variant": "body",
+                  "content": "Service for bikes of every kind",
+                  "bold": true,
+                  "fontSize": "clamp(2.25rem, 5vw, 3.25rem)",
+                  "color": "background",
+                  "textAlign": "center"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 12,
                   "variant": "lead",
-                  "content": "Repairs, maintenance, and inspection for urban, road, gravel, mountain, and e-bikes. Personal service — one mechanic who knows your bike.",
-                  "color": "foreground",
+                  "content": "Repairs, service and maintenance for city, road, gravel, mountain and e-bikes. The work is done by one mechanic, who knows the bike from start to finish.",
+                  "color": "background",
                   "textAlign": "center",
-                  "fontSize": "22px",
-                  "maxWidth": "560px"
+                  "maxWidth": "56ch",
+                  "margin": "0 auto"
                 },
                 {
                   "__component": "blocks.flex",
-                  "id": 104,
-                  "justify": "center",
-                  "wrap": true,
+                  "id": 15,
                   "gap": "md",
-                  "margin": "16px 0 0",
+                  "wrap": true,
+                  "margin": "8px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.button",
-                        "id": 105,
-                        "label": "Contact",
-                        "href": "#kontakt",
-                        "padding": "18px 40px"
+                        "id": 13,
+                        "label": "Call 070 815 379",
+                        "href": "tel:+38670815379"
                       },
                       {
                         "__component": "blocks.button",
-                        "id": 106,
-                        "label": "Price list",
+                        "id": 14,
+                        "label": "See the price list",
                         "href": "#cenik",
-                        "variant": "secondary",
-                        "color": "foreground",
-                        "border": "2px solid var(--color-foreground)",
-                        "backgroundColor": "transparent",
-                        "padding": "18px 40px"
+                        "variant": "secondary"
                       }
                     ]
-                  }
+                  },
+                  "justify": "center"
                 }
               ]
             }
           }
         ]
-      }
+      },
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775406591/IMG_3164_c1xp3f.heic",
+      "overlay": 0.5,
+      "minHeight": "clamp(480px, 72vh, 720px)"
     },
     {
       "__component": "blocks.section",
-      "id": 190,
-      "anchorId": "cenik",
+      "id": 83,
       "padding": "lg",
+      "surface": "background",
+      "anchorId": "cenik",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 200,
-            "gap": "sm",
-            "maxWidth": "768px",
-            "margin": "0 auto 40px",
+            "id": 21,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
+            "margin": "0 0 40px",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 201,
-                  "content": "Service prices",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px"
+                  "id": 18,
+                  "variant": "label",
+                  "content": "Price list",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 202,
+                  "id": 19,
                   "variant": "body",
-                  "content": "Prices by agreement; for a firm slot, contact us by email or on 070 815 379.",
+                  "content": "The price is known up front",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 20,
+                  "variant": "lead",
+                  "content": "The cleaning products and lubricants used are included in the price. Spare parts are billed separately; we tell you the price before fitting them.",
                   "color": "secondary"
                 }
               ]
             }
           },
           {
-            "__component": "blocks.stack",
-            "id": 1900,
-            "gap": "md",
-            "maxWidth": "768px",
-            "margin": "0 auto",
+            "__component": "blocks.flex",
+            "id": 27,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.flex",
-                  "id": 214,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.stack",
+                  "id": 25,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 215,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 203,
-                              "content": "€39",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 22,
+                        "variant": "body",
+                        "content": "Basic service",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 216,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 204,
-                              "content": "Basic service",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 205,
-                              "variant": "body",
-                              "content": "Inspection and basic maintenance of mechanical systems.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 206,
-                              "variant": "caption",
-                              "content": "• Function check and fine-tuning of gears and brakes",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 207,
-                              "variant": "caption",
-                              "content": "• Tyre pressure checked and adjusted if needed",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 208,
-                              "variant": "caption",
-                              "content": "• Chain wear measured",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 209,
-                              "variant": "caption",
-                              "content": "• Basic wheel truing",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 210,
-                              "variant": "caption",
-                              "content": "• Chain lubricated (oil or liquid wax)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 211,
-                              "variant": "caption",
-                              "content": "• Key moving points greased",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 212,
-                              "variant": "caption",
-                              "content": "• Headset play adjusted",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 213,
-                              "variant": "caption",
-                              "content": "• Consumables (cleaners and lubes) included",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 23,
+                        "variant": "body",
+                        "content": "An inspection and basic maintenance of the mechanical assemblies.",
+                        "color": "secondary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 217,
-                        "label": "Contact →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 24,
+                        "variant": "caption",
+                        "content": "Gear and brake adjustment · Tyre pressure · Chain wear measurement · Rim truing · Lubrication of the chain and moving points · Headset bearing adjustment · Cleaning products and lubricants included",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 231,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 26,
+                  "variant": "body",
+                  "content": "39 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 34,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 32,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 232,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 218,
-                              "content": "€55",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 28,
+                        "variant": "label",
+                        "content": "E-bike",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 233,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 219,
-                              "variant": "label",
-                              "content": "E-bike",
-                              "color": "primary"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 220,
-                              "content": "Basic e-bike service",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 221,
-                              "variant": "body",
-                              "content": "Same as basic service, plus diagnostics and software updates for Bosch, Shimano, and Giant drives.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 222,
-                              "variant": "caption",
-                              "content": "• Function check and fine-tuning of gears and brakes",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 223,
-                              "variant": "caption",
-                              "content": "• Tyre pressure checked and adjusted if needed",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 224,
-                              "variant": "caption",
-                              "content": "• Chain wear measured",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 225,
-                              "variant": "caption",
-                              "content": "• Basic wheel truing",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 226,
-                              "variant": "caption",
-                              "content": "• Chain lubricated (oil or liquid wax)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 227,
-                              "variant": "caption",
-                              "content": "• Key moving points greased",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 228,
-                              "variant": "caption",
-                              "content": "• Headset play adjusted",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 229,
-                              "variant": "caption",
-                              "content": "• Consumables (cleaners and lubes) included",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 230,
-                              "variant": "caption",
-                              "content": "• Diagnostics, software update, and printed report (Bosch, Shimano, Giant)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 29,
+                        "variant": "body",
+                        "content": "Basic e-bike service",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 234,
-                        "label": "Contact →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 30,
+                        "variant": "body",
+                        "content": "As the basic service, with diagnostics and software support for Bosch, Shimano and Giant drive systems.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 31,
+                        "variant": "caption",
+                        "content": "Everything in the basic service · Diagnostics and software update · Printed report (Bosch, Shimano, Giant)",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 249,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 33,
+                  "variant": "body",
+                  "content": "55 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 40,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 38,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 250,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 235,
-                              "content": "€70",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 35,
+                        "variant": "body",
+                        "content": "Full service",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 251,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 236,
-                              "content": "Standard service",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 237,
-                              "variant": "body",
-                              "content": "More thorough mechanical inspection of drivetrain, brakes, and bearings.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 238,
-                              "variant": "caption",
-                              "content": "• Drivetrain checked and gears precisely adjusted",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 239,
-                              "variant": "caption",
-                              "content": "• Brake system and pads/rims checked; pads replaced if worn",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 240,
-                              "variant": "caption",
-                              "content": "• Tyre pressure checked and adjusted if needed",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 241,
-                              "variant": "caption",
-                              "content": "• Chain wear measured",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 242,
-                              "variant": "caption",
-                              "content": "• Basic wheel truing",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 243,
-                              "variant": "caption",
-                              "content": "• Chain lubricated (oil or liquid wax)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 244,
-                              "variant": "caption",
-                              "content": "• Key moving points greased",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 245,
-                              "variant": "caption",
-                              "content": "• Headset and bottom bracket checked, greased, or replaced if needed",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 246,
-                              "variant": "caption",
-                              "content": "• Cables and housings checked and replaced if needed",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 247,
-                              "variant": "caption",
-                              "content": "• Hubs checked and regreased if needed",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 248,
-                              "variant": "caption",
-                              "content": "• Consumables (cleaners and lubes) included",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 36,
+                        "variant": "body",
+                        "content": "A wider mechanical check covering the brakes, drivetrain and bearings.",
+                        "color": "secondary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 252,
-                        "label": "Contact →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 37,
+                        "variant": "caption",
+                        "content": "Drivetrain and precise gear adjustment · Brake system, with pads replaced when worn · Chain wear measurement · Rim truing · Headset and bottom bracket bearings · Inner and outer cables · Hubs · Cleaning products and lubricants included",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 269,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 39,
+                  "variant": "body",
+                  "content": "70 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 47,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 45,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 270,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 253,
-                              "content": "€80",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 41,
+                        "variant": "label",
+                        "content": "E-bike",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 271,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 254,
-                              "variant": "label",
-                              "content": "E-bike",
-                              "color": "primary"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 255,
-                              "content": "Standard e-bike service",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 256,
-                              "variant": "body",
-                              "content": "Same as standard service, plus diagnostics and software updates for Bosch, Shimano, and Giant drives.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 257,
-                              "variant": "caption",
-                              "content": "• Drivetrain checked and gears precisely adjusted",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 258,
-                              "variant": "caption",
-                              "content": "• Brake system and pads/rims checked; pads replaced if worn",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 259,
-                              "variant": "caption",
-                              "content": "• Tyre pressure checked and adjusted if needed",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 260,
-                              "variant": "caption",
-                              "content": "• Chain wear measured; chain replaced if needed",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 261,
-                              "variant": "caption",
-                              "content": "• Basic wheel truing",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 262,
-                              "variant": "caption",
-                              "content": "• Chain lubricated (oil or liquid wax)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 263,
-                              "variant": "caption",
-                              "content": "• Key moving points greased",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 264,
-                              "variant": "caption",
-                              "content": "• Headset checked, greased, or replaced if needed",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 265,
-                              "variant": "caption",
-                              "content": "• Cables and housings checked and replaced if needed",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 266,
-                              "variant": "caption",
-                              "content": "• Hubs checked and regreased if needed",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 267,
-                              "variant": "caption",
-                              "content": "• Consumables (cleaners and lubes) included",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 268,
-                              "variant": "caption",
-                              "content": "• Diagnostics, software update, and printed report (Bosch, Shimano, Giant)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 42,
+                        "variant": "body",
+                        "content": "Full e-bike service",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 272,
-                        "label": "Contact →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 43,
+                        "variant": "body",
+                        "content": "As the full service, with diagnostics and software support for Bosch, Shimano and Giant drive systems.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 44,
+                        "variant": "caption",
+                        "content": "Everything in the full service · Diagnostics and software update · Printed report (Bosch, Shimano, Giant)",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 280,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 46,
+                  "variant": "body",
+                  "content": "80 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 54,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 52,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 281,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 273,
-                              "content": "€110",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 48,
+                        "variant": "label",
+                        "content": "MTB",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 282,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 274,
-                              "variant": "label",
-                              "content": "MTB",
-                              "color": "primary"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 275,
-                              "content": "Full MTB service (hardtail / front suspension)",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 276,
-                              "variant": "body",
-                              "content": "Standard service plus bleeding hydraulic disc brakes and a quick clean.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 277,
-                              "variant": "caption",
-                              "content": "• Everything included in standard service",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 278,
-                              "variant": "caption",
-                              "content": "• Bleeding front and rear hydraulic disc brakes",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 279,
-                              "variant": "caption",
-                              "content": "• Basic quick clean of the bike",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 49,
+                        "variant": "body",
+                        "content": "Complete mountain bike service",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 283,
-                        "label": "Contact →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 50,
+                        "variant": "body",
+                        "content": "The full service plus the front suspension, bleeding the hydraulic brakes and cleaning.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 51,
+                        "variant": "caption",
+                        "content": "Everything in the full service · Bleeding the front and rear hydraulic brakes · A basic quick clean of the bike",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 291,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 53,
+                  "variant": "body",
+                  "content": "110 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 61,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 59,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 292,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 284,
-                              "content": "€120",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 55,
+                        "variant": "label",
+                        "content": "E-MTB",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 293,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 285,
-                              "variant": "label",
-                              "content": "E-MTB",
-                              "color": "primary"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 286,
-                              "content": "Full e-MTB service (front suspension)",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 287,
-                              "variant": "body",
-                              "content": "Standard e-bike service plus bleeding hydraulic brakes and a quick clean.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 288,
-                              "variant": "caption",
-                              "content": "• Everything included in standard e-bike service",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 289,
-                              "variant": "caption",
-                              "content": "• Bleeding front and rear hydraulic disc brakes",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 290,
-                              "variant": "caption",
-                              "content": "• Basic quick clean of the bike",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 56,
+                        "variant": "body",
+                        "content": "Complete mountain e-bike service",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 294,
-                        "label": "Contact →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 57,
+                        "variant": "body",
+                        "content": "The full e-bike service plus the front suspension, brake bleeding and cleaning.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 58,
+                        "variant": "caption",
+                        "content": "Everything in the full e-bike service · Bleeding the front and rear hydraulic brakes · A basic quick clean of the bike",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 303,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 60,
+                  "variant": "body",
+                  "content": "120 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 68,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 66,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 304,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 295,
-                              "content": "€150",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 62,
+                        "variant": "label",
+                        "content": "MTB, full suspension",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 305,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 296,
-                              "variant": "label",
-                              "content": "MTB full sus",
-                              "color": "primary"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 297,
-                              "content": "Full suspension MTB overhaul",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 298,
-                              "variant": "body",
-                              "content": "Standard service plus brakes, cleaning, and pivot bearing service (bearings billed separately).",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 299,
-                              "variant": "caption",
-                              "content": "• Everything included in standard service",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 300,
-                              "variant": "caption",
-                              "content": "• Bleeding front and rear hydraulic disc brakes",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 301,
-                              "variant": "caption",
-                              "content": "• Basic quick clean of the bike",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 302,
-                              "variant": "caption",
-                              "content": "• Pivot bearings cleaned, inspected, and replaced if needed (bearings charged separately)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 63,
+                        "variant": "body",
+                        "content": "Complete full-suspension bike service",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 306,
-                        "label": "Contact →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 64,
+                        "variant": "body",
+                        "content": "The full service plus the brakes, a wash and a service of the rear suspension linkage bearings.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 65,
+                        "variant": "caption",
+                        "content": "Everything in the full service · Brake bleeding · A basic quick clean · Cleaning and inspection of the rear suspension linkage bearings (bearings billed separately)",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 315,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 67,
+                  "variant": "body",
+                  "content": "150 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 75,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 73,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 316,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 307,
-                              "content": "€170",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 69,
+                        "variant": "label",
+                        "content": "E-MTB, full suspension",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 317,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 308,
-                              "variant": "label",
-                              "content": "E-MTB full sus",
-                              "color": "primary"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 309,
-                              "content": "Full suspension e-MTB overhaul",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 310,
-                              "variant": "body",
-                              "content": "Standard e-bike service plus brakes, cleaning, and pivot bearing service (bearings billed separately).",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 311,
-                              "variant": "caption",
-                              "content": "• Everything included in standard e-bike service",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 312,
-                              "variant": "caption",
-                              "content": "• Bleeding front and rear hydraulic disc brakes",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 313,
-                              "variant": "caption",
-                              "content": "• Basic quick clean of the bike",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 314,
-                              "variant": "caption",
-                              "content": "• Pivot bearings cleaned, inspected, and replaced if needed (bearings charged separately)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 70,
+                        "variant": "body",
+                        "content": "Complete full-suspension e-bike service",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 318,
-                        "label": "Contact →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 71,
+                        "variant": "body",
+                        "content": "The full e-bike service plus the brakes, a wash and a service of the rear suspension linkage bearings.",
+                        "color": "secondary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 72,
+                        "variant": "caption",
+                        "content": "Everything in the full e-bike service · Brake bleeding · A basic quick clean · Cleaning and inspection of the rear suspension linkage bearings (bearings billed separately)",
+                        "color": "secondary"
                       }
                     ]
                   }
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 329,
-                  "direction": "row",
-                  "gap": "md",
+                  "__component": "blocks.text",
+                  "id": 74,
+                  "variant": "body",
+                  "content": "170 €",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.flex",
+            "id": 81,
+            "justify": "between",
+            "align": "start",
+            "gap": "lg",
+            "wrap": true,
+            "padding": "24px 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 79,
+                  "gap": "sm",
                   "align": "start",
-                  "justify": "between",
-                  "wrap": true,
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
+                  "maxWidth": "62ch",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.stack",
-                        "id": 330,
-                        "gap": "sm",
-                        "width": "140px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 319,
-                              "content": "Hourly",
-                              "bold": true,
-                              "color": "primary",
-                              "fontSize": "28px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 320,
-                              "variant": "caption",
-                              "content": "Billed by time spent",
-                              "color": "secondary"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 76,
+                        "variant": "body",
+                        "content": "Assembly of a bike bought online",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.stack",
-                        "id": 331,
-                        "gap": "sm",
-                        "maxWidth": "420px",
-                        "slots": {
-                          "default": [
-                            {
-                              "__component": "blocks.text",
-                              "id": 321,
-                              "content": "Assembly and setup (online purchase)",
-                              "bold": true,
-                              "color": "foreground",
-                              "fontSize": "18px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 322,
-                              "variant": "body",
-                              "content": "Outside core hours: build, adjustments, and packaging disposal.",
-                              "color": "secondary",
-                              "fontSize": "14px",
-                              "margin": "0 0 8px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 323,
-                              "variant": "caption",
-                              "content": "• Bike assembly",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 324,
-                              "variant": "caption",
-                              "content": "• Adjustment of key components (stem, tyres, cables, etc.)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 325,
-                              "variant": "caption",
-                              "content": "• Full baseline setup package",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 326,
-                              "variant": "caption",
-                              "content": "• Accessory fitting",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 327,
-                              "variant": "caption",
-                              "content": "• Proper disposal of packaging (cardboard, plastic, etc.)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            },
-                            {
-                              "__component": "blocks.text",
-                              "id": 328,
-                              "variant": "caption",
-                              "content": "• Basic suspension setup (sag and rebound)",
-                              "color": "foreground",
-                              "fontSize": "14px"
-                            }
-                          ]
-                        }
+                        "__component": "blocks.text",
+                        "id": 77,
+                        "variant": "body",
+                        "content": "Assembly, setup and disposal of the packaging — billed by the hours worked.",
+                        "color": "secondary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 332,
-                        "label": "Contact →",
-                        "href": "#kontakt",
-                        "variant": "secondary",
-                        "padding": "10px 16px",
-                        "fontSize": "14px"
+                        "__component": "blocks.text",
+                        "id": 78,
+                        "variant": "caption",
+                        "content": "Bike assembly · Setup of the key components · The full package of basic adjustments · Fitting additional accessories · Disposal of the packaging",
+                        "color": "secondary"
                       }
                     ]
                   }
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 80,
+                  "variant": "body",
+                  "content": "By the hour",
+                  "bold": true,
+                  "fontSize": "clamp(1.25rem, 2.2vw, 1.75rem)",
+                  "color": "text-primary"
                 }
               ]
             }
           },
           {
             "__component": "blocks.text",
-            "id": 333,
+            "id": 82,
             "variant": "caption",
-            "content": "Parts (e.g. pivot bearings, brake pads) and extra repairs are quoted separately. We always agree before starting work.",
+            "content": "The prices apply to the standard scope of work. If something more turns up during the service, we call you before we carry on.",
             "color": "secondary",
-            "maxWidth": "768px",
-            "margin": "24px auto 0"
-          },
-          {
-            "__component": "blocks.stack",
-            "id": 334,
-            "align": "center",
-            "margin": "32px auto 0",
-            "slots": {
-              "default": [
-                {
-                  "__component": "blocks.link",
-                  "id": 335,
-                  "label": "Book a service slot by email or phone",
-                  "href": "#kontakt",
-                  "variant": "accent",
-                  "showArrow": true
-                }
-              ]
-            }
+            "margin": "28px 0 0",
+            "maxWidth": "68ch"
           }
         ]
       }
     },
     {
       "__component": "blocks.section",
-      "id": 300,
+      "id": 104,
       "padding": "lg",
       "surface": "muted",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 301,
-            "gap": "sm",
-            "align": "center",
+            "id": 86,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "margin": "0 0 40px",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 302,
-                  "content": "How service works",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "id": 84,
+                  "variant": "label",
+                  "content": "How it works",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 303,
+                  "id": 85,
                   "variant": "body",
-                  "content": "Simple: message or call, and we arrange everything.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "480px",
-                  "margin": "0 auto"
+                  "content": "From the call to collection",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
                 }
               ]
             }
           },
           {
             "__component": "blocks.grid",
-            "id": 310,
+            "id": 103,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -1374,38 +750,34 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 311,
+                  "id": 90,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 312,
+                        "id": 87,
                         "variant": "label",
                         "content": "01",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 313,
-                        "content": "Contact",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 314,
+                        "id": 88,
                         "variant": "body",
-                        "content": "Email or call 070 815 379. Describe what is wrong with the bike and we arrange drop-off.",
-                        "color": "secondary"
+                        "content": "Call or write",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 315,
-                        "variant": "caption",
-                        "content": "Email or phone · Drop-off appointment",
+                        "id": 89,
+                        "variant": "body",
+                        "content": "Tell us what is wrong with the bike. We arrange a slot to drop it off — we do not keep a fixed timetable.",
                         "color": "secondary"
                       }
                     ]
@@ -1413,38 +785,34 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 316,
+                  "id": 94,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 317,
+                        "id": 91,
                         "variant": "label",
                         "content": "02",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 318,
-                        "content": "Drop off",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 319,
+                        "id": 92,
                         "variant": "body",
-                        "content": "Bring the bike to the workshop. We give it a quick look and tell you what is needed and at what cost.",
-                        "color": "secondary"
+                        "content": "Dropping off the bike",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 320,
-                        "variant": "caption",
-                        "content": "Quick check · Quote and agreement",
+                        "id": 93,
+                        "variant": "body",
+                        "content": "We take a quick look at the bike and tell you what will need doing and at what price.",
                         "color": "secondary"
                       }
                     ]
@@ -1452,38 +820,34 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 321,
+                  "id": 98,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 322,
+                        "id": 95,
                         "variant": "label",
                         "content": "03",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 323,
+                        "id": 96,
+                        "variant": "body",
                         "content": "Service",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 324,
+                        "id": 97,
                         "variant": "body",
-                        "content": "A mechanic does the work. When the bike is ready, we let you know.",
-                        "color": "secondary"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 325,
-                        "variant": "caption",
-                        "content": "Personal approach · Notification when done",
+                        "content": "The work is done by one mechanic. When the bike is ready, we call you.",
                         "color": "secondary"
                       }
                     ]
@@ -1491,38 +855,34 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 326,
+                  "id": 102,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 327,
+                        "id": 99,
                         "variant": "label",
                         "content": "04",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 328,
-                        "content": "Pickup",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 329,
+                        "id": 100,
                         "variant": "body",
-                        "content": "Collect the bike and check that everything feels right. Payment on pickup.",
-                        "color": "secondary"
+                        "content": "Collection",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 330,
-                        "variant": "caption",
-                        "content": "Payment on pickup · Short test ride if you like",
+                        "id": 101,
+                        "variant": "body",
+                        "content": "We check together that everything is right. Payment on collection, and a short test ride if needed.",
                         "color": "secondary"
                       }
                     ]
@@ -1536,134 +896,75 @@
     },
     {
       "__component": "blocks.section",
-      "id": 400,
+      "id": 114,
       "padding": "lg",
+      "surface": "background",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 401,
-            "gap": "lg",
-            "maxWidth": "768px",
-            "margin": "0 auto",
+            "id": 107,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
+            "margin": "0 0 32px",
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.stack",
-                  "id": 402,
-                  "gap": "sm",
-                  "align": "center",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.text",
-                        "id": 403,
-                        "content": "Frequently asked questions",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "36px",
-                        "textAlign": "center"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 404,
-                        "variant": "lead",
-                        "content": "Answers about our service",
-                        "color": "secondary",
-                        "textAlign": "center"
-                      }
-                    ]
-                  }
+                  "__component": "blocks.text",
+                  "id": 105,
+                  "variant": "label",
+                  "content": "Frequently asked questions",
+                  "color": "text-primary"
                 },
                 {
-                  "__component": "blocks.stack",
-                  "id": 409,
-                  "gap": "sm",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.accordion",
-                        "id": 401,
-                        "title": "How do I book a service?",
-                        "content": "Call 070 815 379 or send an email. Describe the issue or the service you want, and we arrange bike drop-off. There are no fixed opening hours — appointments are always by agreement.",
-                        "defaultOpen": true,
-                        "backgroundColor": "muted",
-                        "border": "1px solid var(--color-border)",
-                        "borderRadius": "var(--radius)",
-                        "padding": "4px 8px"
-                      },
-                      {
-                        "__component": "blocks.accordion",
-                        "id": 402,
-                        "title": "Which bikes do you service?",
-                        "content": "All of them: urban, road, gravel, mountain, and e-bikes (mechanical side). We have the most experience with MTB and trail, but we treat every type with the same care.",
-                        "backgroundColor": "muted",
-                        "border": "1px solid var(--color-border)",
-                        "borderRadius": "var(--radius)",
-                        "padding": "4px 8px"
-                      },
-                      {
-                        "__component": "blocks.accordion",
-                        "id": 403,
-                        "title": "How soon will the bike be ready?",
-                        "content": "It depends on the scope and how busy we are. At drop-off we give an approximate date. Small urgent repairs are often quicker.",
-                        "backgroundColor": "muted",
-                        "border": "1px solid var(--color-border)",
-                        "borderRadius": "var(--radius)",
-                        "padding": "4px 8px"
-                      },
-                      {
-                        "__component": "blocks.accordion",
-                        "id": 404,
-                        "title": "Do I need a deposit?",
-                        "content": "No. Payment on pickup. For more expensive parts we confirm with you first.",
-                        "backgroundColor": "muted",
-                        "border": "1px solid var(--color-border)",
-                        "borderRadius": "var(--radius)",
-                        "padding": "4px 8px"
-                      },
-                      {
-                        "__component": "blocks.accordion",
-                        "id": 405,
-                        "title": "Do you service e-bikes?",
-                        "content": "Yes for the mechanical side. For batteries and motors we usually recommend the manufacturer service, except for straightforward jobs.",
-                        "backgroundColor": "muted",
-                        "border": "1px solid var(--color-border)",
-                        "borderRadius": "var(--radius)",
-                        "padding": "4px 8px"
-                      }
-                    ]
-                  }
+                  "__component": "blocks.text",
+                  "id": 106,
+                  "variant": "body",
+                  "content": "What you ask us most",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.stack",
+            "id": 113,
+            "gap": "sm",
+            "maxWidth": "80ch",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.accordion",
+                  "id": 108,
+                  "title": "How do I book a service?",
+                  "content": "Call 070 815 379 or send an email. Describe the problem or the service you want and we will arrange for you to drop the bike off. We do not keep fixed working hours — the slot is always arranged."
                 },
                 {
-                  "__component": "blocks.stack",
-                  "id": 420,
-                  "gap": "sm",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "var(--radius)",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.text",
-                        "id": 421,
-                        "variant": "body",
-                        "content": "Have a question?",
-                        "color": "secondary",
-                        "textAlign": "center"
-                      },
-                      {
-                        "__component": "blocks.link",
-                        "id": 422,
-                        "label": "Call or write",
-                        "href": "#kontakt",
-                        "variant": "accent",
-                        "showArrow": true
-                      }
-                    ]
-                  }
+                  "__component": "blocks.accordion",
+                  "id": 109,
+                  "title": "Which bikes do you service?",
+                  "content": "All of them: city, road, gravel, mountain and e-bikes. We have the most experience with mountain bikes, but we treat every other type just as carefully."
+                },
+                {
+                  "__component": "blocks.accordion",
+                  "id": 110,
+                  "title": "How quickly will the bike be ready?",
+                  "content": "It depends on the scope of the work and how busy we are at the time. When you drop the bike off we tell you roughly how long it will take. Smaller urgent repairs we can often turn around faster."
+                },
+                {
+                  "__component": "blocks.accordion",
+                  "id": 111,
+                  "title": "Do I have to pay in advance?",
+                  "content": "No. Payment is on collection of the bike. If more expensive spare parts are needed, we tell you the price in advance."
+                },
+                {
+                  "__component": "blocks.accordion",
+                  "id": 112,
+                  "title": "Do you service e-bikes too?",
+                  "content": "The mechanical side and drive-system diagnostics, yes. For batteries and motors we recommend the manufacturer's official service, except for the simpler jobs."
                 }
               ]
             }
@@ -1673,70 +974,72 @@
     },
     {
       "__component": "blocks.section",
-      "id": 500,
-      "surface": "primary",
-      "padding": "lg",
-      "minHeight": "420px",
-      "justify": "center",
-      "align": "center",
+      "id": 122,
+      "padding": "sm",
+      "surface": "muted",
       "anchorId": "kontakt",
       "slots": {
         "default": [
           {
-            "__component": "blocks.stack",
-            "id": 501,
-            "gap": "md",
+            "__component": "blocks.flex",
+            "id": 121,
+            "justify": "between",
             "align": "center",
-            "maxWidth": "480px",
-            "margin": "0 auto",
+            "gap": "md",
+            "wrap": true,
+            "padding": "28px 0 0",
+            "borderTop": "1px solid var(--color-border)",
+            "width": "100%",
             "slots": {
               "default": [
                 {
-                  "__component": "blocks.text",
-                  "id": 502,
-                  "content": "Service contact",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "__component": "blocks.stack",
+                  "id": 117,
+                  "gap": "sm",
+                  "align": "start",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 115,
+                        "variant": "body",
+                        "content": "Call or write to arrange a slot.",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 116,
+                        "variant": "caption",
+                        "content": "Apače 66a, 9253 Apače · we work by arrangement",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
                 },
                 {
-                  "__component": "blocks.text",
-                  "id": 503,
-                  "variant": "lead",
-                  "content": "For a service booking or questions, reach us by email or phone. We work by appointment, without fixed opening hours.",
-                  "color": "foreground",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 504,
-                  "variant": "lead",
-                  "content": "070 815 379",
-                  "color": "foreground",
-                  "textAlign": "center",
-                  "fontSize": "28px",
-                  "fontWeight": "600"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 505,
-                  "variant": "caption",
-                  "content": "vukansbike@gmail.com",
-                  "color": "foreground",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.button",
-                  "id": 506,
-                  "label": "Send email",
-                  "href": "mailto:vukansbike@gmail.com",
-                  "variant": "secondary",
-                  "backgroundColor": "foreground",
-                  "color": "primary",
-                  "border": "none",
-                  "margin": "12px 0 0",
-                  "padding": "18px 40px"
+                  "__component": "blocks.flex",
+                  "id": 120,
+                  "gap": "lg",
+                  "wrap": true,
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.link",
+                        "id": 118,
+                        "label": "070 815 379",
+                        "href": "tel:+38670815379"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 119,
+                        "label": "vukansbike@gmail.com",
+                        "href": "mailto:vukansbike@gmail.com",
+                        "variant": "muted"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -1745,35 +1048,5 @@
       }
     }
   ],
-  "navigation": {
-    "header": [
-      {
-        "label": "Home",
-        "href": "/en"
-      },
-      {
-        "label": "Service",
-        "href": "/en/service"
-      },
-      {
-        "label": "Contact",
-        "href": "/en/contact"
-      }
-    ],
-    "footer": [
-      {
-        "label": "About",
-        "href": "/en/about"
-      },
-      {
-        "label": "Privacy",
-        "href": "/en/privacy"
-      },
-      {
-        "label": "Terms",
-        "href": "/en/terms"
-      }
-    ]
-  },
   "lang": "en"
 }

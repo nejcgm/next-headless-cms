@@ -1,12 +1,8 @@
 import type { TenantConfig } from "@core/types/tenant";
 
-const VUKANS_BIKE_LOGO =
-  "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405173/1000004333_bged3h.jpg";
-
 const config: TenantConfig = {
   id: "vukans-bike",
   name: "Vukan's Bike",
-  logoUrl: VUKANS_BIKE_LOGO,
   canonicalOrigin: "https://vukansbike.com",
   defaultMetaDescription:
     "Servis in prodaja koles vseh vrst v Apačah in Sloveniji: mestna, cestna, gravel, električna in gorska kolesa. Kolesarska šola, vodene ture, MTB.",
@@ -27,20 +23,21 @@ const config: TenantConfig = {
   },
   theme: {
     colors: {
-      primary: "#BD0C17",
-      secondary: "#71717a",
-      accent: "#fbbf24",
-      background: "#0f0f11", //"#00293F"
-      foreground: "#fafafa",
-      muted: "#18181b",
-      border: "#27272a",
-      textPrimary: "#e5484d",
+      primary: "#B4121B",
+      secondary: "#4B5563",
+      accent: "#EFE9DF",
+      background: "#FFFFFF",
+      foreground: "#1C1917",
+      muted: "#F5F5F4",
+      border: "#E7E5E4",
+      textPrimary: "#8A1015",
     },
     fonts: {
-      heading: "var(--font-montserrat)",
-      body: "var(--font-inter)",
+      heading:
+        "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+      body: "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
     },
-    borderRadius: "0.375rem",
+    borderRadius: "0rem",
   },
   dataAdapter: "mock",
   templates: {

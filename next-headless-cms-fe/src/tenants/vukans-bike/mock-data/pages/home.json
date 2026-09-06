@@ -3,9 +3,9 @@
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "Vukan's Bike — Kolesa in servis",
-    "description": "Servis in prodaja koles vseh vrst v Sloveniji: mestna, cestna, gravel, električna in gorska. Dolgoletna izkušnja tudi pri MTB in trailu. Kontakt: 070 815 379.",
-    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405173/1000004333_bged3h.jpg",
+    "title": "Vukan's Bike — servis in prodaja koles v Apačah",
+    "description": "Kolesarska delavnica v Apačah: servis mestnih, cestnih, gravel, e- in gorskih koles. Kolesarska šola in vodene ture. Pokličite 070 815 379.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1775405173/1000004333_bged3h.jpg",
     "jsonLd": {
       "@context": "https://schema.org",
       "@type": "BicycleStore",
@@ -36,137 +36,285 @@
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402438/IMG_0035_fsvhgt.jpg",
-      "overlay": 0.32,
+      "id": 10,
       "padding": "lg",
-      "minHeight": "100vh",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402438/IMG_0035_fsvhgt.jpg",
+      "overlay": 0.5,
+      "minHeight": "clamp(520px, 82vh, 820px)",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
+            "id": 11,
             "gap": "lg",
             "align": "center",
-            "maxWidth": "900px",
-            "margin": "0 auto",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
+                  "id": 12,
+                  "variant": "body",
                   "content": "Vukan's Bike",
                   "bold": true,
-                  "color": "foreground",
-                  "fontSize": "72px",
-                  "fontWeight": "800",
+                  "fontSize": "clamp(2.5rem, 6vw, 4rem)",
+                  "color": "background",
                   "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
+                  "id": 13,
                   "variant": "lead",
-                  "content": "Apače.",
-                  "color": "foreground",
+                  "content": "Kolesarska delavnica v Apačah. Servis in prodaja koles — od mestnih do gorskih.",
+                  "color": "background",
                   "textAlign": "center",
-                  "fontSize": "28px"
+                  "maxWidth": "48ch",
+                  "margin": "0 auto"
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 104,
-                  "justify": "center",
-                  "wrap": true,
-                  "gap": "md",
-                  "margin": "16px 0 0",
+                  "__component": "blocks.button",
+                  "id": 14,
+                  "label": "Pokličite 070 815 379",
+                  "href": "tel:+38670815379",
+                  "margin": "8px 0 0"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "__component": "blocks.section",
+      "id": 20,
+      "padding": "lg",
+      "surface": "background",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 21,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 22,
+                  "variant": "label",
+                  "content": "Delavnica",
+                  "color": "text-primary"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 23,
+                  "variant": "body",
+                  "content": "Najprej v roke. Potem na trail.",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 24,
+                  "variant": "body",
+                  "content": "Majhna delavnica v Apačah, kjer vsako kolo pride pod roke istega serviserja — mestno, cestno, gravel, e-kolo ali gorsko. Največ kilometrov imamo na gorskih poteh, enako skrbnost pa dobi tudi kolo, s katerim se vozite v službo.",
+                  "color": "foreground"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "__component": "blocks.section",
+      "id": 30,
+      "padding": "lg",
+      "surface": "muted",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.stack",
+            "id": 31,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
+            "margin": "0 0 40px",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.text",
+                  "id": 32,
+                  "variant": "label",
+                  "content": "Servis",
+                  "color": "text-primary"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 33,
+                  "variant": "body",
+                  "content": "Cenik brez presenečenj",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 34,
+                  "variant": "lead",
+                  "content": "Cena je znana vnaprej, poraba čistil in maziv je vključena.",
+                  "color": "secondary"
+                }
+              ]
+            }
+          },
+          {
+            "__component": "blocks.grid",
+            "id": 35,
+            "columns": {
+              "mobile": 1,
+              "tablet": 3,
+              "desktop": 3
+            },
+            "gap": "lg",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.stack",
+                  "id": 36,
+                  "gap": "sm",
+                  "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.button",
-                        "id": 105,
-                        "label": "Kolesa",
-                        "href": "#kolesa",
-                        "padding": "18px 40px"
+                        "__component": "blocks.text",
+                        "id": 37,
+                        "variant": "body",
+                        "content": "39 €",
+                        "bold": true,
+                        "fontSize": "clamp(1.5rem, 2.5vw, 2rem)",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 106,
-                        "label": "Servis",
-                        "href": "/service",
-                        "variant": "secondary",
-                        "color": "foreground",
-                        "border": "2px solid var(--color-foreground)",
-                        "backgroundColor": "transparent",
-                        "padding": "18px 40px"
+                        "__component": "blocks.text",
+                        "id": 38,
+                        "variant": "body",
+                        "content": "Osnovni servis",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 39,
+                        "variant": "body",
+                        "content": "Pregled in nastavitev prestav ter zavor, meritev obrabe verige, mazanje.",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 40,
+                  "gap": "sm",
+                  "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 41,
+                        "variant": "body",
+                        "content": "70 €",
+                        "bold": true,
+                        "fontSize": "clamp(1.5rem, 2.5vw, 2rem)",
+                        "color": "text-primary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 42,
+                        "variant": "body",
+                        "content": "Redni servis",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 43,
+                        "variant": "body",
+                        "content": "Širši mehanski pregled z zavorami, pogonom, ležaji in bovdni.",
+                        "color": "secondary"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 44,
+                  "gap": "sm",
+                  "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.text",
+                        "id": 45,
+                        "variant": "body",
+                        "content": "110 €",
+                        "bold": true,
+                        "fontSize": "clamp(1.5rem, 2.5vw, 2rem)",
+                        "color": "text-primary"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 46,
+                        "variant": "body",
+                        "content": "Generalni servis MTB",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 47,
+                        "variant": "body",
+                        "content": "Redni servis z odzračevanjem hidravličnih zavor in čiščenjem kolesa.",
+                        "color": "secondary"
                       }
                     ]
                   }
                 }
               ]
             }
-          }
-        ]
-      }
-    },
-    {
-      "__component": "blocks.section",
-      "id": 200,
-      "surface": "muted",
-      "padding": "lg",
-      "slots": {
-        "default": [
+          },
           {
-            "__component": "blocks.stack",
-            "id": 201,
-            "gap": "md",
-            "align": "center",
-            "maxWidth": "640px",
-            "margin": "0 auto",
-            "slots": {
-              "default": [
-                {
-                  "__component": "blocks.text",
-                  "id": 202,
-                  "variant": "label",
-                  "content": "Delavnica",
-                  "color": "primary",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 203,
-                  "content": "Najprej v roke. Potem na trail.",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center",
-                  "maxWidth": "520px"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 204,
-                  "variant": "body",
-                  "content": "Majhna delavnica za vse vrste koles — mestna, cestna, gravel, e-kolesa in gorska. En serviser, ki pozna vaše kolo po imenu.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "480px",
-                  "margin": "0 auto"
-                }
-              ]
-            }
+            "__component": "blocks.link",
+            "id": 48,
+            "label": "Celoten cenik servisa",
+            "href": "/service",
+            "showArrow": true,
+            "margin": "36px 0 0"
           }
         ]
       }
     },
     {
       "__component": "blocks.section",
-      "id": 300,
+      "id": 50,
       "padding": "lg",
       "surface": "background",
       "slots": {
         "default": [
           {
             "__component": "blocks.grid",
-            "id": 301,
+            "id": 51,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -177,61 +325,141 @@
               "default": [
                 {
                   "__component": "blocks.image",
-                  "id": 302,
-                  "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
-                  "alt": "Servisna delavnica Vukan's Bike",
-                  "minHeight": "520px",
-                  "borderRadius": "0px",
-                  "overflow": "hidden"
+                  "id": 52,
+                  "src": "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic",
+                  "alt": "Merida Road Ride 903-27",
+                  "height": "clamp(320px, 45vw, 560px)"
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 303,
+                  "id": 53,
                   "gap": "md",
                   "align": "start",
-                  "padding": "48px 8px",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 304,
+                        "id": 54,
                         "variant": "label",
-                        "content": "Servis",
-                        "color": "primary"
+                        "content": "V prodaji",
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 305,
-                        "content": "Natančno. Brez hitenja.",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "36px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 306,
+                        "id": 55,
                         "variant": "body",
-                        "content": "Od zavor in prestav do celovitega pregleda. Največ kilometrov imamo na MTB in trailu — isto skrbnost damo tudi mestnemu kolesu.",
-                        "color": "secondary",
-                        "maxWidth": "400px"
+                        "content": "Merida Road Ride 903-27",
+                        "bold": true,
+                        "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 307,
-                        "variant": "caption",
-                        "content": "070 815 379",
-                        "color": "foreground",
-                        "fontSize": "20px",
-                        "fontWeight": "600",
+                        "id": 56,
+                        "variant": "body",
+                        "content": "Cestno kolo z aluminijastim okvirjem in vilico s karbonskim mostom. Pogon Shimano Tiagra 3×9 — za vzpone in ravnine.",
+                        "color": "secondary",
+                        "maxWidth": "44ch"
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 57,
+                        "justify": "between",
+                        "align": "start",
+                        "gap": "md",
+                        "padding": "12px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 58,
+                              "variant": "caption",
+                              "content": "Okvir",
+                              "color": "secondary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 59,
+                              "variant": "caption",
+                              "content": "Aluminij Road Lite Ride (TFS)",
+                              "color": "foreground"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 60,
+                        "justify": "between",
+                        "align": "start",
+                        "gap": "md",
+                        "padding": "12px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 61,
+                              "variant": "caption",
+                              "content": "Menjalnik",
+                              "color": "secondary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 62,
+                              "variant": "caption",
+                              "content": "Shimano Tiagra 3×9 (27 prestav)",
+                              "color": "foreground"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 63,
+                        "justify": "between",
+                        "align": "start",
+                        "gap": "md",
+                        "padding": "12px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 64,
+                              "variant": "caption",
+                              "content": "Teža",
+                              "color": "secondary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 65,
+                              "variant": "caption",
+                              "content": "okoli 9,2–9,5 kg",
+                              "color": "foreground"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 66,
+                        "variant": "body",
+                        "content": "350 €",
+                        "bold": true,
+                        "fontSize": "clamp(1.5rem, 2.5vw, 2rem)",
+                        "color": "text-primary",
                         "margin": "8px 0 0"
                       },
                       {
                         "__component": "blocks.button",
-                        "id": 308,
-                        "label": "Rezerviraj termin",
-                        "href": "/service",
-                        "variant": "secondary",
-                        "margin": "8px 0 0"
+                        "id": 67,
+                        "label": "Podrobnosti o kolesu",
+                        "href": "/bikes/merida"
                       }
                     ]
                   }
@@ -244,62 +472,42 @@
     },
     {
       "__component": "blocks.section",
-      "id": 400,
+      "id": 70,
       "padding": "lg",
-      "surface": "muted",
+      "surface": "accent",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 401,
-            "gap": "sm",
-            "align": "center",
-            "margin": "0 0 32px",
+            "id": 71,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
+            "margin": "0 0 40px",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 402,
+                  "id": 72,
                   "variant": "label",
-                  "content": "Prodaja",
-                  "color": "primary",
-                  "textAlign": "center"
+                  "content": "Šola in ture",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 403,
-                  "content": "Kolesa, pripravljena na vožnjo",
+                  "id": 73,
+                  "variant": "body",
+                  "content": "Vozimo tudi skupaj",
                   "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
                 }
               ]
             }
-          }
-        ]
-      }
-    },
-    {
-      "__component": "blocks.product-list",
-      "id": 13,
-      "heading": "",
-      "subheading": "",
-      "outOfStockLabel": "Ni na zalogi",
-      "limit": 3,
-      "layout": "grid",
-      "anchorId": "kolesa"
-    },
-    {
-      "__component": "blocks.section",
-      "id": 500,
-      "padding": "lg",
-      "surface": "background",
-      "slots": {
-        "default": [
+          },
           {
             "__component": "blocks.grid",
-            "id": 501,
+            "id": 74,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -310,88 +518,80 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 502,
+                  "id": 75,
                   "gap": "md",
                   "align": "start",
-                  "padding": "16px 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 503,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
-                        "alt": "Kolesarska šola",
-                        "minHeight": "280px",
-                        "borderRadius": "0px",
-                        "overflow": "hidden",
-                        "margin": "0 0 8px"
+                        "id": 76,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
+                        "alt": "Kolesarska šola na poligonu",
+                        "height": "clamp(220px, 26vw, 320px)"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 504,
+                        "id": 77,
+                        "variant": "body",
                         "content": "Kolesarska šola",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 505,
+                        "id": 78,
                         "variant": "body",
                         "content": "Tehnika, ravnotežje in samozavest — v majhnih skupinah, z jasnim načrtom.",
-                        "color": "secondary",
-                        "maxWidth": "360px"
+                        "color": "secondary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 506,
+                        "__component": "blocks.link",
+                        "id": 79,
                         "label": "Program šole",
                         "href": "/bike-school",
-                        "variant": "secondary"
+                        "showArrow": true
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 507,
+                  "id": 80,
                   "gap": "md",
                   "align": "start",
-                  "padding": "16px 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 508,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402435/IMG_0028_gzpale.jpg",
-                        "alt": "Vodene ture",
-                        "minHeight": "280px",
-                        "borderRadius": "0px",
-                        "overflow": "hidden",
-                        "margin": "0 0 8px"
+                        "id": 81,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
+                        "alt": "Vodena kolesarska tura",
+                        "height": "clamp(220px, 26vw, 320px)"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 509,
+                        "id": 82,
+                        "variant": "body",
                         "content": "Vodene ture",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 510,
+                        "id": 83,
                         "variant": "body",
                         "content": "Licenciran vodič, tempo po skupini — od lokalnih poti do zahtevnejših etap.",
-                        "color": "secondary",
-                        "maxWidth": "360px"
+                        "color": "secondary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 511,
-                        "label": "Rezerviraj turo",
+                        "__component": "blocks.link",
+                        "id": 84,
+                        "label": "Kam se pelje",
                         "href": "/guided-tours",
-                        "variant": "secondary"
+                        "showArrow": true
                       }
                     ]
                   }
@@ -404,69 +604,71 @@
     },
     {
       "__component": "blocks.section",
-      "id": 600,
-      "surface": "primary",
+      "id": 90,
       "padding": "lg",
-      "minHeight": "480px",
-      "justify": "center",
-      "align": "center",
+      "surface": "foreground",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 601,
+            "id": 91,
             "gap": "md",
-            "align": "center",
-            "maxWidth": "480px",
-            "margin": "0 auto",
+            "align": "start",
+            "maxWidth": "68ch",
+            "padding": "clamp(16px, 4vw, 40px) 0",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 602,
+                  "id": 92,
                   "variant": "label",
                   "content": "Obiščite nas",
-                  "color": "foreground",
-                  "textAlign": "center"
+                  "color": "background"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 603,
-                  "content": "Apače 66a",
+                  "id": 93,
+                  "variant": "body",
+                  "content": "Apače 66a, 9253 Apače",
                   "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "background"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 604,
+                  "id": 94,
                   "variant": "lead",
-                  "content": "070 815 379",
-                  "color": "foreground",
-                  "textAlign": "center",
-                  "fontSize": "32px",
-                  "fontWeight": "600"
+                  "content": "Pripeljite kolo brez najave ali se prej dogovorite za termin — tako veste, kdaj bo gotovo.",
+                  "color": "background"
                 },
                 {
-                  "__component": "blocks.text",
-                  "id": 605,
-                  "variant": "caption",
-                  "content": "Testne vožnje po dogovoru",
-                  "color": "foreground",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.button",
-                  "id": 606,
-                  "label": "Pišite nam",
-                  "href": "/contact",
-                  "variant": "secondary",
-                  "backgroundColor": "foreground",
-                  "color": "primary",
-                  "border": "none",
-                  "margin": "12px 0 0",
-                  "padding": "18px 40px"
+                  "__component": "blocks.flex",
+                  "id": 95,
+                  "gap": "md",
+                  "wrap": true,
+                  "margin": "8px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.button",
+                        "id": 96,
+                        "label": "Pokličite 070 815 379",
+                        "href": "tel:+38670815379",
+                        "backgroundColor": "background",
+                        "color": "primary",
+                        "border": "none"
+                      },
+                      {
+                        "__component": "blocks.button",
+                        "id": 97,
+                        "label": "Pišite nam",
+                        "href": "/contact",
+                        "variant": "secondary",
+                        "color": "background",
+                        "border": "2px solid var(--color-background)"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -475,47 +677,5 @@
       }
     }
   ],
-  "navigation": {
-    "header": [
-      {
-        "label": "Domov",
-        "href": "/"
-      },
-      {
-        "label": "Partnerji",
-        "href": "/brands"
-      },
-      {
-        "label": "Servis",
-        "href": "/service"
-      },
-      {
-        "label": "O nas",
-        "href": "/about"
-      },
-      {
-        "label": "Kontakt",
-        "href": "/contact"
-      }
-    ],
-    "footer": [
-      {
-        "label": "Partnerji",
-        "href": "/brands"
-      },
-      {
-        "label": "Servis",
-        "href": "/service"
-      },
-      {
-        "label": "O nas",
-        "href": "/about"
-      },
-      {
-        "label": "Kontakt",
-        "href": "/contact"
-      }
-    ]
-  },
   "lang": "sl"
 }

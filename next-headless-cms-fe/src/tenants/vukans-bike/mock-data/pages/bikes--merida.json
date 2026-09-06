@@ -3,9 +3,9 @@
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "Merida Road Ride 903-27 — Vukan's Bike Shop",
-    "description": "Merida Road Ride 903-27: cestno kolo z aluminijastim okvirjem in Shimano Tiagra 3×9. Kontakt: 070 815 379.",
-    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic"
+    "title": "Merida Road Ride 903-27 — Vukan's Bike",
+    "description": "Merida Road Ride 903-27: cestno kolo z aluminijastim okvirjem in pogonom Shimano Tiagra 3×9. Ogled in testna vožnja po dogovoru — 070 815 379.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic"
   },
   "blocks": [
     {
@@ -13,60 +13,22 @@
       "id": 3,
       "labels": {
         "id": 2,
-        "notFoundTitle": "Kolo ni najdeno",
-        "notFoundBody": "Kolo, ki ste ga iskali, ni na voljo.",
-        "notFoundCtaLabel": "Nazaj na začetno stran",
-        "notFoundCtaHref": "/",
+        "notFoundTitle": "Kolesa ni več v ponudbi",
+        "notFoundBody": "To kolo ni na voljo. Poglejte, kaj je trenutno v prodaji.",
+        "notFoundCtaLabel": "V trgovino",
+        "notFoundCtaHref": "/shop",
         "breadcrumbHome": "Domov",
         "breadcrumbHomeHref": "/",
-        "breadcrumbBikes": "Kolesa na prodaj",
-        "breadcrumbBikesHref": "/#kolesa",
+        "breadcrumbBikes": "Trgovina",
+        "breadcrumbBikesHref": "/shop",
         "outOfStock": "Ni na zalogi",
         "descriptionHeading": "Opis",
         "specsHeading": "Specifikacije",
-        "contactTeaser": "Za ogled, testno vožnjo ali nakup nas kontaktirajte.",
+        "contactTeaser": "Za ogled ali testno vožnjo se dogovorimo po telefonu.",
         "contactPhoneLabel": "070 815 379",
         "contactPhoneHref": "tel:+38670815379",
-        "contactCtaLabel": "Kontakt",
+        "contactCtaLabel": "Pišite nam",
         "contactCtaHref": "/contact"
-      },
-      "bike": {
-        "id": "prod-3",
-        "name": "Merida Road Ride 903-27",
-        "slug": "merida",
-        "description": "Merida Road Ride 903-27 je cestno kolo z aluminijastim okvirjem Road Lite Ride in vilico iz aluminija s karbonskim mostom. Pogon Shimano Tiagra v 3×9 izvedbi (27 prestav) z trojno gonilko 50-39-30 in kaseto 11-25 — primeren za vzponaške etape in ravnine. Kolesa Shimano WH-R500 in cestne pnevmatike Vittoria Rubino 23 mm. Ergonomski krmilni set X-Mission Comp, običajno z dodatnimi zavornimi ročicami na ravnem delu krmila. Zanesljiva izbira za trening, rekreacijo in dolge ture po asfaltu.",
-        "shortDescription": "Cestno kolo, Shimano Tiagra 3×9, aluminij + karbon vilica",
-        "price": 350,
-        "image": "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic",
-        "images": [
-          "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic",
-          "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4485_tll175.heic",
-          "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402582/IMG_4488_gtri5z.heic"
-        ],
-        "category": "Cestna kolesa",
-        "inStock": true,
-        "tags": [
-          "cestno",
-          "merida",
-          "road ride",
-          "903-27",
-          "shimano tiagra",
-          "27 prestav"
-        ],
-        "specs": {
-          "Model": "Merida Road Ride 903-27",
-          "Okvir": "Aluminij Road Lite Ride (TFS)",
-          "Vilica": "Aluminij s karbonskim mostom",
-          "Menjalnik": "Shimano Tiagra 3×9 (27 prestav)",
-          "Gonilka": "Shimano Tiagra 50-39-30",
-          "Zadnja kaseta": "Shimano CS-HG50-9, 11-25",
-          "Zavore": "Shimano Tiagra",
-          "Kolesa": "Shimano WH-R500",
-          "Pnevmatike": "Vittoria Rubino 23 mm",
-          "Krmilo / oprema": "X-Mission Comp CEN Road 31,8 mm",
-          "Sedež / opora": "X-Mission Line / Speed CEN 31,6 mm",
-          "Teža (okvirno)": "okoli 9,2–9,5 kg (odvisno od velikosti)"
-        }
       }
     }
   ],

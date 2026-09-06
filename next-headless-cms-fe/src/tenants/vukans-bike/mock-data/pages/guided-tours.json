@@ -3,78 +3,53 @@
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "Vodene ture — Vukan's Bike Shop",
-    "description": "Organiziramo vodene ture po dogovoru za manjše skupine. Trase prilagodimo nivoju, tempu in ciljem ekipe.",
-    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg"
+    "title": "Vodene ture — Vukan's Bike",
+    "description": "Vodene kolesarske ture po dogovoru za manjše skupine. Traso, tempo in zahtevnost prilagodimo skupini. Pokličite 070 815 379.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1776622215/1000025520_kspaqn.jpg"
   },
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
-      "overlay": 0.4,
+      "id": 14,
       "padding": "lg",
-      "minHeight": "85vh",
+      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
+      "overlay": 0.5,
+      "minHeight": "clamp(480px, 72vh, 720px)",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
+            "id": 13,
             "gap": "lg",
             "align": "center",
-            "maxWidth": "720px",
-            "margin": "0 auto",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
+                  "id": 10,
+                  "variant": "body",
                   "content": "Vodene ture",
                   "bold": true,
-                  "color": "foreground",
-                  "fontSize": "64px",
-                  "fontWeight": "800",
+                  "fontSize": "clamp(2.5rem, 6vw, 4rem)",
+                  "color": "background",
                   "textAlign": "center"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
+                  "id": 11,
                   "variant": "lead",
-                  "content": "Ture organiziramo po dogovoru. Tempo, dolžino in zahtevnost prilagodimo skupini.",
-                  "color": "foreground",
+                  "content": "Ture pripravimo po dogovoru. Tempo, dolžino in zahtevnost prilagodimo skupini.",
+                  "color": "background",
                   "textAlign": "center",
-                  "fontSize": "22px",
-                  "maxWidth": "520px"
+                  "maxWidth": "48ch",
+                  "margin": "0 auto"
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 104,
-                  "justify": "center",
-                  "wrap": true,
-                  "gap": "md",
-                  "margin": "16px 0 0",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.button",
-                        "id": 105,
-                        "label": "Rezerviraj termin",
-                        "href": "/contact",
-                        "padding": "18px 40px"
-                      },
-                      {
-                        "__component": "blocks.button",
-                        "id": 106,
-                        "label": "Kako poteka",
-                        "href": "#potek",
-                        "variant": "secondary",
-                        "color": "foreground",
-                        "border": "2px solid var(--color-foreground)",
-                        "backgroundColor": "transparent",
-                        "padding": "18px 40px"
-                      }
-                    ]
-                  }
+                  "__component": "blocks.button",
+                  "id": 12,
+                  "label": "Pišite nam",
+                  "href": "/contact",
+                  "margin": "8px 0 0"
                 }
               ]
             }
@@ -84,44 +59,42 @@
     },
     {
       "__component": "blocks.section",
-      "id": 200,
+      "id": 31,
       "padding": "lg",
       "surface": "muted",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 201,
-            "gap": "sm",
-            "align": "center",
+            "id": 17,
             "margin": "0 0 40px",
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 202,
-                  "content": "Kaj dobite na vodenih turah",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "id": 15,
+                  "variant": "label",
+                  "content": "Kaj dobite",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 203,
+                  "id": 16,
                   "variant": "body",
-                  "content": "Vsaka tura je pripravljena po meri skupine, z jasnim planom in varnim tempom.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "520px",
-                  "margin": "0 auto"
+                  "content": "Tura, pripravljena za vašo skupino",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
                 }
               ]
             }
           },
           {
             "__component": "blocks.grid",
-            "id": 210,
+            "id": 30,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -132,24 +105,27 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 211,
+                  "id": 20,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 212,
+                        "id": 18,
+                        "variant": "body",
                         "content": "Trasa po meri",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 213,
+                        "id": 19,
                         "variant": "body",
-                        "content": "Pred turo uskladimo teren, dolžino in višince glede na vaše želje in pripravljenost.",
+                        "content": "Pred turo uskladimo teren, dolžino in višinsko razliko glede na pripravljenost skupine.",
                         "color": "secondary"
                       }
                     ]
@@ -157,24 +133,27 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 214,
+                  "id": 23,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 215,
+                        "id": 21,
+                        "variant": "body",
                         "content": "Vodenje na terenu",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 216,
+                        "id": 22,
                         "variant": "body",
-                        "content": "Sproti usmerjamo tempo in linije, da je vožnja tekoča, varna in prijetna za celotno ekipo.",
+                        "content": "Tempo in linije usmerjamo sproti, da je vožnja tekoča in varna za vse.",
                         "color": "secondary"
                       }
                     ]
@@ -182,24 +161,27 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 217,
+                  "id": 26,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 218,
+                        "id": 24,
+                        "variant": "body",
                         "content": "Majhne skupine",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 219,
+                        "id": 25,
                         "variant": "body",
-                        "content": "Najboljše delamo v manjših skupinah, kjer lahko prilagodimo izkušnjo vsakemu udeležencu.",
+                        "content": "V manjši skupini se da prilagoditi vsakemu udeležencu — tudi če so nivoji različni.",
                         "color": "secondary"
                       }
                     ]
@@ -207,24 +189,27 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 220,
+                  "id": 29,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 221,
-                        "content": "Varnost in preglednost",
+                        "id": 27,
+                        "variant": "body",
+                        "content": "Jasen dogovor",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 222,
+                        "id": 28,
                         "variant": "body",
-                        "content": "Pred začetkom dobite jasna navodila, med turo pa poskrbimo za dober ritem in organizacijo.",
+                        "content": "Pred startom veste, kam gremo, koliko bo trajalo in kje bodo postanki.",
                         "color": "secondary"
                       }
                     ]
@@ -238,98 +223,75 @@
     },
     {
       "__component": "blocks.gallery",
-      "id": 300,
-      "heading": "Galerija vodenih tur",
-      "subheading": "Zaenkrat uporabljamo obstoječe fotografije; kmalu dodamo namenske utrinke iz tur.",
-      "defaultImageAlt": "Galerija vodenih tur",
+      "id": 32,
+      "heading": "S tur",
+      "defaultImageAlt": "Utrinek z vodene ture",
       "showLessLabel": "Prikaži manj",
-      "showMorePrefix": "Prikaži več (",
-      "showMoreSuffix": ")",
-      "lightboxAltPrefix": "Galerija",
+      "showMorePrefix": "Prikaži še ",
+      "showMoreSuffix": " fotografij",
+      "lightboxAltPrefix": "Vodena tura — fotografija ",
       "images": [
         {
-          "id": 301,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776622215/1000025520_kspaqn.jpg",
-          "alt": "Vodene ture 1"
-        },
-        {
-          "id": 302,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/IMG_0053_hiw6cd.jpg",
-          "alt": "Vodene ture 2"
-        },
-        {
-          "id": 303,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
-          "alt": "Vodene ture 3"
+          "alt": "Skupina na vodeni turi"
         },
         {
-          "id": 304,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480323/1000005460_wnwxdc.jpg",
-          "alt": "Vodene ture 4"
-        },
-        {
-          "id": 305,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480317/1000006941_zpluxx.jpg",
-          "alt": "Vodene ture 5"
-        },
-        {
-          "id": 306,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480191/IMG_2611_wxpwqs.heic",
-          "alt": "Vodene ture 6"
-        },
-        {
-          "id": 307,
-          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480188/1000026613_nfxcr7.jpg",
-          "alt": "Vodene ture 7"
-        },
-        {
-          "id": 308,
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480178/1000006042_tivdyq.jpg",
-          "alt": "Vodene ture 8"
+          "alt": "Vzpon po makadamu"
+        },
+        {
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480168/1000005467_ovxiqg.jpg",
+          "alt": "Postanek na razgledni točki"
+        },
+        {
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480135/1000004389_mpu6mu.jpg",
+          "alt": "Spust po gozdni poti"
+        },
+        {
+          "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480134/0f080a97-cd70-4e54-9868-a6904106ad3d_tlipod.jpg",
+          "alt": "Vožnja po trailu"
         }
       ]
     },
     {
       "__component": "blocks.section",
-      "id": 400,
+      "id": 53,
       "padding": "lg",
-      "surface": "background",
+      "surface": "muted",
       "anchorId": "potek",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 401,
-            "gap": "sm",
-            "align": "center",
+            "id": 35,
             "margin": "0 0 40px",
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 402,
-                  "content": "Kako poteka organizacija ture",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "id": 33,
+                  "variant": "label",
+                  "content": "Kako poteka",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 403,
+                  "id": 34,
                   "variant": "body",
-                  "content": "Enostavno in hitro — vse uredimo po dogovoru.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "480px",
-                  "margin": "0 auto"
+                  "content": "Od povpraševanja do ture",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
                 }
               ]
             }
           },
           {
             "__component": "blocks.grid",
-            "id": 410,
+            "id": 52,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -340,38 +302,34 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 411,
+                  "id": 39,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 412,
+                        "id": 36,
                         "variant": "label",
                         "content": "01",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 413,
+                        "id": 37,
+                        "variant": "body",
                         "content": "Povpraševanje",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 414,
+                        "id": 38,
                         "variant": "body",
-                        "content": "Pošljete želeni datum, velikost skupine in okvirno željo glede ture.",
-                        "color": "secondary"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 415,
-                        "variant": "caption",
-                        "content": "Telefon ali e-pošta · Predlog terminov",
+                        "content": "Sporočite želeni datum, velikost skupine in okvirno predstavo o turi.",
                         "color": "secondary"
                       }
                     ]
@@ -379,38 +337,34 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 416,
+                  "id": 43,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 417,
+                        "id": 40,
                         "variant": "label",
                         "content": "02",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 418,
+                        "id": 41,
+                        "variant": "body",
                         "content": "Dogovor o trasi",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 419,
+                        "id": 42,
                         "variant": "body",
-                        "content": "Skupaj določimo nivo, dolžino in vrsto terena (lažje poti ali bolj tehnični odseki).",
-                        "color": "secondary"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 420,
-                        "variant": "caption",
-                        "content": "Prilagoditev nivoju skupine · Določitev trajanja in tempa",
+                        "content": "Skupaj določimo nivo, dolžino in vrsto terena — od lažjih poti do tehničnih odsekov.",
                         "color": "secondary"
                       }
                     ]
@@ -418,38 +372,34 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 421,
+                  "id": 47,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 422,
+                        "id": 44,
                         "variant": "label",
                         "content": "03",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 423,
-                        "content": "Vodenje na terenu",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 424,
+                        "id": 45,
                         "variant": "body",
-                        "content": "Na dan ture poskrbimo za jasno vodenje, varnostne usmeritve in dober ritem vožnje.",
-                        "color": "secondary"
+                        "content": "Vodenje",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 425,
-                        "variant": "caption",
-                        "content": "Varnostna navodila pred začetkom · Postanki po dogovoru",
+                        "id": 46,
+                        "variant": "body",
+                        "content": "Na dan ture poskrbimo za varnostna navodila, jasno vodenje in dober ritem.",
                         "color": "secondary"
                       }
                     ]
@@ -457,38 +407,34 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 426,
+                  "id": 51,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 427,
+                        "id": 48,
                         "variant": "label",
                         "content": "04",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 428,
+                        "id": 49,
+                        "variant": "body",
                         "content": "Zaključek",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 429,
+                        "id": 50,
                         "variant": "body",
-                        "content": "Po turi naredimo kratek povzetek in po želji predlagamo naslednjo traso.",
-                        "color": "secondary"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 430,
-                        "variant": "caption",
-                        "content": "Povzetek vožnje · Predlog za naslednji termin",
+                        "content": "Postanek, pregled kolesa po potrebi in dogovor za naslednjič.",
                         "color": "secondary"
                       }
                     ]
@@ -502,51 +448,58 @@
     },
     {
       "__component": "blocks.section",
-      "id": 500,
-      "surface": "primary",
+      "id": 60,
       "padding": "lg",
-      "minHeight": "420px",
-      "justify": "center",
-      "align": "center",
+      "surface": "accent",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 501,
+            "id": 59,
             "gap": "md",
-            "align": "center",
-            "maxWidth": "480px",
-            "margin": "0 auto",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 502,
-                  "content": "Dogovorimo se za vašo vodeno turo",
+                  "id": 54,
+                  "variant": "body",
+                  "content": "Zberite ekipo, za ostalo poskrbimo mi",
                   "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "fontSize": "clamp(1.5rem, 2.8vw, 2rem)",
+                  "color": "foreground"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 503,
-                  "variant": "lead",
-                  "content": "Ture trenutno organiziramo po dogovoru in glede na razpoložljive termine.",
-                  "color": "foreground",
-                  "textAlign": "center"
+                  "id": 55,
+                  "variant": "body",
+                  "content": "Povejte, koliko vas je in kakšen teren vas mika — predlagamo traso in termin.",
+                  "color": "foreground"
                 },
                 {
-                  "__component": "blocks.button",
-                  "id": 504,
-                  "label": "Kontakt",
-                  "href": "/contact",
-                  "variant": "secondary",
-                  "backgroundColor": "foreground",
-                  "color": "primary",
-                  "border": "none",
-                  "margin": "12px 0 0",
-                  "padding": "18px 40px"
+                  "__component": "blocks.flex",
+                  "id": 58,
+                  "gap": "lg",
+                  "wrap": true,
+                  "margin": "4px 0 0",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.link",
+                        "id": 56,
+                        "label": "070 815 379",
+                        "href": "tel:+38670815379"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 57,
+                        "label": "vukansbike@gmail.com",
+                        "href": "mailto:vukansbike@gmail.com",
+                        "variant": "muted"
+                      }
+                    ]
+                  }
                 }
               ]
             }

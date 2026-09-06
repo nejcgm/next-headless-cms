@@ -3,9 +3,9 @@
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "Merida Road Ride 903-27 — Vukan's Bike Shop",
-    "description": "Merida Road Ride 903-27: Rennrad mit Aluminiumrahmen und Shimano Tiagra 3×9. Kontakt: 070 815 379.",
-    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic"
+    "title": "Merida Road Ride 903-27 — Vukan's Bike",
+    "description": "Merida Road Ride 903-27: Rennrad mit Aluminiumrahmen und Antrieb Shimano Tiagra 3×9. Besichtigung und Probefahrt nach Vereinbarung — 070 815 379.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic"
   },
   "blocks": [
     {
@@ -13,60 +13,22 @@
       "id": 3,
       "labels": {
         "id": 2,
-        "notFoundTitle": "Rad nicht gefunden",
-        "notFoundBody": "Das gesuchte Fahrrad ist nicht verfügbar.",
-        "notFoundCtaLabel": "Zur Startseite",
-        "notFoundCtaHref": "/de",
+        "notFoundTitle": "Dieses Rad ist nicht mehr im Angebot",
+        "notFoundBody": "Dieses Rad ist nicht verfügbar. Sehen Sie, was aktuell im Verkauf ist.",
+        "notFoundCtaLabel": "Zum Shop",
+        "notFoundCtaHref": "/de/shop",
         "breadcrumbHome": "Start",
         "breadcrumbHomeHref": "/de",
-        "breadcrumbBikes": "Fahrräder zum Verkauf",
-        "breadcrumbBikesHref": "/de#kolesa",
+        "breadcrumbBikes": "Shop",
+        "breadcrumbBikesHref": "/de/shop",
         "outOfStock": "Nicht vorrätig",
         "descriptionHeading": "Beschreibung",
         "specsHeading": "Spezifikationen",
-        "contactTeaser": "Für Besichtigung, Probefahrt oder Kauf kontaktieren Sie uns.",
+        "contactTeaser": "Für eine Besichtigung oder Probefahrt vereinbaren wir einen Termin per Telefon.",
         "contactPhoneLabel": "070 815 379",
         "contactPhoneHref": "tel:+38670815379",
-        "contactCtaLabel": "Kontakt",
+        "contactCtaLabel": "Schreiben Sie uns",
         "contactCtaHref": "/de/contact"
-      },
-      "bike": {
-        "id": "prod-3",
-        "name": "Merida Road Ride 903-27",
-        "slug": "merida",
-        "description": "Die Merida Road Ride 903-27 ist ein Rennrad mit Aluminiumrahmen Road Lite Ride und einer Gabel aus Aluminium mit Carbon-Brücke. Antrieb Shimano Tiagra 3×9 (27 Gänge) mit Dreifach-Kurbel 50-39-30 und Kassette 11-25 — geeignet für bergige Etappen und flaches Terrain. Laufräder Shimano WH-R500 und Vittoria Rubino 23 mm. Ergonomischer Lenker X-Mission Comp, typischerweise mit zusätzlichen Bremshebeln am Flachlenker. Zuverlässige Wahl für Training, Freizeit und lange Asphalt-Touren.",
-        "shortDescription": "Rennrad, Shimano Tiagra 3×9, Aluminium + Carbon-Gabel",
-        "price": 350,
-        "image": "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic",
-        "images": [
-          "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic",
-          "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4485_tll175.heic",
-          "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402582/IMG_4488_gtri5z.heic"
-        ],
-        "category": "Rennräder",
-        "inStock": true,
-        "tags": [
-          "Rennrad",
-          "Merida",
-          "Road Ride",
-          "903-27",
-          "Shimano Tiagra",
-          "27 Gänge"
-        ],
-        "specs": {
-          "Modell": "Merida Road Ride 903-27",
-          "Rahmen": "Aluminium Road Lite Ride (TFS)",
-          "Gabel": "Aluminium mit Carbon-Brücke",
-          "Schaltung": "Shimano Tiagra 3×9 (27 Gänge)",
-          "Kurbel": "Shimano Tiagra 50-39-30",
-          "Kassette hinten": "Shimano CS-HG50-9, 11-25",
-          "Bremsen": "Shimano Tiagra",
-          "Laufräder": "Shimano WH-R500",
-          "Reifen": "Vittoria Rubino 23 mm",
-          "Lenker / Ausstattung": "X-Mission Comp CEN Road 31,8 mm",
-          "Sattel / Stütze": "X-Mission Line / Speed CEN 31,6 mm",
-          "Gewicht (ca.)": "ca. 9,2–9,5 kg (je nach Rahmengröße)"
-        }
       }
     }
   ],

@@ -2,41 +2,36 @@
   "header": [
     {
       "id": 1,
-      "label": "Start",
-      "href": "/de"
-    },
-    {
-      "id": 2,
       "label": "Service",
       "href": "/de/service"
     },
     {
-      "id": 3,
-      "label": "Shop",
-      "href": "/de/shop"
-    },
-    {
-      "id": 4,
+      "id": 2,
       "label": "Geführte Touren",
       "href": "/de/guided-tours"
     },
     {
-      "id": 5,
+      "id": 3,
       "label": "Fahrradschule",
       "href": "/de/bike-school"
     },
     {
-      "id": 6,
+      "id": 4,
+      "label": "Shop",
+      "href": "/de/shop"
+    },
+    {
+      "id": 5,
       "label": "Über uns",
       "href": "/de/about"
     },
     {
-      "id": 7,
+      "id": 6,
       "label": "Partner",
       "href": "/de/brands"
     },
     {
-      "id": 8,
+      "id": 7,
       "label": "Kontakt",
       "href": "/de/contact"
     }
@@ -85,10 +80,10 @@
   ],
   "footerCopy": {
     "id": 17,
-    "tagline": "Service und Verkauf von Mountainbikes in Apače.",
+    "tagline": "Fahrradwerkstatt in Apače — Service und Verkauf für jedes Rad.",
     "linksHeading": "Links",
     "contactHeading": "Kontakt",
-    "contactPlaceholder": "Bei Fragen kontaktieren Sie uns.",
+    "contactPlaceholder": "Rufen Sie an oder schreiben Sie uns.",
     "copyrightReserved": "Alle Rechte vorbehalten."
   }
 }

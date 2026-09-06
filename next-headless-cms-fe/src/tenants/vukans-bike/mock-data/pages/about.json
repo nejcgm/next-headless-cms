@@ -3,78 +3,48 @@
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "O nas — Vukan's Bike Shop",
-    "description": "Zgodba Vukan's Bike Shop v Apačah: servis in trgovina koles vseh vrst, osebni pristop in dolga izkušnja tudi pri gorskih kolesih in MTB. Spoznajte ekipo.",
-    "ogImage": "https://images.unsplash.com/photo-1541625602330-2277a4c46182?w=1200&h=630&fit=crop"
+    "title": "O nas — Vukan's Bike",
+    "description": "Kolesarska delavnica v Apačah, ki jo vodi Gregor Vukan: servis vseh tipov koles, prodaja, kolesarska šola in vodene ture.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1775401858/1000024272_almr2a.jpg"
   },
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405816/1000004580_hrsyxv.jpg",
-      "overlay": 0.38,
+      "id": 14,
       "padding": "lg",
-      "minHeight": "80vh",
+      "surface": "muted",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
-            "gap": "lg",
-            "align": "center",
-            "maxWidth": "720px",
-            "margin": "0 auto",
+            "id": 13,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
+                  "id": 10,
+                  "variant": "label",
                   "content": "O nas",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "64px",
-                  "fontWeight": "800",
-                  "textAlign": "center"
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
-                  "variant": "lead",
-                  "content": "Kolesa vseh vrst v Apačah — en človek, en pristop.",
-                  "color": "foreground",
-                  "textAlign": "center",
-                  "fontSize": "22px",
-                  "maxWidth": "480px"
+                  "id": 11,
+                  "variant": "body",
+                  "content": "Delavnica v Apačah, ki jo vodi en človek",
+                  "bold": true,
+                  "fontSize": "clamp(2.25rem, 5vw, 3.25rem)",
+                  "color": "foreground"
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 104,
-                  "justify": "center",
-                  "wrap": true,
-                  "gap": "md",
-                  "margin": "16px 0 0",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.button",
-                        "id": 105,
-                        "label": "Servis",
-                        "href": "/service",
-                        "padding": "18px 40px"
-                      },
-                      {
-                        "__component": "blocks.button",
-                        "id": 106,
-                        "label": "Kontakt",
-                        "href": "/contact",
-                        "variant": "secondary",
-                        "color": "foreground",
-                        "border": "2px solid var(--color-foreground)",
-                        "backgroundColor": "transparent",
-                        "padding": "18px 40px"
-                      }
-                    ]
-                  }
+                  "__component": "blocks.text",
+                  "id": 12,
+                  "variant": "lead",
+                  "content": "Servis, prodaja, kolesarska šola in vodene ture — vse na enem naslovu.",
+                  "color": "secondary"
                 }
               ]
             }
@@ -84,14 +54,14 @@
     },
     {
       "__component": "blocks.section",
-      "id": 200,
+      "id": 23,
       "padding": "lg",
       "surface": "background",
       "slots": {
         "default": [
           {
             "__component": "blocks.grid",
-            "id": 201,
+            "id": 22,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -102,55 +72,58 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 202,
+                  "id": 20,
                   "gap": "md",
                   "align": "start",
-                  "padding": "16px 0",
+                  "maxWidth": "60ch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 203,
+                        "id": 15,
                         "variant": "label",
                         "content": "Naša zgodba",
-                        "color": "primary"
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 204,
-                        "content": "Od strasti do servisa in trgovine",
-                        "bold": true,
-                        "color": "foreground",
-                        "fontSize": "36px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 205,
-                        "variant": "lead",
-                        "content": "Kolo ni samo prevoz — je svoboda. Želimo, da vsak odpelje svojo avanturo.",
-                        "color": "foreground",
-                        "fontWeight": "600",
-                        "maxWidth": "420px"
-                      },
-                      {
-                        "__component": "blocks.text",
-                        "id": 206,
+                        "id": 16,
                         "variant": "body",
-                        "content": "Vukan's Bike Shop je nastal iz ljubezni do koles in želje, da bi v regiji obstajalo mesto za kakovosten servis, iskren nasvet ali novo kolo — ne glede na to, ali vozite po mestu, cesti ali po stezah.\n\nDelamo v Apačah. Servisiramo in svetujemo pri vseh vrstah koles; naša posebna strast in najdaljša izkušnja pa sta še vedno pri gorskih kolesih in MTB — od osnovnega servisa do popolnih popravil in gradnje po meri. Brez anonimne delavnice — en strokovnjak, ki pozna vaše kolo in vaše potrebe.\n\nVerjamemo v osebni stik, pošteno ceno in delo, na katero se lahko zanesete. Če iščete partnerja za vaše naslednje vožnje, ste na pravem mestu.",
-                        "color": "secondary",
-                        "maxWidth": "440px"
+                        "content": "Od strasti do delavnice",
+                        "bold": true,
+                        "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 17,
+                        "variant": "body",
+                        "content": "Vukan's Bike je nastal iz preproste želje: da v regiji obstaja kraj, kjer dobite kakovosten servis, iskren nasvet in kolo, ki je pred prevzemom res pripravljeno.",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 18,
+                        "variant": "body",
+                        "content": "Delamo v Apačah in servisiramo vse tipe koles — mestna, cestna, gravel, električna in gorska. Najdaljšo izkušnjo imamo pri gorskih kolesih: od osnovnega servisa do zahtevnejših popravil in sestav po meri.",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 19,
+                        "variant": "body",
+                        "content": "Brez anonimne delavnice. Kolo pregleda, popravi in preda ista oseba — tista, ki vam tudi pove, kaj je bilo narejeno in zakaj.",
+                        "color": "foreground"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.image",
-                  "id": 207,
+                  "id": 21,
                   "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1776428488/9c4caa91-a86a-43e4-a8f7-39a45f2620d3_pezutz.jpg",
-                  "alt": "Vukan's Bike Shop — delavnica",
-                  "minHeight": "520px",
-                  "borderRadius": "0px",
-                  "overflow": "hidden"
+                  "alt": "Delavnica Vukan's Bike v Apačah",
+                  "height": "clamp(320px, 44vw, 560px)"
                 }
               ]
             }
@@ -160,14 +133,14 @@
     },
     {
       "__component": "blocks.section",
-      "id": 300,
+      "id": 34,
       "padding": "lg",
       "surface": "muted",
       "slots": {
         "default": [
           {
             "__component": "blocks.grid",
-            "id": 301,
+            "id": 33,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -178,51 +151,72 @@
               "default": [
                 {
                   "__component": "blocks.image",
-                  "id": 302,
+                  "id": 24,
                   "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775401858/1000024272_almr2a.jpg",
-                  "alt": "Gregor Vukan",
-                  "minHeight": "480px",
-                  "borderRadius": "0px",
-                  "overflow": "hidden"
+                  "alt": "Gregor Vukan v delavnici",
+                  "height": "clamp(320px, 44vw, 560px)"
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 303,
+                  "id": 32,
                   "gap": "md",
                   "align": "start",
-                  "padding": "48px 8px",
+                  "maxWidth": "60ch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 304,
+                        "id": 25,
                         "variant": "label",
-                        "content": "Lastnik in strokovnjak",
-                        "color": "primary"
+                        "content": "Lastnik in serviser",
+                        "color": "text-primary"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 305,
+                        "id": 26,
+                        "variant": "body",
                         "content": "Gregor Vukan",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "36px"
+                        "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 306,
+                        "id": 27,
                         "variant": "body",
-                        "content": "S kolesi se ukvarjam že dolga leta; še posebej me navdušujejo gorska kolesa in zahtevnejši teren. Pri Vukan's Bike Shop skrbim za servis, prodajo in nasvet za vse tipe koles — vse na enem mestu, z osebnim pristopom. Rad vam pomagam izbrati pravo kolo ali ga pripeljati v stanje za naslednjo sezono. Pokličite ali pridite v Apače.",
-                        "color": "secondary",
-                        "maxWidth": "420px"
+                        "content": "S kolesi se ukvarjam dolga leta; najbolj me potegne gorsko kolo in zahtevnejši teren. V delavnici skrbim za servis, prodajo in nasvet — za vse tipe koles.",
+                        "color": "foreground"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 307,
-                        "label": "Kontakt",
-                        "href": "/contact",
-                        "variant": "secondary",
-                        "margin": "8px 0 0"
+                        "__component": "blocks.text",
+                        "id": 28,
+                        "variant": "body",
+                        "content": "Če ne veste, kateri servis potrebujete, mi opišite, kako in koliko vozite. Iz tega se skoraj vedno da povedati, kaj je smiselno narediti zdaj in kaj lahko počaka.",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 31,
+                        "gap": "lg",
+                        "wrap": true,
+                        "margin": "8px 0 0",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.link",
+                              "id": 29,
+                              "label": "070 815 379",
+                              "href": "tel:+38670815379"
+                            },
+                            {
+                              "__component": "blocks.link",
+                              "id": 30,
+                              "label": "vukansbike@gmail.com",
+                              "href": "mailto:vukansbike@gmail.com",
+                              "variant": "muted"
+                            }
+                          ]
+                        }
                       }
                     ]
                   }
@@ -235,52 +229,42 @@
     },
     {
       "__component": "blocks.section",
-      "id": 400,
+      "id": 51,
       "padding": "lg",
       "surface": "background",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 401,
-            "gap": "sm",
-            "align": "center",
+            "id": 37,
             "margin": "0 0 40px",
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 402,
+                  "id": 35,
                   "variant": "label",
-                  "content": "Naše vrednote",
-                  "color": "primary",
-                  "textAlign": "center"
+                  "content": "Kako delamo",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 403,
-                  "content": "Zakaj mi",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 404,
+                  "id": 36,
                   "variant": "body",
-                  "content": "Naše vrednote so preproste: kakovost, iskrenost in vaše zaupanje.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "480px",
-                  "margin": "0 auto"
+                  "content": "Štiri stvari, na katere lahko računate",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
                 }
               ]
             }
           },
           {
             "__component": "blocks.grid",
-            "id": 410,
+            "id": 50,
             "columns": {
               "mobile": 1,
               "tablet": 2,
@@ -291,24 +275,27 @@
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 411,
+                  "id": 40,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 412,
-                        "content": "Vse vrste koles",
+                        "id": 38,
+                        "variant": "body",
+                        "content": "Eno kolo, en serviser",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 413,
+                        "id": 39,
                         "variant": "body",
-                        "content": "Mestna, cestna, gravel, električna in gorska — poznamo pogon, zavore in geometrijo. Pri gorskih kolesih in trailu imamo še posebej globoko izkušnjo.",
+                        "content": "Kolo, ki ga pripeljete, gre skozi roke iste osebe — od pregleda do prevzema. Nič ne potuje po delavnici od mize do mize.",
                         "color": "secondary"
                       }
                     ]
@@ -316,24 +303,27 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 414,
+                  "id": 43,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 415,
-                        "content": "Osebni pristop",
+                        "id": 41,
+                        "variant": "body",
+                        "content": "Cena, ki jo povemo vnaprej",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 416,
+                        "id": 42,
                         "variant": "body",
-                        "content": "En strokovnjak, en stik. Brez anonimne delavnice; delamo po dogovoru in vam prilagodimo čas.",
+                        "content": "Cenik je javen, čistila in maziva so vključena. Če se med delom pokaže kaj več, vas pokličemo, preden nadaljujemo.",
                         "color": "secondary"
                       }
                     ]
@@ -341,24 +331,27 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 417,
+                  "id": 46,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 418,
-                        "content": "Poštena cena",
+                        "id": 44,
+                        "variant": "body",
+                        "content": "Doma na gorskih poteh",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 419,
+                        "id": 45,
                         "variant": "body",
-                        "content": "Transparenten cenik in jasna ponudba. Brez skritih stroškov — prej veste, kaj stane.",
+                        "content": "Največ kilometrov imamo na MTB in trailu. Iz tega sta zrasli tudi kolesarska šola in vodene ture.",
                         "color": "secondary"
                       }
                     ]
@@ -366,82 +359,31 @@
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 420,
+                  "id": 49,
                   "gap": "sm",
                   "align": "start",
+                  "borderTop": "1px solid var(--color-border)",
+                  "padding": "20px 0 0",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.text",
-                        "id": 421,
-                        "content": "Lokalno, v Apačah",
+                        "id": 47,
+                        "variant": "body",
+                        "content": "Del apaške scene",
                         "bold": true,
-                        "color": "foreground",
-                        "fontSize": "24px"
+                        "fontSize": "1.25rem",
+                        "color": "foreground"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 422,
+                        "id": 48,
                         "variant": "body",
-                        "content": "Trgovina in servis v vaši bližini. Partnerji in dogodki v regiji — del skupnosti.",
+                        "content": "Sodelujemo z domačim društvom ŠKTD Apače Mlinarji in s festivalom Flat Out Days na Kopah.",
                         "color": "secondary"
                       }
                     ]
                   }
-                }
-              ]
-            }
-          }
-        ]
-      }
-    },
-    {
-      "__component": "blocks.section",
-      "id": 500,
-      "surface": "primary",
-      "padding": "lg",
-      "minHeight": "420px",
-      "justify": "center",
-      "align": "center",
-      "slots": {
-        "default": [
-          {
-            "__component": "blocks.stack",
-            "id": 501,
-            "gap": "md",
-            "align": "center",
-            "maxWidth": "480px",
-            "margin": "0 auto",
-            "slots": {
-              "default": [
-                {
-                  "__component": "blocks.text",
-                  "id": 502,
-                  "content": "Pripravljeni na servis ali novo kolo?",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 503,
-                  "variant": "lead",
-                  "content": "Obiščite nas v Apačah ali nas pokličite na 070 815 379.",
-                  "color": "foreground",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.button",
-                  "id": 504,
-                  "label": "Kontakt",
-                  "href": "/contact",
-                  "variant": "secondary",
-                  "backgroundColor": "foreground",
-                  "color": "primary",
-                  "border": "none",
-                  "margin": "12px 0 0",
-                  "padding": "18px 40px"
                 }
               ]
             }

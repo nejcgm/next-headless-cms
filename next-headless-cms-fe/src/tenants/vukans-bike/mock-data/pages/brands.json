@@ -3,78 +3,48 @@
   "template": "default",
   "seo": {
     "id": 1,
-    "title": "Partnerji in znamke — Vukan's Bike",
-    "description": "Partnerji in skupine: Reverse Components, Flat Out Days, Goodyear Bike, BATT Crew, Loose Riders, ŠKTD Apače Mlinarji, 427 Savage Squad in drugi.",
-    "ogImage": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=1200&h=630&fit=crop"
+    "title": "Partnerji — Vukan's Bike",
+    "description": "Znamke, festivali in društva, s katerimi sodeluje Vukan's Bike: Reverse Components, Flat Out Days, Goodyear Bike, BATT Crew, Loose Riders, ŠKTD Apače Mlinarji in 427 Savage Squad.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1775405173/1000004333_bged3h.jpg"
   },
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775405173/1000004333_bged3h.jpg",
-      "overlay": 0.4,
+      "id": 54,
       "padding": "lg",
-      "minHeight": "75vh",
+      "surface": "muted",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
-            "gap": "lg",
-            "align": "center",
-            "maxWidth": "720px",
-            "margin": "0 auto",
+            "id": 53,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
-                  "content": "Partnerji in znamke",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "56px",
-                  "fontWeight": "800",
-                  "textAlign": "center"
+                  "id": 50,
+                  "variant": "label",
+                  "content": "Partnerji",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
-                  "variant": "lead",
-                  "content": "Sodelujemo z znamkami in organizacijami iz sveta kolesarstva — od traila do širše skupnosti.",
-                  "color": "foreground",
-                  "textAlign": "center",
-                  "fontSize": "22px",
-                  "maxWidth": "560px"
+                  "id": 51,
+                  "variant": "body",
+                  "content": "S kom sodelujemo",
+                  "bold": true,
+                  "fontSize": "clamp(2.25rem, 5vw, 3.25rem)",
+                  "color": "foreground"
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 104,
-                  "justify": "center",
-                  "wrap": true,
-                  "gap": "md",
-                  "margin": "16px 0 0",
-                  "slots": {
-                    "default": [
-                      {
-                        "__component": "blocks.button",
-                        "id": 105,
-                        "label": "V trgovino",
-                        "href": "/shop",
-                        "padding": "18px 40px"
-                      },
-                      {
-                        "__component": "blocks.button",
-                        "id": 106,
-                        "label": "Servis",
-                        "href": "/service",
-                        "variant": "secondary",
-                        "color": "foreground",
-                        "border": "2px solid var(--color-foreground)",
-                        "backgroundColor": "transparent",
-                        "padding": "18px 40px"
-                      }
-                    ]
-                  }
+                  "__component": "blocks.text",
+                  "id": 52,
+                  "variant": "lead",
+                  "content": "Znamke komponent in pnevmatik, festivali, graditelji stez, domače društvo in tekmovalna ekipa.",
+                  "color": "secondary"
                 }
               ]
             }
@@ -84,467 +54,375 @@
     },
     {
       "__component": "blocks.section",
-      "id": 200,
+      "id": 56,
       "padding": "lg",
+      "surface": "background",
       "slots": {
         "default": [
           {
-            "__component": "blocks.stack",
-            "id": 202,
-            "gap": "sm",
-            "align": "center",
-            "maxWidth": "640px",
-            "margin": "0 auto",
-            "slots": {
-              "default": [
-                {
-                  "__component": "blocks.text",
-                  "id": 203,
-                  "variant": "label",
-                  "content": "Naši partnerji",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 204,
-                  "content": "Partnerji, s katerimi sodelujemo",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 205,
-                  "variant": "lead",
-                  "content": "Znamke komponent in pnevmatik, festivali, gradnja stez, lokalna društva in tekmovalne ekipe — zanesljivi partnerji v kolesarstvu.",
-                  "color": "secondary",
-                  "textAlign": "center"
-                }
-              ]
-            }
-          },
-          {
             "__component": "blocks.grid",
-            "id": 209,
+            "id": 55,
             "columns": {
               "mobile": 1,
               "tablet": 2,
-              "desktop": 3
+              "desktop": 4
             },
-            "gap": "md",
+            "gap": "lg",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.stack",
-                  "id": 210,
+                  "id": 14,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 211,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404891/images_1_gd8ohz.png",
+                        "id": 10,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/images_1_gd8ohz.png",
                         "alt": "Reverse Components",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 212,
+                        "id": 11,
+                        "variant": "body",
                         "content": "Reverse Components",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 213,
+                        "id": 12,
                         "variant": "body",
-                        "content": "Nemška znamka MTB in e-kolesarskih komponent iz Freudenstadta (Črni gozd), od leta 2004. Znan po motu »od kolesarjev za kolesarje«: krmila, obročniki, sedeži, pedala in več, testirano tudi z laboratorijem EFBE. Prisoten v več kot 25 državah.",
+                        "content": "Nemške MTB komponente iz Črnega gozda — krmila, obročniki, sedeži in pedala, po motu »od kolesarjev za kolesarje«.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 214,
-                        "label": "Obiščite Reverse Components",
+                        "id": 13,
+                        "label": "Odprite spletno stran",
                         "href": "https://www.reverse-components.com/en",
-                        "variant": "accent",
                         "showArrow": true,
-                        "margin": "8px auto 0"
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 220,
+                  "id": 19,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 221,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_wbppdf.jpg",
+                        "id": 15,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/images_wbppdf.jpg",
                         "alt": "Flat Out Days",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 222,
+                        "id": 16,
+                        "variant": "body",
                         "content": "Flat Out Days",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 223,
+                        "id": 17,
                         "variant": "body",
-                        "content": "Največji slovenski festival gorskega kolesarjenja — danes večdnevni dogodek v Bike parku Kope z Freeride Fest Series, whip-offi, dual slalomom, delavnicami in glasbo. Začel je leta 2017 kot majhen whip-off v Ljubljani; danes poudarek na skupnosti in napredku v športu.",
+                        "content": "Največji slovenski festival gorskega kolesarjenja, večdnevno dogajanje v Bike parku Kope.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 224,
-                        "label": "Flat Out Days — vstopnice in program",
+                        "id": 18,
+                        "label": "Program in vstopnice",
                         "href": "https://flatoutdays.com",
-                        "variant": "accent",
                         "showArrow": true,
-                        "margin": "8px auto 0"
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 230,
+                  "id": 24,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 231,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/goodyear-logo-01_zlhnbl.jpg",
+                        "id": 20,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/goodyear-logo-01_zlhnbl.jpg",
                         "alt": "Goodyear Bike",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 232,
+                        "id": 21,
+                        "variant": "body",
                         "content": "Goodyear Bike",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 233,
+                        "id": 22,
                         "variant": "body",
-                        "content": "Uradna kolesarska linija Goodyear (goodyearbike.com): visokozmogljive pnevmatike za cesto, gravel, treking/urban in MTB — npr. Eagle, Vector, Connector, Newton in Escape. Na strani tudi kalkulator tlaka in vodila za tubeless.",
+                        "content": "Pnevmatike za cesto, gravel, treking in MTB — z vodili za tubeless in kalkulatorjem tlaka.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 234,
-                        "label": "Goodyear Bike — pnevmatike",
+                        "id": 23,
+                        "label": "Odprite spletno stran",
                         "href": "https://www.goodyearbike.com/",
-                        "variant": "accent",
                         "showArrow": true,
-                        "margin": "8px auto 0"
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 240,
+                  "id": 29,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 241,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404890/images_1_lbvhfo.jpg",
+                        "id": 25,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/images_1_lbvhfo.jpg",
                         "alt": "BATT Crew",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 242,
+                        "id": 26,
+                        "variant": "body",
                         "content": "BATT Crew",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 243,
+                        "id": 27,
                         "variant": "body",
-                        "content": "Domžalska ekipa za načrtovanje in gradnjo varnih, trajnostnih MTB stez in bike parkov (med drugim Agi Bike Park in obsežna prenova Bike parka Kope). Nudijo še dokumentacijo, označevanje, načrte reševanja in foto/video. Leta 2017 so zagnali Flat Out Days.",
+                        "content": "Načrtovanje in gradnja trajnostnih MTB stez in bike parkov; med njimi prenova Bike parka Kope.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 244,
-                        "label": "BATT Crew — reference in kontakt",
+                        "id": 28,
+                        "label": "Reference in kontakt",
                         "href": "https://battcrew.com/en/",
-                        "variant": "accent",
                         "showArrow": true,
-                        "margin": "8px auto 0"
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 250,
+                  "id": 34,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 251,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404892/images_2_xviu4o.jpg",
+                        "id": 30,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/images_2_xviu4o.jpg",
                         "alt": "Loose Riders",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 252,
+                        "id": 31,
+                        "variant": "body",
                         "content": "Loose Riders",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 253,
+                        "id": 32,
                         "variant": "body",
-                        "content": "Globalna znamka in mreža skupnosti (LRGA): tehnična oblačila, zaščita, dodatki in deli za kolo. Nastali iz trail skupnosti (2012), danes lokalni »chapterji« po svetu in sproščena filozofija — od Chiang Maija do Evrope.",
+                        "content": "Tehnična oblačila, zaščita in dodatki, zrasli iz globalne trail skupnosti.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 254,
-                        "label": "Loose Riders — trgovina",
+                        "id": 33,
+                        "label": "Odprite trgovino",
                         "href": "https://www.loose-riders.com/en/",
-                        "variant": "accent",
                         "showArrow": true,
-                        "margin": "8px auto 0"
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 260,
+                  "id": 39,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 261,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404889/1718357843307_LOGO_S%CC%8CKTD_MLINARJI_APAC%CC%8CE.png_fvumlz.png",
-                        "alt": "Apače mlinarji",
+                        "id": 35,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/1718357843307_LOGO_S%CC%8CKTD_MLINARJI_APAC%CC%8CE.png_fvumlz.png",
+                        "alt": "ŠKTD Apače Mlinarji",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 262,
-                        "content": "Apače mlinarji",
+                        "id": 36,
+                        "variant": "body",
+                        "content": "ŠKTD Apače Mlinarji",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 263,
+                        "id": 37,
                         "variant": "body",
-                        "content": "ŠKTD (športno, kulturno in turistično društvo) Apače Mlinarji organizira dirke gorskega kolesarjenja na domačem poligonu — med drugim etape Pomurskega pokala MTB in posebne nočne dirke. Močna podpora otroškim kategorijam in lokalni kolesarski sceni.",
+                        "content": "Domače društvo, ki skrbi za apaški pumptrack in organizira dirke Pomurskega pokala MTB.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 38,
+                        "label": "Spremljajte dogajanje",
+                        "href": "https://www.facebook.com/apacemlinarji",
+                        "showArrow": true,
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
                 },
                 {
                   "__component": "blocks.stack",
-                  "id": 270,
+                  "id": 44,
                   "gap": "md",
-                  "align": "center",
-                  "padding": "24px",
-                  "backgroundColor": "muted",
-                  "border": "1px solid var(--color-border)",
-                  "borderRadius": "16px",
+                  "align": "stretch",
                   "slots": {
                     "default": [
                       {
                         "__component": "blocks.image",
-                        "id": 271,
-                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775404893/images_3_fg2dgh.jpg",
+                        "id": 40,
+                        "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/images_3_fg2dgh.jpg",
                         "alt": "427 Savage Squad",
                         "fit": "contain",
-                        "minHeight": "160px",
-                        "backgroundColor": "muted",
-                        "borderRadius": "var(--radius)",
-                        "padding": "16px"
+                        "height": "120px"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 272,
+                        "id": 41,
+                        "variant": "body",
                         "content": "427 Savage Squad",
                         "bold": true,
+                        "fontSize": "1.25rem",
                         "color": "foreground",
-                        "fontSize": "20px",
                         "textAlign": "center"
                       },
                       {
                         "__component": "blocks.text",
-                        "id": 273,
+                        "id": 42,
                         "variant": "body",
-                        "content": "Mariborska tekmovalna ekipa v spustu in enduru (kolesarsko društvo 427 Pohorje) z Juretom Logarjem. Deluje kot akademija z omejenim številom članov; med znanimi tekmovalci Maša Komel in Miha Jerkič. Svetovna združljivost z evropskimi pokali v spustu.",
+                        "content": "Mariborska tekmovalna ekipa v spustu in enduru, ki deluje kot akademija za mlade riderje.",
                         "color": "secondary",
-                        "textAlign": "center",
-                        "fontSize": "15px"
+                        "textAlign": "center"
                       },
                       {
                         "__component": "blocks.link",
-                        "id": 274,
-                        "label": "Sledi na Instagramu",
+                        "id": 43,
+                        "label": "Sledite na Instagramu",
                         "href": "https://www.instagram.com/427savagesquad/",
-                        "variant": "accent",
                         "showArrow": true,
-                        "margin": "8px auto 0"
+                        "margin": "auto 0 0 0"
                       }
                     ]
                   }
-                }
-              ]
-            },
-            "maxWidth": "1100px",
-            "margin": "48px auto 0"
-          }
-        ]
-      }
-    },
-    {
-      "__component": "blocks.section",
-      "id": 300,
-      "surface": "primary",
-      "padding": "lg",
-      "minHeight": "420px",
-      "justify": "center",
-      "align": "center",
-      "slots": {
-        "default": [
-          {
-            "__component": "blocks.stack",
-            "id": 301,
-            "gap": "md",
-            "align": "center",
-            "maxWidth": "480px",
-            "margin": "0 auto",
-            "slots": {
-              "default": [
-                {
-                  "__component": "blocks.text",
-                  "id": 302,
-                  "content": "Iščete kolo ali servis?",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
                 },
                 {
-                  "__component": "blocks.text",
-                  "id": 303,
-                  "variant": "lead",
-                  "content": "Obiščite nas ali nas pokličite na 070 815 379.",
-                  "color": "foreground",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.button",
-                  "id": 304,
-                  "label": "Kontakt",
-                  "href": "/contact",
-                  "variant": "secondary",
-                  "backgroundColor": "foreground",
-                  "color": "primary",
-                  "border": "none",
-                  "margin": "12px 0 0",
-                  "padding": "18px 40px"
+                  "__component": "blocks.stack",
+                  "id": 49,
+                  "gap": "md",
+                  "align": "stretch",
+                  "border": "1px solid var(--color-border)",
+                  "padding": "24px",
+                  "slots": {
+                    "default": [
+                      {
+                        "__component": "blocks.icon",
+                        "id": 45,
+                        "name": "mail",
+                        "label": "Kontakt",
+                        "size": "lg",
+                        "margin": "0 auto"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 46,
+                        "variant": "body",
+                        "content": "Sodelujmo",
+                        "bold": true,
+                        "fontSize": "1.25rem",
+                        "color": "foreground",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 47,
+                        "variant": "body",
+                        "content": "Organizirate dirko, gradite stezo ali iščete servisno podporo na dogodku? Pišite nam.",
+                        "color": "secondary",
+                        "textAlign": "center"
+                      },
+                      {
+                        "__component": "blocks.link",
+                        "id": 48,
+                        "label": "Pišite nam",
+                        "href": "/contact",
+                        "showArrow": true,
+                        "margin": "auto 0 0 0"
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -553,39 +431,5 @@
       }
     }
   ],
-  "navigation": {
-    "header": [
-      {
-        "label": "Domov",
-        "href": "/"
-      },
-      {
-        "label": "Znamke",
-        "href": "/brands"
-      },
-      {
-        "label": "Servis",
-        "href": "/service"
-      },
-      {
-        "label": "Kontakt",
-        "href": "/contact"
-      }
-    ],
-    "footer": [
-      {
-        "label": "O nas",
-        "href": "/about"
-      },
-      {
-        "label": "Zasebnost",
-        "href": "/privacy"
-      },
-      {
-        "label": "Pogoji",
-        "href": "/terms"
-      }
-    ]
-  },
   "lang": "sl"
 }

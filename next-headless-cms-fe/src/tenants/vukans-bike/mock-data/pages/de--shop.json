@@ -1,77 +1,313 @@
 {
-  "slug": "/de/shop",
+  "slug": "/shop",
   "template": "default",
   "seo": {
     "id": 1,
     "title": "Shop — Vukan's Bike",
-    "description": "Fahrräder zum Verkauf: Mountainbike, E-Bike und Rennrad. Besichtigung und Beratung nach Vereinbarung. Kontakt: 070 815 379.",
-    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402435/IMG_0028_gzpale.jpg"
+    "description": "Fahrräder im Verkauf bei Vukan's Bike in Apače. Besichtigung und Probefahrt nach Vereinbarung. Rufen Sie 070 815 379 an.",
+    "ogImage": "https://res.cloudinary.com/dru1crghm/image/upload/c_fill,w_1200,h_630,q_auto,f_auto/v1775402581/IMG_4484_p1jqkq.heic"
   },
   "blocks": [
     {
       "__component": "blocks.section",
-      "id": 100,
-      "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775402435/IMG_0028_gzpale.jpg",
-      "overlay": 0.38,
+      "id": 10,
       "padding": "lg",
-      "minHeight": "80vh",
+      "surface": "background",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 101,
-            "gap": "lg",
-            "align": "center",
-            "maxWidth": "720px",
-            "margin": "0 auto",
+            "id": 11,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 102,
+                  "id": 12,
+                  "variant": "label",
                   "content": "Shop",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "64px",
-                  "fontWeight": "800",
-                  "textAlign": "center"
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 103,
-                  "variant": "lead",
-                  "content": "Alle Fahrräder zum Verkauf — von Trail-MTB und E-MTB bis Rennrad. Für Details und Besichtigung kontaktieren Sie uns.",
-                  "color": "foreground",
-                  "textAlign": "center",
-                  "fontSize": "22px",
-                  "maxWidth": "560px"
+                  "id": 13,
+                  "variant": "body",
+                  "content": "Räder im Verkauf",
+                  "bold": true,
+                  "fontSize": "clamp(2.25rem, 5vw, 3.25rem)",
+                  "color": "foreground"
                 },
                 {
-                  "__component": "blocks.flex",
-                  "id": 104,
-                  "justify": "center",
-                  "wrap": true,
+                  "__component": "blocks.text",
+                  "id": 14,
+                  "variant": "lead",
+                  "content": "Jedes Rad, das die Werkstatt verlässt, wurde vorher bei uns aufgebaut und eingestellt. Besichtigung und Probefahrt nach Vereinbarung.",
+                  "color": "secondary"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "__component": "blocks.section",
+      "id": 20,
+      "padding": "lg",
+      "surface": "muted",
+      "slots": {
+        "default": [
+          {
+            "__component": "blocks.grid",
+            "id": 21,
+            "columns": {
+              "mobile": 1,
+              "tablet": 2,
+              "desktop": 2
+            },
+            "gap": "lg",
+            "slots": {
+              "default": [
+                {
+                  "__component": "blocks.image",
+                  "id": 22,
+                  "src": "https://res.cloudinary.com/dru1crghm/image/upload/f_jpg,q_auto/v1775402581/IMG_4484_p1jqkq.heic",
+                  "alt": "Merida Road Ride 903-27 — Rennrad",
+                  "height": "clamp(340px, 48vw, 620px)"
+                },
+                {
+                  "__component": "blocks.stack",
+                  "id": 23,
                   "gap": "md",
-                  "margin": "16px 0 0",
+                  "align": "start",
                   "slots": {
                     "default": [
                       {
-                        "__component": "blocks.button",
-                        "id": 105,
-                        "label": "Kontakt",
-                        "href": "/de/contact",
-                        "padding": "18px 40px"
+                        "__component": "blocks.text",
+                        "id": 24,
+                        "variant": "label",
+                        "content": "Aktuell im Verkauf",
+                        "color": "text-primary"
                       },
                       {
-                        "__component": "blocks.button",
-                        "id": 106,
-                        "label": "Service",
-                        "href": "/de/service",
-                        "variant": "secondary",
-                        "color": "foreground",
-                        "border": "2px solid var(--color-foreground)",
-                        "backgroundColor": "transparent",
-                        "padding": "18px 40px"
+                        "__component": "blocks.text",
+                        "id": 25,
+                        "variant": "body",
+                        "content": "Merida Road Ride 903-27",
+                        "bold": true,
+                        "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                        "color": "foreground"
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 26,
+                        "variant": "body",
+                        "content": "Rennrad mit Aluminiumrahmen Road Lite Ride und Gabel mit Carbon-Brücke. Antrieb Shimano Tiagra 3×9 mit Dreifach-Kurbelgarnitur — genug Gänge für Anstiege und für die Ebene.",
+                        "color": "secondary",
+                        "maxWidth": "46ch"
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 27,
+                        "justify": "between",
+                        "align": "start",
+                        "gap": "md",
+                        "padding": "12px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 28,
+                              "variant": "caption",
+                              "content": "Rahmen",
+                              "color": "secondary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 29,
+                              "variant": "caption",
+                              "content": "Aluminium Road Lite Ride (TFS)",
+                              "color": "foreground"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 30,
+                        "justify": "between",
+                        "align": "start",
+                        "gap": "md",
+                        "padding": "12px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 31,
+                              "variant": "caption",
+                              "content": "Gabel",
+                              "color": "secondary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 32,
+                              "variant": "caption",
+                              "content": "Aluminium mit Carbon-Brücke",
+                              "color": "foreground"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 33,
+                        "justify": "between",
+                        "align": "start",
+                        "gap": "md",
+                        "padding": "12px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 34,
+                              "variant": "caption",
+                              "content": "Schaltung",
+                              "color": "secondary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 35,
+                              "variant": "caption",
+                              "content": "Shimano Tiagra 3×9 (27 Gänge)",
+                              "color": "foreground"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 36,
+                        "justify": "between",
+                        "align": "start",
+                        "gap": "md",
+                        "padding": "12px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 37,
+                              "variant": "caption",
+                              "content": "Bremsen",
+                              "color": "secondary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 38,
+                              "variant": "caption",
+                              "content": "Shimano Tiagra",
+                              "color": "foreground"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 39,
+                        "justify": "between",
+                        "align": "start",
+                        "gap": "md",
+                        "padding": "12px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 40,
+                              "variant": "caption",
+                              "content": "Laufräder und Reifen",
+                              "color": "secondary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 41,
+                              "variant": "caption",
+                              "content": "Shimano WH-R500, Vittoria Rubino 23 mm",
+                              "color": "foreground"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 42,
+                        "justify": "between",
+                        "align": "start",
+                        "gap": "md",
+                        "padding": "12px 0",
+                        "borderTop": "1px solid var(--color-border)",
+                        "width": "100%",
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.text",
+                              "id": 43,
+                              "variant": "caption",
+                              "content": "Gewicht",
+                              "color": "secondary"
+                            },
+                            {
+                              "__component": "blocks.text",
+                              "id": 44,
+                              "variant": "caption",
+                              "content": "ca. 9,2–9,5 kg (je nach Rahmengröße)",
+                              "color": "foreground"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "__component": "blocks.text",
+                        "id": 45,
+                        "variant": "body",
+                        "content": "350 €",
+                        "bold": true,
+                        "fontSize": "clamp(1.5rem, 2.5vw, 2rem)",
+                        "color": "text-primary",
+                        "margin": "12px 0 0"
+                      },
+                      {
+                        "__component": "blocks.flex",
+                        "id": 46,
+                        "gap": "md",
+                        "wrap": true,
+                        "slots": {
+                          "default": [
+                            {
+                              "__component": "blocks.button",
+                              "id": 47,
+                              "label": "Alle Details",
+                              "href": "/de/bikes/merida"
+                            },
+                            {
+                              "__component": "blocks.button",
+                              "id": 48,
+                              "label": "Rufen Sie 070 815 379 an",
+                              "href": "tel:+38670815379",
+                              "variant": "secondary"
+                            }
+                          ]
+                        }
                       }
                     ]
                   }
@@ -84,45 +320,49 @@
     },
     {
       "__component": "blocks.section",
-      "id": 200,
+      "id": 50,
       "padding": "lg",
-      "surface": "muted",
+      "surface": "background",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 201,
-            "gap": "sm",
-            "align": "center",
-            "margin": "0 0 8px",
+            "id": 51,
+            "gap": "md",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 202,
+                  "id": 52,
                   "variant": "label",
-                  "content": "Verkauf",
-                  "color": "primary",
-                  "textAlign": "center"
+                  "content": "Aufbau und Einstellung",
+                  "color": "text-primary"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 203,
-                  "content": "Fahrräder zum Verkauf",
-                  "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
-                },
-                {
-                  "__component": "blocks.text",
-                  "id": 204,
+                  "id": 53,
                   "variant": "body",
-                  "content": "Gesamtes Sortiment — für Details und Besichtigung kontaktieren Sie uns.",
-                  "textAlign": "center",
-                  "color": "secondary",
-                  "maxWidth": "480px",
-                  "margin": "0 auto"
+                  "content": "Bringen Sie Ihr Online-Rad zu uns",
+                  "bold": true,
+                  "fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)",
+                  "color": "foreground"
+                },
+                {
+                  "__component": "blocks.text",
+                  "id": 54,
+                  "variant": "body",
+                  "content": "Ein online gekauftes Rad bauen wir auf, stellen alle wichtigen Komponenten ein, montieren Zubehör und kümmern uns um die Verpackung. Abgerechnet wird nach geleisteten Stunden.",
+                  "color": "foreground"
+                },
+                {
+                  "__component": "blocks.link",
+                  "id": 55,
+                  "label": "Preisliste Service und Aufbau",
+                  "href": "/de/service",
+                  "showArrow": true,
+                  "margin": "8px 0 0"
                 }
               ]
             }
@@ -131,60 +371,42 @@
       }
     },
     {
-      "__component": "blocks.product-list",
-      "id": 300,
-      "heading": "",
-      "subheading": "",
-      "outOfStockLabel": "Nicht vorrätig",
-      "layout": "grid"
-    },
-    {
       "__component": "blocks.section",
-      "id": 400,
-      "surface": "primary",
+      "id": 60,
       "padding": "lg",
-      "minHeight": "420px",
-      "justify": "center",
-      "align": "center",
+      "surface": "accent",
       "slots": {
         "default": [
           {
             "__component": "blocks.stack",
-            "id": 401,
+            "id": 61,
             "gap": "md",
-            "align": "center",
-            "maxWidth": "480px",
-            "margin": "0 auto",
+            "align": "start",
+            "maxWidth": "68ch",
             "slots": {
               "default": [
                 {
                   "__component": "blocks.text",
-                  "id": 402,
-                  "content": "Fragen zu einem Rad?",
+                  "id": 62,
+                  "variant": "body",
+                  "content": "Suchen Sie ein anderes Rad?",
                   "bold": true,
-                  "color": "foreground",
-                  "fontSize": "36px",
-                  "textAlign": "center"
+                  "fontSize": "clamp(1.5rem, 2.8vw, 2rem)",
+                  "color": "foreground"
                 },
                 {
                   "__component": "blocks.text",
-                  "id": 403,
-                  "variant": "lead",
-                  "content": "Rufen Sie 070 815 379 an oder schreiben Sie uns — wir beraten gern.",
-                  "color": "foreground",
-                  "textAlign": "center"
+                  "id": 63,
+                  "variant": "body",
+                  "content": "Sagen Sie uns, welches Rad Sie suchen und für welche Art von Fahrten — gemeinsam schauen wir, was sinnvoll ist.",
+                  "color": "foreground"
                 },
                 {
-                  "__component": "blocks.button",
-                  "id": 404,
-                  "label": "Kontakt",
+                  "__component": "blocks.link",
+                  "id": 64,
+                  "label": "Schreiben Sie uns",
                   "href": "/de/contact",
-                  "variant": "secondary",
-                  "backgroundColor": "foreground",
-                  "color": "primary",
-                  "border": "none",
-                  "margin": "12px 0 0",
-                  "padding": "18px 40px"
+                  "showArrow": true
                 }
               ]
             }

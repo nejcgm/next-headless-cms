@@ -71,6 +71,28 @@ Rules for this shape:
 
 Numeric integers, unique within the page. Prefer sequential numbering (1, 2, 3, …).
 
+## Authoring conventions (bike pages)
+
+Established by `specs/008-bike-site-redesign`; the full vocabulary lives in that feature's
+`contracts/design-system.md`. The rules below are the ones that break pages when ignored:
+
+- **Every `blocks.text` node sets `color`.** The `text` primitive defaults all four variants to
+  `var(--color-muted-foreground)`, which `ThemeProvider` does not emit — it is fixed at `#6B7280` in
+  `globals.css` and cannot follow a tenant theme. Copy without an explicit `color` renders in that gray.
+- **`fontSize` only with `variant: "body"`.** `lead`, `caption` and `label` carry fixed Tailwind
+  line-heights, so resizing them makes lines collide. `body` uses unitless `leading-relaxed`, which scales.
+- **Use `clamp()` for responsive sizing.** Box styles pass raw strings to inline CSS and have no breakpoint
+  variants, so `"fontSize": "clamp(1.75rem, 3.2vw, 2.5rem)"` is how fluid type is authored.
+- **Colors are token names, never raw hex** — `resolveColor` maps any bare name to `var(--color-<name>)`,
+  including `"text-primary"` → `var(--color-text-primary)`.
+- **No `navigation` key in a page file.** `loadPageWithNavigation` always fetches
+  `navigation.json` / `{locale}--navigation.json` and spreads it over the page, so a per-page copy is dead
+  data. Edit nav in those files only.
+- **Locale mirrors are structural copies**: `en--*` / `de--*` keep identical trees, ids and box styles, and
+  differ only in strings and in the `/en` · `/de` prefix on internal hrefs (never on `tel:`, `mailto:`,
+  `https://` or `#anchor`).
+- **Grid item counts** are chosen so no breakpoint leaves a lone item on the last row.
+
 ## Templates
 
 | Value | Meaning |
