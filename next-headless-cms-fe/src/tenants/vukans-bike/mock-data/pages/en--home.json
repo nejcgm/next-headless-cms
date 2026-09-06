@@ -663,7 +663,7 @@
                         "id": 97,
                         "label": "Send us a message",
                         "href": "/en/contact",
-                        "variant": "secondary",
+                        "variant": "outline",
                         "color": "background",
                         "border": "2px solid var(--color-background)"
                       }

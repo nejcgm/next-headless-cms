@@ -101,8 +101,8 @@ Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Kee
 | `blocks.image` | `image` | Leaf: `src`, `alt?`, `fit?`, slim box styles |
 | `blocks.iframe` | `iframe` | Leaf: `src`, `title`, `allowFullscreen?`, `aspect?` (`video`/`map`/`square`), slim box styles |
 | `blocks.icon` | `icon` | Leaf: `name` (`map-pin`/`phone`/`mail`), `label?`, `size?` (`sm`/`md`/`lg`), slim box styles |
-| `blocks.button` | `button` | Leaf: `label`, `href`, `variant?` (`primary`/`secondary`), slim box styles |
-| `blocks.link` | `link` | Leaf: `label`, `href`, `variant?` (`accent`/`muted`), `showArrow?`, slim box styles |
+| `blocks.button` | `button` | Leaf: `label`, `href`, `variant?` (`primary`/`secondary`/`outline`), slim box styles (incl. `lineHeight`) |
+| `blocks.link` | `link` | Leaf: `label`, `href`, `variant?` (`primary`/`muted`), `showArrow?`, slim box styles (incl. `lineHeight`) |
 | `blocks.accordion` | `accordion` | Shared L3 leaf: `title`, `content`, `defaultOpen?`, panel styles only (`padding`, `margin`, `backgroundColor`, `border`, `borderRadius`) |
 
 **Box styles** (shared L1): `width`, `height`, `minHeight`, `maxWidth`, `padding` (not on `section`), `margin`, `backgroundColor`, `color`, `border`, `borderTop`, `borderRadius`, `overflow`, `fontSize`, `fontWeight`, `textAlign`.

@@ -5,7 +5,7 @@ import { boxStyleSchema } from "@shared/utils/box-style";
 export const linkSchema = boxStyleSchema.extend({
   label: z.string(),
   href: z.string(),
-  variant: z.enum(["accent", "muted"]).optional(),
+  variant: z.enum(["primary", "muted"]).optional(),
   showArrow: z.boolean().optional(),
 });
 

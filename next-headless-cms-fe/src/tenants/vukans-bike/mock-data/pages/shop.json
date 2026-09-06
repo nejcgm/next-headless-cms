@@ -304,7 +304,7 @@
                               "id": 48,
                               "label": "Pokličite 070 815 379",
                               "href": "tel:+38670815379",
-                              "variant": "secondary"
+                              "variant": "outline"
                             }
                           ]
                         }

@@ -81,7 +81,7 @@ export interface BlocksButton extends Struct.ComponentSchema {
     minHeight: Schema.Attribute.String;
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
     padding: Schema.Attribute.String;
-    variant: Schema.Attribute.Enumeration<['primary', 'secondary']> &
+    variant: Schema.Attribute.Enumeration<['primary', 'secondary', 'outline']> &
       Schema.Attribute.DefaultTo<'primary'>;
     width: Schema.Attribute.String;
   };
@@ -254,7 +254,7 @@ export interface BlocksImage extends Struct.ComponentSchema {
 export interface BlocksLink extends Struct.ComponentSchema {
   collectionName: 'components_blocks_links';
   info: {
-    description: 'Text link leaf (accent or muted)';
+    description: 'Text link leaf (primary or muted)';
     displayName: 'Link';
     icon: 'link';
   };
@@ -268,6 +268,7 @@ export interface BlocksLink extends Struct.ComponentSchema {
     height: Schema.Attribute.String;
     href: Schema.Attribute.String & Schema.Attribute.Required;
     label: Schema.Attribute.String & Schema.Attribute.Required;
+    lineHeight: Schema.Attribute.String;
     margin: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
     minHeight: Schema.Attribute.String;
@@ -275,8 +276,8 @@ export interface BlocksLink extends Struct.ComponentSchema {
     padding: Schema.Attribute.String;
     showArrow: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     textAlign: Schema.Attribute.Enumeration<['left', 'center', 'right']>;
-    variant: Schema.Attribute.Enumeration<['accent', 'muted']> &
-      Schema.Attribute.DefaultTo<'accent'>;
+    variant: Schema.Attribute.Enumeration<['primary', 'muted']> &
+      Schema.Attribute.DefaultTo<'primary'>;
     width: Schema.Attribute.String;
   };
 }
@@ -382,6 +383,7 @@ export interface BlocksText extends Struct.ComponentSchema {
     fontSize: Schema.Attribute.String;
     fontWeight: Schema.Attribute.String;
     height: Schema.Attribute.String;
+    lineHeight: Schema.Attribute.String;
     margin: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
     minHeight: Schema.Attribute.String;

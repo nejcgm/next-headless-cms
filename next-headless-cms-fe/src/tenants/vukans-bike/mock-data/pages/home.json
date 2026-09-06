@@ -663,7 +663,7 @@
                         "id": 97,
                         "label": "Pišite nam",
                         "href": "/contact",
-                        "variant": "secondary",
+                        "variant": "outline",
                         "color": "background",
                         "border": "2px solid var(--color-background)"
                       }

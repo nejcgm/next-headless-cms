@@ -19,7 +19,8 @@
       "type": "enumeration",
       "enum": [
         "primary",
-        "secondary"
+        "secondary",
+        "outline"
       ],
       "default": "primary"
     },

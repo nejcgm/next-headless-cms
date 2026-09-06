@@ -52,7 +52,8 @@ Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blo
 | Put it in | When |
 |-----------|------|
 | `src/shared/components/primitives/` | Shared L1 primitives (layout / content / actions); register in `shared/components/index.ts` |
-| `src/shared/components/ui/{name}/` | Shared interactive UI widgets (`accordion`, `image-lightbox`) — one folder per component (`{name}.tsx` + `types.ts`; registry schema when CMS-authored). **Tenant-agnostic chrome**: structure + theme tokens only; do not bake product-specific look (primary pills, filled FAQ cards, brand motifs). Page/tenant trees supply composition and box-style overrides. |
+| `src/shared/components/ui/{name}/` | Shared **CMS-authored** interactive widgets (`accordion`) — `{name}.tsx` + `types.ts` + `schema.ts`; register in `shared/components/index.ts` and Strapi. **Tenant-agnostic chrome**: structure + theme tokens only; page/tenant trees supply composition and box-style overrides. |
+| `src/shared/components/static/{name}/` | Shared **non-CMS** widgets used by other components (e.g. `image-lightbox`) — `{name}.tsx` + `types.ts`; **not** registered, **not** in the page DZ. Callers pass props in code. |
 | `src/shared/components/navigation/{name}/` | Shared navigation chrome helpers (e.g. `navigation-progress-bar`) — one folder per component |
 | `src/tenants/{tenant}/blocks/` | Tenant-specific layout, copy patterns, or data wiring; register in tenant `blocks/index.ts` |
 
@@ -64,13 +65,15 @@ Author schemas with plain `z.object({...})` — unknown keys (e.g. injected `blo
 
 **Deleted shared opaques** (no longer registered): `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`. Prefer L1/L2 for marketing layouts. **Bike is SoT for shared L1 types.**
 
-**Box styles (L1)** — shared bag via `boxStyleSchema` / `toBoxStyle`: `width`, `height`, `minHeight`, `maxWidth`, `padding`, `margin`, `backgroundColor`, `color`, `border`, `borderTop`, `borderRadius`, `overflow`, `fontSize`, `fontWeight`, `textAlign`. Prefer **px**; theme tokens or `#hex` via `resolveColor`. `border` is CSS shorthand; `borderTop` for hairline rules. Box typography fields are intentional **CMS overrides**. Titles/display copy use `text` with `fontSize` + `bold` (there is no separate `heading` primitive). Layout alignment is **not** in the box bag — use component props.
+**Box styles (L1)** — shared bag via `boxStyleSchema` / `toBoxStyle`: `width`, `height`, `minHeight`, `maxWidth`, `padding`, `margin`, `backgroundColor`, `color`, `border`, `borderTop`, `borderRadius`, `overflow`, `fontSize`, `fontWeight`, `lineHeight`, `textAlign`. Prefer **px**; theme tokens or `#hex` via `resolveColor`. `border` is CSS shorthand; `borderTop` for hairline rules. Box typography fields are intentional **CMS overrides**. Titles/display copy use `text` with `fontSize` + `bold` (there is no separate `heading` primitive). Layout alignment is **not** in the box bag — use component props. `lineHeight` exists because only the `text` primitive's `body` variant scales its Tailwind line-height with `fontSize`; `lead`/`caption`/`label` carry a fixed line-height, so an authored `fontSize` override on those needs an explicit matching `lineHeight` or the lines will collide.
 
 **`section`** — structural band. `justify` / `align` are **content alignment** (`start`\|`center`\|`end`) and turn the section into a column flex container when set. Also: enum `padding`, `surface` / `backgroundColor`, optional hero `backgroundImage` / `overlay` / `anchorId`.
 
 **`text`** — copy leaf: `content`, `variant` (`body`\|`lead`\|`caption`\|`label`), optional `bold`, plus box styles (`fontSize`, `color`, …). Former heading roles are plain `text` with size/weight. Stats = `stack` of two `text` nodes.
 
 **`grid`** — `columns` is either a number (legacy responsive defaults) or `{ mobile, tablet?, desktop? }` (1–4). Prefer the object form.
+
+**`button`** — `variant`: `primary` (filled brand color) \| `secondary` (filled `--color-secondary`) \| `outline` (brand-color border, transparent fill). **`link`** — `variant`: `primary` (brand color text) \| `muted` (`--color-muted-foreground`, hovers to brand color). These names match what each variant actually renders — `link`'s `primary` option used to be named `accent` (it never touched `--color-accent`), and `button`'s outline option used to be named `secondary` (it never touched `--color-secondary`); both were renamed rather than rewired, since `--color-accent` is a light surface tint, not an accessible text color.
 
 Page **dynamic zone stays flat at the root**. Nesting is stored in a **`slots` JSON** field on layout primitives (see content-model / composition-tree contract). Visual drag-and-drop editor is **out of scope** — author via mock/seed/Strapi JSON.
 
@@ -173,3 +176,5 @@ Use Tailwind with CSS custom properties for brand colors: `bg-[var(--color-prima
 - **Overlays**: `text-white/90`, `bg-white/10` — transparency on dark backgrounds
 
 Brand-specific colors (primary, secondary, accent, foreground, muted, border) must ALWAYS use CSS variables.
+
+**Theme tokens (`ThemeTokens`, `src/core/types/tenant.ts`)**: `colors.{primary, secondary, accent, background, foreground, muted, border, textPrimary, mutedForeground}`, `fonts.{heading, body}`, `borderRadius`. `ThemeProvider` (`src/core/theme/provider.tsx`) emits each as a `--color-*` / `--font-*` / `--radius` CSS variable on its wrapper div — this is a **fixed, hand-maintained list**; a new named token must be added to both `ThemeTokens` and the provider or it is silently inert (this is exactly what happened to `mutedForeground` before it was added — the `text` primitive's non-`color`-overridden state, plus the footer/accordion/header locale switcher, all read `--color-muted-foreground`, which was hardcoded in `globals.css` and unthemeable per tenant until this field existed). `fonts.heading` / `fonts.body` are plain CSS `font-family` values — set them to `var(--font-<name>)` only if `src/app/layout.tsx` actually loads that font via `next/font` with a matching `variable` name; otherwise the reference is dead and text falls through to the browser default.

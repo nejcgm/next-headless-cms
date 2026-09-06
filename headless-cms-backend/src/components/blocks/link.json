@@ -3,37 +3,84 @@
   "info": {
     "displayName": "Link",
     "icon": "link",
-    "description": "Text link leaf (accent or muted)"
+    "description": "Text link leaf (primary or muted)"
   },
   "options": {},
   "attributes": {
-    "label": { "type": "string", "required": true },
-    "href": { "type": "string", "required": true },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "href": {
+      "type": "string",
+      "required": true
+    },
     "variant": {
       "type": "enumeration",
-      "enum": ["accent", "muted"],
-      "default": "accent"
+      "enum": [
+        "primary",
+        "muted"
+      ],
+      "default": "primary"
     },
-    "showArrow": { "type": "boolean", "default": false },
-    "width": { "type": "string" },
-    "height": { "type": "string" },
-    "minHeight": { "type": "string" },
-    "maxWidth": { "type": "string" },
-    "padding": { "type": "string" },
-    "margin": { "type": "string" },
-    "backgroundColor": { "type": "string" },
-    "color": { "type": "string" },
-    "border": { "type": "string" },
-    "borderRadius": { "type": "string" },
+    "showArrow": {
+      "type": "boolean",
+      "default": false
+    },
+    "width": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    },
+    "minHeight": {
+      "type": "string"
+    },
+    "maxWidth": {
+      "type": "string"
+    },
+    "padding": {
+      "type": "string"
+    },
+    "margin": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "border": {
+      "type": "string"
+    },
+    "borderRadius": {
+      "type": "string"
+    },
     "overflow": {
       "type": "enumeration",
-      "enum": ["visible", "hidden", "auto"]
+      "enum": [
+        "visible",
+        "hidden",
+        "auto"
+      ]
     },
-    "fontSize": { "type": "string" },
-    "fontWeight": { "type": "string" },
+    "fontSize": {
+      "type": "string"
+    },
+    "fontWeight": {
+      "type": "string"
+    },
+    "lineHeight": {
+      "type": "string"
+    },
     "textAlign": {
       "type": "enumeration",
-      "enum": ["left", "center", "right"]
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
     }
   }
 }

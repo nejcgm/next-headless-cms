@@ -34,9 +34,5 @@ registerSharedBlocks({
   icon: { component: IconBlock, schema: iconSchema, policy: iconPolicy },
   button: { component: ButtonBlock, schema: buttonSchema, policy: buttonPolicy },
   link: { component: LinkBlock, schema: linkSchema, policy: linkPolicy },
-  accordion: {
-    component: Accordion,
-    schema: accordionSchema,
-    policy: accordionPolicy,
-  },
+  accordion: { component: Accordion, schema: accordionSchema, policy: accordionPolicy },
 });

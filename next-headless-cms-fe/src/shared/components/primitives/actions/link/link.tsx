@@ -11,7 +11,7 @@ function isNewTabHref(href: string): boolean {
 export function LinkBlock({
   label,
   href,
-  variant = "accent",
+  variant = "primary",
   showArrow = false,
   className,
   ...box
@@ -20,7 +20,7 @@ export function LinkBlock({
   const text = showArrow ? `${label} →` : label;
   const styles = cn(
     "inline-flex items-center gap-1 font-medium transition-opacity hover:opacity-80",
-    variant === "accent" && "text-[var(--color-primary)]",
+    variant === "primary" && "text-[var(--color-primary)]",
     variant === "muted" &&
       "text-[var(--color-muted-foreground)] font-normal hover:text-[var(--color-primary)]",
     className

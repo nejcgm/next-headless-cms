@@ -359,7 +359,7 @@
                         "id": 44,
                         "label": "Rufen Sie 070 815 379 an",
                         "href": "tel:+38670815379",
-                        "variant": "secondary",
+                        "variant": "outline",
                         "color": "background",
                         "border": "2px solid var(--color-background)"
                       }

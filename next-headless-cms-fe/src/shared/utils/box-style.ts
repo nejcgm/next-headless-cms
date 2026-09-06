@@ -17,6 +17,7 @@ export const boxStyleSchema = z.object({
   overflow: z.enum(["visible", "hidden", "auto"]).optional(),
   fontSize: z.string().optional(),
   fontWeight: z.string().optional(),
+  lineHeight: z.string().optional(),
   textAlign: z.enum(["left", "center", "right"]).optional(),
 });
 
@@ -40,6 +41,7 @@ export function toBoxStyle(props: BoxStyle): CSSProperties {
   if (props.overflow) style.overflow = props.overflow;
   if (props.fontSize) style.fontSize = props.fontSize;
   if (props.fontWeight) style.fontWeight = props.fontWeight;
+  if (props.lineHeight) style.lineHeight = props.lineHeight;
   if (props.textAlign) style.textAlign = props.textAlign;
   return style;
 }

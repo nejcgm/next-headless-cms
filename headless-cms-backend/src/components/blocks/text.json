@@ -7,30 +7,81 @@
   },
   "options": {},
   "attributes": {
-    "content": { "type": "text", "required": true },
+    "content": {
+      "type": "text",
+      "required": true
+    },
     "variant": {
       "type": "enumeration",
-      "enum": ["body", "lead", "caption", "label"],
+      "enum": [
+        "body",
+        "lead",
+        "caption",
+        "label"
+      ],
       "default": "body"
     },
     "bold": {
       "type": "boolean",
       "default": false
     },
-    "width": { "type": "string" },
-    "height": { "type": "string" },
-    "minHeight": { "type": "string" },
-    "maxWidth": { "type": "string" },
-    "padding": { "type": "string" },
-    "margin": { "type": "string" },
-    "backgroundColor": { "type": "string" },
-    "color": { "type": "string" },
-    "border": { "type": "string" },
-    "borderTop": { "type": "string" },
-    "borderRadius": { "type": "string" },
-    "overflow": { "type": "enumeration", "enum": ["visible", "hidden", "auto"] },
-    "fontSize": { "type": "string" },
-    "fontWeight": { "type": "string" },
-    "textAlign": { "type": "enumeration", "enum": ["left", "center", "right"] }
+    "width": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    },
+    "minHeight": {
+      "type": "string"
+    },
+    "maxWidth": {
+      "type": "string"
+    },
+    "padding": {
+      "type": "string"
+    },
+    "margin": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "border": {
+      "type": "string"
+    },
+    "borderTop": {
+      "type": "string"
+    },
+    "borderRadius": {
+      "type": "string"
+    },
+    "overflow": {
+      "type": "enumeration",
+      "enum": [
+        "visible",
+        "hidden",
+        "auto"
+      ]
+    },
+    "fontSize": {
+      "type": "string"
+    },
+    "fontWeight": {
+      "type": "string"
+    },
+    "lineHeight": {
+      "type": "string"
+    },
+    "textAlign": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center",
+        "right"
+      ]
+    }
   }
 }

@@ -74,6 +74,7 @@ const config: TenantConfig = {
       muted: "#f4f4f5",
       border: "#e4e4e7",
       textPrimary: "#111111",
+      mutedForeground: "#6b7280", // required — see block-system.md; must also be added to ThemeProvider if you add further custom tokens
     },
     fonts: {
       heading: "var(--font-inter)",

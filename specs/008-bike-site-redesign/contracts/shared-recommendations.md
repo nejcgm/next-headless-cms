@@ -2,26 +2,24 @@
 
 **Feature**: `008-bike-site-redesign`
 
-FR-013 deliverable. Each item is a ceiling this JSON-only redesign runs into. **None of these are implemented
-by this feature** — they touch `shared/` or `src/app/`, which is outside the agreed scope. They are written up
-so the owner can approve any of them separately. Ordered by how much they raise the design ceiling.
+FR-013 deliverable. Each item is a ceiling this JSON-only redesign ran into. **None were implemented as part
+of the original redesign scope** — they touch `shared/`, `src/core/`, or `src/app/`. Several have since been
+**explicitly requested and implemented** by the tenant owner in follow-up rounds (marked ✅ below); the rest
+remain proposals pending an explicit go-ahead. Ordered by how much they raise the design ceiling.
 
-| # | Change | Where | Unlocks | Size |
-|---|--------|-------|---------|------|
-| 1 | Load a real typeface and apply it | `src/app/layout.tsx` (`next/font`) + `body` gets `font-body` | The whole site currently renders in the browser's default sans; `theme.fonts` is inert. This is the single largest remaining lever on perceived quality. | Small |
-| 2 | Add `lineHeight`, `letterSpacing`, `textTransform`, `fontFamily` to box styles | `shared/utils/box-style.ts` | Tight display leading. Today a resized headline keeps a loose 1.625, so display copy must stay short (research R3). | Small |
-| 3 | Emit `--color-muted-foreground` from the theme | `src/core/theme/provider.tsx` + `ThemeTokens` | Component-internal text (footer, accordion, `bike-detail`, header locale switcher) is stuck at `#6B7280` and cannot follow a tenant palette. | Small |
-| 4 | Give `text` a tone prop, or default it to `foreground` | `shared/…/content/text` | Every variant currently defaults to the muted gray, so each authored node must repeat `color`. | Small |
-| 5 | `product-list` overhaul | `tenants/vukans-bike/blocks/product-list` | Count-aware grid, optional category badge, drop the self-imposed `<section>` + `--color-background` lock, `next/link` instead of `<a href>`, remove the no-op `category` prop. Needed before the block is used again under Strapi (research R6). | Medium |
-| 6 | `gallery` configurability | `tenants/vukans-bike/blocks/gallery` | `initialVisibleCount`, a layout mode, and removal of its self-imposed `<section>` + `bg-[var(--color-background)]` wrapper. Today the tile pattern (`idx % 7`, `idx % 5`) and 10-item reveal are hardcoded, and the block always paints a white full-width band that a parent surface cannot override — so the pages either side of a gallery have to be planned around it. | Medium |
-| 7 | `section` band padding | `shared/…/layout/section` | An `xl` step or a raw padding string; today the enum tops out at 80px and taller editorial bands need an inner wrapper. | Small |
-| 8 | Footer social links | `shared/components/layout/footer` | `FooterProps` has no field for socials, so they cannot be added from data. | Small |
-| 9 | Naming / wiring fixes | `shared/…/actions/{button,link}` | `link`'s `accent` variant renders `--color-primary`, and `button`'s `secondary` variant never uses the `secondary` token. Both are misleading to content authors. | Small |
-| 10 | Extend `icon` | `shared/…/content/icon` | Only `map-pin`, `phone`, `mail` exist; any icon-bearing pattern beyond contact rows is impossible. | Small |
-| 11 | Decouple the favicon from the header logo | `src/app/[domain]/layout.tsx` | `generateMetadata` sets `icons` from the *same* `tenantConfig.logoUrl` the header uses for its `<img>` — no other code path sets a favicon (`core/seo/metadata.ts`'s `buildMetadata` doesn't touch `icons`). One asset is currently forced to serve two different jobs (a wide header lockup vs. a square tab icon); a dedicated `faviconUrl` (or similar) field would let either change independently. (research R8) | Small |
+| # | Change | Where | Unlocks | Size | Status |
+|---|--------|-------|---------|------|--------|
+| 1 | Load a real typeface and apply it | `src/app/layout.tsx` (`next/font`) + `body` gets `font-body` | The whole site rendered in the browser's default sans; `theme.fonts` was inert. | Small | ✅ Done — Montserrat + Inter via `next/font/google`, `--font-montserrat`/`--font-inter` on `<html>`, `font-body` on `<body>` |
+| 2 | Add `lineHeight` to box styles | `shared/utils/box-style.ts` | Tight display leading without breaking `lead`/`caption`/`label` line-height when `fontSize` is overridden (research R3). | Small | ✅ Done — `lineHeight` on `boxStyleSchema` + `toBoxStyle`; mirrored in Strapi `blocks.text`/`blocks.link` schemas + generated types |
+| 3 | Emit `--color-muted-foreground` from the theme | `src/core/theme/provider.tsx` + `ThemeTokens` | Component-internal text (footer, accordion, `bike-detail`, header locale switcher) was stuck at `#6B7280`, unthemeable. | Small | ✅ Done — `mutedForeground` added to `ThemeTokens.colors` (required; also backfilled on `resort-example`) and emitted by `ThemeProvider`; vukans-bike sets it equal to `secondary` |
+| 4 | Give `text` a tone prop, or default it to `foreground` | `shared/…/content/text` | Every variant currently defaults to the muted gray, so each authored node must repeat `color`. | Small | Proposed |
+| 5 | `product-list` overhaul | `tenants/vukans-bike/blocks/product-list` | Count-aware grid, optional category badge, drop the self-imposed `<section>` + `--color-background` lock, `next/link` instead of `<a href>`, remove the no-op `category` prop. Needed before the block is used again under Strapi (research R6). | Medium | Proposed |
+| 6 | `gallery` configurability | `tenants/vukans-bike/blocks/gallery` | `initialVisibleCount`, a layout mode, and removal of its self-imposed `<section>` + `bg-[var(--color-background)]` wrapper. Today the tile pattern (`idx % 7`, `idx % 5`) and 10-item reveal are hardcoded, and the block always paints a white full-width band that a parent surface cannot override — so the pages either side of a gallery have to be planned around it. | Medium | Proposed |
+| 7 | `section` band padding | `shared/…/layout/section` | An `xl` step or a raw padding string; today the enum tops out at 80px and taller editorial bands need an inner wrapper. | Small | Proposed |
+| 8 | Footer social links | `shared/components/layout/footer` | `FooterProps` has no field for socials, so they cannot be added from data. | Small | Proposed |
+| 9 | Naming / wiring fixes | `shared/…/actions/{button,link}` | `link`'s `accent` variant rendered `--color-primary`, and `button`'s `secondary` variant never used the `secondary` token. | Small | ✅ Done — `link`'s `accent` renamed to `primary`; `button`'s old outline-style `secondary` renamed to `outline`, and a genuine `secondary` variant added (solid `--color-secondary` fill). 12 authored `blocks.button` nodes migrated `secondary` → `outline`; zero `blocks.link` nodes needed migration (none set `variant` explicitly). Strapi component schemas + generated types kept in sync |
+| 10 | Extend `icon` | `shared/…/content/icon` | Only `map-pin`, `phone`, `mail` exist; any icon-bearing pattern beyond contact rows is impossible. | Small | Proposed |
+| 11 | Decouple the favicon from the header logo | `src/app/[domain]/layout.tsx` | `generateMetadata` set `icons` from the *same* `tenantConfig.logoUrl` the header used for its `<img>` — no other code path set a favicon. | Small | ✅ Done — `faviconUrl` added to `TenantConfig`; `[domain]/layout.tsx` reads `faviconUrl ?? logoUrl` (research R8) |
 
-**Assets, not code**: a real square logo/favicon mark would remove the R8 tradeoff entirely — right now
-`logoUrl` has to double as both the header image and (per recommendation 11) the site's only favicon source,
-so today's choice is "photo in both places" vs. "wordmark header + no favicon," with no way to pick
-independently without item 11. Additional photography from the owner's Cloudinary collection would also
-reduce reliance on the ~24 images already referenced (FR-017).
+**Still assets, not code**: additional photography from the owner's Cloudinary collection would reduce
+reliance on the ~24 images already referenced (FR-017) — unaffected by the fixes above.

@@ -26,15 +26,22 @@ MockAdapter.getPage (verify) / StrapiAdapter.getPage (production intent)
   `secondary #4B5563` (one step darker than the un-themeable `--color-muted-foreground` `#6B7280`, on the same
   neutral ramp — same family, but AA-legible on the tinted bands), `accent #EFE9DF` (sand surface), `background #FFFFFF`, `foreground #1C1917`
   (text **and** the inverse band surface), `muted #F5F5F4`, `border #E7E5E4`, `textPrimary #8A1015`
-  (eyebrows, prices); `borderRadius: "0rem"`. Every token has exactly one role — a token with no role is a
-  defect. `logoUrl` is intentionally **absent** so the header renders its wordmark; `faviconUrl` is set to the
-  shop photograph (`1000004333_bged3h.jpg`) instead. These used to be the same field — `src/app/[domain]/layout.tsx`
-  built the site's favicon from `logoUrl`, so removing it for the header also silently dropped the browser-tab
-  icon everywhere. `faviconUrl` (`core/types/tenant.ts`) was added to `TenantConfig` specifically to let the
-  two vary independently; `[domain]/layout.tsx` now reads `faviconUrl ?? logoUrl` (research R8, code change
-  explicitly requested by the tenant owner — outside this feature's normal tenant-block-only scope).
-  `fonts.*` are an honest system stack but remain **inert** — nothing applies `font-body`, so the
-  site renders in the browser default sans until that is wired (see the feature's shared recommendations).
+  (eyebrows, prices), `mutedForeground #4B5563` (matches `secondary` exactly — see below); `borderRadius: "0rem"`.
+  Every token has exactly one role — a token with no role is a defect. `logoUrl` is intentionally **absent**
+  so the header renders its wordmark; `faviconUrl` is set to the shop photograph (`1000004333_bged3h.jpg`)
+  instead. These used to be the same field — `src/app/[domain]/layout.tsx` built the site's favicon from
+  `logoUrl`, so removing it for the header also silently dropped the browser-tab icon everywhere. `faviconUrl`
+  (`core/types/tenant.ts`) was added to `TenantConfig` specifically to let the two vary independently;
+  `[domain]/layout.tsx` now reads `faviconUrl ?? logoUrl` (research R8, code change explicitly requested by
+  the tenant owner — outside this feature's normal tenant-block-only scope).
+  `fonts.heading` / `fonts.body` reference `var(--font-montserrat)` / `var(--font-inter)` and are now **real**:
+  `src/app/layout.tsx` loads both via `next/font/google` with matching `variable` names and applies `font-body`
+  to `<body>` (also an owner-requested code change, outside tenant-block scope). `mutedForeground` is a
+  `ThemeTokens` field added in the same change set — `--color-muted-foreground` (used by `text`'s unstyled
+  default, the footer, `accordion`, header locale switcher, `bike-detail`, `gallery`) was previously hardcoded
+  in `globals.css` and un-themeable; it's now wired through `ThemeProvider` like every other token, set equal
+  to `secondary` here so there is exactly one gray across authored and component-internal text, not two
+  similar ones.
 - **Registration**: `src/tenants/vukans-bike/blocks/index.ts` — Keep L3 + data contracts.
 - **Pages**: `src/tenants/vukans-bike/mock-data/pages/*.json` — canonical Strapi DZ shape (`__component`, numeric `id`, flat fields, `lang`). All pages authored as L1/L2 + Keep; localized `en--` / `de--` mirrors.
 - **Seed collections**: `src/tenants/vukans-bike/mock-data/collections/products.json` — currently **1** product (`merida`) with `slug`, `specs`, `images`, etc. (plus `en--` / `de--` locale files). Home and `/shop` restate this bike's name, price and headline specs as authored copy, so both must be updated together with this file.

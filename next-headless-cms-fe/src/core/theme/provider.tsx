@@ -10,6 +10,7 @@ export function ThemeProvider({ tokens, children }: ThemeProviderProps) {
     "--color-muted": tokens.colors.muted,
     "--color-border": tokens.colors.border,
     "--color-text-primary": tokens.colors.textPrimary,
+    "--color-muted-foreground": tokens.colors.mutedForeground,
     "--font-heading": tokens.fonts.heading,
     "--font-body": tokens.fonts.body,
     "--radius": tokens.borderRadius,

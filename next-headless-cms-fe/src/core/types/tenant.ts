@@ -44,6 +44,7 @@ export interface ThemeTokens {
     muted: string;
     border: string;
     textPrimary: string;
+    mutedForeground: string;
     [key: string]: string | undefined;
   };
   fonts: {

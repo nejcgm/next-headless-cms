@@ -68,7 +68,7 @@
                         "id": 14,
                         "label": "Preisliste ansehen",
                         "href": "#cenik",
-                        "variant": "secondary"
+                        "variant": "outline"
                       }
                     ]
                   },

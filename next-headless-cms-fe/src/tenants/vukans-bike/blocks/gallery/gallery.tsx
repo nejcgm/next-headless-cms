@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useMemo, useState } from "react";
-import { ImageLightbox } from "@shared/components/ui/image-lightbox/image-lightbox";
+import { ImageLightbox } from "@shared/components/static/image-lightbox/image-lightbox";
 import type { GalleryProps } from "./types";
 
 const INITIAL_VISIBLE_COUNT = 10;

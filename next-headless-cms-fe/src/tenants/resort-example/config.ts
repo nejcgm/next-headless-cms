@@ -23,6 +23,7 @@ const config: TenantConfig = {
       muted: "#F3F0EB",
       border: "#E5E0D8",
       textPrimary: "#6B4C41",
+      mutedForeground: "#6B7280",
     },
     fonts: {
       heading: "var(--font-playfair)",

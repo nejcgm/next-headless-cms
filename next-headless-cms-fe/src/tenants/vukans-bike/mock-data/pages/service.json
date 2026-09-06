@@ -68,7 +68,7 @@
                         "id": 14,
                         "label": "Poglejte cenik",
                         "href": "#cenik",
-                        "variant": "secondary"
+                        "variant": "outline"
                       }
                     ]
                   },

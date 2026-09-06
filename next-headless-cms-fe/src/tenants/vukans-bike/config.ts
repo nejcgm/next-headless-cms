@@ -32,11 +32,11 @@ const config: TenantConfig = {
       muted: "#F5F5F4",
       border: "#E7E5E4",
       textPrimary: "#8A1015",
+      mutedForeground: "#4B5563",
     },
     fonts: {
-      heading:
-        "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
-      body: "ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+      heading: "var(--font-montserrat)",
+      body: "var(--font-inter)",
     },
     borderRadius: "0rem",
   },

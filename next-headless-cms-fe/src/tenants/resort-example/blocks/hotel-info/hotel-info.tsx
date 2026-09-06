@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ImageLightbox } from "@shared/components/ui/image-lightbox/image-lightbox";
+import { ImageLightbox } from "@shared/components/static/image-lightbox/image-lightbox";
 import type { HotelInfoProps } from "./types";
 
 export function HotelInfo({ hotel }: HotelInfoProps) {
