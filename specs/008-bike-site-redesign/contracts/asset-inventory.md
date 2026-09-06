@@ -58,7 +58,7 @@ Rendered with `fit: "contain"` at a fixed height so the mismatched source crops 
 | `photo-1541625602330-…` (Unsplash) | Was About `ogImage` — replaced with the owner photo |
 | `photo-1558618666-…` (Unsplash) | Was Service `ogImage` — replaced with `IMG_4568` |
 | `photo-1571068316344-…` (Unsplash) | Was Brands `ogImage` — replaced with `1000004333` |
-| `1000004333_bged3h.jpg` **as `logoUrl`** | A photograph cannot serve as a 40px header logo; the header now renders the wordmark (research R8) |
+| `1000004333_bged3h.jpg` moved from `logoUrl` to `faviconUrl` | Was the header logo (squashed to 40px); now only the favicon, once `faviconUrl` was split out from `logoUrl` as its own `TenantConfig` field (research R8) — the header renders its text wordmark instead |
 
 ## Notes
 

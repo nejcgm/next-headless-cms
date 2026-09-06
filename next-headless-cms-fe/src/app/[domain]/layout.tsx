@@ -5,8 +5,8 @@ import { TenantAnalytics } from "./tenant-analytics";
 import type { LayoutProps } from "./types";
 
 export async function generateMetadata(): Promise<Metadata> {
-  if (!tenantConfig.logoUrl) return {};
-  const icon = tenantConfig.logoUrl;
+  const icon = tenantConfig.faviconUrl ?? tenantConfig.logoUrl;
+  if (!icon) return {};
   return {
     icons: { icon, apple: icon, shortcut: icon },
   };

@@ -12,6 +12,7 @@ export interface TenantConfig {
   id: string;
   name: string;
   logoUrl?: string;
+  faviconUrl?: string;
   canonicalOrigin?: string;
   defaultMetaDescription?: string;
   contact?: TenantContact;

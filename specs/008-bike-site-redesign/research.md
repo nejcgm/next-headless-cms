@@ -160,20 +160,33 @@ dropping a real one.
 **Alternatives considered**: Drop a partner to reach six — discards a real local relationship. Wrapped logo
 strip — loses the per-partner links, since `image` is not linkable and `link` is text-only.
 
-## R8 — Site chrome: trim the header, retire the photo-as-logo
+## R8 — Site chrome: header logo and favicon were one field; now two
 
-**Finding**: `config.ts` sets `logoUrl` to `1000004333_bged3h.jpg` — a **photograph**, also used as a hero
-background and an OG image elsewhere. The header renders it at `h-10` with `object-contain`. The header also
-carries **8 nav items** plus a locale switcher in a 64px bar.
+**Finding**: `config.ts` originally set `logoUrl` to `1000004333_bged3h.jpg` — a **photograph**, also used as a
+hero background and an OG image elsewhere. The header renders it at `h-10` with `object-contain`, a poor fit
+for a photo. `logoUrl` was **also** the *only* source of the site's favicon: `src/app/[domain]/layout.tsx`'s
+`generateMetadata` built `icons` from that same field (or returned `{}` — no favicon metadata at all, on any
+page — if it was unset); no page-level `generateMetadata` sets `icons` independently. One asset was forced to
+serve two jobs with conflicting shapes (a wide header lockup vs. a square tab icon).
 
-**Decision**: (a) Remove `logoUrl` so the header falls back to its wordmark (`font-bold` in `--color-primary`),
-which is cleaner than a squashed photo at 40px. (b) Trim the header to **six** items — Servis, Trgovina,
-Vodene ture, Kolesarska šola, O nas, Kontakt — with the logo serving as Home; keep all eight (plus Domov and
-Partnerji) in the footer, so every page stays reachable.
+**Decision**: Add a dedicated `faviconUrl` field to `TenantConfig` (`src/core/types/tenant.ts`), and have
+`[domain]/layout.tsx` read `tenantConfig.faviconUrl ?? tenantConfig.logoUrl` (fallback preserves current
+behavior for any tenant, e.g. `resort-example`, that only ever set `logoUrl`). Vukan's Bike now sets
+**`faviconUrl`** to the photograph and leaves `logoUrl` **unset** — the header shows its text wordmark, and
+every page still gets a working favicon, independently.
 
-**Rationale**: Both are pure data edits with an outsized effect on perceived polish. Both are trivially
-reversible: supply a real logo asset and `logoUrl` comes back; the nav item returns by re-adding one JSON
-object.
+**Rationale**: This was reached by way of two reversals worth recording, because the same tradeoff will
+recur if a real logo/favicon mark ever needs picking apart again. (1) Removing `logoUrl` outright (to fix the
+header) silently killed the favicon site-wide — only noticed because one already-open browser tab kept
+showing a stale cached icon, which read as "some pages have it, some don't" until a fresh load of every page
+confirmed none did. (2) Restoring `logoUrl` fixed the favicon but brought back the squashed-photo header. The
+actual fix was to stop sharing the field: a small, explicitly-authorized code change (`core/types/tenant.ts` +
+`[domain]/layout.tsx` — outside this feature's tenant-block-only scope, done only because the owner asked for
+it directly) that lets each concern point at its own asset.
+
+**Unrelated in the same area**: the header nav item count (originally trimmed 8 → 6 in this research) was
+separately restored to 7 in a later round (Partnerji back in the header) — tracked in the tenant catalog, not
+part of this decision.
 
 ## R9 — Per-page navigation and duplicate ids are dead data and must go
 

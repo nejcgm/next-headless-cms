@@ -18,7 +18,10 @@ so the owner can approve any of them separately. Ordered by how much they raise 
 | 8 | Footer social links | `shared/components/layout/footer` | `FooterProps` has no field for socials, so they cannot be added from data. | Small |
 | 9 | Naming / wiring fixes | `shared/…/actions/{button,link}` | `link`'s `accent` variant renders `--color-primary`, and `button`'s `secondary` variant never uses the `secondary` token. Both are misleading to content authors. | Small |
 | 10 | Extend `icon` | `shared/…/content/icon` | Only `map-pin`, `phone`, `mail` exist; any icon-bearing pattern beyond contact rows is impossible. | Small |
+| 11 | Decouple the favicon from the header logo | `src/app/[domain]/layout.tsx` | `generateMetadata` sets `icons` from the *same* `tenantConfig.logoUrl` the header uses for its `<img>` — no other code path sets a favicon (`core/seo/metadata.ts`'s `buildMetadata` doesn't touch `icons`). One asset is currently forced to serve two different jobs (a wide header lockup vs. a square tab icon); a dedicated `faviconUrl` (or similar) field would let either change independently. (research R8) | Small |
 
-**Assets, not code**: a real logo asset would let `logoUrl` return to the header (research R8 currently
-retires a photograph used as a logo), and additional photography from the owner's Cloudinary collection would
+**Assets, not code**: a real square logo/favicon mark would remove the R8 tradeoff entirely — right now
+`logoUrl` has to double as both the header image and (per recommendation 11) the site's only favicon source,
+so today's choice is "photo in both places" vs. "wordmark header + no favicon," with no way to pick
+independently without item 11. Additional photography from the owner's Cloudinary collection would also
 reduce reliance on the ~24 images already referenced (FR-017).
