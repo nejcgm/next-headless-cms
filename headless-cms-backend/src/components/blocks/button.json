@@ -24,13 +24,11 @@
       ],
       "default": "primary"
     },
-    "width": {
-      "type": "string"
+    "fullWidth": {
+      "type": "boolean",
+      "default": false
     },
     "height": {
-      "type": "string"
-    },
-    "minHeight": {
       "type": "string"
     },
     "maxWidth": {
@@ -43,13 +41,38 @@
       "type": "string"
     },
     "backgroundColor": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "accent",
+        "background",
+        "foreground",
+        "muted",
+        "border",
+        "text-primary"
+      ]
     },
     "color": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "accent",
+        "background",
+        "foreground",
+        "muted",
+        "border",
+        "text-primary"
+      ]
     },
     "border": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "none",
+        "hairline",
+        "invertedOutline"
+      ]
     },
     "borderRadius": {
       "type": "string"

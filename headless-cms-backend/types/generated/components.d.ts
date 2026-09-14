@@ -8,8 +8,21 @@ export interface BlocksAccordion extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    backgroundColor: Schema.Attribute.String;
-    border: Schema.Attribute.String;
+    backgroundColor: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    border: Schema.Attribute.Enumeration<
+      ['none', 'hairline', 'invertedOutline']
+    >;
     borderRadius: Schema.Attribute.String;
     content: Schema.Attribute.Text & Schema.Attribute.Required;
     defaultOpen: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
@@ -69,21 +82,44 @@ export interface BlocksButton extends Struct.ComponentSchema {
     icon: 'cursor';
   };
   attributes: {
-    backgroundColor: Schema.Attribute.String;
-    border: Schema.Attribute.String;
+    backgroundColor: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    border: Schema.Attribute.Enumeration<
+      ['none', 'hairline', 'invertedOutline']
+    >;
     borderRadius: Schema.Attribute.String;
-    color: Schema.Attribute.String;
+    color: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    fullWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     height: Schema.Attribute.String;
     href: Schema.Attribute.String & Schema.Attribute.Required;
     label: Schema.Attribute.String & Schema.Attribute.Required;
     margin: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
-    minHeight: Schema.Attribute.String;
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
     padding: Schema.Attribute.String;
     variant: Schema.Attribute.Enumeration<['primary', 'secondary', 'outline']> &
       Schema.Attribute.DefaultTo<'primary'>;
-    width: Schema.Attribute.String;
   };
 }
 
@@ -96,12 +132,37 @@ export interface BlocksFlex extends Struct.ComponentSchema {
   };
   attributes: {
     align: Schema.Attribute.Enumeration<['start', 'center', 'end', 'stretch']>;
-    backgroundColor: Schema.Attribute.String;
-    border: Schema.Attribute.String;
+    backgroundColor: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    border: Schema.Attribute.Enumeration<
+      ['none', 'hairline', 'invertedOutline']
+    >;
     borderRadius: Schema.Attribute.String;
-    color: Schema.Attribute.String;
+    color: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
     direction: Schema.Attribute.Enumeration<['row', 'column']> &
       Schema.Attribute.DefaultTo<'row'>;
+    fullWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     gap: Schema.Attribute.Enumeration<['sm', 'md', 'lg']>;
     height: Schema.Attribute.String;
     justify: Schema.Attribute.Enumeration<
@@ -109,11 +170,9 @@ export interface BlocksFlex extends Struct.ComponentSchema {
     >;
     margin: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
-    minHeight: Schema.Attribute.String;
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
     padding: Schema.Attribute.String;
     slots: Schema.Attribute.JSON;
-    width: Schema.Attribute.String;
     wrap: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
@@ -153,20 +212,47 @@ export interface BlocksGrid extends Struct.ComponentSchema {
     icon: 'grid';
   };
   attributes: {
-    backgroundColor: Schema.Attribute.String;
-    border: Schema.Attribute.String;
+    backgroundColor: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    border: Schema.Attribute.Enumeration<
+      ['none', 'hairline', 'invertedOutline']
+    >;
     borderRadius: Schema.Attribute.String;
-    color: Schema.Attribute.String;
-    columns: Schema.Attribute.JSON & Schema.Attribute.DefaultTo<2>;
+    color: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    columnsDesktop: Schema.Attribute.Enumeration<['1', '2', '3', '4']>;
+    columnsMobile: Schema.Attribute.Enumeration<['1', '2', '3', '4']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'1'>;
+    columnsTablet: Schema.Attribute.Enumeration<['1', '2', '3', '4']>;
+    fullWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     gap: Schema.Attribute.Enumeration<['sm', 'md', 'lg']>;
     height: Schema.Attribute.String;
     margin: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
-    minHeight: Schema.Attribute.String;
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
     padding: Schema.Attribute.String;
     slots: Schema.Attribute.JSON;
-    width: Schema.Attribute.String;
   };
 }
 
@@ -178,22 +264,45 @@ export interface BlocksIcon extends Struct.ComponentSchema {
     icon: 'bulletList';
   };
   attributes: {
-    backgroundColor: Schema.Attribute.String;
-    border: Schema.Attribute.String;
+    backgroundColor: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    border: Schema.Attribute.Enumeration<
+      ['none', 'hairline', 'invertedOutline']
+    >;
     borderRadius: Schema.Attribute.String;
-    color: Schema.Attribute.String;
+    color: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    fullWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     height: Schema.Attribute.String;
     label: Schema.Attribute.String;
     margin: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
-    minHeight: Schema.Attribute.String;
     name: Schema.Attribute.Enumeration<['map-pin', 'phone', 'mail']> &
       Schema.Attribute.Required;
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
     padding: Schema.Attribute.String;
     size: Schema.Attribute.Enumeration<['sm', 'md', 'lg']> &
       Schema.Attribute.DefaultTo<'md'>;
-    width: Schema.Attribute.String;
   };
 }
 
@@ -209,19 +318,42 @@ export interface BlocksIframe extends Struct.ComponentSchema {
       Schema.Attribute.DefaultTo<true>;
     aspect: Schema.Attribute.Enumeration<['video', 'map', 'square']> &
       Schema.Attribute.DefaultTo<'map'>;
-    backgroundColor: Schema.Attribute.String;
-    border: Schema.Attribute.String;
+    backgroundColor: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    border: Schema.Attribute.Enumeration<
+      ['none', 'hairline', 'invertedOutline']
+    >;
     borderRadius: Schema.Attribute.String;
-    color: Schema.Attribute.String;
+    color: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    fullWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     height: Schema.Attribute.String;
     margin: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
-    minHeight: Schema.Attribute.String;
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
     padding: Schema.Attribute.String;
     src: Schema.Attribute.String & Schema.Attribute.Required;
     title: Schema.Attribute.String & Schema.Attribute.Required;
-    width: Schema.Attribute.String;
   };
 }
 
@@ -234,20 +366,43 @@ export interface BlocksImage extends Struct.ComponentSchema {
   };
   attributes: {
     alt: Schema.Attribute.String;
-    backgroundColor: Schema.Attribute.String;
-    border: Schema.Attribute.String;
+    backgroundColor: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    border: Schema.Attribute.Enumeration<
+      ['none', 'hairline', 'invertedOutline']
+    >;
     borderRadius: Schema.Attribute.String;
-    color: Schema.Attribute.String;
+    color: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
     fit: Schema.Attribute.Enumeration<['cover', 'contain']> &
       Schema.Attribute.DefaultTo<'cover'>;
+    fullWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     height: Schema.Attribute.String;
     margin: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
-    minHeight: Schema.Attribute.String;
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
     padding: Schema.Attribute.String;
     src: Schema.Attribute.String & Schema.Attribute.Required;
-    width: Schema.Attribute.String;
   };
 }
 
@@ -259,26 +414,48 @@ export interface BlocksLink extends Struct.ComponentSchema {
     icon: 'link';
   };
   attributes: {
-    backgroundColor: Schema.Attribute.String;
-    border: Schema.Attribute.String;
+    backgroundColor: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    border: Schema.Attribute.Enumeration<
+      ['none', 'hairline', 'invertedOutline']
+    >;
     borderRadius: Schema.Attribute.String;
-    color: Schema.Attribute.String;
+    color: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
     fontSize: Schema.Attribute.String;
     fontWeight: Schema.Attribute.String;
+    fullWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     height: Schema.Attribute.String;
     href: Schema.Attribute.String & Schema.Attribute.Required;
     label: Schema.Attribute.String & Schema.Attribute.Required;
-    lineHeight: Schema.Attribute.String;
     margin: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
-    minHeight: Schema.Attribute.String;
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
     padding: Schema.Attribute.String;
     showArrow: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     textAlign: Schema.Attribute.Enumeration<['left', 'center', 'right']>;
     variant: Schema.Attribute.Enumeration<['primary', 'muted']> &
       Schema.Attribute.DefaultTo<'primary'>;
-    width: Schema.Attribute.String;
   };
 }
 
@@ -292,7 +469,6 @@ export interface BlocksProductList extends Struct.ComponentSchema {
   };
   attributes: {
     anchorId: Schema.Attribute.String;
-    category: Schema.Attribute.String;
     heading: Schema.Attribute.String;
     layout: Schema.Attribute.Enumeration<['grid', 'list']> &
       Schema.Attribute.DefaultTo<'grid'>;
@@ -312,18 +488,32 @@ export interface BlocksSection extends Struct.ComponentSchema {
   attributes: {
     align: Schema.Attribute.Enumeration<['start', 'center', 'end']>;
     anchorId: Schema.Attribute.String;
-    backgroundColor: Schema.Attribute.String;
     backgroundFit: Schema.Attribute.Enumeration<['cover', 'contain']> &
       Schema.Attribute.DefaultTo<'cover'>;
     backgroundImage: Schema.Attribute.String;
-    border: Schema.Attribute.String;
+    border: Schema.Attribute.Enumeration<
+      ['none', 'hairline', 'invertedOutline']
+    >;
     borderRadius: Schema.Attribute.String;
-    color: Schema.Attribute.String;
+    color: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    dividerTop: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    fullWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     height: Schema.Attribute.String;
+    heroHeight: Schema.Attribute.Enumeration<['standard', 'tall']>;
     justify: Schema.Attribute.Enumeration<['start', 'center', 'end']>;
     margin: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
-    minHeight: Schema.Attribute.String;
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
     overlay: Schema.Attribute.Decimal &
       Schema.Attribute.SetMinMax<
@@ -335,8 +525,9 @@ export interface BlocksSection extends Struct.ComponentSchema {
       >;
     padding: Schema.Attribute.Enumeration<['sm', 'md', 'lg']>;
     slots: Schema.Attribute.JSON;
-    surface: Schema.Attribute.String & Schema.Attribute.DefaultTo<'default'>;
-    width: Schema.Attribute.String;
+    surface: Schema.Attribute.Enumeration<
+      ['background', 'muted', 'accent', 'foreground']
+    >;
   };
 }
 
@@ -349,19 +540,42 @@ export interface BlocksStack extends Struct.ComponentSchema {
   };
   attributes: {
     align: Schema.Attribute.Enumeration<['start', 'center', 'end', 'stretch']>;
-    backgroundColor: Schema.Attribute.String;
-    border: Schema.Attribute.String;
+    backgroundColor: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    border: Schema.Attribute.Enumeration<
+      ['none', 'hairline', 'invertedOutline']
+    >;
     borderRadius: Schema.Attribute.String;
-    color: Schema.Attribute.String;
+    color: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
+    fullWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     gap: Schema.Attribute.Enumeration<['sm', 'md', 'lg']>;
     height: Schema.Attribute.String;
     margin: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
-    minHeight: Schema.Attribute.String;
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
     padding: Schema.Attribute.String;
     slots: Schema.Attribute.JSON;
-    width: Schema.Attribute.String;
   };
 }
 
@@ -373,20 +587,55 @@ export interface BlocksText extends Struct.ComponentSchema {
     icon: 'bold';
   };
   attributes: {
-    backgroundColor: Schema.Attribute.String;
+    backgroundColor: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
     bold: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    border: Schema.Attribute.String;
+    border: Schema.Attribute.Enumeration<
+      ['none', 'hairline', 'invertedOutline']
+    >;
     borderRadius: Schema.Attribute.String;
-    borderTop: Schema.Attribute.String;
-    color: Schema.Attribute.String;
+    color: Schema.Attribute.Enumeration<
+      [
+        'primary',
+        'secondary',
+        'accent',
+        'background',
+        'foreground',
+        'muted',
+        'border',
+        'text-primary',
+      ]
+    >;
     content: Schema.Attribute.Text & Schema.Attribute.Required;
-    fontSize: Schema.Attribute.String;
+    customFontSize: Schema.Attribute.String;
+    dividerTop: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    fontSize: Schema.Attribute.Enumeration<
+      [
+        'cardTitle',
+        'sectionTitle',
+        'priceCompact',
+        'pageTitle',
+        'price',
+        'display',
+        'statement',
+        'custom',
+      ]
+    >;
     fontWeight: Schema.Attribute.String;
+    fullWidth: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     height: Schema.Attribute.String;
-    lineHeight: Schema.Attribute.String;
     margin: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
-    minHeight: Schema.Attribute.String;
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
     padding: Schema.Attribute.String;
     textAlign: Schema.Attribute.Enumeration<['left', 'center', 'right']>;
@@ -394,21 +643,6 @@ export interface BlocksText extends Struct.ComponentSchema {
       ['body', 'lead', 'caption', 'label']
     > &
       Schema.Attribute.DefaultTo<'body'>;
-    width: Schema.Attribute.String;
-  };
-}
-
-export interface SharedCtaLink extends Struct.ComponentSchema {
-  collectionName: 'components_shared_cta_links';
-  info: {
-    description: 'Label + href pair \u2014 used as CTA buttons inside blocks';
-    displayName: 'CTA Link';
-    icon: 'cursor';
-    name: 'CtaLink';
-  };
-  attributes: {
-    href: Schema.Attribute.String & Schema.Attribute.Required;
-    label: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -492,20 +726,6 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedStatItem extends Struct.ComponentSchema {
-  collectionName: 'components_shared_stat_items';
-  info: {
-    description: 'A single social-proof statistic: value + label';
-    displayName: 'Stat Item';
-    icon: 'chart-bar';
-    name: 'StatItem';
-  };
-  attributes: {
-    label: Schema.Attribute.String & Schema.Attribute.Required;
-    value: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -524,13 +744,11 @@ declare module '@strapi/strapi' {
       'blocks.section': BlocksSection;
       'blocks.stack': BlocksStack;
       'blocks.text': BlocksText;
-      'shared.cta-link': SharedCtaLink;
       'shared.footer-copy': SharedFooterCopy;
       'shared.image-item': SharedImageItem;
       'shared.nav-item': SharedNavItem;
       'shared.nav-item-child': SharedNavItemChild;
       'shared.seo': SharedSeo;
-      'shared.stat-item': SharedStatItem;
     }
   }
 }

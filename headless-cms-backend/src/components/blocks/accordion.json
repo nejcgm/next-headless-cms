@@ -12,8 +12,14 @@
     "defaultOpen": { "type": "boolean", "default": false },
     "padding": { "type": "string" },
     "margin": { "type": "string" },
-    "backgroundColor": { "type": "string" },
-    "border": { "type": "string" },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": ["primary", "secondary", "accent", "background", "foreground", "muted", "border", "text-primary"]
+    },
+    "border": {
+      "type": "enumeration",
+      "enum": ["none", "hairline", "invertedOutline"]
+    },
     "borderRadius": { "type": "string" }
   }
 }

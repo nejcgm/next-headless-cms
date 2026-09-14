@@ -4,8 +4,8 @@ import { boxStyleSchema } from "@shared/utils/box-style";
 import { STACK_NEST_ALLOW } from "../../../composition-allow";
 
 export const stackSchema = boxStyleSchema.extend({
-  gap: z.enum(["sm", "md", "lg"]).optional(),
-  align: z.enum(["start", "center", "end", "stretch"]).optional(),
+  gap: z.enum(["sm", "md", "lg"]).nullish(),
+  align: z.enum(["start", "center", "end", "stretch"]).nullish(),
 });
 
 export const stackPolicy: CompositionPolicy = {

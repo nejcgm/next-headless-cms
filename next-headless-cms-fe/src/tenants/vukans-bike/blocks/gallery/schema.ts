@@ -2,7 +2,7 @@ import { z } from "zod";
 
 export const gallerySchema = z.object({
   heading: z.string(),
-  subheading: z.string().optional(),
+  subheading: z.string().nullish(),
   defaultImageAlt: z.string(),
   showLessLabel: z.string(),
   showMorePrefix: z.string(),
@@ -11,7 +11,7 @@ export const gallerySchema = z.object({
   images: z.array(
     z.object({
       src: z.string(),
-      alt: z.string().optional(),
+      alt: z.string().nullish(),
     })
   ),
 });

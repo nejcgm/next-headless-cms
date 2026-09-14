@@ -4,8 +4,8 @@ import { boxStyleSchema } from "@shared/utils/box-style";
 
 export const iconSchema = boxStyleSchema.extend({
   name: z.enum(["map-pin", "phone", "mail"]),
-  label: z.string().optional(),
-  size: z.enum(["sm", "md", "lg"]).optional(),
+  label: z.string().nullish(),
+  size: z.enum(["sm", "md", "lg"]).nullish(),
 });
 
 export const iconPolicy: CompositionPolicy = {

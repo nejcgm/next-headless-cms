@@ -15,6 +15,11 @@ const alignMap = {
   end: "flex-end",
 } as const;
 
+const HERO_MIN_HEIGHT = {
+  standard: "clamp(480px, 72vh, 720px)",
+  tall: "clamp(520px, 82vh, 820px)",
+} as const;
+
 export function Section({
   padding = "md",
   backgroundImage,
@@ -22,7 +27,7 @@ export function Section({
   overlay,
   anchorId,
   surface,
-  backgroundColor,
+  heroHeight,
   justify,
   align,
   children,
@@ -33,10 +38,12 @@ export function Section({
     padding === "sm" ? "py-8" : padding === "lg" ? "py-20" : "py-12";
 
   const boxStyle = toBoxStyle(box);
+  if (heroHeight) boxStyle.minHeight = HERO_MIN_HEIGHT[heroHeight];
+
   const fillStyle: CSSProperties = {
     ...toBoxStyle({
       ...box,
-      backgroundColor: backgroundColor ?? surface ?? "default",
+      backgroundColor: surface ?? "background",
     }),
   };
 

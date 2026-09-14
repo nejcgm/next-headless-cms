@@ -7,6 +7,12 @@
  * and drops fields that exist in mock data but not in the Strapi schema
  * (e.g. `bike` inside a `bike-detail` block — loaded at runtime via dataContract).
  *
+ * As of 009-bike-strapi-migration, this script is also the single place that
+ * reshapes each component's fields from the pre-migration mock-JSON shape into
+ * the redesigned, editor-friendly Strapi schema (see
+ * specs/009-bike-strapi-migration/research.md R7-R13 and data-model.md for the
+ * exact mappings) — the mock JSON files themselves are left untouched.
+ *
  * Usage (from headless-cms-backend/):
  *   STRAPI_API_TOKEN=<full-access-token> node scripts/seed-vukans-bike-cms.js
  *
@@ -41,6 +47,105 @@ const BLOCK_SCHEMA_EXCLUDE = {
 };
 
 // ---------------------------------------------------------------------------
+// 009-bike-strapi-migration field-shape mappings (research.md R7-R13).
+// Every map below is total against current mock content — an unmapped value
+// throws rather than seeding a silently-wrong shape.
+// ---------------------------------------------------------------------------
+const BORDER_VALUE_MAP = {
+  "1px solid var(--color-border)": "hairline",
+  "2px solid var(--color-background)": "invertedOutline",
+  none: "none",
+};
+
+const FONT_SIZE_VALUE_MAP = {
+  "1.25rem": "cardTitle",
+  "clamp(1.75rem, 3.2vw, 2.5rem)": "sectionTitle",
+  "clamp(1.25rem, 2.2vw, 1.75rem)": "priceCompact",
+  "clamp(2.25rem, 5vw, 3.25rem)": "pageTitle",
+  "clamp(1.5rem, 2.5vw, 2rem)": "price",
+  "clamp(2.5rem, 6vw, 4rem)": "display",
+  "clamp(1.5rem, 2.8vw, 2rem)": "statement",
+};
+
+const HERO_MIN_HEIGHT_MAP = {
+  "clamp(480px, 72vh, 720px)": "standard",
+  "clamp(520px, 82vh, 820px)": "tall",
+};
+
+/**
+ * Reshape one component's own fields from the pre-migration mock-JSON shape to
+ * the redesigned Strapi schema shape. Operates on this node's own keys only —
+ * does not recurse into slots/children (prepareForCreate handles that).
+ */
+function transformFieldsForComponent(obj, component) {
+  const out = { ...obj };
+
+  if ("borderTop" in out) {
+    delete out.borderTop;
+    out.dividerTop = true;
+  }
+  if ("width" in out) {
+    if (out.width !== "100%") {
+      throw new Error(`Unexpected width value ${JSON.stringify(out.width)} on ${component}`);
+    }
+    delete out.width;
+    out.fullWidth = true;
+  }
+  if ("lineHeight" in out) {
+    delete out.lineHeight;
+  }
+
+  if (component === "blocks.section") {
+    if ("backgroundColor" in out) {
+      throw new Error(
+        `blocks.section unexpectedly sets backgroundColor (expected surface only): ${JSON.stringify(out)}`
+      );
+    }
+    if ("minHeight" in out) {
+      const mapped = HERO_MIN_HEIGHT_MAP[out.minHeight];
+      if (!mapped) {
+        throw new Error(`Unrecognized hero minHeight ${JSON.stringify(out.minHeight)}`);
+      }
+      out.heroHeight = mapped;
+      delete out.minHeight;
+    }
+  } else if ("minHeight" in out) {
+    // No non-section component ever authored minHeight (research R13) — drop defensively.
+    delete out.minHeight;
+  }
+
+  if (component === "blocks.grid" && out.columns) {
+    const { mobile, tablet, desktop } = out.columns;
+    out.columnsMobile = String(mobile);
+    if (tablet != null) out.columnsTablet = String(tablet);
+    if (desktop != null) out.columnsDesktop = String(desktop);
+    delete out.columns;
+  }
+
+  if (component === "blocks.text" && "fontSize" in out) {
+    const mapped = FONT_SIZE_VALUE_MAP[out.fontSize];
+    if (!mapped) {
+      throw new Error(`Unrecognized text fontSize ${JSON.stringify(out.fontSize)}`);
+    }
+    out.fontSize = mapped;
+  }
+
+  if ("border" in out) {
+    const mapped = BORDER_VALUE_MAP[out.border];
+    if (!mapped) {
+      throw new Error(`Unrecognized border value ${JSON.stringify(out.border)} on ${component}`);
+    }
+    out.border = mapped;
+  }
+
+  if (component === "blocks.product-list" && "category" in out) {
+    delete out.category;
+  }
+
+  return out;
+}
+
+// ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 
@@ -58,8 +163,9 @@ function prepareForCreate(value, blockComponent = null) {
     const result = {};
     const component = value.__component || blockComponent;
     const exclude = (component && BLOCK_SCHEMA_EXCLUDE[component]) || [];
+    const shaped = component ? transformFieldsForComponent(value, component) : value;
 
-    for (const [k, v] of Object.entries(value)) {
+    for (const [k, v] of Object.entries(shaped)) {
       if (k === "id") continue;              // strip Strapi row ID
       if (exclude.includes(k)) continue;    // strip schema-excluded fields
 

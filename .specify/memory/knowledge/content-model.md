@@ -62,14 +62,8 @@ One entry per SKU per tenant + locale. Used by `product-list` (collection query)
 ### `shared.seo`
 Maps directly to frontend `PageSeo`: `title`, `description`, `ogImage`, `canonical`, `noIndex`, `jsonLd`.
 
-### `shared.cta-link`
-Reusable CTA button pair. Fields: `label` (string), `href` (string). (Legacy helper; L1 `button` is preferred for page CTAs.)
-
 ### `shared.image-item`
 Image with alt text. Fields: `src` (string), `alt` (string?). Used by Keep `gallery`.
-
-### `shared.stat-item`
-Social-proof stat. Fields: `value` (string), `label` (string). (Legacy helper; stats are authored as L1 `stack` of `text` nodes.)
 
 ### `shared.nav-item`
 Top-level nav link. Fields: `label`, `href`, `isExternal` (bool, default false), `children` (repeatable `shared.nav-item-child`).
@@ -86,26 +80,26 @@ Footer text labels. Fields: `tagline`, `linksHeading`, `contactHeading`, `contac
 
 Each component maps to one `BlockInstance.type`. After Strapi strips `__component` and `id` meta, the remaining fields become `BlockInstance.props` — no further mapping needed.
 
-Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Keep + shared `accordion` components below. Deleted from DZ and disk: shared opaques (`cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`), `heading` (use `text` + `fontSize`/`bold`), `service-faq` (use L1 + `accordion`), `partners-gallery` / `partner-item` (use L1 `grid` of stacks), `service-pricing` / `service-package` (use L1 stacks of `text` / `link`), bike proprietary marketing blocks (`hero`, `about-*`, `bike-school-*`, `guided-tour-experience`, `service-process`, `service-contact`), and `contact` (+ `contact-address` / `contact-labels`) now expressed as L1 + `iframe`.
+Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Keep + shared `accordion` components below. Deleted from DZ and disk: shared opaques (`cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`), `heading` (use `text` + `fontSize`/`bold`), `service-faq` (use L1 + `accordion`), `partners-gallery` / `partner-item` (use L1 `grid` of stacks), `service-pricing` / `service-package` (use L1 stacks of `text` / `link`), bike proprietary marketing blocks (`hero`, `about-*`, `bike-school-*`, `guided-tour-experience`, `service-process`, `service-contact`), `contact` (+ `contact-address` / `contact-labels`) now expressed as L1 + `iframe`, and (as of `009-bike-strapi-migration`) `shared.cta-link` / `shared.stat-item` (zero references anywhere — L1 `button`/`link` and `stack` of `text` fully replace them).
 
 ### Shared L1 (available to all tenants)
 
 
 | Component | `type` in frontend | Key fields |
 |-----------|--------------------|-----------|
-| `blocks.section` | `section` | Layout band: enum `padding?`, `backgroundImage?`, `backgroundFit?`, `overlay?`, `anchorId?`, `surface?` / `backgroundColor?`, content `justify?` / `align?` (`start`\|`center`\|`end`), slim box styles, **`slots` (json)** |
+| `blocks.section` | `section` | Layout band: enum `padding?`, `backgroundImage?`, `backgroundFit?`, `overlay?`, `anchorId?`, `surface?` (enum `background`/`muted`/`accent`/`foreground` — replaces the old free-string surface **and** section's own `backgroundColor`), `heroHeight?` (enum `standard`/`tall`, only meaningful with `backgroundImage`), content `justify?` / `align?` (`start`\|`center`\|`end`), slim box styles, **`slots` (json)** |
 | `blocks.stack` | `stack` | `gap?`, `align?`, slim box styles, **`slots` (json)** |
 | `blocks.flex` | `flex` | `direction?`, `gap?`, `align?`, `justify?`, `wrap?`, slim box styles, **`slots` (json)** |
-| `blocks.grid` | `grid` | `columns?` (number **or** `{ mobile, tablet?, desktop? }` 1–4), `gap?`, slim box styles, **`slots` (json)** |
-| `blocks.text` | `text` | Leaf: `content`, `variant` (`body`/`lead`/`caption`/`label`), `bold?`, slim box styles (`fontSize`, `color`, …) — titles use size + bold, not a separate heading type |
+| `blocks.grid` | `grid` | `columnsMobile?`/`columnsTablet?`/`columnsDesktop?` (enum `"1"`–`"4"` each, preferred — three separate dropdowns in the admin), plus legacy `columns?` (number **or** `{ mobile, tablet?, desktop? }`, additive-only fallback kept solely for `resort-example`'s pre-existing content — never offered to `vukans-bike` editors), `gap?`, slim box styles, **`slots` (json)** |
+| `blocks.text` | `text` | Leaf: `content`, `variant` (`body`/`lead`/`caption`/`label`), `bold?`, `fontSize?` (enum: `cardTitle`/`sectionTitle`/`priceCompact`/`pageTitle`/`price`/`display`/`statement`/`custom`), `customFontSize?` (string, only read when `fontSize = custom`), slim box styles (`color`, …) — titles use size + bold, not a separate heading type. When `fontSize` is set, its fixed `{fontSize, lineHeight: 1.625}` pair applies regardless of `variant`. |
 | `blocks.image` | `image` | Leaf: `src`, `alt?`, `fit?`, slim box styles |
 | `blocks.iframe` | `iframe` | Leaf: `src`, `title`, `allowFullscreen?`, `aspect?` (`video`/`map`/`square`), slim box styles |
 | `blocks.icon` | `icon` | Leaf: `name` (`map-pin`/`phone`/`mail`), `label?`, `size?` (`sm`/`md`/`lg`), slim box styles |
-| `blocks.button` | `button` | Leaf: `label`, `href`, `variant?` (`primary`/`secondary`/`outline`), slim box styles (incl. `lineHeight`) |
-| `blocks.link` | `link` | Leaf: `label`, `href`, `variant?` (`primary`/`muted`), `showArrow?`, slim box styles (incl. `lineHeight`) |
-| `blocks.accordion` | `accordion` | Shared L3 leaf: `title`, `content`, `defaultOpen?`, panel styles only (`padding`, `margin`, `backgroundColor`, `border`, `borderRadius`) |
+| `blocks.button` | `button` | Leaf: `label`, `href`, `variant?` (`primary`/`secondary`/`outline`), slim box styles |
+| `blocks.link` | `link` | Leaf: `label`, `href`, `variant?` (`primary`/`muted`), `showArrow?`, slim box styles |
+| `blocks.accordion` | `accordion` | Shared L3 leaf: `title`, `content`, `defaultOpen?`, panel styles only (`padding`, `margin`, `backgroundColor` enum, `border` enum, `borderRadius`) |
 
-**Box styles** (shared L1): `width`, `height`, `minHeight`, `maxWidth`, `padding` (not on `section`), `margin`, `backgroundColor`, `color`, `border`, `borderTop`, `borderRadius`, `overflow`, `fontSize`, `fontWeight`, `textAlign`.
+**Box styles** (shared L1, as of `009-bike-strapi-migration` — every field editor-friendly: dropdown for closed sets, boolean for binary states, free text only where no reasonable closed set exists): `width`, `height`, `maxWidth`, `padding` (not on `section`), `margin`, `backgroundColor` (enum `primary`/`secondary`/`accent`/`background`/`foreground`/`muted`/`border`/`text-primary`), `color` (same enum), `border` (enum `none`/`hairline`/`invertedOutline`), `dividerTop` (boolean, replaces old `borderTop`), `fullWidth` (boolean, replaces old `width: "100%"` convention), `borderRadius`, `overflow`, `fontSize` (generic string outside `text`, near-zero real usage), `fontWeight`, `textAlign`. Removed: `minHeight` (moved to `section.heroHeight`), `lineHeight` (added in `008`, zero real uses, removed in `009`).
 
 **Composition nesting**: Page DZ roots stay flat. Nesting uses `slots` JSON shaped like `{ "default": [ { "__component": "blocks.text", "id": 1, ... }, ... ] }`. Frontend `toPageData(raw, locale, tenantId)` recursively validates via registry policies into `BlockInstance.slots`. Shared layout policies allow L1 + shared `accordion`; bike Keep L3 is added via `registerTenantLayoutNestAllow`.
 
@@ -114,7 +108,7 @@ Page DZ (`page.schema.json` → `blocks.components`) lists **only** the L1 + Kee
 | Component | `type` | Key fields |
 |-----------|--------|-----------|
 | `blocks.gallery` | `gallery` | `heading`, `subheading?`, `images` (repeatable shared.image-item), `defaultImageAlt`, `showLessLabel`, `showMorePrefix`, `showMoreSuffix`, `lightboxAltPrefix` |
-| `blocks.product-list` | `product-list` | `heading?`, `subheading?`, `outOfStockLabel`, `limit?`, `category?`, `layout` (grid/list), `anchorId?` — products loaded at runtime via `dataContract` |
+| `blocks.product-list` | `product-list` | `heading?`, `subheading?`, `outOfStockLabel`, `limit?`, `layout` (grid/list), `anchorId?` — products loaded at runtime via `dataContract` (`category` field removed in `009` — confirmed unreferenced by `load-products.ts`) |
 | `blocks.bike-detail` | `bike-detail` | `labels` (`blocks.bike-detail-labels`) — bike data loaded at runtime via `dataContract` |
 | `blocks.bike-detail-labels` | — (sub-component) | 16 UI label strings (notFoundTitle, breadcrumbHome, outOfStock, …) |
 
@@ -135,7 +129,7 @@ Frontend components split at render time — no adapter transformation needed.
 
 Strapi dynamic zone entries arrive as:
 ```json
-{ "__component": "blocks.section", "id": 1, "padding": "lg", "slots": { "default": [ { "__component": "blocks.text", "id": 2, "content": "...", "fontSize": "56px", "bold": true, "color": "foreground" } ] } }
+{ "__component": "blocks.section", "id": 1, "padding": "lg", "surface": "background", "slots": { "default": [ { "__component": "blocks.text", "id": 2, "content": "...", "fontSize": "display", "bold": true, "color": "foreground" } ] } }
 ```
 
 `strapi-document.ts → toDynamicZoneBlock` maps this to:
@@ -146,6 +140,8 @@ Strapi dynamic zone entries arrive as:
 If Strapi omits `id`, the fallback is `` `${type}-${index}` `` (index in the page `blocks` array), not a random value.
 
 `__component` and `id` are stripped recursively from nested **non-DZ** component objects. Arrays whose items have `__component` (nested dynamic zones, if introduced later) are mapped to `BlockInstance[]` (`{ id, type, props }`). Visibility supports `locales` / `dateRange` only (no device targeting).
+
+**Critical constraint — `null` on unset fields**: Strapi's REST API always serializes every schema-defined attribute on a root-level dynamic-zone component, using explicit `null` for any field the editor left unset (unlike mock JSON, which omits the key entirely). Nested content inside a `slots` field does **not** get this treatment, since `slots` is typed `json` (an opaque blob, not schema-enforced). Every optional Zod field on a primitive/component schema must therefore be `.nullish()`, not `.optional()` — `.optional()` only accepts `undefined` and silently rejects Strapi's `null`, dropping the whole node in `compose-validate`. (Discovered in `009-bike-strapi-migration` — see `research.md` R18.)
 
 ---
 

@@ -17,7 +17,6 @@ export interface ProductListProps {
   subheading?: string;
   outOfStockLabel: string;
   limit?: number;
-  category?: string;
   layout?: "grid" | "list";
   anchorId?: string;
   locale?: string;

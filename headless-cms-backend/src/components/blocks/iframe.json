@@ -7,27 +7,87 @@
   },
   "options": {},
   "attributes": {
-    "src": { "type": "string", "required": true },
-    "title": { "type": "string", "required": true },
-    "allowFullscreen": { "type": "boolean", "default": true },
+    "src": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "allowFullscreen": {
+      "type": "boolean",
+      "default": true
+    },
     "aspect": {
       "type": "enumeration",
-      "enum": ["video", "map", "square"],
+      "enum": [
+        "video",
+        "map",
+        "square"
+      ],
       "default": "map"
     },
-    "width": { "type": "string" },
-    "height": { "type": "string" },
-    "minHeight": { "type": "string" },
-    "maxWidth": { "type": "string" },
-    "padding": { "type": "string" },
-    "margin": { "type": "string" },
-    "backgroundColor": { "type": "string" },
-    "color": { "type": "string" },
-    "border": { "type": "string" },
-    "borderRadius": { "type": "string" },
+    "fullWidth": {
+      "type": "boolean",
+      "default": false
+    },
+    "height": {
+      "type": "string"
+    },
+    "maxWidth": {
+      "type": "string"
+    },
+    "padding": {
+      "type": "string"
+    },
+    "margin": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "accent",
+        "background",
+        "foreground",
+        "muted",
+        "border",
+        "text-primary"
+      ]
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "accent",
+        "background",
+        "foreground",
+        "muted",
+        "border",
+        "text-primary"
+      ]
+    },
+    "border": {
+      "type": "enumeration",
+      "enum": [
+        "none",
+        "hairline",
+        "invertedOutline"
+      ]
+    },
+    "borderRadius": {
+      "type": "string"
+    },
     "overflow": {
       "type": "enumeration",
-      "enum": ["visible", "hidden", "auto"]
+      "enum": [
+        "visible",
+        "hidden",
+        "auto"
+      ]
     }
   }
 }

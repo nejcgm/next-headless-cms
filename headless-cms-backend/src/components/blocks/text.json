@@ -25,13 +25,11 @@
       "type": "boolean",
       "default": false
     },
-    "width": {
-      "type": "string"
+    "fullWidth": {
+      "type": "boolean",
+      "default": false
     },
     "height": {
-      "type": "string"
-    },
-    "minHeight": {
       "type": "string"
     },
     "maxWidth": {
@@ -44,16 +42,42 @@
       "type": "string"
     },
     "backgroundColor": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "accent",
+        "background",
+        "foreground",
+        "muted",
+        "border",
+        "text-primary"
+      ]
     },
     "color": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "accent",
+        "background",
+        "foreground",
+        "muted",
+        "border",
+        "text-primary"
+      ]
     },
     "border": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "none",
+        "hairline",
+        "invertedOutline"
+      ]
     },
-    "borderTop": {
-      "type": "string"
+    "dividerTop": {
+      "type": "boolean",
+      "default": false
     },
     "borderRadius": {
       "type": "string"
@@ -67,12 +91,22 @@
       ]
     },
     "fontSize": {
+      "type": "enumeration",
+      "enum": [
+        "cardTitle",
+        "sectionTitle",
+        "priceCompact",
+        "pageTitle",
+        "price",
+        "display",
+        "statement",
+        "custom"
+      ]
+    },
+    "customFontSize": {
       "type": "string"
     },
     "fontWeight": {
-      "type": "string"
-    },
-    "lineHeight": {
       "type": "string"
     },
     "textAlign": {

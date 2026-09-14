@@ -38,13 +38,13 @@
         "./src/tenants/vukans-bike/*"
       ],
       "@mock-data/*": [
-        "./src/tenants/vukans-bike/mock-data/*"
+        "./scripts/mock-data-stub/*"
       ],
       "@tenant": [
         "./src/tenants/vukans-bike"
       ],
       "@mock-data": [
-        "./src/tenants/vukans-bike/mock-data"
+        "./scripts/mock-data-stub"
       ]
     },
     "target": "ES2017"

@@ -5,8 +5,8 @@ import { boxStyleSchema } from "@shared/utils/box-style";
 export const iframeSchema = boxStyleSchema.extend({
   src: z.string(),
   title: z.string(),
-  allowFullscreen: z.boolean().optional(),
-  aspect: z.enum(["video", "map", "square"]).optional(),
+  allowFullscreen: z.boolean().nullish(),
+  aspect: z.enum(["video", "map", "square"]).nullish(),
 });
 
 export const iframePolicy: CompositionPolicy = {

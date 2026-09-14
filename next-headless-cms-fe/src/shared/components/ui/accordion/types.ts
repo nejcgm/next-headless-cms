@@ -1,8 +1,16 @@
 export type AccordionStyle = {
   padding?: string;
   margin?: string;
-  backgroundColor?: string;
-  border?: string;
+  backgroundColor?:
+    | "primary"
+    | "secondary"
+    | "accent"
+    | "background"
+    | "foreground"
+    | "muted"
+    | "border"
+    | "text-primary";
+  border?: "none" | "hairline" | "invertedOutline";
   borderRadius?: string;
 };
 

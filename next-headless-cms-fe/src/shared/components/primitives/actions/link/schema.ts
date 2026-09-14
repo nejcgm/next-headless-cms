@@ -5,8 +5,8 @@ import { boxStyleSchema } from "@shared/utils/box-style";
 export const linkSchema = boxStyleSchema.extend({
   label: z.string(),
   href: z.string(),
-  variant: z.enum(["primary", "muted"]).optional(),
-  showArrow: z.boolean().optional(),
+  variant: z.enum(["primary", "muted"]).nullish(),
+  showArrow: z.boolean().nullish(),
 });
 
 export const linkPolicy: CompositionPolicy = {

@@ -4,11 +4,11 @@ import { boxStyleSchema } from "@shared/utils/box-style";
 import { LAYOUT_NEST_ALLOW } from "../../../composition-allow";
 
 export const flexSchema = boxStyleSchema.extend({
-  direction: z.enum(["row", "column"]).optional(),
-  gap: z.enum(["sm", "md", "lg"]).optional(),
-  align: z.enum(["start", "center", "end", "stretch"]).optional(),
-  justify: z.enum(["start", "center", "end", "between"]).optional(),
-  wrap: z.boolean().optional(),
+  direction: z.enum(["row", "column"]).nullish(),
+  gap: z.enum(["sm", "md", "lg"]).nullish(),
+  align: z.enum(["start", "center", "end", "stretch"]).nullish(),
+  justify: z.enum(["start", "center", "end", "between"]).nullish(),
+  wrap: z.boolean().nullish(),
 });
 
 export const flexPolicy: CompositionPolicy = {

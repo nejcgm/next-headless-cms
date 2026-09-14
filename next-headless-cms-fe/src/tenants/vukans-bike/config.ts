@@ -40,7 +40,7 @@ const config: TenantConfig = {
     },
     borderRadius: "0rem",
   },
-  dataAdapter: "mock",
+  dataAdapter: "strapi",
   templates: {
     default: { usesSiteChrome: true },
     bare: { usesSiteChrome: false },

@@ -1,24 +1,112 @@
 {
   "collectionName": "components_blocks_grids",
-  "info": { "displayName": "Grid", "icon": "grid", "description": "CSS grid layout" },
+  "info": {
+    "displayName": "Grid",
+    "icon": "grid",
+    "description": "CSS grid layout"
+  },
   "options": {},
   "attributes": {
-    "columns": {
-      "type": "json",
-      "default": 2
+    "columnsMobile": {
+      "type": "enumeration",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "default": "1",
+      "required": true
     },
-    "gap": { "type": "enumeration", "enum": ["sm", "md", "lg"] },
-    "width": { "type": "string" },
-    "height": { "type": "string" },
-    "minHeight": { "type": "string" },
-    "maxWidth": { "type": "string" },
-    "padding": { "type": "string" },
-    "margin": { "type": "string" },
-    "backgroundColor": { "type": "string" },
-    "color": { "type": "string" },
-    "border": { "type": "string" },
-    "borderRadius": { "type": "string" },
-    "overflow": { "type": "enumeration", "enum": ["visible", "hidden", "auto"] },
-    "slots": { "type": "json" }
+    "columnsTablet": {
+      "type": "enumeration",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "columnsDesktop": {
+      "type": "enumeration",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
+    },
+    "gap": {
+      "type": "enumeration",
+      "enum": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    "fullWidth": {
+      "type": "boolean",
+      "default": false
+    },
+    "height": {
+      "type": "string"
+    },
+    "maxWidth": {
+      "type": "string"
+    },
+    "padding": {
+      "type": "string"
+    },
+    "margin": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "accent",
+        "background",
+        "foreground",
+        "muted",
+        "border",
+        "text-primary"
+      ]
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "accent",
+        "background",
+        "foreground",
+        "muted",
+        "border",
+        "text-primary"
+      ]
+    },
+    "border": {
+      "type": "enumeration",
+      "enum": [
+        "none",
+        "hairline",
+        "invertedOutline"
+      ]
+    },
+    "borderRadius": {
+      "type": "string"
+    },
+    "overflow": {
+      "type": "enumeration",
+      "enum": [
+        "visible",
+        "hidden",
+        "auto"
+      ]
+    },
+    "slots": {
+      "type": "json"
+    }
   }
 }

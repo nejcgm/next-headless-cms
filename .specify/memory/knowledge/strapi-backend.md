@@ -25,7 +25,7 @@ Model **pages** (block composition + SEO + template), **navigation** (header/foo
 ## Strapi 5 conventions
 
 - Use **documentId** in APIs (Strapi 5); REST returns flat fields on `data[]` items (not v3 `attributes` wrapper) — confirm shape against `StrapiAdapter` before shipping.
-- Enable **Draft & Publish** on page content; keep navigation published-only or draft as needed.
+- **Draft & Publish** is enabled (`draftAndPublish: true`) on `page` and `product`; `navigation` stays publish-only (no draft state).
 - **Do NOT** use `@strapi/plugin-i18n` for locale management on these content types. The i18n plugin reserves `locale` as a query param — our schemas use `lang` instead (plain string field). See `.specify/memory/knowledge/content-model.md`.
 - **Do not** use `populate=deep` plugins — use explicit `populate` (see `.specify/memory/knowledge/api-contract.md`).
 - Attribute names: **camelCase** in schema JSON (`slug`, `seo`, `blocks`, `lang`) — matches frontend `PageData`.
@@ -58,4 +58,4 @@ STRAPI_API_TOKEN=your-full-access-token npm run seed:vukans-bike
 
 Prefer a **local** DB for re-seeds (SQLite default). After schema changes: `npm run types:generate`, restart develop, re-seed if needed.
 
-**Draft preview / revalidation (frontend routes):** `/api/preview?secret=PREVIEW_SECRET&slug=/path`; production edits should `POST /api/webhooks/strapi` with `x-revalidate-secret`. Details: `api-contract.md`. Strapi admin preview button and lifecycle webhooks are not fully wired yet — configure when going live.
+**Draft preview / revalidation (frontend routes):** `/api/preview?secret=PREVIEW_SECRET&slug=/path`; production edits should `POST /api/webhooks/strapi` with `x-revalidate-secret`. Details: `api-contract.md`. A Strapi webhook (Settings → Webhooks → "Frontend revalidate (vukans-bike)") is registered against `entry.publish` / `entry.unpublish` / `entry.update`, pointed at the frontend's `/api/webhooks/strapi` — publishing in the admin reaches the live site without a redeploy. The admin preview button itself is not wired.

@@ -9,12 +9,12 @@
 
 Bike shop in Apače: service, sales, bike school, guided tours. Locales: `sl` (default), `de`, `en`. **Product** tenant and the **reference pattern** for new plug-and-play tenants. (`resort-example` is only a build-isolation fixture — do not copy it.)
 
-**Data adapter:** config currently `dataAdapter: "mock"` for redesign / feature verification. Production intent remains **Strapi**; mock JSON under `mock-data/` is the authored SoT while verifying L1/L2 + Keep pages (sl/en/de).
+**Data adapter:** `dataAdapter: "strapi"` (live, since `009-bike-strapi-migration`) — the frontend reads every page, nav, and product from Strapi. Mock JSON under `mock-data/` is no longer read at runtime (`@mock-data` resolves to a stub for this tenant); it survives on disk as the seed script's input (`scripts/seed-vukans-bike-cms.js` reshapes it into the redesigned Strapi schema — see `strapi-backend.md` and `.specify/memory/knowledge/content-model.md`) and as the fallback if `dataAdapter` is ever flipped back to `"mock"` for local verification.
 
 ## Render pipeline
 
 ```
-MockAdapter.getPage (verify) / StrapiAdapter.getPage (production intent)
+StrapiAdapter.getPage (live)
   → page.tsx
   → resolveTemplate(page.template) → tenant template (header/footer)
   → BlockRenderer → block registry (tenant Keep + shared L1)
@@ -43,8 +43,8 @@ MockAdapter.getPage (verify) / StrapiAdapter.getPage (production intent)
   to `secondary` here so there is exactly one gray across authored and component-internal text, not two
   similar ones.
 - **Registration**: `src/tenants/vukans-bike/blocks/index.ts` — Keep L3 + data contracts.
-- **Pages**: `src/tenants/vukans-bike/mock-data/pages/*.json` — canonical Strapi DZ shape (`__component`, numeric `id`, flat fields, `lang`). All pages authored as L1/L2 + Keep; localized `en--` / `de--` mirrors.
-- **Seed collections**: `src/tenants/vukans-bike/mock-data/collections/products.json` — currently **1** product (`merida`) with `slug`, `specs`, `images`, etc. (plus `en--` / `de--` locale files). Home and `/shop` restate this bike's name, price and headline specs as authored copy, so both must be updated together with this file.
+- **Pages**: `src/tenants/vukans-bike/mock-data/pages/*.json` — seed input only (pre-migration Strapi DZ shape: `__component`, numeric `id`, flat fields, `lang`); `scripts/seed-vukans-bike-cms.js` reshapes each field into the redesigned editor-friendly schema on the way into Strapi (`fontSize` → named step, `section.surface`, `grid.columnsMobile/Tablet/Desktop`, `dividerTop`/`fullWidth`, etc. — see `content-model.md`). All pages authored as L1/L2 + Keep; localized `en--` / `de--` mirrors. 27 pages × 3 locales are live in Strapi.
+- **Seed collections**: `src/tenants/vukans-bike/mock-data/collections/products.json` — currently **1** product (`merida`) with `slug`, `specs`, `images`, etc. (plus `en--` / `de--` locale files), seeded into Strapi as 3 locale entries. Home and `/shop` restate this bike's name, price and headline specs as authored copy, so both must be updated together with this file.
 - **Navigation**: `mock-data/navigation.json`, `en--navigation.json`, `de--navigation.json` — **7** header items (Servis, Vodene ture, Kolesarska šola, Trgovina, O nas, Partnerji, Kontakt; the logo is Home) and **8** footer items (adds Domov, in the original Servis/Trgovina/Vodene ture/Kolesarska šola/O nas/Partnerji/Kontakt order — footer order intentionally does not mirror the header's). Identical ids, order and count across locales. Page files must not carry their own `navigation` key.
 
 ## Templates (`src/tenants/vukans-bike/templates/`)
@@ -78,9 +78,10 @@ Every registered content block has a Zod `schema` in `blocks/{name}/schema.ts` w
 **`product-list` is intentionally unused** (`specs/008-bike-site-redesign`, research R6). With a single-product
 catalog it renders one card stranded in a hardcoded 4-column grid and prints a category eyebrow that the site
 cannot let visitors browse. Home and `/shop` present that bike as an L1-authored flagship band instead. The
-block stays registered for the Strapi phase; before it is used again it needs the fixes listed in that
-feature's `contracts/shared-recommendations.md` (count-aware grid, optional category badge, drop its
-self-imposed `<section>` chrome, `next/link` instead of `<a href>`, remove the no-op `category` prop).
+block stays registered now that the tenant is live on Strapi; before it is used again it needs the fixes listed
+in that feature's `contracts/shared-recommendations.md` (count-aware grid, optional category badge, drop its
+self-imposed `<section>` chrome, `next/link` instead of `<a href>`). Its no-op `category` prop was removed
+entirely in `009-bike-strapi-migration`.
 
 **Deleted proprietary blocks** (no longer registered): `service-pricing`, `partners-gallery`, `service-faq`, `contact`, `hero`, `about-person`, `about-story`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`. Service pricing is L1 stacks of `text`/`link`; brands partners are L1 `grid` of stacks; FAQ is L1 + shared **`accordion`**.
 
@@ -141,8 +142,9 @@ Keep adapter calls inside the loader files — never inline them in `blocks/inde
 
 ## Strapi notes
 
-- Page DZ components: shared L1 + Keep L3 listed above only.
+- Page DZ components: shared L1 + Keep L3 listed above only. `shared.cta-link` / `shared.stat-item` were deleted in `009-bike-strapi-migration` (zero references anywhere).
 - Page and navigation fields use `lang` (not `locale`) — Strapi i18n plugin reserves `locale` as a query param.
 - Page `template` field → `resolveTemplate` (same strings: `default`, `bare`).
 - Navigation → collection type in Strapi; maps to `NavigationData` (`header`, `footer`, `footerCopy`).
 - Dynamic bike URLs: slug pattern `/bikes/:slug` in adapter, one `bike-detail` block per page; bike data fetched from `products` collection via `dataContract`.
+- `page` / `product` have `draftAndPublish: true`; a webhook (`entry.publish`/`entry.unpublish`/`entry.update`) revalidates the frontend on publish with no redeploy. Schema field shapes (colors, borders, `section.surface`/`heroHeight`, `grid.columnsMobile/Tablet/Desktop`, `text.fontSize`) were redesigned for a no-code editor experience in `009-bike-strapi-migration` — full before/after tables in `.specify/memory/knowledge/content-model.md` and `specs/009-bike-strapi-migration/data-model.md`.

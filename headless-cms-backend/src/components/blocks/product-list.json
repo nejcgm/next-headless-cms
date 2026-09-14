@@ -4,7 +4,7 @@
     "name": "ProductList",
     "icon": "shopping-cart",
     "displayName": "Product List",
-    "description": "Bike listing block — products are loaded at runtime from the products collection. Only config is stored here."
+    "description": "Bike listing block \u2014 products are loaded at runtime from the products collection. Only config is stored here."
   },
   "options": {},
   "attributes": {
@@ -21,12 +21,12 @@
     "limit": {
       "type": "integer"
     },
-    "category": {
-      "type": "string"
-    },
     "layout": {
       "type": "enumeration",
-      "enum": ["grid", "list"],
+      "enum": [
+        "grid",
+        "list"
+      ],
       "default": "grid"
     },
     "anchorId": {

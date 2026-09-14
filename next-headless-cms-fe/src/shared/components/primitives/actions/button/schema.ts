@@ -5,7 +5,7 @@ import { boxStyleSchema } from "@shared/utils/box-style";
 export const buttonSchema = boxStyleSchema.extend({
   label: z.string(),
   href: z.string(),
-  variant: z.enum(["primary", "secondary", "outline"]).optional(),
+  variant: z.enum(["primary", "secondary", "outline"]).nullish(),
 });
 
 export const buttonPolicy: CompositionPolicy = {

@@ -4,12 +4,23 @@ import type { CompositionPolicy } from "@core/blocks/types";
 export const accordionSchema = z.object({
   title: z.string(),
   content: z.string(),
-  defaultOpen: z.boolean().optional(),
-  padding: z.string().optional(),
-  margin: z.string().optional(),
-  backgroundColor: z.string().optional(),
-  border: z.string().optional(),
-  borderRadius: z.string().optional(),
+  defaultOpen: z.boolean().nullish(),
+  padding: z.string().nullish(),
+  margin: z.string().nullish(),
+  backgroundColor: z
+    .enum([
+      "primary",
+      "secondary",
+      "accent",
+      "background",
+      "foreground",
+      "muted",
+      "border",
+      "text-primary",
+    ])
+    .nullish(),
+  border: z.enum(["none", "hairline", "invertedOutline"]).nullish(),
+  borderRadius: z.string().nullish(),
 });
 
 export const accordionPolicy: CompositionPolicy = {

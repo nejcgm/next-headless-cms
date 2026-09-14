@@ -101,6 +101,9 @@ Always pass `locale` for localized collections. Used by `bike-detail` → `load-
         "__component": "blocks.section",
         "id": 10,
         "padding": "lg",
+        "surface": "muted",
+        "heroHeight": null,
+        "backgroundImage": null,
         "anchorId": "cenik",
         "slots": {
           "default": [
@@ -115,7 +118,7 @@ Always pass `locale` for localized collections. Used by `bike-detail` → `load-
                     "id": 12,
                     "content": "Cenik servisa",
                     "bold": true,
-                    "fontSize": "36px"
+                    "fontSize": "sectionTitle"
                   },
                   {
                     "__component": "blocks.text",
@@ -123,7 +126,7 @@ Always pass `locale` for localized collections. Used by `bike-detail` → `load-
                     "content": "€39",
                     "bold": true,
                     "color": "primary",
-                    "fontSize": "28px"
+                    "fontSize": "price"
                   }
                 ]
               }
@@ -181,7 +184,7 @@ Always pass `locale` for localized collections. Used by `bike-detail` → `load-
 | `header[]` (nav-item components) → `NavItem[]` via `toNavItem` | `NavigationData.header` |
 | `footerCopy` (footer-copy component) → `FooterCopy` | `NavigationData.footerCopy` |
 
-Also: `compose-validate.ts` (`toValidatedBlockInstance`).
+Also: `compose-validate.ts` (`toValidatedBlockInstance`). Note the `heroHeight: null` / `backgroundImage: null` above — Strapi always serializes every schema-defined attribute on a root-level dynamic-zone component, explicit `null` included, for anything the editor left unset; every Zod schema field here must be `.nullish()`, not `.optional()` (see `content-model.md`'s "Critical constraint" note).
 
 ---
 
@@ -227,6 +230,8 @@ Tags are built via `cacheTags` (`src/core/data/cache-tags.ts`). Each read attach
 | Single entry | 60 s | `strapi:entry:{tenant}:{collection}:{locale}:{id}` | `strapi:collection:{tenant}:{collection}` |
 
 **Draft preview:** when Next.js draft mode is enabled (`/api/preview`), all reads use `status=draft` and `cache: no-store` (no ISR cache).
+
+**Draft & Publish (`page`, `product`):** both content types have `draftAndPublish: true`. `PUT /api/{collection}/{documentId}?status=draft` updates the draft only — an unauthenticated `GET` (defaults to published) is unaffected. `PUT /api/{collection}/{documentId}?status=published` writes directly to the published version (this REST API exposes no separate `/actions/publish` route — that only exists on the admin-panel's internal content-manager API, which is what clicking "Publish" in the browser actually calls). The registered webhook fires on `entry.publish` / `entry.unpublish` / `entry.update`.
 
 **Fetch timeout:** 15 s per Strapi request (`FETCH_TIMEOUT_MS`).
 

@@ -10,6 +10,9 @@ const columnCount = z.union([
   z.literal(4),
 ]);
 
+// Strapi enumeration fields are always strings.
+const strapiColumnCount = z.enum(["1", "2", "3", "4"]);
+
 export const gridSchema = boxStyleSchema.extend({
   columns: z
     .union([
@@ -20,8 +23,11 @@ export const gridSchema = boxStyleSchema.extend({
         desktop: columnCount.optional(),
       }),
     ])
-    .optional(),
-  gap: z.enum(["sm", "md", "lg"]).optional(),
+    .nullish(),
+  columnsMobile: strapiColumnCount.nullish(),
+  columnsTablet: strapiColumnCount.nullish(),
+  columnsDesktop: strapiColumnCount.nullish(),
+  gap: z.enum(["sm", "md", "lg"]).nullish(),
 });
 
 export const gridPolicy: CompositionPolicy = {

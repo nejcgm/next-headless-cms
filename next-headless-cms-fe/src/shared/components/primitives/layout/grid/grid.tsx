@@ -44,12 +44,21 @@ function resolveColumns(columns: GridColumns | undefined): {
 
 export function Grid({
   columns = 2,
+  columnsMobile,
+  columnsTablet,
+  columnsDesktop,
   gap = "md",
   children,
   className,
   ...box
 }: GridProps & { children?: ReactNode; className?: string }) {
-  const resolved = resolveColumns(columns);
+  const resolved = columnsMobile
+    ? {
+        mobile: Number(columnsMobile) as 1 | 2 | 3 | 4,
+        tablet: columnsTablet ? (Number(columnsTablet) as 1 | 2 | 3 | 4) : undefined,
+        desktop: columnsDesktop ? (Number(columnsDesktop) as 1 | 2 | 3 | 4) : undefined,
+      }
+    : resolveColumns(columns);
 
   return (
     <div
