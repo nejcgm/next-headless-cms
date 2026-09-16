@@ -7,13 +7,11 @@
   },
   "options": {},
   "attributes": {
+    "adminName": {
+      "type": "string"
+    },
     "padding": {
-      "type": "enumeration",
-      "enum": [
-        "sm",
-        "md",
-        "lg"
-      ]
+      "type": "string"
     },
     "backgroundImage": {
       "type": "string"
@@ -25,6 +23,17 @@
         "contain"
       ],
       "default": "cover"
+    },
+    "backgroundPosition": {
+      "type": "enumeration",
+      "enum": [
+        "center",
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ],
+      "default": "center"
     },
     "overlay": {
       "type": "decimal",
@@ -43,32 +52,20 @@
         "foreground"
       ]
     },
-    "heroHeight": {
+    "minHeight": {
       "type": "enumeration",
       "enum": [
         "standard",
         "tall"
       ]
     },
-    "justify": {
+    "width": {
       "type": "enumeration",
       "enum": [
-        "start",
-        "center",
-        "end"
-      ]
-    },
-    "align": {
-      "type": "enumeration",
-      "enum": [
-        "start",
-        "center",
-        "end"
-      ]
-    },
-    "fullWidth": {
-      "type": "boolean",
-      "default": false
+        "full",
+        "contained"
+      ],
+      "default": "contained"
     },
     "height": {
       "type": "string"
@@ -80,29 +77,31 @@
       "type": "string"
     },
     "color": {
+      "type": "string"
+    },
+    "borderWidth": {
+      "type": "integer"
+    },
+    "borderStyle": {
       "type": "enumeration",
       "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
+        "solid",
+        "dashed",
+        "dotted"
       ]
     },
-    "border": {
+    "borderColor": {
+      "type": "string"
+    },
+    "divider": {
       "type": "enumeration",
       "enum": [
         "none",
-        "hairline",
-        "invertedOutline"
-      ]
-    },
-    "dividerTop": {
-      "type": "boolean",
-      "default": false
+        "top",
+        "bottom",
+        "both"
+      ],
+      "default": "none"
     },
     "borderRadius": {
       "type": "string"
@@ -111,12 +110,16 @@
       "type": "enumeration",
       "enum": [
         "visible",
-        "hidden",
-        "auto"
+        "hidden"
       ]
     },
     "slots": {
-      "type": "json"
+      "type": "json",
+      "pluginOptions": {
+        "content-manager": {
+          "visible": false
+        }
+      }
     }
   }
 }

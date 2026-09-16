@@ -50,7 +50,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Hero"
     },
     {
       "__component": "blocks.section",
@@ -129,7 +130,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Our story"
     },
     {
       "__component": "blocks.section",
@@ -225,7 +227,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Owner & mechanic"
     },
     {
       "__component": "blocks.section",
@@ -389,7 +392,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "How we work"
     }
   ],
   "lang": "en"

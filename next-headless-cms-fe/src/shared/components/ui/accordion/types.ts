@@ -1,23 +1,19 @@
+import type { ReactNode } from "react";
+
 export type AccordionStyle = {
   padding?: string;
   margin?: string;
-  backgroundColor?:
-    | "primary"
-    | "secondary"
-    | "accent"
-    | "background"
-    | "foreground"
-    | "muted"
-    | "border"
-    | "text-primary";
-  border?: "none" | "hairline" | "invertedOutline";
+  backgroundColor?: string;
+  borderWidth?: number;
+  borderStyle?: "solid" | "dashed" | "dotted";
+  borderColor?: string;
   borderRadius?: string;
 };
 
 export type AccordionProps = AccordionStyle & {
   title: string;
-  content: string;
   defaultOpen?: boolean;
   className?: string;
   blockId?: string;
+  children?: ReactNode;
 };

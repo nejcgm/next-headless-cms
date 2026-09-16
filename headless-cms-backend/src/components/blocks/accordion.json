@@ -3,23 +3,54 @@
   "info": {
     "displayName": "Accordion",
     "icon": "bulletList",
-    "description": "Single expandable panel (title + content)"
+    "description": "Expandable panel; nesting via slots JSON"
   },
   "options": {},
   "attributes": {
-    "title": { "type": "string", "required": true },
-    "content": { "type": "text", "required": true },
-    "defaultOpen": { "type": "boolean", "default": false },
-    "padding": { "type": "string" },
-    "margin": { "type": "string" },
+    "adminName": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "defaultOpen": {
+      "type": "boolean",
+      "default": false
+    },
+    "padding": {
+      "type": "string"
+    },
+    "margin": {
+      "type": "string"
+    },
     "backgroundColor": {
-      "type": "enumeration",
-      "enum": ["primary", "secondary", "accent", "background", "foreground", "muted", "border", "text-primary"]
+      "type": "string"
     },
-    "border": {
-      "type": "enumeration",
-      "enum": ["none", "hairline", "invertedOutline"]
+    "borderWidth": {
+      "type": "integer"
     },
-    "borderRadius": { "type": "string" }
+    "borderStyle": {
+      "type": "enumeration",
+      "enum": [
+        "solid",
+        "dashed",
+        "dotted"
+      ]
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "borderRadius": {
+      "type": "string"
+    },
+    "slots": {
+      "type": "json",
+      "pluginOptions": {
+        "content-manager": {
+          "visible": false
+        }
+      }
+    }
   }
 }

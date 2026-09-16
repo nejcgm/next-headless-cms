@@ -2,24 +2,17 @@ import { z } from "zod";
 import type { CompositionPolicy } from "@core/blocks/types";
 import { boxStyleSchema } from "@shared/utils/box-style";
 
-export const textSchema = boxStyleSchema.omit({ fontSize: true }).extend({
-  content: z.string(),
-  variant: z.enum(["body", "lead", "caption", "label"]).nullish(),
-  bold: z.boolean().nullish(),
-  fontSize: z
-    .enum([
-      "cardTitle",
-      "sectionTitle",
-      "priceCompact",
-      "pageTitle",
-      "price",
-      "display",
-      "statement",
-      "custom",
-    ])
-    .nullish(),
-  customFontSize: z.string().nullish(),
-});
+export const textSchema = boxStyleSchema
+  .omit({ fontSize: true, height: true, minWidth: true, minHeight: true, maxHeight: true })
+  .extend({
+    content: z.string(),
+    as: z.enum(["p", "span", "h1", "h2", "h3", "h4", "h5", "h6"]).nullish(),
+    fontSize: z.number().nullish(),
+    lineHeight: z.number().nullish(),
+    bold: z.boolean().nullish(),
+    uppercase: z.boolean().nullish(),
+    letterSpacing: z.number().nullish(),
+  });
 
 export const textPolicy: CompositionPolicy = {
   level: 1,

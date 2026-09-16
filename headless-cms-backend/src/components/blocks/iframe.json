@@ -7,6 +7,9 @@
   },
   "options": {},
   "attributes": {
+    "adminName": {
+      "type": "string"
+    },
     "src": {
       "type": "string",
       "required": true
@@ -22,20 +25,30 @@
     "aspect": {
       "type": "enumeration",
       "enum": [
-        "video",
-        "map",
-        "square"
+        "auto",
+        "16:9",
+        "4:3",
+        "1:1",
+        "21:9"
       ],
-      "default": "map"
+      "default": "4:3"
     },
-    "fullWidth": {
-      "type": "boolean",
-      "default": false
+    "width": {
+      "type": "string"
     },
     "height": {
       "type": "string"
     },
+    "minWidth": {
+      "type": "string"
+    },
+    "minHeight": {
+      "type": "string"
+    },
     "maxWidth": {
+      "type": "string"
+    },
+    "maxHeight": {
       "type": "string"
     },
     "padding": {
@@ -45,38 +58,24 @@
       "type": "string"
     },
     "backgroundColor": {
-      "type": "enumeration",
-      "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
-      ]
+      "type": "string"
     },
     "color": {
+      "type": "string"
+    },
+    "borderWidth": {
+      "type": "integer"
+    },
+    "borderStyle": {
       "type": "enumeration",
       "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
+        "solid",
+        "dashed",
+        "dotted"
       ]
     },
-    "border": {
-      "type": "enumeration",
-      "enum": [
-        "none",
-        "hairline",
-        "invertedOutline"
-      ]
+    "borderColor": {
+      "type": "string"
     },
     "borderRadius": {
       "type": "string"

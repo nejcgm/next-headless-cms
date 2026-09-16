@@ -55,7 +55,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Hero"
     },
     {
       "__component": "blocks.section",
@@ -113,7 +114,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Flat Out Days intro"
     },
     {
       "__component": "blocks.section",
@@ -264,7 +266,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Program"
     },
     {
       "__component": "blocks.gallery",
@@ -296,7 +299,8 @@
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480137/89f512ad-2519-480d-aa4b-0521808219bf_v4zabz.jpg",
           "alt": "Fahrt durch eine technische Passage"
         }
-      ]
+      ],
+      "adminName": "Gallery"
     },
     {
       "__component": "blocks.section",
@@ -370,7 +374,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Closing CTA"
     }
   ],
   "lang": "de"

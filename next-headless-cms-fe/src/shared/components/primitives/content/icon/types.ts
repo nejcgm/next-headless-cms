@@ -1,15 +1,11 @@
 import type { BoxStyle } from "@shared/utils/box-style";
+import type { ICON_NAMES } from "./icon-names";
 
-export type IconName = "map-pin" | "phone" | "mail";
+export type IconName = (typeof ICON_NAMES)[number];
 
 export type IconProps = BoxStyle & {
   name: IconName;
   label?: string;
-  size?: "sm" | "md" | "lg";
+  size?: number;
   blockId?: string;
-};
-
-export type IconSvgProps = {
-  name: IconName;
-  size: number;
 };

@@ -7,6 +7,9 @@
   },
   "options": {},
   "attributes": {
+    "adminName": {
+      "type": "string"
+    },
     "src": {
       "type": "string",
       "required": true
@@ -18,18 +21,39 @@
       "type": "enumeration",
       "enum": [
         "cover",
-        "contain"
+        "contain",
+        "fill",
+        "none"
       ],
       "default": "cover"
     },
-    "fullWidth": {
-      "type": "boolean",
-      "default": false
+    "position": {
+      "type": "enumeration",
+      "enum": [
+        "center",
+        "top",
+        "bottom",
+        "left",
+        "right"
+      ],
+      "default": "center"
+    },
+    "width": {
+      "type": "string"
     },
     "height": {
       "type": "string"
     },
+    "minWidth": {
+      "type": "string"
+    },
+    "minHeight": {
+      "type": "string"
+    },
     "maxWidth": {
+      "type": "string"
+    },
+    "maxHeight": {
       "type": "string"
     },
     "padding": {
@@ -39,38 +63,24 @@
       "type": "string"
     },
     "backgroundColor": {
-      "type": "enumeration",
-      "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
-      ]
+      "type": "string"
     },
     "color": {
+      "type": "string"
+    },
+    "borderWidth": {
+      "type": "integer"
+    },
+    "borderStyle": {
       "type": "enumeration",
       "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
+        "solid",
+        "dashed",
+        "dotted"
       ]
     },
-    "border": {
-      "type": "enumeration",
-      "enum": [
-        "none",
-        "hairline",
-        "invertedOutline"
-      ]
+    "borderColor": {
+      "type": "string"
     },
     "borderRadius": {
       "type": "string"

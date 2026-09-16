@@ -7,9 +7,9 @@ import type { AccordionProps } from "./types";
 
 export function Accordion({
   title,
-  content,
   defaultOpen = false,
   className,
+  children,
   ...box
 }: AccordionProps) {
   const [open, setOpen] = useState(defaultOpen);
@@ -55,7 +55,7 @@ export function Accordion({
       >
         <div className="overflow-hidden">
           <div className="pb-4 text-sm leading-relaxed text-[var(--color-muted-foreground)]">
-            {content}
+            {children}
           </div>
         </div>
       </div>

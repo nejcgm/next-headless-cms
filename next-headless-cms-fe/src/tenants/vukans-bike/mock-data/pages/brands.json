@@ -50,7 +50,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Header"
     },
     {
       "__component": "blocks.section",
@@ -428,7 +429,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Partner grid"
     }
   ],
   "lang": "sl"

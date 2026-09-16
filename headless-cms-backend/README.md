@@ -29,12 +29,23 @@ npm run develop
 | `npm run build` | Build admin panel |
 | `npm run types:generate` | Regenerate `types/generated/` after schema changes |
 | `npm run seed:vukans-bike` | Seed pages/nav/products from frontend mock JSON |
+| `npm run convert:section-children` | Rewrite experimental Section `children` arrays into `slots` on existing pages |
 
 Seed example:
 
 ```bash
 STRAPI_API_TOKEN=your-full-access-token npm run seed:vukans-bike
 ```
+
+After the page-composition schema change, convert any database that still stores Section `children`:
+
+```bash
+STRAPI_API_TOKEN=your-full-access-token npm run convert:section-children
+```
+
+Then `npm run types:generate` and restart `npm run develop` so the admin panel rebuilds. Page body editing uses the composition surface on the Page edit view (identity/SEO stay native fields).
+
+If the Section `children` field was already removed from the schema **before** that convert script ran, nested Section content cannot be recovered from the database — re-seed from mocks (`npm run seed:vukans-bike`) instead.
 
 ## Environment
 

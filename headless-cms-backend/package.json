@@ -10,6 +10,7 @@
     "dev": "strapi develop",
     "develop": "strapi develop",
     "seed:vukans-bike": "node ./scripts/seed-vukans-bike-cms.js",
+    "convert:section-children": "node ./scripts/convert-section-children-to-slots.js",
     "start": "strapi start",
     "strapi": "strapi",
     "types:generate": "strapi ts:generate-types",
@@ -17,6 +18,10 @@
     "upgrade:dry": "npx @strapi/upgrade latest --dry"
   },
   "dependencies": {
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
+    "@strapi/icons": "2.2.0",
     "@strapi/plugin-cloud": "5.44.0",
     "@strapi/plugin-users-permissions": "5.44.0",
     "@strapi/strapi": "5.44.0",

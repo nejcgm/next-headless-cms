@@ -3,10 +3,26 @@ import { cn } from "@shared/utils/cn";
 import { toBoxStyle } from "@shared/utils/box-style";
 import type { ImageBlockProps } from "./types";
 
+const FIT_CLASS = {
+  cover: "object-cover",
+  contain: "object-contain",
+  fill: "object-fill",
+  none: "object-none",
+} as const;
+
+const POSITION_CLASS = {
+  center: "object-center",
+  top: "object-top",
+  bottom: "object-bottom",
+  left: "object-left",
+  right: "object-right",
+} as const;
+
 export function ImageBlock({
   src,
   alt = "",
   fit = "cover",
+  position = "center",
   className,
   ...box
 }: ImageBlockProps & { className?: string }) {
@@ -22,7 +38,7 @@ export function ImageBlock({
         src={src}
         alt={alt}
         fill
-        className={fit === "contain" ? "object-contain" : "object-cover"}
+        className={cn(FIT_CLASS[fit], POSITION_CLASS[position])}
         sizes="(max-width: 1024px) 100vw, 50vw"
       />
     </div>

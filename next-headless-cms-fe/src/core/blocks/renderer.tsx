@@ -90,6 +90,7 @@ async function renderBlockNode({
 
   const slotEntries = block.slots ? Object.entries(block.slots) : [];
   const renderedSlots: Record<string, ReactNode> = {};
+  const slotNodes: Record<string, BlockInstance[]> = {};
 
   for (const [slotName, children] of slotEntries) {
     const nodes = await Promise.all(
@@ -98,6 +99,7 @@ async function renderBlockNode({
       )
     );
     renderedSlots[slotName] = <>{nodes}</>;
+    slotNodes[slotName] = children;
   }
 
   const Component = definition.component;
@@ -105,7 +107,12 @@ async function renderBlockNode({
 
   return (
     <Suspense key={key} fallback={<BlockSkeleton />}>
-      <Component {...mergedProps} blockId={block.id} slotContents={renderedSlots}>
+      <Component
+        {...mergedProps}
+        blockId={block.id}
+        slotContents={renderedSlots}
+        slotNodes={slotNodes}
+      >
         {defaultChildren}
       </Component>
     </Suspense>

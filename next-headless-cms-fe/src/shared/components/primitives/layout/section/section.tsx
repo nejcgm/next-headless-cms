@@ -1,58 +1,64 @@
 import type { CSSProperties, ReactNode } from "react";
 import { cn } from "@shared/utils/cn";
-import { toBoxStyle } from "@shared/utils/box-style";
+import { toBoxStyle, toCssSize } from "@shared/utils/box-style";
 import type { SectionProps } from "./types";
 
-const justifyMap = {
-  start: "flex-start",
-  center: "center",
-  end: "flex-end",
-} as const;
-
-const alignMap = {
-  start: "flex-start",
-  center: "center",
-  end: "flex-end",
-} as const;
+const DEFAULT_PADDING_BLOCK = "48px";
 
 const HERO_MIN_HEIGHT = {
   standard: "clamp(480px, 72vh, 720px)",
   tall: "clamp(520px, 82vh, 820px)",
 } as const;
 
+const BG_POSITION_CLASS = {
+  center: "bg-center",
+  top: "bg-top",
+  bottom: "bg-bottom",
+  left: "bg-left",
+  right: "bg-right",
+} as const;
+
+const DIVIDER_BORDER = "1px solid var(--color-border)";
+
+function dividerStyle(divider: SectionProps["divider"]): CSSProperties {
+  const style: CSSProperties = {};
+  if (divider === "top" || divider === "both") style.borderTop = DIVIDER_BORDER;
+  if (divider === "bottom" || divider === "both") style.borderBottom = DIVIDER_BORDER;
+  return style;
+}
+
 export function Section({
-  padding = "md",
+  padding,
   backgroundImage,
   backgroundFit = "cover",
+  backgroundPosition = "center",
   overlay,
   anchorId,
   surface,
-  heroHeight,
-  justify,
-  align,
+  minHeight,
+  width = "contained",
+  divider,
+  overflow,
   children,
   className,
   ...box
 }: SectionProps & { children?: ReactNode; className?: string }) {
-  const paddingClass =
-    padding === "sm" ? "py-8" : padding === "lg" ? "py-20" : "py-12";
+  const paddingBlock = toCssSize(padding) ?? DEFAULT_PADDING_BLOCK;
+  const contentWidthClass = width === "full" ? "w-full" : "max-w-6xl mx-auto w-full";
 
-  const boxStyle = toBoxStyle(box);
-  if (heroHeight) boxStyle.minHeight = HERO_MIN_HEIGHT[heroHeight];
+  const boxStyle: CSSProperties = {
+    ...toBoxStyle(box),
+    ...dividerStyle(divider),
+    ...(overflow ? { overflow } : {}),
+  };
+  if (minHeight) boxStyle.minHeight = HERO_MIN_HEIGHT[minHeight];
 
   const fillStyle: CSSProperties = {
-    ...toBoxStyle({
-      ...box,
-      backgroundColor: surface ?? "background",
-    }),
+    ...toBoxStyle({ ...box, backgroundColor: surface ?? "background" }),
+    ...dividerStyle(divider),
+    ...(overflow ? { overflow } : {}),
+    paddingBlock,
   };
-
-  if (justify || align) {
-    fillStyle.display = "flex";
-    fillStyle.flexDirection = "column";
-    if (justify) fillStyle.justifyContent = justifyMap[justify];
-    if (align) fillStyle.alignItems = alignMap[align];
-  }
 
   if (backgroundImage) {
     return (
@@ -66,8 +72,9 @@ export function Section({
       >
         <div
           className={cn(
-            "absolute inset-0 bg-black bg-center bg-no-repeat",
-            backgroundFit === "contain" ? "bg-contain" : "bg-cover"
+            "absolute inset-0 bg-black bg-no-repeat",
+            backgroundFit === "contain" ? "bg-contain" : "bg-cover",
+            BG_POSITION_CLASS[backgroundPosition]
           )}
           style={{ backgroundImage: `url(${backgroundImage})` }}
         />
@@ -76,9 +83,10 @@ export function Section({
         )}
         <div
           className={cn(
-            "relative z-10 w-full max-w-4xl mx-auto px-4 text-center text-white [&_h1]:text-white [&_h2]:text-white [&_h3]:text-white [&_p]:text-white/90",
-            paddingClass
+            "relative z-10 max-w-4xl mx-auto px-4 text-center text-white [&_h1]:text-white [&_h2]:text-white [&_h3]:text-white [&_p]:text-white/90",
+            width === "full" ? "w-full" : undefined
           )}
+          style={{ paddingBlock }}
         >
           {children}
         </div>
@@ -89,10 +97,10 @@ export function Section({
   return (
     <section
       id={anchorId}
-      className={cn("px-4", paddingClass, className)}
+      className={cn("px-4", className)}
       style={fillStyle}
     >
-      <div className="max-w-6xl mx-auto w-full">{children}</div>
+      <div className={contentWidthClass}>{children}</div>
     </section>
   );
 }

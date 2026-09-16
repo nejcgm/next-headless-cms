@@ -3,33 +3,49 @@
   "info": {
     "displayName": "Text",
     "icon": "bold",
-    "description": "Body / lead / caption / label leaf"
+    "description": "Copy leaf"
   },
   "options": {},
   "attributes": {
+    "adminName": {
+      "type": "string"
+    },
     "content": {
       "type": "text",
       "required": true
     },
-    "variant": {
+    "as": {
       "type": "enumeration",
       "enum": [
-        "body",
-        "lead",
-        "caption",
-        "label"
+        "p",
+        "span",
+        "h1",
+        "h2",
+        "h3",
+        "h4",
+        "h5",
+        "h6"
       ],
-      "default": "body"
+      "default": "p"
+    },
+    "fontSize": {
+      "type": "integer"
+    },
+    "lineHeight": {
+      "type": "decimal"
+    },
+    "letterSpacing": {
+      "type": "decimal"
     },
     "bold": {
       "type": "boolean",
       "default": false
     },
-    "fullWidth": {
+    "uppercase": {
       "type": "boolean",
       "default": false
     },
-    "height": {
+    "width": {
       "type": "string"
     },
     "maxWidth": {
@@ -42,42 +58,24 @@
       "type": "string"
     },
     "backgroundColor": {
-      "type": "enumeration",
-      "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
-      ]
+      "type": "string"
     },
     "color": {
+      "type": "string"
+    },
+    "borderWidth": {
+      "type": "integer"
+    },
+    "borderStyle": {
       "type": "enumeration",
       "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
+        "solid",
+        "dashed",
+        "dotted"
       ]
     },
-    "border": {
-      "type": "enumeration",
-      "enum": [
-        "none",
-        "hairline",
-        "invertedOutline"
-      ]
-    },
-    "dividerTop": {
-      "type": "boolean",
-      "default": false
+    "borderColor": {
+      "type": "string"
     },
     "borderRadius": {
       "type": "string"
@@ -89,22 +87,6 @@
         "hidden",
         "auto"
       ]
-    },
-    "fontSize": {
-      "type": "enumeration",
-      "enum": [
-        "cardTitle",
-        "sectionTitle",
-        "priceCompact",
-        "pageTitle",
-        "price",
-        "display",
-        "statement",
-        "custom"
-      ]
-    },
-    "customFontSize": {
-      "type": "string"
     },
     "fontWeight": {
       "type": "string"

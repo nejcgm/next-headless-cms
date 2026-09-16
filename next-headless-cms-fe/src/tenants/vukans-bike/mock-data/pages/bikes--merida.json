@@ -29,7 +29,8 @@
         "contactPhoneHref": "tel:+38670815379",
         "contactCtaLabel": "Pišite nam",
         "contactCtaHref": "/contact"
-      }
+      },
+      "adminName": "Bike detail"
     }
   ],
   "lang": "sl"

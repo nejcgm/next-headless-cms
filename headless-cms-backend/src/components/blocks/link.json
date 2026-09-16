@@ -3,23 +3,31 @@
   "info": {
     "displayName": "Link",
     "icon": "link",
-    "description": "Text link leaf (primary or muted)"
+    "description": "Text/icon link container (nests Icon and/or Text)"
   },
   "options": {},
   "attributes": {
-    "label": {
-      "type": "string",
-      "required": true
+    "adminName": {
+      "type": "string"
     },
     "href": {
       "type": "string",
       "required": true
     },
+    "target": {
+      "type": "enumeration",
+      "enum": [
+        "_self",
+        "_blank"
+      ]
+    },
     "variant": {
       "type": "enumeration",
       "enum": [
         "primary",
-        "muted"
+        "secondary",
+        "ghost",
+        "link"
       ],
       "default": "primary"
     },
@@ -27,72 +35,11 @@
       "type": "boolean",
       "default": false
     },
-    "fullWidth": {
-      "type": "boolean",
-      "default": false
-    },
-    "height": {
-      "type": "string"
-    },
-    "maxWidth": {
-      "type": "string"
-    },
-    "padding": {
-      "type": "string"
-    },
-    "margin": {
-      "type": "string"
-    },
-    "backgroundColor": {
-      "type": "enumeration",
-      "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
-      ]
-    },
-    "color": {
-      "type": "enumeration",
-      "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
-      ]
-    },
-    "border": {
-      "type": "enumeration",
-      "enum": [
-        "none",
-        "hairline",
-        "invertedOutline"
-      ]
-    },
-    "borderRadius": {
-      "type": "string"
-    },
-    "overflow": {
-      "type": "enumeration",
-      "enum": [
-        "visible",
-        "hidden",
-        "auto"
-      ]
-    },
     "fontSize": {
-      "type": "string"
+      "type": "integer"
     },
     "fontWeight": {
-      "type": "string"
+      "type": "integer"
     },
     "textAlign": {
       "type": "enumeration",
@@ -101,6 +48,43 @@
         "center",
         "right"
       ]
+    },
+    "color": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "borderWidth": {
+      "type": "integer"
+    },
+    "borderStyle": {
+      "type": "enumeration",
+      "enum": [
+        "solid",
+        "dashed",
+        "dotted"
+      ]
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "borderRadius": {
+      "type": "integer"
+    },
+    "padding": {
+      "type": "string"
+    },
+    "accessibleLabel": {
+      "type": "string"
+    },
+    "slots": {
+      "type": "json",
+      "pluginOptions": {
+        "content-manager": {
+          "visible": false
+        }
+      }
     }
   }
 }

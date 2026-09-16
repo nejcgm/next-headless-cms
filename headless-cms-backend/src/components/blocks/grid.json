@@ -7,6 +7,9 @@
   },
   "options": {},
   "attributes": {
+    "adminName": {
+      "type": "string"
+    },
     "columnsMobile": {
       "type": "enumeration",
       "enum": [
@@ -37,21 +40,24 @@
       ]
     },
     "gap": {
-      "type": "enumeration",
-      "enum": [
-        "sm",
-        "md",
-        "lg"
-      ]
+      "type": "string"
     },
-    "fullWidth": {
-      "type": "boolean",
-      "default": false
+    "width": {
+      "type": "string"
     },
     "height": {
       "type": "string"
     },
+    "minWidth": {
+      "type": "string"
+    },
+    "minHeight": {
+      "type": "string"
+    },
     "maxWidth": {
+      "type": "string"
+    },
+    "maxHeight": {
       "type": "string"
     },
     "padding": {
@@ -61,38 +67,24 @@
       "type": "string"
     },
     "backgroundColor": {
-      "type": "enumeration",
-      "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
-      ]
+      "type": "string"
     },
     "color": {
+      "type": "string"
+    },
+    "borderWidth": {
+      "type": "integer"
+    },
+    "borderStyle": {
       "type": "enumeration",
       "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
+        "solid",
+        "dashed",
+        "dotted"
       ]
     },
-    "border": {
-      "type": "enumeration",
-      "enum": [
-        "none",
-        "hairline",
-        "invertedOutline"
-      ]
+    "borderColor": {
+      "type": "string"
     },
     "borderRadius": {
       "type": "string"
@@ -106,7 +98,12 @@
       ]
     },
     "slots": {
-      "type": "json"
+      "type": "json",
+      "pluginOptions": {
+        "content-manager": {
+          "visible": false
+        }
+      }
     }
   }
 }

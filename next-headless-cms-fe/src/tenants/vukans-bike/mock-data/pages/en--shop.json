@@ -50,7 +50,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Header"
     },
     {
       "__component": "blocks.section",
@@ -316,7 +317,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Flagship bike"
     },
     {
       "__component": "blocks.section",
@@ -368,7 +370,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Build cross-link"
     },
     {
       "__component": "blocks.section",
@@ -412,7 +415,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Closing CTA"
     }
   ],
   "lang": "en"

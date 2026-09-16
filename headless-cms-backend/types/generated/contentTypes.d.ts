@@ -480,7 +480,6 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
     blocks: Schema.Attribute.DynamicZone<
       [
         'blocks.section',
-        'blocks.stack',
         'blocks.flex',
         'blocks.grid',
         'blocks.text',

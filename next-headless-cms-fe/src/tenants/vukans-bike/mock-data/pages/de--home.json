@@ -81,7 +81,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Hero"
     },
     {
       "__component": "blocks.section",
@@ -125,7 +126,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Positioning"
     },
     {
       "__component": "blocks.section",
@@ -303,7 +305,8 @@
             "margin": "36px 0 0"
           }
         ]
-      }
+      },
+      "adminName": "Service highlights"
     },
     {
       "__component": "blocks.section",
@@ -468,7 +471,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Flagship bike"
     },
     {
       "__component": "blocks.section",
@@ -600,7 +604,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "School & tours"
     },
     {
       "__component": "blocks.section",
@@ -674,7 +679,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Closing CTA"
     }
   ],
   "lang": "de"

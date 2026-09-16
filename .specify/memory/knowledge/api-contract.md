@@ -102,31 +102,34 @@ Always pass `locale` for localized collections. Used by `bike-detail` → `load-
         "id": 10,
         "padding": "lg",
         "surface": "muted",
-        "heroHeight": null,
+        "minHeight": null,
         "backgroundImage": null,
         "anchorId": "cenik",
         "slots": {
           "default": [
             {
-              "__component": "blocks.stack",
+              "__component": "blocks.flex",
               "id": 11,
-              "gap": "md",
+              "direction": "column",
+              "gap": "16",
               "slots": {
                 "default": [
                   {
                     "__component": "blocks.text",
                     "id": 12,
                     "content": "Cenik servisa",
+                    "as": "h2",
                     "bold": true,
-                    "fontSize": "sectionTitle"
+                    "fontSize": 34
                   },
                   {
                     "__component": "blocks.text",
                     "id": 13,
                     "content": "€39",
+                    "as": "p",
                     "bold": true,
                     "color": "primary",
-                    "fontSize": "price"
+                    "fontSize": 44
                   }
                 ]
               }
@@ -177,14 +180,14 @@ Always pass `locale` for localized collections. Used by `bike-detail` → `load-
 |----------------|-------------------|
 | `__component: "blocks.hero"` → strips to `type: "hero"` | `BlockInstance.type` |
 | Numeric/string `id` → `String(id)`; if missing → `` `${type}-${index}` `` (stable zone order) | `BlockInstance.id` |
-| Authored fields except `slots` → `props` (Zod-validated when schema registered) | `BlockInstance.props` |
-| `slots` JSON → recursive validate → `BlockInstance.slots` | Nested trees |
+| Authored fields except `slots` / `children` → `props` (Zod-validated when schema registered) | `BlockInstance.props` |
+| `slots` JSON → recursive validate → `BlockInstance.slots` | Nested trees for `section` / `flex` / `grid` / `accordion` / `gallery` / `link` / `button` (`stack` retired in `012-primitive-props-redesign` — every stack is now a `flex` with `direction: "column"`). A leftover `children` key is stripped from props and is not a second nest format. |
 | Unknown / illegal / over-depth nodes | Dropped (+ dev warn); not rendered |
 | `__component` + nested component meta stripped in props | Nested `props` match frontend interface |
 | `header[]` (nav-item components) → `NavItem[]` via `toNavItem` | `NavigationData.header` |
 | `footerCopy` (footer-copy component) → `FooterCopy` | `NavigationData.footerCopy` |
 
-Also: `compose-validate.ts` (`toValidatedBlockInstance`). Note the `heroHeight: null` / `backgroundImage: null` above — Strapi always serializes every schema-defined attribute on a root-level dynamic-zone component, explicit `null` included, for anything the editor left unset; every Zod schema field here must be `.nullish()`, not `.optional()` (see `content-model.md`'s "Critical constraint" note).
+Also: `compose-validate.ts` (`toValidatedBlockInstance`). Note the `minHeight: null` / `backgroundImage: null` above — Strapi always serializes every schema-defined attribute on a root-level dynamic-zone component, explicit `null` included, for anything the editor left unset; every Zod schema field here must be `.nullish()`, not `.optional()` (see `content-model.md`'s "Critical constraint" note).
 
 ---
 

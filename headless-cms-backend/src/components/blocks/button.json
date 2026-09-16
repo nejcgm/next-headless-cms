@@ -3,35 +3,44 @@
   "info": {
     "displayName": "Button",
     "icon": "cursor",
-    "description": "Button / link leaf"
+    "description": "Button container (nests Icon and/or Text)"
   },
   "options": {},
   "attributes": {
-    "label": {
-      "type": "string",
-      "required": true
+    "adminName": {
+      "type": "string"
     },
     "href": {
       "type": "string",
       "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "button",
+        "submit",
+        "reset"
+      ],
+      "default": "button"
+    },
+    "disabled": {
+      "type": "boolean",
+      "default": false
     },
     "variant": {
       "type": "enumeration",
       "enum": [
         "primary",
         "secondary",
-        "outline"
+        "outline",
+        "ghost"
       ],
       "default": "primary"
     },
-    "fullWidth": {
-      "type": "boolean",
-      "default": false
-    },
-    "height": {
+    "width": {
       "type": "string"
     },
-    "maxWidth": {
+    "height": {
       "type": "string"
     },
     "padding": {
@@ -40,50 +49,60 @@
     "margin": {
       "type": "string"
     },
-    "backgroundColor": {
+    "fontSize": {
+      "type": "integer"
+    },
+    "fontWeight": {
+      "type": "integer"
+    },
+    "textAlign": {
       "type": "enumeration",
       "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
+        "left",
+        "center",
+        "right"
       ]
+    },
+    "backgroundColor": {
+      "type": "string"
     },
     "color": {
+      "type": "string"
+    },
+    "borderWidth": {
+      "type": "integer"
+    },
+    "borderStyle": {
       "type": "enumeration",
       "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
+        "solid",
+        "dashed",
+        "dotted"
       ]
     },
-    "border": {
-      "type": "enumeration",
-      "enum": [
-        "none",
-        "hairline",
-        "invertedOutline"
-      ]
+    "borderColor": {
+      "type": "string"
     },
     "borderRadius": {
-      "type": "string"
+      "type": "integer"
     },
     "overflow": {
       "type": "enumeration",
       "enum": [
         "visible",
-        "hidden",
-        "auto"
+        "hidden"
       ]
+    },
+    "accessibleLabel": {
+      "type": "string"
+    },
+    "slots": {
+      "type": "json",
+      "pluginOptions": {
+        "content-manager": {
+          "visible": false
+        }
+      }
     }
   }
 }

@@ -4,43 +4,121 @@
     "name": "Gallery",
     "icon": "images",
     "displayName": "Gallery",
-    "description": "Photo gallery with lightbox, show-more/less controls, and translatable labels"
+    "description": "Grid/masonry layout of Image children"
   },
   "options": {},
   "attributes": {
+    "adminName": {
+      "type": "string"
+    },
     "heading": {
-      "type": "string",
-      "required": true
+      "type": "string"
     },
     "subheading": {
       "type": "string"
     },
-    "defaultImageAlt": {
-      "type": "string",
-      "required": true
+    "layout": {
+      "type": "enumeration",
+      "enum": [
+        "grid",
+        "masonry"
+      ],
+      "default": "grid"
     },
-    "showLessLabel": {
-      "type": "string",
-      "required": true
+    "columnsMobile": {
+      "type": "enumeration",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "default": "2"
     },
-    "showMorePrefix": {
-      "type": "string",
-      "required": true
+    "columnsTablet": {
+      "type": "enumeration",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ],
+      "default": "3"
     },
-    "showMoreSuffix": {
-      "type": "string",
-      "required": true
+    "columnsDesktop": {
+      "type": "enumeration",
+      "enum": [
+        "1",
+        "2",
+        "3",
+        "4"
+      ]
     },
-    "lightboxAltPrefix": {
-      "type": "string",
-      "required": true
+    "gap": {
+      "type": "string"
     },
-    "images": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.image-item",
-      "required": true,
-      "min": 1
+    "width": {
+      "type": "string"
+    },
+    "height": {
+      "type": "string"
+    },
+    "minWidth": {
+      "type": "string"
+    },
+    "minHeight": {
+      "type": "string"
+    },
+    "maxWidth": {
+      "type": "string"
+    },
+    "maxHeight": {
+      "type": "string"
+    },
+    "padding": {
+      "type": "string"
+    },
+    "margin": {
+      "type": "string"
+    },
+    "backgroundColor": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "borderWidth": {
+      "type": "integer"
+    },
+    "borderStyle": {
+      "type": "enumeration",
+      "enum": [
+        "solid",
+        "dashed",
+        "dotted"
+      ]
+    },
+    "borderColor": {
+      "type": "string"
+    },
+    "borderRadius": {
+      "type": "string"
+    },
+    "overflow": {
+      "type": "enumeration",
+      "enum": [
+        "visible",
+        "hidden",
+        "auto"
+      ]
+    },
+    "slots": {
+      "type": "json",
+      "pluginOptions": {
+        "content-manager": {
+          "visible": false
+        }
+      }
     }
   }
 }

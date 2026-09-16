@@ -50,7 +50,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Header"
     },
     {
       "__component": "blocks.section",
@@ -256,7 +257,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Contact details & map"
     }
   ],
   "lang": "en"

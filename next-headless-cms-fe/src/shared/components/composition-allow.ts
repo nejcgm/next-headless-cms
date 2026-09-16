@@ -1,5 +1,4 @@
 export const LAYOUT_NEST_ALLOW = [
-  "stack",
   "flex",
   "grid",
   "text",
@@ -11,8 +10,7 @@ export const LAYOUT_NEST_ALLOW = [
   "accordion",
 ] as const;
 
-export const STACK_NEST_ALLOW = [
-  "stack",
+export const GRID_NEST_ALLOW = [
   "flex",
   "text",
   "image",
@@ -23,14 +21,6 @@ export const STACK_NEST_ALLOW = [
   "accordion",
 ] as const;
 
-export const GRID_NEST_ALLOW = [
-  "stack",
-  "flex",
-  "text",
-  "image",
-  "iframe",
-  "icon",
-  "button",
-  "link",
-  "accordion",
-] as const;
+export const GALLERY_NEST_ALLOW = ["image"] as const;
+
+export const LINK_BUTTON_NEST_ALLOW = ["icon", "text"] as const;

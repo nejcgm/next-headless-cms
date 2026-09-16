@@ -55,7 +55,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Hero"
     },
     {
       "__component": "blocks.section",
@@ -219,7 +220,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "What you get"
     },
     {
       "__component": "blocks.gallery",
@@ -251,7 +253,8 @@
           "src": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775480134/0f080a97-cd70-4e54-9868-a6904106ad3d_tlipod.jpg",
           "alt": "Vožnja po trailu"
         }
-      ]
+      ],
+      "adminName": "Gallery"
     },
     {
       "__component": "blocks.section",
@@ -444,7 +447,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Process"
     },
     {
       "__component": "blocks.section",
@@ -505,7 +509,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Closing CTA"
     }
   ],
   "lang": "sl"

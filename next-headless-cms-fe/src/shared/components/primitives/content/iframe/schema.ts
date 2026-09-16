@@ -6,7 +6,7 @@ export const iframeSchema = boxStyleSchema.extend({
   src: z.string(),
   title: z.string(),
   allowFullscreen: z.boolean().nullish(),
-  aspect: z.enum(["video", "map", "square"]).nullish(),
+  aspect: z.enum(["auto", "16:9", "4:3", "1:1", "21:9"]).nullish(),
 });
 
 export const iframePolicy: CompositionPolicy = {

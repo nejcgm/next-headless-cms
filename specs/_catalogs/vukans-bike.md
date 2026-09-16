@@ -9,7 +9,9 @@
 
 Bike shop in Apače: service, sales, bike school, guided tours. Locales: `sl` (default), `de`, `en`. **Product** tenant and the **reference pattern** for new plug-and-play tenants. (`resort-example` is only a build-isolation fixture — do not copy it.)
 
-**Data adapter:** `dataAdapter: "strapi"` (live, since `009-bike-strapi-migration`) — the frontend reads every page, nav, and product from Strapi. Mock JSON under `mock-data/` is no longer read at runtime (`@mock-data` resolves to a stub for this tenant); it survives on disk as the seed script's input (`scripts/seed-vukans-bike-cms.js` reshapes it into the redesigned Strapi schema — see `strapi-backend.md` and `.specify/memory/knowledge/content-model.md`) and as the fallback if `dataAdapter` is ever flipped back to `"mock"` for local verification.
+**Data adapter:** `dataAdapter: "strapi"` (live, since `009-bike-strapi-migration`) — the frontend reads every page, nav, and product from Strapi. Mock JSON under `mock-data/` is no longer read at runtime (`@mock-data` resolves to a stub for this tenant); it survives on disk as the seed script's input (`scripts/seed-vukans-bike-cms.js` reshapes it into the redesigned Strapi schema — see `strapi-backend.md` and `.specify/memory/knowledge/content-model.md`) and as the fallback if `dataAdapter` is ever flipped back to `"mock"` for local verification. As of `012-primitive-props-redesign`, the seed script also reshapes every page's primitive props onto the new field shapes (Stack→Flex, Grid `columns`→`columnsMobile/Tablet/Desktop`, Text `variant`→`as`/`fontSize` number, Button/Link `label`→`children`, Accordion `content`→`children`, Gallery `images[]`→`children`, Icon `size` step→number) — see the Pages bullet below and `content-model.md` for the full field mapping.
+
+**Page authoring:** Editors compose the page body in the Strapi **page composition surface** (add/nest/reorder/fields for the whole `blocks` tree, including Flex inside Flex). Slug, `lang`, template, and SEO stay on the native Page form. Nested JSON is a collapsed technical fallback only. Navigation and products are unchanged.
 
 ## Render pipeline
 
@@ -43,7 +45,7 @@ StrapiAdapter.getPage (live)
   to `secondary` here so there is exactly one gray across authored and component-internal text, not two
   similar ones.
 - **Registration**: `src/tenants/vukans-bike/blocks/index.ts` — Keep L3 + data contracts.
-- **Pages**: `src/tenants/vukans-bike/mock-data/pages/*.json` — seed input only (pre-migration Strapi DZ shape: `__component`, numeric `id`, flat fields, `lang`); `scripts/seed-vukans-bike-cms.js` reshapes each field into the redesigned editor-friendly schema on the way into Strapi (`fontSize` → named step, `section.surface`, `grid.columnsMobile/Tablet/Desktop`, `dividerTop`/`fullWidth`, etc. — see `content-model.md`). All pages authored as L1/L2 + Keep; localized `en--` / `de--` mirrors. 27 pages × 3 locales are live in Strapi.
+- **Pages**: `src/tenants/vukans-bike/mock-data/pages/*.json` — seed input only, still written in the **pre-`012` mock shape** (`variant` on text, `label` on button/link, `content` on accordion, `images[]` on gallery, `sm`/`md`/`lg` gap and icon size, `stack` for column layouts, etc.); `scripts/seed-vukans-bike-cms.js` reshapes every field into the current redesigned schema on the way into Strapi (`section.surface`/`width`/`minHeight`/`divider`, `grid.columnsMobile/Tablet/Desktop`, `text.as`/`fontSize` number, `stack`→`flex` with `direction: "column"`, button/link `label`→synthesized `text` child, accordion `content`→synthesized `text` child, gallery `images[]`→synthesized `image` children, icon `size` step→number — see `content-model.md`). Deliberately **not** rewriting the mock JSON itself to the new shapes: the seed script is the one place that translates authoring-era content into the current schema, so mock-data stays a stable historical input rather than something to keep re-migrating by hand. All pages authored as L1/L2 + Keep; localized `en--` / `de--` mirrors. 27 pages × 3 locales are live in Strapi.
 - **Seed collections**: `src/tenants/vukans-bike/mock-data/collections/products.json` — currently **1** product (`merida`) with `slug`, `specs`, `images`, etc. (plus `en--` / `de--` locale files), seeded into Strapi as 3 locale entries. Home and `/shop` restate this bike's name, price and headline specs as authored copy, so both must be updated together with this file.
 - **Navigation**: `mock-data/navigation.json`, `en--navigation.json`, `de--navigation.json` — **7** header items (Servis, Vodene ture, Kolesarska šola, Trgovina, O nas, Partnerji, Kontakt; the logo is Home) and **8** footer items (adds Domov, in the original Servis/Trgovina/Vodene ture/Kolesarska šola/O nas/Partnerji/Kontakt order — footer order intentionally does not mirror the header's). Identical ids, order and count across locales. Page files must not carry their own `navigation` key.
 
@@ -72,8 +74,9 @@ Every registered content block has a Zod `schema` in `blocks/{name}/schema.ts` w
 | Block type | Component | Data | Used on / purpose |
 |------------|-----------|------|-------------------|
 | `bike-detail` | `blocks/bike-detail/bike-detail.tsx` | `labels` props + **dataContract** → `load-bike.ts` → `getEntry("products", bikeSlug)` | `/bikes/{slug}` |
-| `gallery` | `blocks/gallery/gallery.tsx` | Props (`images[]`) | `/bike-school`, `/guided-tours` — 5 images each (the component tiles 5 perfectly and stays under its hardcoded 10-item reveal) |
 | `product-list` | `blocks/product-list/product-list.tsx` | **dataContract** → `load-products.ts` → `getCollection("products")` | **Registered but currently unreferenced** — see below |
+
+`gallery` moved out of this tenant's Keep set in `012-primitive-props-redesign` — it's now a **shared** L3 container (`src/shared/components/ui/gallery/`), see the table below. `/bike-school` and `/guided-tours` still use it (5 `image` children each via `slots.default`, tiled in a uniform grid/masonry — the old click-to-lightbox and irregular masonry-span behavior was dropped along with the promotion, see `content-model.md`).
 
 **`product-list` is intentionally unused** (`specs/008-bike-site-redesign`, research R6). With a single-product
 catalog it renders one card stranded in a hardcoded 4-column grid and prints a category eyebrow that the site
@@ -83,24 +86,27 @@ in that feature's `contracts/shared-recommendations.md` (count-aware grid, optio
 self-imposed `<section>` chrome, `next/link` instead of `<a href>`). Its no-op `category` prop was removed
 entirely in `009-bike-strapi-migration`.
 
-**Deleted proprietary blocks** (no longer registered): `service-pricing`, `partners-gallery`, `service-faq`, `contact`, `hero`, `about-person`, `about-story`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`. Service pricing is L1 stacks of `text`/`link`; brands partners are L1 `grid` of stacks; FAQ is L1 + shared **`accordion`**.
+**Deleted proprietary blocks** (no longer registered): `service-pricing`, `partners-gallery`, `service-faq`, `contact`, `hero`, `about-person`, `about-story`, `about-values`, `bike-school-intro`, `bike-school-program`, `guided-tour-experience`, `service-process`, `service-contact`. Service pricing is L1 flex (column direction) of `text`/`link`; brands partners are L1 `grid` of flex; FAQ is L1 + shared **`accordion`**.
 
 ## Shared L1 / shared L3 (registered globally)
 
-Defined in `src/shared/components/primitives/...` and `src/shared/components/ui/accordion/` — bike is SoT for these types:
+Defined in `src/shared/components/primitives/...` and `src/shared/components/ui/{accordion,gallery}/` — bike is SoT for these types:
 
 | Block type | Notes |
 |------------|--------|
-| `section`, `stack`, `flex`, `grid`, `text`, `image`, `iframe`, `icon`, `button`, `link` | Level 1 composition primitives (`text` carries titles via `fontSize` + `bold`) |
-| `accordion` | Shared L3 — one expandable panel (`title` + `content`); compose several in a `stack` for FAQ lists |
+| `section`, `flex`, `grid`, `text`, `image`, `iframe`, `icon`, `button`, `link` | Level 1 composition primitives (`text` carries titles via `as`/`fontSize`/`bold`). **`stack` was retired in `012-primitive-props-redesign`** — every former stack is a `flex` with `direction: "column"` |
+| `accordion` | Shared L3 container — one expandable panel (`title` + `children`/`slots.default`, nests `LAYOUT_NEST_ALLOW`); compose several in a column `flex` for FAQ lists |
+| `gallery` | Shared L3 container (promoted from bike Keep in `012`) — image grid/masonry (`children`/`slots.default`, nests `["image"]` only) |
+
+`button` and `link` also became containers in `012` (nest `["icon","text"]`, `maxItems: 2`) — see `.specify/memory/knowledge/block-system.md`.
 
 **Deleted shared opaques**: `cta-banner`, `stats-bar`, `image-text`, `section-header`, `rich-text`, `image-gallery`.
 
-Visual composition editor is out of scope; trees are authored in mock/seed/Strapi JSON (`slots`).
+A canvas-style visual composition editor is out of scope. Every layout/container primitive (`section`, `flex`, `grid`, `accordion`, `gallery`, `link`, `button`) nests via opaque **`slots` JSON**, edited through the Strapi admin **page composition surface** (`src/admin/page-composition/`) rather than raw JSON — a native nested-dynamiczone experiment on `section` was tried and reverted (`011-page-builder-polish`). See `content-model.md`.
 
 ## Page → blocks (reference)
 
-Root DZ order; nested L1 trees summarized. Localized `en--` / `de--` mirrors match.
+Root DZ order; nested L1 trees summarized. Localized `en--` / `de--` mirrors match. As of `012.2`, every root band's mock JSON also carries an `adminName` (Strapi-only, see `block-system.md`) matching its band description below (e.g. `/service`'s bands are named `Hero`/`Price list`/`Process`/`FAQ`/`Closing CTA`) — the composition tree row label reads that name directly instead of deriving one from nested content, so this table is the source of truth for band naming when adding or renaming one.
 
 Band surfaces follow `specs/008-bike-site-redesign/contracts/page-blueprints.md`: adjacent bands never share
 a surface, and the site budget is photo heroes on Home / Service / Bike school / Guided tours, inverse
@@ -147,4 +153,4 @@ Keep adapter calls inside the loader files — never inline them in `blocks/inde
 - Page `template` field → `resolveTemplate` (same strings: `default`, `bare`).
 - Navigation → collection type in Strapi; maps to `NavigationData` (`header`, `footer`, `footerCopy`).
 - Dynamic bike URLs: slug pattern `/bikes/:slug` in adapter, one `bike-detail` block per page; bike data fetched from `products` collection via `dataContract`.
-- `page` / `product` have `draftAndPublish: true`; a webhook (`entry.publish`/`entry.unpublish`/`entry.update`) revalidates the frontend on publish with no redeploy. Schema field shapes (colors, borders, `section.surface`/`heroHeight`, `grid.columnsMobile/Tablet/Desktop`, `text.fontSize`) were redesigned for a no-code editor experience in `009-bike-strapi-migration` — full before/after tables in `.specify/memory/knowledge/content-model.md` and `specs/009-bike-strapi-migration/data-model.md`.
+- `page` / `product` have `draftAndPublish: true`; a webhook (`entry.publish`/`entry.unpublish`/`entry.update`) revalidates the frontend on publish with no redeploy. Schema field shapes (colors, borders, `section.surface`/`width`/`minHeight`/`divider`, `grid.columnsMobile/Tablet/Desktop`) were redesigned for a no-code editor experience in `009-bike-strapi-migration`; every L1 primitive's props were redesigned again in `012-primitive-props-redesign` (unified px/percent sizing, Stack retired into Flex, Accordion/Gallery promoted to recursive containers, Button/Link promoted to icon/text containers, full lucide icon library) — full before/after tables in `.specify/memory/knowledge/content-model.md`, `specs/009-bike-strapi-migration/data-model.md`, and `specs/012-primitive-props-redesign/data-model.md`.

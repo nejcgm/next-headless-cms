@@ -6,7 +6,7 @@ Mock page JSON is loaded by `MockAdapter`, then passed through `strapi-document.
 
 ## Canonical page JSON shape (Strapi dynamic zone)
 
-**Required for pages that must render blocks.** Used by `vukans-bike` mock/seed JSON.
+**Required for pages that must render blocks.** This is the **current runtime schema shape** — what `resort-example`'s live mock data must match, since `MockAdapter` feeds it straight into `toPageData`/`compose-validate` with no translation step. (`vukans-bike`'s on-disk mock/seed JSON is intentionally **not** in this shape — see the note below the tenant table.)
 
 ```json
 {
@@ -25,9 +25,12 @@ Mock page JSON is loaded by `MockAdapter`, then passed through `strapi-document.
       "padding": "lg",
       "slots": {
         "default": [
-          { "__component": "blocks.text", "id": 2, "content": "...", "fontSize": "56px", "bold": true, "color": "foreground" },
-          { "__component": "blocks.text", "id": 3, "content": "...", "variant": "lead" },
-          { "__component": "blocks.button", "id": 4, "label": "...", "href": "/contact" }
+          { "__component": "blocks.text", "id": 2, "content": "...", "as": "h1", "fontSize": 44, "bold": true, "color": "foreground" },
+          { "__component": "blocks.text", "id": 3, "content": "...", "fontSize": 22, "color": "muted" },
+          {
+            "__component": "blocks.button", "id": 4, "href": "/contact",
+            "slots": { "default": [ { "__component": "blocks.text", "id": 5, "content": "..." } ] }
+          }
         ]
       }
     }
@@ -40,20 +43,23 @@ Rules for this shape:
 - `lang` preferred (not `locale`) — Strapi i18n reserves `locale` as a query key. `toPageData` still accepts `locale` as a fallback when reading page language.
 - Blocks use `__component` + numeric `id` (Strapi dynamic zone) — fields are **flat** on the block object (no `props` wrapper).
 - Nested components also carry `__component` + `id`.
-- **Composition trees**: layout roots may include a `slots` object; each slot value is an array of nested `__component` nodes (same convention). Example:
+- **Composition trees**: layout/container roots (`section`, `flex`, `grid`, `accordion`, `gallery`, `link`, `button`) may include a `slots` object; each slot value is an array of nested `__component` nodes (same convention). Example:
 
 ```json
 {
-  "__component": "blocks.stack",
+  "__component": "blocks.flex",
   "id": 10,
-  "gap": "md",
+  "direction": "column",
+  "gap": "16",
   "slots": {
     "default": [
-      { "__component": "blocks.text", "id": 11, "variant": "body", "content": "Hello" }
+      { "__component": "blocks.text", "id": 11, "content": "Hello" }
     ]
   }
 }
 ```
+
+  `stack` was retired in `012-primitive-props-redesign` — a former stack is a `flex` with `direction: "column"`.
 
 - `toPageData(raw, locale, tenantId)` validates and maps DZ (+ nested `slots`) to `BlockInstance[]` with optional `slots`. Items **without** `__component` or failing composition validation are dropped.
 - Bike pages (sl/en/de) are authored as **L1/L2 + Keep L3** only — no deleted shared opaques or bike proprietary marketing blocks.
@@ -62,8 +68,8 @@ Rules for this shape:
 
 | Tenant | Path | Purpose / shape |
 |--------|------|-----------------|
-| `vukans-bike` | `src/tenants/vukans-bike/mock-data/` | **Product** seed/reference — canonical (`__component` + `lang`). Config currently `dataAdapter: "mock"` for redesign verification; production intent remains Strapi. |
-| `resort-example` | `src/tenants/resort-example/mock-data/` | **Playground / isolation fixture.** Canonical `__component` + `lang`. Shared opaques (`cta-banner`, `stats-bar`, `section-header`) dropped from mocks; resort proprietary blocks remain. Bike is SoT for shared L1 types. |
+| `vukans-bike` | `src/tenants/vukans-bike/mock-data/` | **Product** seed/reference. `dataAdapter: "strapi"` (**live**, since `009-bike-strapi-migration`) — these files are never read at runtime; they're `scripts/seed-vukans-bike-cms.js`'s input only. As of `012-primitive-props-redesign` they are deliberately **frozen in the pre-`012` (and pre-`009`) shape** described in "Authoring conventions" below (`variant` on text, `label` on button/link, `blocks.stack`, named-step `fontSize`/gap/icon-size, etc.) — the seed script is the one place that translates this authoring-era shape into the current runtime schema on the way into Strapi. Do **not** use these files as a reference for the current schema; use the "Canonical page JSON shape" example above instead. |
+| `resort-example` | `src/tenants/resort-example/mock-data/` | **Playground / isolation fixture.** `dataAdapter: "mock"` — read live by `MockAdapter`, so it **must** match the current runtime schema shape directly (no seed-script translation exists for this tenant). Shared opaques (`cta-banner`, `stats-bar`, `section-header`) dropped from mocks; resort proprietary blocks remain. Bike is SoT for shared L1 types. |
 
 **New product tenants** (mock or Strapi seed JSON): always use the canonical shape above. Scaffold stubs from `create:tenant` write under `src/tenants/{id}/mock-data/`.
 
@@ -74,7 +80,10 @@ Numeric integers, unique within the page. Prefer sequential numbering (1, 2, 3, 
 ## Authoring conventions (bike pages)
 
 Established by `specs/008-bike-site-redesign`; the full vocabulary lives in that feature's
-`contracts/design-system.md`. The rules below are the ones that break pages when ignored:
+`contracts/design-system.md`. These describe `vukans-bike`'s on-disk mock/seed JSON, which is
+**frozen in its pre-`012-primitive-props-redesign` shape** (see the tenant table above) — they do
+**not** describe the current runtime schema (that's the "Canonical page JSON shape" section above).
+The rules below are the ones that break pages when ignored:
 
 - **Every `blocks.text` node sets `color`.** The `text` primitive defaults all four variants to
   `var(--color-muted-foreground)`, which `ThemeProvider` does not emit — it is fixed at `#6B7280` in

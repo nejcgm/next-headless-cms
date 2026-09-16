@@ -2,8 +2,6 @@ import { registerSharedBlocks } from "@core/blocks/registry";
 
 import { Section } from "./primitives/layout/section/section";
 import { sectionPolicy, sectionSchema } from "./primitives/layout/section/schema";
-import { Stack } from "./primitives/layout/stack/stack";
-import { stackPolicy, stackSchema } from "./primitives/layout/stack/schema";
 import { Flex } from "./primitives/layout/flex/flex";
 import { flexPolicy, flexSchema } from "./primitives/layout/flex/schema";
 import { Grid } from "./primitives/layout/grid/grid";
@@ -22,10 +20,11 @@ import { LinkBlock } from "./primitives/actions/link/link";
 import { linkPolicy, linkSchema } from "./primitives/actions/link/schema";
 import { Accordion } from "./ui/accordion/accordion";
 import { accordionPolicy, accordionSchema } from "./ui/accordion/schema";
+import { Gallery } from "./ui/gallery/gallery";
+import { galleryPolicy, gallerySchema } from "./ui/gallery/schema";
 
 registerSharedBlocks({
   section: { component: Section, schema: sectionSchema, policy: sectionPolicy },
-  stack: { component: Stack, schema: stackSchema, policy: stackPolicy },
   flex: { component: Flex, schema: flexSchema, policy: flexPolicy },
   grid: { component: Grid, schema: gridSchema, policy: gridPolicy },
   text: { component: Text, schema: textSchema, policy: textPolicy },
@@ -35,4 +34,5 @@ registerSharedBlocks({
   button: { component: ButtonBlock, schema: buttonSchema, policy: buttonPolicy },
   link: { component: LinkBlock, schema: linkSchema, policy: linkPolicy },
   accordion: { component: Accordion, schema: accordionSchema, policy: accordionPolicy },
+  gallery: { component: Gallery, schema: gallerySchema, policy: galleryPolicy },
 });

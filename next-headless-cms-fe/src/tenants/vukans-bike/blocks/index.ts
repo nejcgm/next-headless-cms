@@ -8,8 +8,6 @@ import { productListSchema } from "./product-list/schema";
 import { BikeDetail } from "./bike-detail/bike-detail";
 import { bikeDetailSchema } from "./bike-detail/schema";
 import { loadBikeForBikeDetailBlock } from "./bike-detail/load-bike";
-import { Gallery } from "./gallery/gallery";
-import { gallerySchema } from "./gallery/schema";
 
 const keepLeafPolicy = {
   level: 3 as const,
@@ -17,11 +15,7 @@ const keepLeafPolicy = {
   slots: {},
 };
 
-registerTenantLayoutNestAllow("vukans-bike", [
-  "product-list",
-  "bike-detail",
-  "gallery",
-]);
+registerTenantLayoutNestAllow("vukans-bike", ["product-list", "bike-detail"]);
 
 registerTenantBlocks("vukans-bike", {
   "bike-detail": {
@@ -34,12 +28,6 @@ registerTenantBlocks("vukans-bike", {
         locale: ctx.locale,
         pageSlug: ctx.slug,
       }),
-  },
-
-  gallery: {
-    component: Gallery,
-    schema: gallerySchema,
-    policy: keepLeafPolicy,
   },
 
   "product-list": {

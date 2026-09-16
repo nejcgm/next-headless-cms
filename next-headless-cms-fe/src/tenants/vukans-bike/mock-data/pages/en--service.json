@@ -81,7 +81,8 @@
       },
       "backgroundImage": "https://res.cloudinary.com/dru1crghm/image/upload/q_auto/f_auto/v1775406591/IMG_3164_c1xp3f.heic",
       "overlay": 0.5,
-      "minHeight": "clamp(480px, 72vh, 720px)"
+      "minHeight": "clamp(480px, 72vh, 720px)",
+      "adminName": "Hero"
     },
     {
       "__component": "blocks.section",
@@ -700,7 +701,8 @@
             "maxWidth": "68ch"
           }
         ]
-      }
+      },
+      "adminName": "Price list"
     },
     {
       "__component": "blocks.section",
@@ -892,7 +894,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Process"
     },
     {
       "__component": "blocks.section",
@@ -970,7 +973,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "FAQ"
     },
     {
       "__component": "blocks.section",
@@ -1045,7 +1049,8 @@
             }
           }
         ]
-      }
+      },
+      "adminName": "Closing CTA"
     }
   ],
   "lang": "en"

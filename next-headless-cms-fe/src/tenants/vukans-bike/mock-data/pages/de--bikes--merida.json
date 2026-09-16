@@ -29,7 +29,8 @@
         "contactPhoneHref": "tel:+38670815379",
         "contactCtaLabel": "Schreiben Sie uns",
         "contactCtaHref": "/de/contact"
-      }
+      },
+      "adminName": "Bike detail"
     }
   ],
   "lang": "de"

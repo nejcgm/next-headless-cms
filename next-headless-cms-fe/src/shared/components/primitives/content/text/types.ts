@@ -1,20 +1,15 @@
 import type { BoxStyle } from "@shared/utils/box-style";
 
-export type TextFontSize =
-  | "cardTitle"
-  | "sectionTitle"
-  | "priceCompact"
-  | "pageTitle"
-  | "price"
-  | "display"
-  | "statement"
-  | "custom";
-
-export type TextProps = Omit<BoxStyle, "fontSize"> & {
+export type TextProps = Omit<
+  BoxStyle,
+  "fontSize" | "height" | "minWidth" | "minHeight" | "maxHeight"
+> & {
   content: string;
-  variant?: "body" | "lead" | "caption" | "label";
+  as?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  fontSize?: number;
+  lineHeight?: number;
   bold?: boolean;
-  fontSize?: TextFontSize;
-  customFontSize?: string;
+  uppercase?: boolean;
+  letterSpacing?: number;
   blockId?: string;
 };

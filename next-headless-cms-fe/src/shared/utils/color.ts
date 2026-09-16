@@ -1,5 +1,5 @@
 export function resolveColor(
-  value: string | undefined,
+  value: string | null | undefined,
   fallbackToken = "background"
 ): string {
   if (!value || value === "default") {
@@ -17,6 +17,3 @@ export function resolveColor(
   }
   return `var(--color-${value})`;
 }
-
-/** @deprecated use resolveColor */
-export const resolveBackgroundColor = resolveColor;

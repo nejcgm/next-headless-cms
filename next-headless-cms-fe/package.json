@@ -26,6 +26,7 @@
     "@vercel/analytics": "^2.0.1",
     "axios": "^1.13.6",
     "clsx": "^2.1.1",
+    "lucide-react": "^1.46.0",
     "next": "15.5.7",
     "qs": "^6.15.2",
     "react": "^19.0.0",

@@ -8,6 +8,9 @@
   },
   "options": {},
   "attributes": {
+    "adminName": {
+      "type": "string"
+    },
     "labels": {
       "type": "component",
       "repeatable": false,

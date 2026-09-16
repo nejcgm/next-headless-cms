@@ -7,6 +7,9 @@
   },
   "options": {},
   "attributes": {
+    "adminName": {
+      "type": "string"
+    },
     "direction": {
       "type": "enumeration",
       "enum": [
@@ -16,12 +19,7 @@
       "default": "row"
     },
     "gap": {
-      "type": "enumeration",
-      "enum": [
-        "sm",
-        "md",
-        "lg"
-      ]
+      "type": "string"
     },
     "align": {
       "type": "enumeration",
@@ -29,7 +27,8 @@
         "start",
         "center",
         "end",
-        "stretch"
+        "stretch",
+        "baseline"
       ]
     },
     "justify": {
@@ -38,21 +37,31 @@
         "start",
         "center",
         "end",
-        "between"
+        "between",
+        "around",
+        "evenly"
       ]
     },
     "wrap": {
       "type": "boolean",
       "default": false
     },
-    "fullWidth": {
-      "type": "boolean",
-      "default": false
+    "width": {
+      "type": "string"
     },
     "height": {
       "type": "string"
     },
+    "minWidth": {
+      "type": "string"
+    },
+    "minHeight": {
+      "type": "string"
+    },
     "maxWidth": {
+      "type": "string"
+    },
+    "maxHeight": {
       "type": "string"
     },
     "padding": {
@@ -62,41 +71,32 @@
       "type": "string"
     },
     "backgroundColor": {
-      "type": "enumeration",
-      "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
-      ]
+      "type": "string"
     },
     "color": {
+      "type": "string"
+    },
+    "borderWidth": {
+      "type": "integer"
+    },
+    "borderStyle": {
       "type": "enumeration",
       "enum": [
-        "primary",
-        "secondary",
-        "accent",
-        "background",
-        "foreground",
-        "muted",
-        "border",
-        "text-primary"
+        "solid",
+        "dashed",
+        "dotted"
       ]
     },
-    "border": {
-      "type": "enumeration",
-      "enum": [
-        "none",
-        "hairline",
-        "invertedOutline"
-      ]
+    "borderColor": {
+      "type": "string"
     },
     "slots": {
-      "type": "json"
+      "type": "json",
+      "pluginOptions": {
+        "content-manager": {
+          "visible": false
+        }
+      }
     },
     "borderRadius": {
       "type": "string"

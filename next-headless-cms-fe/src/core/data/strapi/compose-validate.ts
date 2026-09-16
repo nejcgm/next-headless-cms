@@ -37,7 +37,7 @@ function warnCompose(message: string, meta?: Record<string, unknown>): void {
 function stripProps(obj: Record<string, unknown>): Record<string, unknown> {
   const result: Record<string, unknown> = {};
   for (const [key, val] of Object.entries(obj)) {
-    if (key === "__component" || key === "slots") continue;
+    if (key === "__component" || key === "slots" || key === "children" || key === "adminName") continue;
     if (Array.isArray(val)) {
       result[key] = val.map((item) =>
         isPlainObject(item) ? stripProps(item) : item
@@ -62,8 +62,10 @@ export function toValidatedBlockInstance({
 }): BlockInstance | null {
   if (!isPlainObject(raw)) return null;
 
-  const { __component, id, slots: rawSlots, ...rest } = raw;
+  const { __component, id, slots: rawSlotsField, ...rest } = raw;
   if (typeof __component !== "string") return null;
+
+  const rawSlots = isPlainObject(rawSlotsField) ? rawSlotsField : undefined;
 
   const type = componentTypeName(__component);
   const definition = resolveBlock(tenantId, type);
@@ -167,6 +169,18 @@ export function toValidatedBlockInstance({
       height: subtreeHeight(node),
     });
     delete node.slots;
+  }
+
+  if (type === "link" || type === "button") {
+    const children = node.slots?.default ?? [];
+    const hasText = children.some((child) => child.type === "text");
+    const hasIcon = children.some((child) => child.type === "icon");
+    if (hasIcon && !hasText && !props.accessibleLabel) {
+      warnCompose(`Compose: "${type}" has only an icon and no accessible label`, {
+        type,
+        blockId,
+      });
+    }
   }
 
   return node;
