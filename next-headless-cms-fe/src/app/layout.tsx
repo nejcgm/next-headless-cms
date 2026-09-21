@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Montserrat, Inter } from "next/font/google";
+import { Montserrat, Inter, Oswald } from "next/font/google";
 import "./globals.css";
 import "@core/init";
 import tenantConfig from "@tenant/config";
@@ -19,6 +19,12 @@ const inter = Inter({
   display: "swap",
 });
 
+const oswald = Oswald({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-oswald",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteOrigin(tenantConfig)),
   title: {
@@ -34,7 +40,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang={tenantConfig.defaultLocale}
-      className={cn(montserrat.variable, inter.variable)}
+      className={cn(montserrat.variable, inter.variable, oswald.variable)}
       suppressHydrationWarning
     >
       <body className="antialiased font-body" suppressHydrationWarning>

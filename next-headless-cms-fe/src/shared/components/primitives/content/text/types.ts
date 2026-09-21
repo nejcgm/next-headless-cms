@@ -6,6 +6,7 @@ export type TextProps = Omit<
 > & {
   content: string;
   as?: "p" | "span" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+  fontFamily?: "body" | "heading" | "display";
   fontSize?: number;
   lineHeight?: number;
   bold?: boolean;

@@ -38,12 +38,31 @@ StrapiAdapter.getPage (live)
   the tenant owner — outside this feature's normal tenant-block-only scope).
   `fonts.heading` / `fonts.body` reference `var(--font-montserrat)` / `var(--font-inter)` and are now **real**:
   `src/app/layout.tsx` loads both via `next/font/google` with matching `variable` names and applies `font-body`
-  to `<body>` (also an owner-requested code change, outside tenant-block scope). `mutedForeground` is a
+  to `<body>` (also an owner-requested code change, outside tenant-block scope). The design redesign pass
+  added a third: `fonts.display: "var(--font-oswald)"` (Oswald, loaded the same way in `layout.tsx`), selectable
+  per-node via `text.fontFamily`. The seed script auto-assigns it (author-explicit `fontFamily` still wins):
+  every page's one "big page title" line (a `blocks.text` with no prior `as` at all — no page had a real `<h1>`
+  anywhere pre-redesign — matched by its distinctive `bold: true` + `fontSize` clamp signature, checked unique
+  per page) gets promoted to `as: "h1"` with `fontFamily: "display"`; any `bold` + `color: "text-primary"` text
+  (this corpus's established "standalone emphasis figure" pattern — prices, step numbers) gets `display` too.
+  Real `h1`/`h2`/`h3` (via `as`) get `fontFamily: "heading"` by default — previously dead code, since nothing
+  upstream of a composed `text` node ever applied `font-heading` (only tenant-hardcoded chrome like `header`/
+  `footer`/`bike-detail`/`product-list` did), so every heading rendered in the body font regardless of `as`.
+  `mutedForeground` is a
   `ThemeTokens` field added in the same change set — `--color-muted-foreground` (used by `text`'s unstyled
   default, the footer, `accordion`, header locale switcher, `bike-detail`, `gallery`) was previously hardcoded
   in `globals.css` and un-themeable; it's now wired through `ThemeProvider` like every other token, set equal
   to `secondary` here so there is exactly one gray across authored and component-internal text, not two
   similar ones.
+- **Design redesign pass fixes** (seed script, `mock-data.md`/`block-system.md` for the full mechanism):
+  every `blocks.button`/`blocks.link` label rendered in muted gray regardless of variant (the `012`
+  `label`→synthesized-`text`-child migration never set a `color` on that child, and `text`'s unstyled
+  default is muted gray) — the seed script now sets one per variant, matching each variant's own Tailwind
+  text color exactly (e.g. white on a filled primary button, brand-red on an outline/ghost button or a
+  primary link). Separately, every `borderTop`-derived divider line (~130 nodes) was actually invisible
+  (0-width flex item, missing an explicit `width`) and a `justify: "between"` label/value row would corrupt
+  into 3 competing row items instead of "rule, then row" — both fixed at the seed-script level (see
+  `block-system.md`'s box-style-bag note).
 - **Registration**: `src/tenants/vukans-bike/blocks/index.ts` — Keep L3 + data contracts.
 - **Pages**: `src/tenants/vukans-bike/mock-data/pages/*.json` — seed input only, still written in the **pre-`012` mock shape** (`variant` on text, `label` on button/link, `content` on accordion, `images[]` on gallery, `sm`/`md`/`lg` gap and icon size, `stack` for column layouts, etc.); `scripts/seed-vukans-bike-cms.js` reshapes every field into the current redesigned schema on the way into Strapi (`section.surface`/`width`/`minHeight`/`divider`, `grid.columnsMobile/Tablet/Desktop`, `text.as`/`fontSize` number, `stack`→`flex` with `direction: "column"`, button/link `label`→synthesized `text` child, accordion `content`→synthesized `text` child, gallery `images[]`→synthesized `image` children, icon `size` step→number — see `content-model.md`). Deliberately **not** rewriting the mock JSON itself to the new shapes: the seed script is the one place that translates authoring-era content into the current schema, so mock-data stays a stable historical input rather than something to keep re-migrating by hand. All pages authored as L1/L2 + Keep; localized `en--` / `de--` mirrors. 27 pages × 3 locales are live in Strapi.
 - **Seed collections**: `src/tenants/vukans-bike/mock-data/collections/products.json` — currently **1** product (`merida`) with `slug`, `specs`, `images`, etc. (plus `en--` / `de--` locale files), seeded into Strapi as 3 locale entries. Home and `/shop` restate this bike's name, price and headline specs as authored copy, so both must be updated together with this file.

@@ -50,6 +50,7 @@ export interface ThemeTokens {
   fonts: {
     heading: string;
     body: string;
+    display?: string;
   };
   borderRadius: string;
 }

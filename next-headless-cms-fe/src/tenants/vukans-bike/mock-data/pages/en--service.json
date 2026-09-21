@@ -991,8 +991,6 @@
             "align": "center",
             "gap": "md",
             "wrap": true,
-            "padding": "28px 0 0",
-            "borderTop": "1px solid var(--color-border)",
             "width": "100%",
             "slots": {
               "default": [

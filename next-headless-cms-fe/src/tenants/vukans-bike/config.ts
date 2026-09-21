@@ -37,6 +37,7 @@ const config: TenantConfig = {
     fonts: {
       heading: "var(--font-montserrat)",
       body: "var(--font-inter)",
+      display: "var(--font-oswald)",
     },
     borderRadius: "0rem",
   },

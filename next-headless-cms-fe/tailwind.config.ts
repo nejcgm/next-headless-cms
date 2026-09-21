@@ -13,6 +13,7 @@ const config: Config = {
       fontFamily: {
         heading: ["var(--font-heading)", "system-ui", "sans-serif"],
         body: ["var(--font-body)", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-heading)", "system-ui", "sans-serif"],
       },
       colors: {
         primary: "var(--color-primary)",

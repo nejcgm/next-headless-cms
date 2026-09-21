@@ -88,6 +88,12 @@ The rules below are the ones that break pages when ignored:
 - **Every `blocks.text` node sets `color`.** The `text` primitive defaults all four variants to
   `var(--color-muted-foreground)`, which `ThemeProvider` does not emit — it is fixed at `#6B7280` in
   `globals.css` and cannot follow a tenant theme. Copy without an explicit `color` renders in that gray.
+  **Exception**: `blocks.button`/`blocks.link`'s own `label` field never sets one (mock data predates the
+  `012` migration that turned it into a synthesized `blocks.text` child) — the seed script sets an
+  explicit `color` on that synthesized child itself, per variant (`BUTTON_TEXT_COLOR`/`LINK_TEXT_COLOR` in
+  `seed-vukans-bike-cms.js`), matching each variant's own Tailwind text color class in `button.tsx`/
+  `link.tsx` exactly. This was missed in the original `012` migration (every button/link label rendered in
+  muted gray regardless of variant, incl. white-on-red primary buttons) until the redesign pass fixed it.
 - **`fontSize` only with `variant: "body"`.** `lead`, `caption` and `label` carry fixed Tailwind
   line-heights, so resizing them makes lines collide. `body` uses unitless `leading-relaxed`, which scales.
 - **Use `clamp()` for responsive sizing.** Box styles pass raw strings to inline CSS and have no breakpoint

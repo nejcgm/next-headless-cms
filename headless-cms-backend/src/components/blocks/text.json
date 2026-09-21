@@ -28,6 +28,14 @@
       ],
       "default": "p"
     },
+    "fontFamily": {
+      "type": "enumeration",
+      "enum": [
+        "body",
+        "heading",
+        "display"
+      ]
+    },
     "fontSize": {
       "type": "integer"
     },

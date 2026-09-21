@@ -83,6 +83,7 @@ const LAYOUT_FIELDS = new Set([
 
 const TYPOGRAPHY_FIELDS = new Set([
   'as',
+  'fontFamily',
   'fontSize',
   'fontWeight',
   'lineHeight',
@@ -223,12 +224,16 @@ export function createDefaultNode(
     case 'button':
       node.href = '/';
       node.variant = 'primary';
-      node.slots = { default: [{ __component: 'blocks.text', content: 'Button' }] };
+      node.slots = {
+        default: [{ __component: 'blocks.text', content: 'Button', color: 'background' }],
+      };
       break;
     case 'link':
       node.href = '/';
       node.variant = 'primary';
-      node.slots = { default: [{ __component: 'blocks.text', content: 'Link' }] };
+      node.slots = {
+        default: [{ __component: 'blocks.text', content: 'Link', color: 'primary' }],
+      };
       break;
     case 'image':
       node.src = '';

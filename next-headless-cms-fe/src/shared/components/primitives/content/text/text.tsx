@@ -6,6 +6,7 @@ import type { TextProps } from "./types";
 export function Text({
   content,
   as = "p",
+  fontFamily,
   fontSize,
   lineHeight,
   bold = false,
@@ -23,7 +24,10 @@ export function Text({
     as,
     {
       className: cn(
-        "text-lg text-[var(--color-muted-foreground)] leading-relaxed",
+        "text-lg text-[var(--color-muted-foreground)]",
+        bold ? "leading-tight" : "leading-relaxed",
+        fontFamily === "heading" && "font-heading",
+        fontFamily === "display" && "font-display",
         bold && "font-bold",
         uppercase && "uppercase",
         className

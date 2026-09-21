@@ -13,6 +13,7 @@ export function ThemeProvider({ tokens, children }: ThemeProviderProps) {
     "--color-muted-foreground": tokens.colors.mutedForeground,
     "--font-heading": tokens.fonts.heading,
     "--font-body": tokens.fonts.body,
+    ...(tokens.fonts.display ? { "--font-display": tokens.fonts.display } : {}),
     "--radius": tokens.borderRadius,
   } as React.CSSProperties;
 

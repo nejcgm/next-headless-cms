@@ -101,6 +101,23 @@ const GAP_VALUE_MAP = { sm: "8", md: "16", lg: "32" };
 // box; that container-vs-glyph distinction is gone, see data-model.md).
 const ICON_SIZE_VALUE_MAP = { sm: 16, md: 18, lg: 22 };
 
+// The `label` -> `slots.default: [blocks.text]` migration below synthesizes a
+// Text child that (per mock-data.md convention) needs an explicit `color` —
+// Text renders muted-gray by default, which only accidentally matches
+// Link's "secondary" variant. Values mirror each variant's own Tailwind
+// text color class in button.tsx/link.tsx exactly.
+const BUTTON_TEXT_COLOR = {
+  primary: "background",
+  secondary: "background",
+  outline: "primary",
+  ghost: "primary",
+};
+const LINK_TEXT_COLOR = {
+  primary: "primary",
+  ghost: "foreground",
+  link: "primary",
+};
+
 // 012.1: sizing fields (width/height/minWidth/maxWidth/maxHeight) now only
 // accept a bare px number or a %-suffixed number (toCssSize) — anything else
 // is silently ignored at render time. Pre-migration content authored these as
@@ -184,10 +201,22 @@ function transformFieldsForComponent(obj, component) {
     out.padding = `0px ${right}px ${bottom}px ${left}px`;
     const divider = {
       __component: "blocks.flex",
+      // Without an explicit width, this empty div has no content to size
+      // itself by: as a flex ITEM (any non-stretch parent, i.e. anything but
+      // Section's plain block-flow slot) it collapses to 0px and the "rule"
+      // is invisible.
+      width: "100%",
       height: "1",
       backgroundColor: "border",
       margin: `0px 0px ${top}px 0px`,
     };
+    if (component === "blocks.flex" && out.direction !== "column") {
+      // A row-direction flex (e.g. a justify:"between" label/value pair)
+      // would otherwise slot the divider in as a 3rd row item instead of a
+      // rule above the row — force it onto its own line so it still reads
+      // as "line, then the original row" instead of corrupting the row.
+      out.wrap = true;
+    }
     const existingDefault = (out.slots && out.slots.default) || [];
     out.slots = { ...out.slots, default: [divider, ...existingDefault] };
   }
@@ -302,6 +331,46 @@ function transformFieldsForComponent(obj, component) {
     }
   }
 
+  // Design redesign pass: no page has a single real <h1> anywhere in its
+  // composition tree — every "big page title" line was authored as a plain
+  // <p> styled to look large (no block ever sets `as`). This fontSize pair
+  // (already mapped to 44/52px above) is this corpus's one consistent
+  // signature for that specific line — checked against every page, it
+  // matches exactly once per page. Promote it to a real heading and give it
+  // the new display face so it actually reads as the page's headline.
+  const HERO_TITLE_FONT_SIZES = new Set([44, 52]);
+  if (
+    component === "blocks.text" &&
+    !("as" in out) &&
+    out.bold === true &&
+    HERO_TITLE_FONT_SIZES.has(out.fontSize)
+  ) {
+    out.as = "h1";
+    out.fontFamily = out.fontFamily ?? "display";
+  }
+
+  // Headings were never actually rendering in the heading font either — Text
+  // had no font selection at all pre-migration, so every h1-h3 authored via
+  // the composition tree fell back to the page's default body font. Now that
+  // Text has a real `fontFamily` choice, default headings to it (an explicit
+  // author choice, including the h1 rule just above, still wins).
+  if (component === "blocks.text" && !("fontFamily" in out) && ["h1", "h2", "h3"].includes(out.as)) {
+    out.fontFamily = "heading";
+  }
+
+  // Same pass: the bold + "text-primary" combo is this site's established
+  // pattern for a standalone emphasis figure (a price, a step number) rather
+  // than a heading — give those the condensed display face too, so the new
+  // 3rd font actually shows up somewhere besides plain headings.
+  if (
+    component === "blocks.text" &&
+    !("fontFamily" in out) &&
+    out.bold === true &&
+    out.color === "text-primary"
+  ) {
+    out.fontFamily = "display";
+  }
+
   if (component === "blocks.link" && out.variant === "muted") {
     out.variant = "secondary";
   }
@@ -309,7 +378,20 @@ function transformFieldsForComponent(obj, component) {
   if ((component === "blocks.button" || component === "blocks.link") && "label" in out) {
     const label = out.label;
     delete out.label;
-    out.slots = { default: [{ __component: "blocks.text", content: label }] };
+    const variant = out.variant ?? "primary";
+    // A pre-migration button/link can carry its own one-off `color` override
+    // (e.g. a white button on a dark "surface: foreground" section, paired
+    // with an explicit `backgroundColor`) instead of relying on the variant's
+    // default text color. That override was meant for the button's own text —
+    // ignoring it and always deriving the child Text's color from the variant
+    // silently discarded it, which for a white-bg/white-border button meant
+    // the synthesized label came out white-on-white (invisible).
+    const textColor =
+      out.color ??
+      (component === "blocks.button" ? BUTTON_TEXT_COLOR[variant] : LINK_TEXT_COLOR[variant]);
+    const text = { __component: "blocks.text", content: label };
+    if (textColor) text.color = textColor;
+    out.slots = { default: [text] };
   }
 
   if (component === "blocks.accordion" && "content" in out) {

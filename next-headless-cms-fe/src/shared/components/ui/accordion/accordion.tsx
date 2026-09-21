@@ -16,7 +16,7 @@ export function Accordion({
 
   return (
     <div
-      className={cn("w-full border-b border-[var(--color-border)]", className)}
+      className={cn("w-full border-b border-[var(--color-border)] last:border-b-0", className)}
       style={toBoxStyle(box)}
     >
       <button

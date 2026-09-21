@@ -2304,6 +2304,7 @@ export interface BlocksText extends Struct.ComponentSchema {
     borderWidth: Schema.Attribute.Integer;
     color: Schema.Attribute.String;
     content: Schema.Attribute.Text & Schema.Attribute.Required;
+    fontFamily: Schema.Attribute.Enumeration<['body', 'heading', 'display']>;
     fontSize: Schema.Attribute.Integer;
     fontWeight: Schema.Attribute.String;
     letterSpacing: Schema.Attribute.Decimal;
