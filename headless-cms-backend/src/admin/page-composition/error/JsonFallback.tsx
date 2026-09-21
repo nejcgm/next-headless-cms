@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Box, Button, JSONInput, Typography } from '@strapi/design-system';
-import type { CompositionNode } from '../../page-composition/types';
-import { convertPageBlocks } from '../../page-composition/convert-section-children';
-import { validatePageBlocks } from '../../page-composition/validate';
+import type { CompositionNode } from '../../../page-composition/types';
+import { convertPageBlocks } from '../../../page-composition/convert-section-children';
+import { validatePageBlocks } from '../../../page-composition/validate';
 import { ErrorMessage } from './ErrorMessage';
 
 type Props = {

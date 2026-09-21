@@ -1,13 +1,13 @@
-import type { CompositionNode } from '../../page-composition/types';
+import type { CompositionNode } from '../../../page-composition/types';
 import {
   allowlistFor,
   isLeafType,
   rootTypesForTenant,
   toComponentUid,
-} from '../../page-composition/nest-rules';
-import { nextCompositionId, nextTempKey } from '../../page-composition/ids';
-import { parseSlots, wouldExceedMaxDepth } from '../../page-composition/validate';
-import { createDefaultNode } from './field-catalog';
+} from '../../../page-composition/nest-rules';
+import { nextCompositionId, nextTempKey } from '../../../page-composition/ids';
+import { parseSlots, wouldExceedMaxDepth } from '../../../page-composition/validate';
+import { createDefaultNode } from '../fields/field-catalog';
 
 export type NodePath = number[];
 

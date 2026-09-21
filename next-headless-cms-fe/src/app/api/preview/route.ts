@@ -17,5 +17,10 @@ export async function GET(request: NextRequest) {
   const draft = await draftMode();
   draft.enable();
 
-  return NextResponse.redirect(new URL(slug, request.url));
+  const destination = new URL(slug, request.url);
+  if (searchParams.get("compose") === "1") {
+    destination.searchParams.set("compose", "1");
+  }
+
+  return NextResponse.redirect(destination);
 }

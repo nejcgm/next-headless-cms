@@ -232,7 +232,7 @@ Tags are built via `cacheTags` (`src/core/data/cache-tags.ts`). Each read attach
 | Collection | 60 s | — | `strapi:collection:{tenant}:{collection}` |
 | Single entry | 60 s | `strapi:entry:{tenant}:{collection}:{locale}:{id}` | `strapi:collection:{tenant}:{collection}` |
 
-**Draft preview:** when Next.js draft mode is enabled (`/api/preview`), all reads use `status=draft` and `cache: no-store` (no ISR cache).
+**Draft preview:** when Next.js draft mode is enabled (`/api/preview`), all reads use `status=draft` and `cache: no-store` (no ISR cache). The composition surface loads that URL with `compose=1`, which the preview route keeps on the page address. While that flag is set, `POST /api/compose-preview` (same preview secret) can replace the rendered body for about two minutes without writing Strapi. Visitors without `compose=1` are unaffected.
 
 **Draft & Publish (`page`, `product`):** both content types have `draftAndPublish: true`. `PUT /api/{collection}/{documentId}?status=draft` updates the draft only — an unauthenticated `GET` (defaults to published) is unaffected. `PUT /api/{collection}/{documentId}?status=published` writes directly to the published version (this REST API exposes no separate `/actions/publish` route — that only exists on the admin-panel's internal content-manager API, which is what clicking "Publish" in the browser actually calls). The registered webhook fires on `entry.publish` / `entry.unpublish` / `entry.update`.
 

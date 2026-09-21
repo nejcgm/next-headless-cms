@@ -10,10 +10,10 @@ import { SortableContext, useSortable, verticalListSortingStrategy } from '@dnd-
 import { CSS } from '@dnd-kit/utilities';
 import { Box, Button, Dialog, Flex, IconButton, Typography } from '@strapi/design-system';
 import { ChevronDown, ChevronRight, Drag, Trash } from '@strapi/icons';
-import type { CompositionNode } from '../../page-composition/types';
-import { componentTypeName, isLeafType } from '../../page-composition/nest-rules';
+import type { CompositionNode } from '../../../page-composition/types';
+import { componentTypeName, isLeafType } from '../../../page-composition/nest-rules';
+import { displayNameForType } from '../fields/field-catalog';
 import { summaryFor } from './block-summary';
-import { displayNameForType } from './field-catalog';
 import { type NodePath, getAt, getSlotsDefault } from './tree-ops';
 
 type Props = {
@@ -21,7 +21,7 @@ type Props = {
   selected: NodePath | null;
   tenant?: string;
   disabled?: boolean;
-  onSelect: (path: NodePath) => void;
+  onSelect: (path: NodePath | null) => void;
   onReorder: (parentPath: NodePath | null, fromIndex: number, toIndex: number) => void;
   onDelete: (path: NodePath) => void;
 };
@@ -72,7 +72,7 @@ type RowProps = {
   disabled?: boolean;
   collapsed: Set<string>;
   onToggleCollapse: (id: string) => void;
-  onSelect: (path: NodePath) => void;
+  onSelect: (path: NodePath | null) => void;
   onRequestDelete: (path: NodePath) => void;
 };
 
@@ -126,7 +126,10 @@ function TreeRow({
           paddingLeft: 4,
           paddingRight: 4,
         }}
-        onClick={() => onSelect(path)}
+        onClick={(event: MouseEvent) => {
+          event.stopPropagation();
+          onSelect(path);
+        }}
       >
         <TreeGutter>
           {!isLeaf && children.length > 0 ? (
@@ -259,7 +262,10 @@ export function CompositionTree(props: Props) {
   const deleteTargetNode = deleteTarget ? getAt(tree, deleteTarget) : null;
 
   return (
-    <Box style={{ minWidth: 0, width: '100%', overflow: 'hidden' }}>
+    <Box
+      style={{ minWidth: 0, width: '100%', minHeight: '100%', flex: 1, overflow: 'hidden' }}
+      onClick={() => props.onSelect(null)}
+    >
       {tree.length === 0 ? (
         <Typography variant="omega" textColor="neutral600">
           No blocks yet. Add a top-level band to start.

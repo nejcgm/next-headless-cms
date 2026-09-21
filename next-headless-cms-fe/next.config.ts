@@ -65,6 +65,24 @@ const nextConfig: NextConfig = {
 
     return config;
   },
+  async headers() {
+    const raw = process.env.STRAPI_URL;
+    if (!raw) return [];
+    let origin: string;
+    try {
+      origin = new URL(raw).origin;
+    } catch {
+      return [];
+    }
+    const frameAncestors = {
+      key: "Content-Security-Policy",
+      value: `frame-ancestors 'self' ${origin}`,
+    };
+    return [
+      { source: "/", headers: [frameAncestors] },
+      { source: "/:path*", headers: [frameAncestors] },
+    ];
+  },
 };
 
 export default nextConfig;

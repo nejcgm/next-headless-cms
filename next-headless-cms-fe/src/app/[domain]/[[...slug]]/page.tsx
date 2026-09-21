@@ -11,6 +11,8 @@ import {
 import { resolveTemplate } from "@core/routing/resolver";
 import { buildMetadata } from "@core/seo/metadata";
 import { logger } from "@shared/lib/logger";
+import { blocksForLiveCompose } from "@core/preview/compose-session";
+import { ComposePreviewListener } from "@core/preview/compose-preview-listener";
 
 import type { PageProps } from "./types";
 
@@ -65,6 +67,13 @@ export default async function TenantPage({ params, searchParams }: PageProps) {
     notFound();
   }
 
+  const blocks = blocksForLiveCompose({
+    enabled: query.compose === "1",
+    locale: page.locale,
+    slug: logicalPathname,
+    saved: page.blocks,
+  });
+
   const pageWithNav = navigation ? { ...page, navigation } : page;
 
   const Template = await resolveTemplate(pageWithNav.template);
@@ -78,8 +87,15 @@ export default async function TenantPage({ params, searchParams }: PageProps) {
         />
       ) : null}
       <Template page={pageWithNav} tenant={tenantConfig}>
+        {query.compose === "1" && process.env.STRAPI_URL ? (
+          <ComposePreviewListener
+            locale={page.locale}
+            slug={logicalPathname}
+            adminOrigin={process.env.STRAPI_URL}
+          />
+        ) : null}
         <BlockRenderer
-          blocks={page.blocks}
+          blocks={blocks}
           tenant={tenantConfig.id}
           locale={pageWithNav.locale}
           slug={logicalPathname}

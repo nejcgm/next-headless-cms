@@ -1,19 +1,19 @@
-import accordionJson from '../../components/blocks/accordion.json';
-import bikeDetailJson from '../../components/blocks/bike-detail.json';
-import bikeDetailLabelsJson from '../../components/blocks/bike-detail-labels.json';
-import buttonJson from '../../components/blocks/button.json';
-import flexJson from '../../components/blocks/flex.json';
-import galleryJson from '../../components/blocks/gallery.json';
-import gridJson from '../../components/blocks/grid.json';
-import iframeJson from '../../components/blocks/iframe.json';
-import iconJson from '../../components/blocks/icon.json';
-import imageJson from '../../components/blocks/image.json';
-import linkJson from '../../components/blocks/link.json';
-import productListJson from '../../components/blocks/product-list.json';
-import sectionJson from '../../components/blocks/section.json';
-import textJson from '../../components/blocks/text.json';
-import type { CompositionNode } from '../../page-composition/types';
-import { componentTypeName, isContainerType, toComponentUid } from '../../page-composition/nest-rules';
+import accordionJson from '../../../components/blocks/accordion.json';
+import bikeDetailJson from '../../../components/blocks/bike-detail.json';
+import bikeDetailLabelsJson from '../../../components/blocks/bike-detail-labels.json';
+import buttonJson from '../../../components/blocks/button.json';
+import flexJson from '../../../components/blocks/flex.json';
+import galleryJson from '../../../components/blocks/gallery.json';
+import gridJson from '../../../components/blocks/grid.json';
+import iframeJson from '../../../components/blocks/iframe.json';
+import iconJson from '../../../components/blocks/icon.json';
+import imageJson from '../../../components/blocks/image.json';
+import linkJson from '../../../components/blocks/link.json';
+import productListJson from '../../../components/blocks/product-list.json';
+import sectionJson from '../../../components/blocks/section.json';
+import textJson from '../../../components/blocks/text.json';
+import type { CompositionNode } from '../../../page-composition/types';
+import { componentTypeName, isContainerType, toComponentUid } from '../../../page-composition/nest-rules';
 
 export type FieldGroupName = 'content' | 'behavior' | 'layout' | 'typography' | 'spacing' | 'appearance';
 

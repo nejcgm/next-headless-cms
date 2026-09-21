@@ -1,6 +1,6 @@
-import { useEffect, useLayoutEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
-import { Box, Button, Flex, Typography } from '@strapi/design-system';
-import { Plus } from '@strapi/icons';
+import { useEffect, useMemo, useRef, useState, type MouseEvent } from 'react';
+import { Box, Button, Flex, IconButton, Typography } from '@strapi/design-system';
+import { Collapse, Expand, Plus } from '@strapi/icons';
 import { useField } from '@strapi/admin/strapi-admin';
 import type { CompositionNode } from '../../page-composition/types';
 import { componentTypeName } from '../../page-composition/nest-rules';
@@ -10,11 +10,13 @@ import {
   stripUnpersistedRootIds,
 } from '../../page-composition/sanitize-root-ids';
 import { validatePageBlocks } from '../../page-composition/validate';
-import { CompositionTree } from './CompositionTree';
-import { ErrorMessage } from './ErrorMessage';
-import { displayNameForType } from './field-catalog';
-import { FieldInspector } from './FieldInspector';
-import { JsonFallback } from './JsonFallback';
+import { ErrorMessage } from './error/ErrorMessage';
+import { JsonFallback } from './error/JsonFallback';
+import { displayNameForType } from './fields/field-catalog';
+import { FieldInspector } from './fields/FieldInspector';
+import { CompositionPreview } from './preview/CompositionPreview';
+import { widenPageEditColumn } from './preview/edit-layout';
+import { CompositionTree } from './tree/CompositionTree';
 import {
   type NodePath,
   addChild,
@@ -25,7 +27,7 @@ import {
   reorderSiblings,
   resolveAddTarget,
   updateNode,
-} from './tree-ops';
+} from './tree/tree-ops';
 
 type Props = {
   name: string;
@@ -116,24 +118,33 @@ export function PageCompositionHost({ name, disabled }: Props) {
 
   const [selected, setSelected] = useState<NodePath | null>(null);
   const [surfaceError, setSurfaceError] = useState<string | null>(null);
-  const headerRef = useRef<HTMLDivElement | null>(null);
-  const [headerHeight, setHeaderHeight] = useState(0);
-
-  useLayoutEffect(() => {
-    const node = headerRef.current;
-    if (!node) return;
-    const measure = () => setHeaderHeight(node.offsetHeight);
-    measure();
-    const observer = new ResizeObserver(measure);
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+  const [fullscreen, setFullscreen] = useState(false);
 
   const tree = useMemo(() => {
     const raw = blocksField.value;
     return Array.isArray(raw) ? convertPageBlocks(raw) : [];
   }, [blocksField.value]);
   const tenant = typeof tenantField.value === 'string' ? tenantField.value : undefined;
+
+  useEffect(() => {
+    const marker = document.querySelector('[data-page-composition]');
+    if (!(marker instanceof HTMLElement)) return undefined;
+    return widenPageEditColumn(marker);
+  }, []);
+
+  useEffect(() => {
+    if (!fullscreen) return undefined;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setFullscreen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = previous;
+    };
+  }, [fullscreen]);
 
   if (name !== 'blocks') return null;
 
@@ -174,9 +185,43 @@ export function PageCompositionHost({ name, disabled }: Props) {
     : null;
 
   return (
-    <Box background="neutral0" borderColor="neutral200" hasRadius padding={4} marginBottom={4}>
-      <Box ref={headerRef} background="neutral0" style={{ position: 'sticky', top: 0, zIndex: 2 }}>
-        <Typography variant="beta">Page composition</Typography>
+    <Box
+      background="neutral0"
+      borderColor="neutral200"
+      hasRadius={!fullscreen}
+      padding={4}
+      marginBottom={fullscreen ? 0 : 4}
+      data-page-composition="true"
+      style={
+        fullscreen
+          ? {
+              position: 'fixed',
+              inset: 0,
+              zIndex: 400,
+              width: '100vw',
+              height: '100dvh',
+              maxHeight: '100dvh',
+              display: 'flex',
+              flexDirection: 'column',
+              borderRadius: 0,
+              overflow: 'hidden',
+              boxSizing: 'border-box',
+            }
+          : { width: '100%' }
+      }
+    >
+      <Box background="neutral0" style={{ position: 'sticky', top: 0, zIndex: 2, flexShrink: 0 }}>
+        <Flex justifyContent="space-between" alignItems="center" gap={2}>
+          <Typography variant="beta">Page composition</Typography>
+          <IconButton
+            label={fullscreen ? 'Exit full screen' : 'Open full screen'}
+            variant="ghost"
+            size="S"
+            onClick={() => setFullscreen((value) => !value)}
+          >
+            {fullscreen ? <Collapse /> : <Expand />}
+          </IconButton>
+        </Flex>
         <ErrorMessage>{surfaceError}</ErrorMessage>
         <Flex justifyContent="space-between" alignItems="center" paddingTop={4} paddingBottom={2}>
           <Typography variant="delta">Page body</Typography>
@@ -197,8 +242,30 @@ export function PageCompositionHost({ name, disabled }: Props) {
           )}
         </Flex>
       </Box>
-      <Flex alignItems="flex-start" gap={6} wrap="wrap">
-        <Box style={{ flex: '1 1 320px', minWidth: 0 }}>
+      <div
+        style={{
+          display: 'flex',
+          alignItems: 'stretch',
+          gap: 16,
+          width: '100%',
+          minWidth: 0,
+          minHeight: fullscreen ? 0 : 520,
+          height: fullscreen ? undefined : 'calc(100vh - 220px)',
+          flex: fullscreen ? '1 1 auto' : undefined,
+          overflow: fullscreen ? 'hidden' : undefined,
+        }}
+      >
+        <div
+          style={{
+            flex: '0 0 280px',
+            minWidth: 0,
+            minHeight: 0,
+            height: '100%',
+            overflow: 'auto',
+            display: 'flex',
+            flexDirection: 'column',
+          }}
+        >
           <CompositionTree
             tree={tree}
             selected={selected}
@@ -215,18 +282,11 @@ export function PageCompositionHost({ name, disabled }: Props) {
               setSelected(null);
             }}
           />
-        </Box>
-        <Box
-          style={{
-            flex: '1 1 280px',
-            minWidth: 240,
-            position: 'sticky',
-            top: headerHeight + 16,
-            maxHeight: 700,
-            overflowY: 'auto',
-            overscrollBehavior: 'contain',
-          }}
-        >
+        </div>
+        <div style={{ flex: '1 1 auto', minWidth: 0, minHeight: 0, display: 'flex', overflow: 'hidden' }}>
+          <CompositionPreview blocks={tree} disabled={disabled} />
+        </div>
+        <div style={{ flex: '0 0 280px', minWidth: 0, minHeight: 0, overflow: 'auto' }}>
           <FieldInspector
             node={selectedNode}
             disabled={disabled}
@@ -235,9 +295,11 @@ export function PageCompositionHost({ name, disabled }: Props) {
               applyTree(updateNode(tree, selected, patch));
             }}
           />
-        </Box>
-      </Flex>
-      <JsonFallback tree={tree} tenant={tenant} disabled={disabled} onApply={applyTree} />
+        </div>
+      </div>
+      <div style={{ flexShrink: 0 }}>
+        <JsonFallback tree={tree} tenant={tenant} disabled={disabled} onApply={applyTree} />
+      </div>
     </Box>
   );
 }

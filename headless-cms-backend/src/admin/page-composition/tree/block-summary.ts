@@ -1,6 +1,6 @@
-import type { CompositionNode } from '../../page-composition/types';
-import { componentTypeName, isLeafType } from '../../page-composition/nest-rules';
-import { displayNameForType } from './field-catalog';
+import type { CompositionNode } from '../../../page-composition/types';
+import { componentTypeName, isLeafType } from '../../../page-composition/nest-rules';
+import { displayNameForType } from '../fields/field-catalog';
 
 const MAX_LENGTH = 40;
 

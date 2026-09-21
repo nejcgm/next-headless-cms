@@ -14,8 +14,8 @@ import {
   Textarea,
   Typography,
 } from '@strapi/design-system';
-import type { CompositionNode } from '../../page-composition/types';
-import { ErrorMessage } from './ErrorMessage';
+import type { CompositionNode } from '../../../page-composition/types';
+import { ErrorMessage } from '../error/ErrorMessage';
 import { FIELD_GROUP_ORDER, fieldsFor, titleForGroup, type FieldDef } from './field-catalog';
 
 const COLOR_TOKENS = [
@@ -46,9 +46,10 @@ function ColorFieldControl({
 }) {
   const [filterValue, setFilterValue] = useState('');
   const [open, setOpen] = useState(false);
-  const isHexLike = filterValue.trim().startsWith('#');
-  const filtered = filterValue
-    ? COLOR_TOKENS.filter((token) => token.toLowerCase().includes(filterValue.toLowerCase()))
+  const filterText = filterValue ?? '';
+  const isHexLike = filterText.trim().startsWith('#');
+  const filtered = filterText
+    ? COLOR_TOKENS.filter((token) => token.toLowerCase().includes(filterText.toLowerCase()))
     : COLOR_TOKENS;
 
   return (
@@ -58,8 +59,8 @@ function ColorFieldControl({
         size="S"
         disabled={disabled}
         value={value == null ? undefined : String(value)}
-        filterValue={filterValue}
-        onFilterValueChange={setFilterValue}
+        filterValue={filterText}
+        onFilterValueChange={(next) => setFilterValue(next == null ? '' : String(next))}
         open={isHexLike ? false : open}
         onOpenChange={setOpen}
         onChange={(next: string | number | undefined) => onChange(next ?? null)}
@@ -136,8 +137,9 @@ function SearchableEnumControl({
   onChange: (value: unknown) => void;
 }) {
   const [filterValue, setFilterValue] = useState('');
-  const filtered = filterValue
-    ? options.filter((option) => option.toLowerCase().includes(filterValue.toLowerCase()))
+  const filterText = filterValue ?? '';
+  const filtered = filterText
+    ? options.filter((option) => option.toLowerCase().includes(filterText.toLowerCase()))
     : options;
 
   return (
@@ -147,8 +149,8 @@ function SearchableEnumControl({
         size="S"
         disabled={disabled}
         value={value == null ? undefined : String(value)}
-        filterValue={filterValue}
-        onFilterValueChange={setFilterValue}
+        filterValue={filterText}
+        onFilterValueChange={(next) => setFilterValue(next == null ? '' : String(next))}
         onChange={(next: string | number | undefined) => onChange(next ?? null)}
         onClear={required ? undefined : () => onChange(null)}
         noOptionsMessage={() => 'No matches'}
@@ -302,7 +304,7 @@ function FieldGroup({ title, fields, node, disabled, onChange }: {
       <Flex direction="column" alignItems="stretch" gap={2} paddingTop={1}>
         {fields.map((field) => (
           <FieldControl
-            key={field.name}
+            key={`${node.id ?? node.__temp_key__ ?? ''}:${field.name}`}
             field={field}
             value={node[field.name]}
             disabled={disabled}
