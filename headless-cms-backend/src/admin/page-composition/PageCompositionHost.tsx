@@ -22,6 +22,7 @@ import {
   addChild,
   addRoot,
   deleteAt,
+  pasteCopy,
   getAt,
   getSlotsDefault,
   reorderSiblings,
@@ -119,6 +120,11 @@ export function PageCompositionHost({ name, disabled }: Props) {
   const [selected, setSelected] = useState<NodePath | null>(null);
   const [surfaceError, setSurfaceError] = useState<string | null>(null);
   const [fullscreen, setFullscreen] = useState(false);
+  const [clipboard, setClipboard] = useState<CompositionNode | null>(null);
+  const actionsRef = useRef<{ copy: () => void; paste: () => void }>({
+    copy: () => undefined,
+    paste: () => undefined,
+  });
 
   const tree = useMemo(() => {
     const raw = blocksField.value;
@@ -130,6 +136,26 @@ export function PageCompositionHost({ name, disabled }: Props) {
     const marker = document.querySelector('[data-page-composition]');
     if (!(marker instanceof HTMLElement)) return undefined;
     return widenPageEditColumn(marker);
+  }, []);
+
+  useEffect(() => {
+    const onKey = (event: KeyboardEvent) => {
+      if (!(event.metaKey || event.ctrlKey)) return;
+      const key = event.key.toLowerCase();
+      if (key !== 'c' && key !== 'v') return;
+      const target = event.target;
+      const surface = document.querySelector('[data-page-composition]');
+      if (!(target instanceof Node) || !surface?.contains(target)) return;
+      if (target instanceof HTMLElement) {
+        const tag = target.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || target.isContentEditable) return;
+      }
+      event.preventDefault();
+      if (key === 'c') actionsRef.current.copy();
+      else actionsRef.current.paste();
+    };
+    document.addEventListener('keydown', onKey);
+    return () => document.removeEventListener('keydown', onKey);
   }, []);
 
   useEffect(() => {
@@ -178,6 +204,35 @@ export function PageCompositionHost({ name, disabled }: Props) {
   };
 
   const selectedNode = selected ? getAt(tree, selected) : null;
+
+  const copySelected = () => {
+    if (!selectedNode) return;
+    setClipboard(structuredClone(selectedNode));
+    setSurfaceError(null);
+  };
+
+  const pasteClipboard = () => {
+    if (!clipboard) {
+      setSurfaceError('Copy a block first.');
+      return;
+    }
+    if (!selected) {
+      setSurfaceError('Select a block to paste into.');
+      return;
+    }
+    const result = pasteCopy(tree, selected, clipboard, tenant);
+    if (result.error) {
+      setSurfaceError(result.error);
+      return;
+    }
+    if (applyTree(result.tree)) return;
+    const parent = getAt(result.tree, selected);
+    const kids = parent ? getSlotsDefault(parent) : [];
+    setSelected([...selected, Math.max(0, kids.length - 1)]);
+  };
+
+  actionsRef.current = { copy: copySelected, paste: pasteClipboard };
+
   const addTarget = resolveAddTarget(tree, selected, tenant);
   const addTargetNode = addTarget.path ? getAt(tree, addTarget.path) : null;
   const addTargetLabel = addTargetNode
@@ -226,6 +281,13 @@ export function PageCompositionHost({ name, disabled }: Props) {
         <Flex justifyContent="space-between" alignItems="center" paddingTop={4} paddingBottom={2}>
           <Typography variant="delta">Page body</Typography>
           {!disabled && (
+            <Flex gap={2}>
+              <Button size="S" variant="tertiary" disabled={!selectedNode} onClick={copySelected}>
+                Copy
+              </Button>
+              <Button size="S" variant="secondary" disabled={!clipboard} onClick={pasteClipboard}>
+                Paste
+              </Button>
             <AddBlockMenu
               types={addTarget.types}
               label={
@@ -239,6 +301,7 @@ export function PageCompositionHost({ name, disabled }: Props) {
               disabled={addTarget.disabled}
               onPick={(type) => handleAdd(addTarget.path, type)}
             />
+            </Flex>
           )}
         </Flex>
       </Box>

@@ -1,13 +1,14 @@
 import type { CompositionNode } from '../../../page-composition/types';
 import {
   allowlistFor,
+  componentTypeName,
   isLeafType,
   rootTypesForTenant,
   toComponentUid,
 } from '../../../page-composition/nest-rules';
 import { nextCompositionId, nextTempKey } from '../../../page-composition/ids';
 import { parseSlots, wouldExceedMaxDepth } from '../../../page-composition/validate';
-import { createDefaultNode } from '../fields/field-catalog';
+import { createDefaultNode, displayNameForType } from '../fields/field-catalog';
 
 export type NodePath = number[];
 
@@ -161,6 +162,59 @@ export function allowedAdds(
   return allowlistFor(parent.__component, tenant).filter((type) =>
     canAddChild(parent, type, tenant)
   );
+}
+
+function cloneEmbedded(node: CompositionNode, takeId: () => number): CompositionNode {
+  const next: CompositionNode = { ...node, id: takeId() };
+  delete next.__temp_key__;
+  delete next.children;
+
+  if (next.slots != null) {
+    const slots = parseSlots(next.slots);
+    const cloned: CompositionNode['slots'] = {};
+    for (const [slot, children] of Object.entries(slots)) {
+      if (!Array.isArray(children)) continue;
+      cloned[slot] = children.map((child) => cloneEmbedded(child, takeId));
+    }
+    next.slots = cloned;
+  }
+
+  return next;
+}
+
+export function pasteCopy(
+  tree: CompositionNode[],
+  parentPath: NodePath,
+  source: CompositionNode,
+  tenant?: string
+): { tree: CompositionNode[]; error: string | null } {
+  const parent = getAt(tree, parentPath);
+  if (!parent) return { tree, error: 'Select a block to paste into.' };
+
+  const childType = componentTypeName(source.__component);
+  if (isLeafType(parent.__component) || !allowlistFor(parent.__component, tenant).includes(childType)) {
+    return {
+      tree,
+      error: `${displayNameForType(componentTypeName(parent.__component))} can't contain ${displayNameForType(childType)}.`,
+    };
+  }
+
+  let nextId = nextCompositionId(tree);
+  const clone = cloneEmbedded(source, () => nextId++);
+  if (wouldExceedMaxDepth(parent, clone)) {
+    return { tree, error: 'That copy is nested too deep to paste here.' };
+  }
+
+  return {
+    tree: replaceAt(tree, parentPath, (node) => ({
+      ...node,
+      slots: {
+        ...parseSlots(node.slots),
+        default: [...getSlotsDefault(node), clone],
+      },
+    })),
+    error: null,
+  };
 }
 
 export function resolveAddTarget(

@@ -1,3 +1,12 @@
+<!--
+Sync Impact Report
+- Version: 1.3.6 → 1.4.0
+- Modified principles: VII. Clean, Maintainable Code (file placement: no constant-only files; one shallow feature folder)
+- Added sections: VIII. Composable Page Tree
+- Removed sections: none
+- Follow-up: domain detail stays in knowledge/block-system.md; no template changes
+-->
+
 # Headless CMS Constitution
 
 ## Core Principles
@@ -68,9 +77,27 @@ Agents and contributors MUST write code that a human teammate can read, change, 
   - **Do** keep JS `@param` / `@typedef` in untyped scripts when they aid tooling.
 - **Readability**: Prefer straightforward, human-readable TypeScript/JS — small functions, explicit names, no clever one-liners that hide control flow.
 - **Maintainability**: Match existing patterns in the touched package. Avoid drive-by abstractions and unused helpers. Delete dead code you introduce; do not leave TODOs that restate the task.
-- **Abstraction**: Introduce types, helpers, or layers only when they remove real duplication or clarify a boundary. Prefer the project’s existing folder layout over new parallel trees.
-- **Folder structure**: Place code where the monorepo already expects it (`app/` thin, `core/` engine, `tenants/{id}/` tenant UI/data, `shared/` reusable UI, Strapi under `headless-cms-backend/src/{api,components}/`). Do not invent alternate package layouts for the same concern.
+- **Abstraction**: Introduce types, helpers, or layers only when they remove real duplication or clarify a boundary. Prefer the project’s existing folder layout over new parallel trees. Do not add a file that only exports a couple of constants; keep those next to their only caller.
+- **Folder structure**: Place code where the monorepo already expects it (`app/` thin, `core/` engine, `tenants/{id}/` tenant UI/data, `shared/` reusable UI, Strapi under `headless-cms-backend/src/{api,components}/`). Do not invent alternate package layouts for the same concern. When a feature grows, group its files into **one** shallow folder by role (tree, fields, preview). Do not add a generic `utils/` dump, and do not nest deeper than that without a real boundary. Each shared or tenant component gets **its own folder** (`component` + `types.ts` + `schema.ts` when it is a content block).
 - **Interfaces & types**: Prefer explicit interfaces/types at public boundaries (adapters, block props, contracts, shared helpers). Avoid `any` except established registry exceptions. Keep frontend `PageData` / navigation / block props aligned with the content model when those contracts change.
+
+### VIII. Composable Page Tree (NON-NEGOTIABLE)
+
+A page is a **tree of a small shared vocabulary**, not a catalog of page-specific sections. Do not add `HeroSection`, `FAQSection`, `FeatureSection`, or similar when existing nodes can express that layout.
+
+**Three levels.** The CMS tree may contain all three. Domain detail (names, allowlists, depth caps) lives in `knowledge/block-system.md`.
+
+1. **Primitives (L1)** — one job each. Layout arranges children (`section`, `flex`, `grid`). Content displays something (`text`, `image`, `icon`, `iframe`). Actions are `button` and `link`. Do not add a primitive when an existing one already covers the case (`flex` with `direction: "column"` is the column layout; there is no separate stack).
+2. **Compositions (L2)** — authored subtrees of L1. An FAQ is accordion → text. A media row is flex → image + text + button. The tree **is** the section. There is no second component type named after the section.
+3. **Compounds (L3)** — one atomic node when the thing has its own behavior, data, or state that a primitive tree would fake (product list, bike detail, booking). Composable in the tree (a flex may contain a product list). Not decomposable into dozens of CMS nodes. Shared compounds stay tenant-agnostic; tenant look and copy live in the page tree or in `tenants/{id}/`, never as a branded component under `shared/`.
+
+**How to write a new piece of UI**
+
+- If it is image + text + button (or the same shape), compose L1. Do not register a new shared section.
+- If it needs its own state, fetch, or domain rules, add one L3 node in the right place: `shared/components/ui/{name}/` when every tenant can use it, `tenants/{id}/blocks/{name}/` when it is that tenant’s.
+- Non-CMS chrome (lightbox, progress bar) is not a page node. Put it under `shared/components/static/` or `shared/components/navigation/`.
+- Leaves do not accept children. Parents accept only their allowlist, in named **slots**, up to that type’s **max depth**. Do not give every node arbitrary `children`.
+- A new nest rule is written twice and kept identical: frontend `composition-allow.ts` (registry policy) and Strapi `nest-rules.ts`. The admin cannot import the Next app.
 
 ## Monorepo Constraints
 
@@ -94,7 +121,7 @@ Run pnpm only inside `next-headless-cms-fe/`. CI sets `working-directory: next-h
 - **Secrets**: never commit `.env`; production must not use default `REVALIDATE_SECRET`
 - **Docs**: Spec Kit knowledge/catalog updated when described behavior changes
 - **Backend Spec Kit**: `strapi-backend`, `content-model`, and `api-contract` knowledge docs are first-class (same bar as frontend knowledge)
-- **Code quality**: diffs follow Principle VII (minimal comments, clear types, correct folder placement)
+- **Code quality**: diffs follow Principle VII (minimal comments, clear types, correct folder placement) and Principle VIII (compose primitives before adding a section component)
 
 ## Development Workflow
 
@@ -116,5 +143,6 @@ This constitution defines non-negotiable architectural and process constraints. 
 - **1.3.4** — Agent bootstrap: constitution → project-context → knowledge → catalogs (wired into Spec Kit skills + thin Cursor bootstrap rule).
 - **1.3.5** — Principle V: no drive-by edits to unrelated shared primitives/utilities while adding or redesigning something else; page look via props or the new primitive only.
 - **1.3.6** — Claude Code Spec Kit integration (`.claude/skills/speckit-*`) plus thin `CLAUDE.md` bootstrap; Cursor remains the default integration.
+- **1.4.0** — Principle VIII: pages are a tree of primitives, compositions, and atomic compounds. Principle VII: no constant-only files; one shallow feature folder; one folder per component.
 
-**Version**: 1.3.6 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-09-04
+**Version**: 1.4.0 | **Ratified**: 2026-08-10 | **Last Amended**: 2026-09-22
