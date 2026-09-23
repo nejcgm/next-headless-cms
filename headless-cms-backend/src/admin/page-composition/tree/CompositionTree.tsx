@@ -263,7 +263,7 @@ export function CompositionTree(props: Props) {
 
   return (
     <Box
-      style={{ minWidth: 0, width: '100%', minHeight: '100%', flex: 1, overflow: 'hidden' }}
+      style={{ minWidth: 0, width: '100%', minHeight: '100%', flex: 1, overflow: 'auto' }}
       onClick={() => props.onSelect(null)}
     >
       {tree.length === 0 ? (

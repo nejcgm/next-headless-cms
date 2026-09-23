@@ -113,24 +113,35 @@ export function CompositionPreview({
     const bounds = box?.parentElement;
     if (!box || !bounds) return;
     event.preventDefault();
+    const pointerId = event.pointerId;
     const startX = event.clientX;
     const startWidth = box.getBoundingClientRect().width;
     const max = bounds.getBoundingClientRect().width;
     const handle = event.currentTarget;
-    handle.setPointerCapture(event.pointerId);
+    handle.setPointerCapture(pointerId);
     setDragging(true);
 
     const onMove = (move: PointerEvent) => {
       const next = Math.round(startWidth + (move.clientX - startX));
       setFrameWidth(Math.max(MIN_FRAME_WIDTH, Math.min(max, next)));
     };
-    const onUp = () => {
+    const finish = () => {
       setDragging(false);
-      handle.removeEventListener('pointermove', onMove);
-      handle.removeEventListener('pointerup', onUp);
+      if (handle.hasPointerCapture(pointerId)) handle.releasePointerCapture(pointerId);
+      window.removeEventListener('pointermove', onMove);
+      window.removeEventListener('pointerup', finish);
+      window.removeEventListener('pointercancel', finish);
+      const frame = frameRef.current;
+      if (!frame) return;
+      const height = frame.offsetHeight;
+      frame.style.height = `${Math.max(0, height - 1)}px`;
+      requestAnimationFrame(() => {
+        frame.style.height = '';
+      });
     };
-    handle.addEventListener('pointermove', onMove);
-    handle.addEventListener('pointerup', onUp);
+    window.addEventListener('pointermove', onMove);
+    window.addEventListener('pointerup', finish);
+    window.addEventListener('pointercancel', finish);
   };
 
   return (

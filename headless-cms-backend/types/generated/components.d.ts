@@ -122,8 +122,11 @@ export interface BlocksFlex extends Struct.ComponentSchema {
     adminName: Schema.Attribute.String;
     align: Schema.Attribute.Enumeration<
       ['start', 'center', 'end', 'stretch', 'baseline']
-    >;
+    > &
+      Schema.Attribute.DefaultTo<'center'>;
+    anchorId: Schema.Attribute.String;
     backgroundColor: Schema.Attribute.String;
+    backgroundImage: Schema.Attribute.String;
     borderColor: Schema.Attribute.String;
     borderRadius: Schema.Attribute.String;
     borderStyle: Schema.Attribute.Enumeration<['solid', 'dashed', 'dotted']>;
@@ -131,17 +134,26 @@ export interface BlocksFlex extends Struct.ComponentSchema {
     color: Schema.Attribute.String;
     direction: Schema.Attribute.Enumeration<['row', 'column']> &
       Schema.Attribute.DefaultTo<'row'>;
-    gap: Schema.Attribute.String;
+    gap: Schema.Attribute.String & Schema.Attribute.DefaultTo<'16'>;
     height: Schema.Attribute.String;
     justify: Schema.Attribute.Enumeration<
       ['start', 'center', 'end', 'between', 'around', 'evenly']
-    >;
+    > &
+      Schema.Attribute.DefaultTo<'start'>;
     margin: Schema.Attribute.String;
     maxHeight: Schema.Attribute.String;
     maxWidth: Schema.Attribute.String;
     minHeight: Schema.Attribute.String;
     minWidth: Schema.Attribute.String;
     overflow: Schema.Attribute.Enumeration<['visible', 'hidden', 'auto']>;
+    overlay: Schema.Attribute.Decimal &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 1;
+          min: 0;
+        },
+        number
+      >;
     padding: Schema.Attribute.String;
     slots: Schema.Attribute.JSON &
       Schema.Attribute.SetPluginOptions<{

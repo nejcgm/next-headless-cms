@@ -19,7 +19,8 @@
       "default": "row"
     },
     "gap": {
-      "type": "string"
+      "type": "string",
+      "default": "16"
     },
     "align": {
       "type": "enumeration",
@@ -29,7 +30,8 @@
         "end",
         "stretch",
         "baseline"
-      ]
+      ],
+      "default": "center"
     },
     "justify": {
       "type": "enumeration",
@@ -40,11 +42,23 @@
         "between",
         "around",
         "evenly"
-      ]
+      ],
+      "default": "start"
     },
     "wrap": {
       "type": "boolean",
       "default": false
+    },
+    "backgroundImage": {
+      "type": "string"
+    },
+    "overlay": {
+      "type": "decimal",
+      "min": 0,
+      "max": 1
+    },
+    "anchorId": {
+      "type": "string"
     },
     "width": {
       "type": "string"

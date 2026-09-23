@@ -277,6 +277,9 @@ export function createDefaultNode(
     case 'flex':
       node.direction = 'row';
       node.gap = '16';
+      node.align = 'center';
+      node.justify = 'start';
+      node.wrap = false;
       break;
     case 'section':
       node.padding = '48';

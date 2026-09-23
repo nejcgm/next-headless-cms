@@ -6,5 +6,8 @@ export type FlexProps = BoxStyle & {
   align?: "start" | "center" | "end" | "stretch" | "baseline";
   justify?: "start" | "center" | "end" | "between" | "around" | "evenly";
   wrap?: boolean;
+  backgroundImage?: string;
+  overlay?: number;
+  anchorId?: string;
   blockId?: string;
 };
